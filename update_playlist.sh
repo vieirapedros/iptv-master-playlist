@@ -2,12 +2,12 @@
 # =====================================
 # Script: update_playlist.sh
 # Unifica, limpa e atualiza playlists IPTV
+# Remove duplicados e ignora links offline
 # =====================================
 
-# Caminho da playlist final
 OUTPUT="master.m3u"
 
-# Lista de fontes
+# URLs das listas a unir
 URLS=(
   "https://www.apsattv.com/brlg.m3u"
   "https://www.apsattv.com/ptlg.m3u"
@@ -46,20 +46,33 @@ URLS=(
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/samsungtvplus_all.m3u"
 )
 
-# Apaga o arquivo anterior
+# Limpa a saída anterior
 rm -f "$OUTPUT"
-
-# Cabeçalho M3U
 echo "#EXTM3U" > "$OUTPUT"
 
-# Baixa todas as listas e concatena
+echo "🔄 Baixando e unindo playlists..."
 for url in "${URLS[@]}"; do
-  echo "Baixando $url ..."
-  curl -s "$url" | grep -E "^#EXTINF|^http" >> "$OUTPUT"
+  echo "→ $url"
+  curl -s "$url" | grep -E "^#EXTINF|^http" >> all_temp.m3u
 done
 
-# Remove canais duplicados (mesmo link)
-awk '!x[$0]++' "$OUTPUT" > temp.m3u && mv temp.m3u "$OUTPUT"
+echo "🧹 Removendo duplicados..."
+awk '!x[$0]++' all_temp.m3u > unique_temp.m3u
 
-# Exibe contagem final
-echo "Playlist unificada gerada: $(wc -l < "$OUTPUT") linhas"
+echo "⚙️ Verificando canais online..."
+# Filtra links válidos (status HTTP 200)
+{
+  echo "#EXTM3U"
+  paste -d'\n' - - < unique_temp.m3u | while read -r info && read -r link; do
+    if curl -s --head --connect-timeout 4 --max-time 6 "$link" | grep -q "200 OK"; then
+      echo "$info"
+      echo "$link"
+    fi
+  done
+} > "$OUTPUT"
+
+# Limpeza de temporários
+rm -f all_temp.m3u unique_temp.m3u
+
+echo "✅ Playlist final gerada com sucesso: $(wc -l < "$OUTPUT") linhas"
+
