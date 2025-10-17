@@ -2,11 +2,11 @@ name: Atualizar playlist IPTV
 
 on:
   schedule:
-    - cron: "0 5 * * *" # Executa todo dia às 05:00 UTC (~02:00 da manhã no Brasil)
-  workflow_dispatch: # Permite rodar manualmente no GitHub
+    - cron: "0 5 * * *" # Executa diariamente às 05:00 UTC (~02:00 da manhã no Brasil)
+  workflow_dispatch: # Permite executar manualmente
 
 permissions:
-  contents: write  # ✅ Permite o bot fazer push no repositório
+  contents: write
 
 jobs:
   build:
@@ -34,7 +34,7 @@ jobs:
         run: |
           git add master.m3u
           git commit -m "Atualização automática da playlist $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "Nada a atualizar"
-          git reset --hard HEAD    # ✅ Garante que não há mudanças locais
+          git reset --hard HEAD
           git pull --rebase origin main || echo "Nada para rebase"
           git push origin main
         env:
