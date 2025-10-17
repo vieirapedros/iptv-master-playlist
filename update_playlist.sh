@@ -1,8 +1,7 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Unifica, limpa e atualiza playlists IPTV
-# Remove duplicados e ignora links offline
+# Unifica e limpa playlists IPTV sem checar status
 # =====================================
 
 OUTPUT="master.m3u"
@@ -46,33 +45,24 @@ URLS=(
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/samsungtvplus_all.m3u"
 )
 
-# Limpa a saída anterior
+# Remove arquivo anterior
 rm -f "$OUTPUT"
+
+# Cabeçalho principal
 echo "#EXTM3U" > "$OUTPUT"
 
+# Baixa e concatena todas as listas
 echo "🔄 Baixando e unindo playlists..."
 for url in "${URLS[@]}"; do
   echo "→ $url"
-  curl -s "$url" | grep -E "^#EXTINF|^http" >> all_temp.m3u
+  curl -s "$url" | grep -E "^#EXTINF|^http" >> temp_all.m3u
 done
 
-echo "🧹 Removendo duplicados..."
-awk '!x[$0]++' all_temp.m3u > unique_temp.m3u
+# Remove duplicados
+echo "🧹 Removendo canais duplicados..."
+awk '!x[$0]++' temp_all.m3u >> "$OUTPUT"
 
-echo "⚙️ Verificando canais online..."
-# Filtra links válidos (status HTTP 200)
-{
-  echo "#EXTM3U"
-  paste -d'\n' - - < unique_temp.m3u | while read -r info && read -r link; do
-    if curl -s --head --connect-timeout 4 --max-time 6 "$link" | grep -q "200 OK"; then
-      echo "$info"
-      echo "$link"
-    fi
-  done
-} > "$OUTPUT"
+# Limpa arquivos temporários
+rm -f temp_all.m3u
 
-# Limpeza de temporários
-rm -f all_temp.m3u unique_temp.m3u
-
-echo "✅ Playlist final gerada com sucesso: $(wc -l < "$OUTPUT") linhas"
-
+echo "✅ Playlist final gerada: $(wc -l < "$OUTPUT") linhas"
