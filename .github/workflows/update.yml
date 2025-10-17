@@ -1,41 +1,29 @@
-name: Atualizar playlist IPTV
+name: Atualizar Playlist
 
 on:
   schedule:
-    - cron: "0 5 * * *" # Executa diariamente às 05:00 UTC (~02:00 da manhã no Brasil)
-  workflow_dispatch: # Permite executar manualmente
-
-permissions:
-  contents: write
+    - cron: "0 */6 * * *"   # Atualiza a cada 6 horas
+  workflow_dispatch:
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Clonar repositório
         uses: actions/checkout@v4
 
-      - name: Instalar dependências
-        run: sudo apt-get update && sudo apt-get install -y curl
-
-      - name: Tornar o script executável
-        run: chmod +x update_playlist.sh
-
-      - name: Rodar o script
-        run: ./update_playlist.sh
-
-      - name: Configurar Git
+      - name: Rodar script
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          chmod +x update_playlist.sh
+          ./update_playlist.sh
 
-      - name: Commit e enviar alterações
+      - name: Commit e Push das mudanças
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase || true
           git add master.m3u
-          git commit -m "Atualização automática da playlist $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "Nada a atualizar"
-          git reset --hard HEAD
-          git pull --rebase origin main || echo "Nada para rebase"
-          git push origin main
+          git commit -m "Atualização automática da playlist $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || exit 0
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
