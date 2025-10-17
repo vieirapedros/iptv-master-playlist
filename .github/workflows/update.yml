@@ -5,12 +5,18 @@ on:
     - cron: "0 */6 * * *"   # Atualiza a cada 6 horas
   workflow_dispatch:
 
+permissions:
+  contents: write   # ✅ Permite que o bot faça commit e push
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositório
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # pega histórico completo
 
       - name: Rodar script
         run: |
@@ -21,9 +27,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git stash || true
           git pull --rebase || true
+          git stash pop || true
+
           git add master.m3u
           git commit -m "Atualização automática da playlist $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || exit 0
-          git push
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
