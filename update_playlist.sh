@@ -24,6 +24,7 @@ URLS=(
   "https://www.apsattv.com/tclplus.m3u"
   "https://www.apsattv.com/ssungpor.m3u"
   "https://www.apsattv.com/ssungmex.m3u"
+  "https://www.apsattv.com/metax.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/Backup.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/buddylive_v1.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/TheTVApp.m3u8"
