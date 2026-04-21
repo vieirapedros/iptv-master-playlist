@@ -9,7 +9,7 @@ TEMP_RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
 TEMP_ALL_TESTED="tested_channels.txt"
 
-# Garante a existência da blacklist
+# Garante a existência da blacklist para evitar erros de leitura
 touch "$BLACKLIST"
 
 URLS=(
@@ -54,6 +54,7 @@ URLS=(
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
 )
+
 rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_ALL_TESTED"
 echo "#EXTM3U" > "$OUTPUT"
 
@@ -73,20 +74,18 @@ awk '
   }
 ' "$TEMP_RAW" > temp_processed.txt
 
-echo "⚡ Testando integridade em paralelo (20 conexões, timeout 5s)..."
-
-export -f curl
+# Função de teste de link
 test_link() {
-    line="$1"
-    blacklist_file="blacklist.txt"
-    METADATA=$(echo "$line" | cut -d'|' -f1)
-    URL=$(echo "$line" | cut -d'|' -f2)
+    local line="$1"
+    local blacklist_file="blacklist.txt"
+    local METADATA=$(echo "$line" | cut -d'|' -f1)
+    local URL=$(echo "$line" | cut -d'|' -f2)
     
-    RETEST=false
-    if grep -qF "$URL" "$blacklist_file"; then RETEST=true; fi
+    local RETEST=false
+    if grep -qF "$URL" "$blacklist_file" 2>/dev/null; then RETEST=true; fi
 
-    # Teste de 5 segundos com User-Agent de Smart TV
-    if curl -sI -L --connect-timeout 5 -A "Mozilla/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.2 Chrome/63.0.3239.84 TV Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
+    # Teste de 5 segundos simulando TV
+    if curl -sI -L --connect-timeout 5 -m 7 -A "Mozilla/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.2 Chrome/63.0.3239.84 TV Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
         echo "OK|$METADATA|$URL"
     else
         if [ "$RETEST" = true ]; then
@@ -96,9 +95,12 @@ test_link() {
         fi
     fi
 }
+
+# Exporta a FUNÇÃO para que o xargs possa usá-la
 export -f test_link
 
-# Paralelismo com xargs
+echo "⚡ Testando integridade em paralelo (20 conexões)..."
+# O xargs chama o bash para executar a função exportada
 cat temp_processed.txt | xargs -I {} -P 20 bash -c 'test_link "{}"' > "$TEMP_ALL_TESTED"
 
 echo "📝 Consolidando resultados..."
