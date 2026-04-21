@@ -1,15 +1,14 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Versão: Blindada (Ignora falhas em links de API/SSAI)
+# Objetivo: Unificação Massiva e Remoção de Duplicatas
+# Sem testes de conexão para garantir 100% de disponibilidade
 # =====================================
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
-BLACKLIST="blacklist.txt"
 
-touch "$BLACKLIST"
-
+# URLs das listas a unir
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
@@ -51,67 +50,38 @@ URLS=(
   "https://www.apsattv.com/itlg.m3u"
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
+  "https://iptv-org.github.io/iptv/regions/amer.m3u"
+  "https://iptv-org.github.io/iptv/regions/eur.m3u"
 )
 
+# Reset do arquivo de saída
 rm -f "$OUTPUT" "$TEMP_RAW"
 echo "#EXTM3U" > "$OUTPUT"
 
-echo "🔄 Baixando listas..."
+echo "🔄 Baixando e unindo playlists..."
 for url in "${URLS[@]}"; do
+  # Baixa cada lista e remove o cabeçalho #EXTM3U para evitar repetição interna
   curl -sL --connect-timeout 15 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Validando canais..."
-rm -f blacklist_new.txt && touch blacklist_new.txt
-
+echo "🧹 Removendo duplicatas e limpando estrutura..."
+# A lógica AWK: armazena os metadados (EXTINF, EXTGRP) em um buffer e só imprime 
+# quando encontra uma URL que ainda não foi registrada no array "seen".
 awk '
-  /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
+  /^#EXTINF/ || /^#EXTGRP/ { 
+    buffer = (buffer == "" ? $0 : buffer ORS $0); 
+    next 
+  }
   /^(http|https|rtmp|rtsp|mms):/ {
     if (!seen[$0]++) {
-      if (buffer != "") print buffer "!!!" $0;
+      if (buffer != "") print buffer;
+      print $0;
     }
     buffer = "";
   }
-' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
+' "$TEMP_RAW" >> "$OUTPUT"
 
-    [ -z "$URL" ] && continue
-
-    # REGRA DE EXCEÇÃO: Se o link tiver cara de API/AdServer, aceita direto sem testar
-    if [[ "$URL" == *"[ADS"* ]] || [[ "$URL" == *"[CACHE"* ]] || [[ "$URL" == *"aniview.com"* ]] || [[ "$URL" == *"ott.tv"* ]]; then
-        echo -e "$METADATA\n$URL" >> "$OUTPUT"
-        continue
-    fi
-
-    RETEST=false
-    if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
-
-    # TESTE HÍBRIDO
-    if [[ "$URL" == *".m3u8"* ]]; then
-        HTTP_STATUS=$(curl -skL --connect-timeout 8 -m 12 \
-           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" \
-           "$URL" -o /dev/null -w "%{http_code}")
-    else
-        HTTP_STATUS=$(curl -skL --connect-timeout 8 -m 15 \
-           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" \
-           -H "Referer: https://app.plex.tv/" \
-           --range 0-10 \
-           "$URL" -o /dev/null -w "%{http_code}")
-    fi
-
-    if echo "$HTTP_STATUS" | grep -qE "200|206|301|302"; then
-        echo -e "$METADATA\n$URL" >> "$OUTPUT"
-    else
-        if [ "$RETEST" = true ]; then
-             echo "🚫 REMOVIDO: $URL"
-        else
-             echo "❌ BLACKLIST: $URL"
-             echo "$URL" >> blacklist_new.txt
-             echo -e "$METADATA\n$URL" >> "$OUTPUT"
-        fi
-    fi
-done
-
-mv blacklist_new.txt "$BLACKLIST"
+# Limpeza final de arquivos temporários
 rm -f "$TEMP_RAW"
 
-echo "✅ Finalizado! Total: $(grep -c "^#EXTINF" "$OUTPUT")"
+echo "✅ Playlist finalizada com $(grep -c "^#EXTINF" "$OUTPUT") canais únicos."
