@@ -1,7 +1,7 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Versão: Ultra-Compatibilidade (Plex, Amagi, Sportstribal)
+# Versão: Híbrida (Suporte total a Ottera, Amagi e Plex)
 # =====================================
 
 OUTPUT="master.m3u"
@@ -11,7 +11,6 @@ BLACKLIST="blacklist.txt"
 touch "$BLACKLIST"
 
 URLS=(
-  # ... (suas URLs aqui)
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
   "https://www.apsattv.com/ssungbra.m3u"
@@ -62,7 +61,7 @@ for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 15 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Filtrando e Validando (Plex/Amagi Friendly)..."
+echo "🧹 Validando canais (Método Híbrido)..."
 rm -f blacklist_new.txt && touch blacklist_new.txt
 
 awk '
@@ -79,26 +78,28 @@ awk '
     RETEST=false
     if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
 
-    # TESTE PARA CANAIS PROTEGIDOS (AMAGI/PLEX)
-    # -k: ignora erro de SSL
-    # --range 0-10: pede os primeiros 10 bytes para confirmar que é vídeo
-    HTTP_STATUS=$(curl -skL --connect-timeout 10 -m 20 \
-       -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
-       -H "Referer: https://www.sportstribal.tv/" \
-       -H "Origin: https://www.sportstribal.tv" \
-       --range 0-10 \
-       "$URL" -o /dev/null -w "%{http_code}")
+    # DECISÃO DE TESTE:
+    # Se for playlist (.m3u8), usa teste de cabeçalho simples (HEAD)
+    # Se for stream direto, usa Byte Range para evitar bloqueio anti-bot
+    if [[ "$URL" == *".m3u8"* ]]; then
+        HTTP_STATUS=$(curl -skL --connect-timeout 10 -m 15 \
+           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
+           "$URL" -o /dev/null -w "%{http_code}")
+    else
+        HTTP_STATUS=$(curl -skL --connect-timeout 10 -m 20 \
+           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
+           -H "Referer: https://app.plex.tv/" \
+           --range 0-10 \
+           "$URL" -o /dev/null -w "%{http_code}")
+    fi
 
-    # Amagi e Plex às vezes retornam 403 ou 401 para bots, mas 200/206 para players.
-    # Se retornar 200, 206 ou códigos de redirecionamento, consideramos OK.
     if echo "$HTTP_STATUS" | grep -qE "200|206|301|302"; then
         echo -e "$METADATA\n$URL" >> "$OUTPUT"
     else
-        # Se falhou, mas não era reteste, damos o benefício da dúvida (Blacklist)
         if [ "$RETEST" = true ]; then
              echo "🚫 REMOVIDO: $URL [Code: $HTTP_STATUS]"
         else
-             echo "❌ BLACKLIST (Aguardando Retorno): $URL [Code: $HTTP_STATUS]"
+             echo "❌ BLACKLIST: $URL [Code: $HTTP_STATUS]"
              echo "$URL" >> blacklist_new.txt
              echo -e "$METADATA\n$URL" >> "$OUTPUT"
         fi
@@ -108,4 +109,4 @@ done
 mv blacklist_new.txt "$BLACKLIST"
 rm -f "$TEMP_RAW"
 
-echo "✅ Finalizado! Canais no master: $(grep -c "^#EXTINF" "$OUTPUT")"
+echo "✅ Finalizado! Total: $(grep -c "^#EXTINF" "$OUTPUT")"
