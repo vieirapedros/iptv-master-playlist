@@ -1,15 +1,15 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Unifica, limpa e valida integridade de canais
+# Unificação, Limpeza e Verificação Paralela (20x)
 # =====================================
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
-TEMP_BLACKLIST="blacklist_new.txt"
+TEMP_ALL_TESTED="tested_channels.txt"
 
-# Garante que a blacklist existe
+# Garante a existência da blacklist
 touch "$BLACKLIST"
 
 URLS=(
@@ -54,18 +54,15 @@ URLS=(
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
 )
-
-rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_BLACKLIST"
+rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_ALL_TESTED"
 echo "#EXTM3U" > "$OUTPUT"
 
-echo "🔄 Baixando e unificando listas..."
+echo "🔄 Baixando listas..."
 for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Processando duplicados e validando integridade..."
-
-# Agrupa metadados e URL em uma única linha temporária para facilitar o loop
+echo "🧹 Removendo duplicatas..."
 awk '
   /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
   /^(http|https|rtmp|rtsp|mms):/ {
@@ -76,32 +73,52 @@ awk '
   }
 ' "$TEMP_RAW" > temp_processed.txt
 
-# Loop de Verificação
-while IFS="|" read -r METADATA URL; do
-    # Verifica se estava na blacklist anterior
-    if grep -qF "$URL" "$BLACKLIST"; then
-        RETEST=true
-    else
-        RETEST=false
-    fi
+echo "⚡ Testando integridade em paralelo (20 conexões, timeout 5s)..."
 
-    # Teste de conexão simulando Smart TV
+export -f curl
+test_link() {
+    line="$1"
+    blacklist_file="blacklist.txt"
+    METADATA=$(echo "$line" | cut -d'|' -f1)
+    URL=$(echo "$line" | cut -d'|' -f2)
+    
+    RETEST=false
+    if grep -qF "$URL" "$blacklist_file"; then RETEST=true; fi
+
+    # Teste de 5 segundos com User-Agent de Smart TV
     if curl -sI -L --connect-timeout 5 -A "Mozilla/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.2 Chrome/63.0.3239.84 TV Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
-        echo -e "$METADATA\n$URL" >> "$OUTPUT"
+        echo "OK|$METADATA|$URL"
     else
         if [ "$RETEST" = true ]; then
-            echo "🚫 Removido definitivamente: $URL"
+            echo "DEL|$URL"
         else
-            echo "❌ Fora do ar (Carência de 7 dias): $URL"
-            echo "$URL" >> "$TEMP_BLACKLIST"
-            # Mantém na lista esta semana para dar a chance de voltar
-            echo -e "$METADATA\n$URL" >> "$OUTPUT"
+            echo "BL|$METADATA|$URL"
         fi
     fi
-done < temp_processed.txt
+}
+export -f test_link
 
-# Atualiza a blacklist para a próxima semana
-mv "$TEMP_BLACKLIST" "$BLACKLIST" 2>/dev/null || touch "$BLACKLIST"
+# Paralelismo com xargs
+cat temp_processed.txt | xargs -I {} -P 20 bash -c 'test_link "{}"' > "$TEMP_ALL_TESTED"
 
-rm -f "$TEMP_RAW" temp_processed.txt
-echo "✅ Playlist gerada com sucesso!"
+echo "📝 Consolidando resultados..."
+rm -f blacklist_new.txt && touch blacklist_new.txt
+
+while IFS="|" read -r STATUS DATA1 DATA2; do
+    case $STATUS in
+        OK)
+            echo -e "$DATA1\n$DATA2" >> "$OUTPUT"
+            ;;
+        BL)
+            echo "$DATA2" >> blacklist_new.txt
+            echo -e "$DATA1\n$DATA2" >> "$OUTPUT"
+            ;;
+        DEL)
+            ;;
+    esac
+done < "$TEMP_ALL_TESTED"
+
+mv blacklist_new.txt "$BLACKLIST"
+rm -f "$TEMP_RAW" temp_processed.txt "$TEMP_ALL_TESTED"
+
+echo "✅ Finalizado! Canais na lista: $(grep -c "^#EXTINF" "$OUTPUT")"
