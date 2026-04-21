@@ -1,13 +1,14 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Versão Estável: Sem paralelismo para evitar bloqueio de IP
+# Versão Final: Anti-Bloqueio Plex/CDNs e Sem Paralelismo Flood
 # =====================================
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
 
+# Garante que a blacklist exista para o reteste
 touch "$BLACKLIST"
 
 URLS=(
@@ -56,15 +57,15 @@ URLS=(
 rm -f "$OUTPUT" "$TEMP_RAW"
 echo "#EXTM3U" > "$OUTPUT"
 
-echo "🔄 Baixando listas..."
+echo "🔄 Baixando e unificando listas..."
 for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Filtrando duplicados e Testando canais..."
+echo "🧹 Removendo duplicatas e validando links..."
 rm -f blacklist_new.txt && touch blacklist_new.txt
 
-# Processamento Sequencial Seguro
+# Processamento seguro linha a linha
 awk '
   /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
   /^(http|https|rtmp|rtsp|mms):/ {
@@ -75,22 +76,27 @@ awk '
   }
 ' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
 
+    # Ignora linhas vazias
+    [ -z "$URL" ] && continue
+
     RETEST=false
     if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
 
-    # Teste de 5s simulando um Navegador Real
-    # Usamos apenas o cabeçalho (I) e seguimos redirecionamentos (L)
-    if curl -sI -L --connect-timeout 5 -m 8 \
-       -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
-       "$URL" | grep -qE "200 OK|302 Found|301 Moved|206 Partial"; then
-        
+    # TESTE AVANÇADO (Simula Player Real pedindo 1 byte)
+    # 200/206: OK | 301/302: Redirecionamento OK
+    HTTP_STATUS=$(curl -sL --connect-timeout 5 -m 12 \
+       -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+       -H "Referer: https://app.plex.tv/" \
+       --range 0-0 \
+       "$URL" -o /dev/null -w "%{http_code}")
+
+    if echo "$HTTP_STATUS" | grep -qE "200|206|301|302"; then
         echo -e "$METADATA\n$URL" >> "$OUTPUT"
-        # echo "✅ ON: $URL" # Debug opcional
     else
         if [ "$RETEST" = true ]; then
-            echo "🚫 OFF (Removido): $URL"
+            echo "🚫 OFF (Removido definitivamente): $URL [Status: $HTTP_STATUS]"
         else
-            echo "❌ OFF (Na Blacklist): $URL"
+            echo "❌ OFF (Na Blacklist para reteste): $URL [Status: $HTTP_STATUS]"
             echo "$URL" >> blacklist_new.txt
             # Mantém na lista por uma semana (carência)
             echo -e "$METADATA\n$URL" >> "$OUTPUT"
@@ -101,4 +107,4 @@ done
 mv blacklist_new.txt "$BLACKLIST"
 rm -f "$TEMP_RAW"
 
-echo "✅ Finalizado! Total de canais: $(grep -c "^#EXTINF" "$OUTPUT")"
+echo "✅ Finalizado! Total de canais validados: $(grep -c "^#EXTINF" "$OUTPUT")"
