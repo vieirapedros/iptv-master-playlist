@@ -1,7 +1,7 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Unificação, Limpeza e Verificação Paralela (20x)
+# Versão corrigida: Separadores seguros e tratamento de URLs complexas
 # =====================================
 
 OUTPUT="master.m3u"
@@ -9,7 +9,6 @@ TEMP_RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
 TEMP_ALL_TESTED="tested_channels.txt"
 
-# Garante a existência da blacklist para evitar erros de leitura
 touch "$BLACKLIST"
 
 URLS=(
@@ -64,63 +63,64 @@ for url in "${URLS[@]}"; do
 done
 
 echo "🧹 Removendo duplicatas..."
+# Usando !!! como separador para não conflitar com pipes nas URLs
 awk '
   /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
   /^(http|https|rtmp|rtsp|mms):/ {
     if (!seen[$0]++) {
-      if (buffer != "") print buffer "|" $0;
+      if (buffer != "") print buffer "!!!" $0;
     }
     buffer = "";
   }
 ' "$TEMP_RAW" > temp_processed.txt
 
-# Função de teste de link
 test_link() {
     local line="$1"
     local blacklist_file="blacklist.txt"
-    local METADATA=$(echo "$line" | cut -d'|' -f1)
-    local URL=$(echo "$line" | cut -d'|' -f2)
+    # Separa os metadados da URL usando a string de segurança !!!
+    local METADATA="${line%%!!!*}"
+    local URL="${line#*!!!}"
     
     local RETEST=false
     if grep -qF "$URL" "$blacklist_file" 2>/dev/null; then RETEST=true; fi
 
-    # Teste de 5 segundos simulando TV
-    if curl -sI -L --connect-timeout 5 -m 7 -A "Mozilla/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.2 Chrome/63.0.3239.84 TV Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
-        echo "OK|$METADATA|$URL"
+    # Teste de 5s simulando TV (User-Agent atualizado)
+    if curl -sI -L --connect-timeout 5 -m 10 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
+        echo "OK!!!$METADATA!!!$URL"
     else
         if [ "$RETEST" = true ]; then
-            echo "DEL|$URL"
+            echo "DEL!!!$URL"
         else
-            echo "BL|$METADATA|$URL"
+            echo "BL!!!$METADATA!!!$URL"
         fi
     fi
 }
 
-# Exporta a FUNÇÃO para que o xargs possa usá-la
 export -f test_link
 
-echo "⚡ Testando integridade em paralelo (20 conexões)..."
-# O xargs chama o bash para executar a função exportada
+echo "⚡ Testando integridade (20 conexões simultâneas)..."
 cat temp_processed.txt | xargs -I {} -P 20 bash -c 'test_link "{}"' > "$TEMP_ALL_TESTED"
 
 echo "📝 Consolidando resultados..."
 rm -f blacklist_new.txt && touch blacklist_new.txt
 
-while IFS="|" read -r STATUS DATA1 DATA2; do
-    case $STATUS in
-        OK)
-            echo -e "$DATA1\n$DATA2" >> "$OUTPUT"
-            ;;
-        BL)
-            echo "$DATA2" >> blacklist_new.txt
-            echo -e "$DATA1\n$DATA2" >> "$OUTPUT"
-            ;;
-        DEL)
-            ;;
-    esac
+# Processa o resultado final usando o novo separador
+while IFS= read -r line; do
+    STATUS="${line%%!!!*}"
+    REST="${line#*!!!}"
+    if [ "$STATUS" == "OK" ]; then
+        M="${REST%%!!!*}"
+        U="${REST#*!!!}"
+        echo -e "$M\n$U" >> "$OUTPUT"
+    elif [ "$STATUS" == "BL" ]; then
+        M="${REST%%!!!*}"
+        U="${REST#*!!!}"
+        echo "$U" >> blacklist_new.txt
+        echo -e "$M\n$U" >> "$OUTPUT"
+    fi
 done < "$TEMP_ALL_TESTED"
 
 mv blacklist_new.txt "$BLACKLIST"
 rm -f "$TEMP_RAW" temp_processed.txt "$TEMP_ALL_TESTED"
 
-echo "✅ Finalizado! Canais na lista: $(grep -c "^#EXTINF" "$OUTPUT")"
+echo "✅ Finalizado! Canais mantidos: $(grep -c "^#EXTINF" "$OUTPUT")"
