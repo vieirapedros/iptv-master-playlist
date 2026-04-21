@@ -1,7 +1,7 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Versão: Híbrida (Suporte total a Ottera, Amagi e Plex)
+# Versão: Blindada (Ignora falhas em links de API/SSAI)
 # =====================================
 
 OUTPUT="master.m3u"
@@ -61,7 +61,7 @@ for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 15 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Validando canais (Método Híbrido)..."
+echo "🧹 Validando canais..."
 rm -f blacklist_new.txt && touch blacklist_new.txt
 
 awk '
@@ -75,19 +75,24 @@ awk '
 ' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
 
     [ -z "$URL" ] && continue
+
+    # REGRA DE EXCEÇÃO: Se o link tiver cara de API/AdServer, aceita direto sem testar
+    if [[ "$URL" == *"[ADS"* ]] || [[ "$URL" == *"[CACHE"* ]] || [[ "$URL" == *"aniview.com"* ]] || [[ "$URL" == *"ott.tv"* ]]; then
+        echo -e "$METADATA\n$URL" >> "$OUTPUT"
+        continue
+    fi
+
     RETEST=false
     if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
 
-    # DECISÃO DE TESTE:
-    # Se for playlist (.m3u8), usa teste de cabeçalho simples (HEAD)
-    # Se for stream direto, usa Byte Range para evitar bloqueio anti-bot
+    # TESTE HÍBRIDO
     if [[ "$URL" == *".m3u8"* ]]; then
-        HTTP_STATUS=$(curl -skL --connect-timeout 10 -m 15 \
-           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
+        HTTP_STATUS=$(curl -skL --connect-timeout 8 -m 12 \
+           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" \
            "$URL" -o /dev/null -w "%{http_code}")
     else
-        HTTP_STATUS=$(curl -skL --connect-timeout 10 -m 20 \
-           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
+        HTTP_STATUS=$(curl -skL --connect-timeout 8 -m 15 \
+           -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" \
            -H "Referer: https://app.plex.tv/" \
            --range 0-10 \
            "$URL" -o /dev/null -w "%{http_code}")
@@ -97,9 +102,9 @@ awk '
         echo -e "$METADATA\n$URL" >> "$OUTPUT"
     else
         if [ "$RETEST" = true ]; then
-             echo "🚫 REMOVIDO: $URL [Code: $HTTP_STATUS]"
+             echo "🚫 REMOVIDO: $URL"
         else
-             echo "❌ BLACKLIST: $URL [Code: $HTTP_STATUS]"
+             echo "❌ BLACKLIST: $URL"
              echo "$URL" >> blacklist_new.txt
              echo -e "$METADATA\n$URL" >> "$OUTPUT"
         fi
