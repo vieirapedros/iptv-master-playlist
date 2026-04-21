@@ -2,11 +2,16 @@ name: Atualizar Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # Atualiza a cada 24 horas
+    # 0 -> Minuto 0
+    # 12 -> Hora 12 (Meio-dia UTC)
+    # * -> Qualquer dia do mês
+    # * -> Qualquer mês
+    # 5 -> Sexta-feira (0 é Domingo, 5 é Sexta)
+    - cron: "0 12 * * 5"
   workflow_dispatch:
 
 permissions:
-  contents: write   # ✅ Permite que o bot faça commit e push
+  contents: write
 
 jobs:
   update:
@@ -16,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # pega histórico completo
+          fetch-depth: 0
 
       - name: Rodar script
         run: |
