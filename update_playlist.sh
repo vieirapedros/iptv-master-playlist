@@ -1,13 +1,12 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Versão corrigida: Separadores seguros e tratamento de URLs complexas
+# Versão Estável: Sem paralelismo para evitar bloqueio de IP
 # =====================================
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
-TEMP_ALL_TESTED="tested_channels.txt"
 
 touch "$BLACKLIST"
 
@@ -54,7 +53,7 @@ URLS=(
   "https://www.apsattv.com/jplg.m3u"
 )
 
-rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_ALL_TESTED"
+rm -f "$OUTPUT" "$TEMP_RAW"
 echo "#EXTM3U" > "$OUTPUT"
 
 echo "🔄 Baixando listas..."
@@ -62,8 +61,10 @@ for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Removendo duplicatas..."
-# Usando !!! como separador para não conflitar com pipes nas URLs
+echo "🧹 Filtrando duplicados e Testando canais..."
+rm -f blacklist_new.txt && touch blacklist_new.txt
+
+# Processamento Sequencial Seguro
 awk '
   /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
   /^(http|https|rtmp|rtsp|mms):/ {
@@ -72,55 +73,32 @@ awk '
     }
     buffer = "";
   }
-' "$TEMP_RAW" > temp_processed.txt
+' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
 
-test_link() {
-    local line="$1"
-    local blacklist_file="blacklist.txt"
-    # Separa os metadados da URL usando a string de segurança !!!
-    local METADATA="${line%%!!!*}"
-    local URL="${line#*!!!}"
-    
-    local RETEST=false
-    if grep -qF "$URL" "$blacklist_file" 2>/dev/null; then RETEST=true; fi
+    RETEST=false
+    if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
 
-    # Teste de 5s simulando TV (User-Agent atualizado)
-    if curl -sI -L --connect-timeout 5 -m 10 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" "$URL" | grep -qE "200 OK|302 Found|301 Moved"; then
-        echo "OK!!!$METADATA!!!$URL"
+    # Teste de 5s simulando um Navegador Real
+    # Usamos apenas o cabeçalho (I) e seguimos redirecionamentos (L)
+    if curl -sI -L --connect-timeout 5 -m 8 \
+       -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+       "$URL" | grep -qE "200 OK|302 Found|301 Moved|206 Partial"; then
+        
+        echo -e "$METADATA\n$URL" >> "$OUTPUT"
+        # echo "✅ ON: $URL" # Debug opcional
     else
         if [ "$RETEST" = true ]; then
-            echo "DEL!!!$URL"
+            echo "🚫 OFF (Removido): $URL"
         else
-            echo "BL!!!$METADATA!!!$URL"
+            echo "❌ OFF (Na Blacklist): $URL"
+            echo "$URL" >> blacklist_new.txt
+            # Mantém na lista por uma semana (carência)
+            echo -e "$METADATA\n$URL" >> "$OUTPUT"
         fi
     fi
-}
-
-export -f test_link
-
-echo "⚡ Testando integridade (20 conexões simultâneas)..."
-cat temp_processed.txt | xargs -I {} -P 20 bash -c 'test_link "{}"' > "$TEMP_ALL_TESTED"
-
-echo "📝 Consolidando resultados..."
-rm -f blacklist_new.txt && touch blacklist_new.txt
-
-# Processa o resultado final usando o novo separador
-while IFS= read -r line; do
-    STATUS="${line%%!!!*}"
-    REST="${line#*!!!}"
-    if [ "$STATUS" == "OK" ]; then
-        M="${REST%%!!!*}"
-        U="${REST#*!!!}"
-        echo -e "$M\n$U" >> "$OUTPUT"
-    elif [ "$STATUS" == "BL" ]; then
-        M="${REST%%!!!*}"
-        U="${REST#*!!!}"
-        echo "$U" >> blacklist_new.txt
-        echo -e "$M\n$U" >> "$OUTPUT"
-    fi
-done < "$TEMP_ALL_TESTED"
+done
 
 mv blacklist_new.txt "$BLACKLIST"
-rm -f "$TEMP_RAW" temp_processed.txt "$TEMP_ALL_TESTED"
+rm -f "$TEMP_RAW"
 
-echo "✅ Finalizado! Canais mantidos: $(grep -c "^#EXTINF" "$OUTPUT")"
+echo "✅ Finalizado! Total de canais: $(grep -c "^#EXTINF" "$OUTPUT")"
