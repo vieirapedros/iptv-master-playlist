@@ -48,6 +48,8 @@ URLS=(
   "https://www.apsattv.com/itlg.m3u"
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
+  "https://iptv-org.github.io/iptv/regions/amer.m3u"
+  "https://iptv-org.github.io/iptv/regions/eur.m3u"
 )
 
 # Remove arquivo anterior
