@@ -2,11 +2,7 @@ name: Atualizar Playlist
 
 on:
   schedule:
-    # 0 -> Minuto 0
-    # 12 -> Hora 12 (Meio-dia UTC)
-    # * -> Qualquer dia do mês
-    # * -> Qualquer mês
-    # 5 -> Sexta-feira (0 é Domingo, 5 é Sexta)
+    # Sexta-feira às 12:00 UTC (09:00 Horário de Brasília)
     - cron: "0 12 * * 5"
   workflow_dispatch:
 
@@ -23,22 +19,24 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Rodar script
+      - name: Rodar script de atualização
         run: |
           chmod +x update_playlist.sh
           ./update_playlist.sh
 
-      - name: Commit e Push das mudanças
+      - name: Commit e Push das mudanças (Playlist e Blacklist)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git stash || true
+          # Sincroniza com o repositório remoto
           git pull --rebase || true
-          git stash pop || true
 
-          git add master.m3u
-          git commit -m "Atualização automática da playlist $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || exit 0
+          # Adiciona os arquivos gerados/modificados
+          git add master.m3u blacklist.txt
+          
+          # Só faz o commit se houver alterações reais
+          git commit -m "Auto-update: $(date -u '+%Y-%m-%d %H:%M:%S UTC') [Bot]" || exit 0
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
