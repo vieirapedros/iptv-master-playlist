@@ -1,14 +1,16 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Objetivo: Unificação Massiva e Remoção de Duplicatas
-# Sem testes de conexão para garantir 100% de disponibilidade
+# Lógica: Teste de Conexão Simples + Blacklist de 7 dias
 # =====================================
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
+BLACKLIST="blacklist.txt"
+TEMP_BLACKLIST="blacklist_new.txt"
 
-# URLs das listas a unir
+touch "$BLACKLIST"
+
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
@@ -52,34 +54,46 @@ URLS=(
   "https://www.apsattv.com/jplg.m3u"
 )
 
-# Reset do arquivo de saída
-rm -f "$OUTPUT" "$TEMP_RAW"
+rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_BLACKLIST"
 echo "#EXTM3U" > "$OUTPUT"
 
-echo "🔄 Baixando e unindo playlists..."
+echo "🔄 Baixando listas..."
 for url in "${URLS[@]}"; do
-  # Baixa cada lista e remove o cabeçalho #EXTM3U para evitar repetição interna
-  curl -sL --connect-timeout 15 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
+  curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
-echo "🧹 Removendo duplicatas e limpando estrutura..."
-# A lógica AWK: armazena os metadados (EXTINF, EXTGRP) em um buffer e só imprime 
-# quando encontra uma URL que ainda não foi registrada no array "seen".
+echo "🧹 Unificando e Testando integridade básica..."
+# Extrai os canais para processamento
 awk '
-  /^#EXTINF/ || /^#EXTGRP/ { 
-    buffer = (buffer == "" ? $0 : buffer ORS $0); 
-    next 
-  }
+  /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
   /^(http|https|rtmp|rtsp|mms):/ {
     if (!seen[$0]++) {
-      if (buffer != "") print buffer;
-      print $0;
+      if (buffer != "") print buffer "!!!" $0;
     }
     buffer = "";
   }
-' "$TEMP_RAW" >> "$OUTPUT"
+' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
 
-# Limpeza final de arquivos temporários
+    RETEST=false
+    if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
+
+    # TESTE SIMPLIFICADO: Verifica se o host está resolvendo (DNS + TCP Check)
+    # Muito mais rápido e não é bloqueado como bot de streaming
+    if curl -s --head --connect-timeout 5 "$URL" > /dev/null 2>&1; then
+        echo -e "$METADATA\n$URL" >> "$OUTPUT"
+    else
+        if [ "$RETEST" = true ]; then
+            # Falhou pela segunda vez (estava na blacklist), então remove
+            echo "🚫 Deletado (OFF pela 2ª semana): $URL"
+        else
+            # Falhou a primeira vez, vai para a blacklist e ganha sobrevida na lista
+            echo "$URL" >> "$TEMP_BLACKLIST"
+            echo -e "$METADATA\n$URL" >> "$OUTPUT"
+        fi
+    fi
+done
+
+mv "$TEMP_BLACKLIST" "$BLACKLIST" 2>/dev/null || touch "$BLACKLIST"
 rm -f "$TEMP_RAW"
 
-echo "✅ Playlist finalizada com $(grep -c "^#EXTINF" "$OUTPUT") canais únicos."
+echo "✅ Finalizado! Canais mantidos: $(grep -c "^#EXTINF" "$OUTPUT")"
