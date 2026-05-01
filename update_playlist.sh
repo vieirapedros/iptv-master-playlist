@@ -69,8 +69,8 @@ echo "🧹 Unificando e Testando integridade básica..."
 # =====================================
 test_channel() {
     local URL="$1"
-    local retries=3
-    local timeout=10
+    local retries=2
+    local timeout=5
     
     for i in $(seq 1 $retries); do
         HTTP_CODE=$(curl -sL -r 0-1024 \
