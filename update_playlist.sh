@@ -1,27 +1,30 @@
 #!/bin/bash
 # ==========================================================
 # update_playlist.sh
-# Playlist master com:
-# - deduplicação por URL e nome
-# - organização por país e categoria
-# - leitura de tvg-country e group-title
-# - blacklist persistente
-# - teste robusto de conectividade
+# Versão limpa e robusta:
+# - baixa listas
+# - extrai blocos EXTINF + URL
+# - deduplica por URL
+# - detecta país por tvg-country, group-title e nome
+# - testa conectividade
+# - atualiza blacklist
+# - gera master.m3u organizado por país
 # ==========================================================
 
-set -euo pipefail
+set -Eeuo pipefail
+trap 'echo "Error on line $LINENO" >&2' ERR
 
 OUTPUT="master.m3u"
-TEMP_RAW="temp_raw.m3u"
-TEMP_DEDUP="temp_dedup.m3u"
-TEMP_FILTERED="temp_filtered.m3u"
+RAW="temp_raw.m3u"
 BLACKLIST="blacklist.txt"
-TEMP_BLACKLIST="blacklist_new.txt"
+NEW_BLACKLIST="blacklist_new.txt"
 LOG="update.log"
+TMPDIR="tmp_playlist"
 
+mkdir -p "$TMPDIR"
 exec > >(tee -a "$LOG") 2>&1
 
-URLS=(
+declare -a URLS=(
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
   "https://www.apsattv.com/ssungbra.m3u"
@@ -64,9 +67,8 @@ URLS=(
   "https://www.apsattv.com/jplg.m3u"
 )
 
-COUNTRY_ORDER=(BR PT AR MX PE ES US GB IT FR JP UN)
-
-declare -A COUNTRY_NAMES=(
+COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
+declare -A COUNTRY_NAME=(
   [BR]="Brasil"
   [PT]="Portugal"
   [AR]="Argentina"
@@ -81,76 +83,23 @@ declare -A COUNTRY_NAMES=(
   [UN]="Outros"
 )
 
-mkdir -p output
-rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_FILTERED" "$TEMP_BLACKLIST"
 touch "$BLACKLIST"
+rm -f "$OUTPUT" "$RAW" "$NEW_BLACKLIST"
+: > "$RAW"
 
-echo "#EXTM3U" > "$OUTPUT"
-
-echo "🔄 Baixando listas..."
-for url in "${URLS[@]}"; do
-  curl -fsSL --connect-timeout 10 --max-time 30 "$url" | sed '/^#EXTM3U$/d' >> "$TEMP_RAW" || true
-done
-
-TOTAL_ANTES=$(grep -c '^#EXTINF' "$TEMP_RAW" 2>/dev/null || echo 0)
-echo "📊 Canais brutos: $TOTAL_ANTES"
-
-awk '
-function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
-function up(s){return toupper(s)}
-function normalize(s){s=up(s); gsub(/Á|À|Ã|Â/, "A", s); gsub(/É|Ê/, "E", s); gsub(/Í/, "I", s); gsub(/Ó|Õ|Ô/, "O", s); gsub(/Ú/, "U", s); gsub(/Ç/, "C", s); return s}
-function detect_country(text,  t){
-  t=normalize(text)
-  if (t ~ /BRAZIL|BRASIL|\bBR\b/) return "BR"
-  if (t ~ /PORTUGAL|\bPT\b/) return "PT"
-  if (t ~ /ARGENTINA|\bAR\b/) return "AR"
-  if (t ~ /MEXICO|MÉXICO|\bMX\b/) return "MX"
-  if (t ~ /PERU|\bPE\b/) return "PE"
-  if (t ~ /ESPANA|ESPAÑA|SPAIN|\bES\b/) return "ES"
-  if (t ~ /UNITED STATES|USA|\bUS\b/) return "US"
-  if (t ~ /UNITED KINGDOM|UK|BRITAIN|\bGB\b/) return "GB"
-  if (t ~ /ITALY|ITALIA|\bIT\b/) return "IT"
-  if (t ~ /FRANCE|\bFR\b/) return "FR"
-  if (t ~ /JAPAN|\bJP\b/) return "JP"
-  return "UN"
+fetch_all() {
+  for u in "${URLS[@]}"; do
+    curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
+  done
 }
 
-/^#EXTINF/ {
-  meta=$0
-  name=meta
-  if (match(meta, /tvg-country="[^"]+"/)) {
-    country=substr(meta, RSTART+12, RLENGTH-13)
-  } else country=""
-  if (match(meta, /group-title="[^"]+"/)) {
-    grp=substr(meta, RSTART+13, RLENGTH-14)
-  } else grp=""
-  sub(/^.*,/ , "", name)
-  name=trim(name)
-  next
+normalize() {
+  tr '[:lower:]' '[:upper:]' | sed 's/[ÁÀÃÂ]/A/g; s/[ÉÊ]/E/g; s/[Í]/I/g; s/[ÓÕÔ]/O/g; s/[Ú]/U/g; s/[Ç]/C/g'
 }
-/^(http|https|rtmp|rtsp|m3u8):/ {
-  url=trim($0)
-  if (seen_url[url]++) next
-  keytext = name " " grp " " country " " url
-  c = (country != "" ? detect_country(country) : detect_country(keytext))
-  print "##COUNTRY:" c
-  print "##GROUP:" grp
-  print meta
-  print url
-  print ""
-  name=""; grp=""; country=""
-}
-' "$TEMP_RAW" > "$TEMP_DEDUP"
 
-# Filtra blacklist e valida URL
-current_country="UN"
-current_group=""
-current_meta=""
-current_url=""
-
-extract_country() {
-  local txt="$1"
-  txt=$(echo "$txt" | tr '[:lower:]' '[:upper:]')
+detect_country() {
+  local txt
+  txt=$(printf '%s' "$1" | normalize)
   case "$txt" in
     *BRAZIL*|*BRASIL*|*"BR"*|* BR *) echo BR ;;
     *PORTUGAL*|*"PT"*|* PT *) echo PT ;;
@@ -158,8 +107,8 @@ extract_country() {
     *MEXICO*|*"MX"*|* MX *) echo MX ;;
     *PERU*|*"PE"*|* PE *) echo PE ;;
     *SPAIN*|*ESPANA*|*ESPAÑA*|*"ES"*|* ES *) echo ES ;;
-    *USA*|*UNITED\ STATES*|*"US"*|* US *) echo US ;;
-    *UK*|*UNITED\ KINGDOM*|*BRITAIN*|*"GB"*|* GB *) echo GB ;;
+    *USA*|*UNITED STATES*|*"US"*|* US *) echo US ;;
+    *UK*|*UNITED KINGDOM*|*BRITAIN*|*"GB"*|* GB *) echo GB ;;
     *ITALY*|*ITALIA*|*"IT"*|* IT *) echo IT ;;
     *FRANCE*|*"FR"*|* FR *) echo FR ;;
     *JAPAN*|*"JP"*|* JP *) echo JP ;;
@@ -167,92 +116,116 @@ extract_country() {
   esac
 }
 
-test_channel() {
-  local URL="$1"
-  local retries=2
-  local timeout=8
-  local code=0
-  for i in $(seq 1 $retries); do
-    code=$(curl -sL -r 0-1024 --connect-timeout "$timeout" --max-time "$timeout" -o /dev/null -w "%{http_code}" "$URL" 2>/dev/null || echo 0)
-    if [ "$code" = "200" ] || [ "$code" = "206" ]; then
-      return 0
-    fi
-    [ "$i" -lt "$retries" ] && sleep 1
-  done
-  return 1
+test_url() {
+  local url="$1"
+  local code
+  code=$(curl -sL -r 0-1024 --connect-timeout 8 --max-time 8 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || echo 0)
+  [[ "$code" == "200" || "$code" == "206" ]]
 }
 
-while IFS= read -r line; do
-  case "$line" in
-    '##COUNTRY:'*)
-      current_country=${line###COUNTRY:}
-      ;;
-    '##GROUP:'*)
-      current_group=${line###GROUP:}
-      ;;
-    '#EXTINF:'*)
-      current_meta="$line"
-      ;;
-    'http://'*)
-      current_url="$line"
-      if grep -qF -- "$current_url" "$BLACKLIST" 2>/dev/null; then
-        echo "⏭️ Blacklist: ${current_url:0:60}..."
-        continue
-      fi
-      if test_channel "$current_url"; then
-        final_country=$(extract_country "$current_meta $current_group $current_country")
-        echo "##COUNTRY:$final_country" >> "$TEMP_FILTERED"
-        [ -n "$current_group" ] && echo "##GROUP:$current_group" >> "$TEMP_FILTERED"
-        echo "$current_meta" >> "$TEMP_FILTERED"
-        echo "$current_url" >> "$TEMP_FILTERED"
-        echo "" >> "$TEMP_FILTERED"
-      else
-        echo "$current_url" >> "$TEMP_BLACKLIST"
-      fi
-      ;;
-  esac
-done < "$TEMP_DEDUP"
+parse_and_filter() {
+  awk -v outdir="$TMPDIR" '
+    function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
+    BEGIN { meta=""; name=""; grp=""; country=""; }
+    /^#EXTINF:/ {
+      meta=$0
+      name=$0
+      sub(/^.*,/ , "", name)
+      name=trim(name)
+      grp=""
+      country=""
+      if (match($0, /tvg-country="[^"]+"/)) country=substr($0, RSTART+12, RLENGTH-13)
+      if (match($0, /group-title="[^"]+"/)) grp=substr($0, RSTART+13, RLENGTH-14)
+      next
+    }
+    /^https?:\/\// {
+      url=trim($0)
+      if (url == "") next
+      if (seen[url]++) next
+      printf "%s\n%s\n%s\n%s\n\n", meta, url, country, grp >> (outdir "/all_blocks.txt")
+      meta=""; name=""; grp=""; country=""
+    }
+  ' "$RAW"
+}
 
-# Reorganiza por país e grupo no arquivo final
-{
-  echo "#EXTM3U"
-  for cc in "${COUNTRY_ORDER[@]}"; do
-    echo "#EXTGRP:${COUNTRY_NAMES[$cc]}"
-    awk -v target="$cc" '
-      BEGIN { show=0 }
-      /^##COUNTRY:/ { show = (substr($0,12) == target); next }
-      /^##GROUP:/ { grp = substr($0,9); next }
-      /^#EXTINF:/ { meta=$0; next }
-      /^http/ {
-        if (show) {
+rebuild_master() {
+  local blocks="$TMPDIR/all_blocks.txt"
+  : > "$OUTPUT"
+  echo "#EXTM3U" > "$OUTPUT"
+  for c in "${COUNTRIES[@]}"; do
+    echo "#EXTGRP:${COUNTRY_NAME[$c]}" >> "$OUTPUT"
+    awk -v target="$c" '
+      BEGIN { RS="\n\n" }
+      NF >= 4 {
+        meta=$1; url=$2; country=$3; grp=$4
+        if (country == "") {
+          key = meta " " grp " " url
+          up = toupper(key)
+          gsub(/[ÁÀÃÂ]/, "A", up); gsub(/[ÉÊ]/, "E", up); gsub(/[Í]/, "I", up); gsub(/[ÓÕÔ]/, "O", up); gsub(/[Ú]/, "U", up); gsub(/[Ç]/, "C", up)
+          if (up ~ /BRAZIL|BRASIL|(^|[^A-Z])BR([^A-Z]|$)/) country="BR"
+          else if (up ~ /PORTUGAL|(^|[^A-Z])PT([^A-Z]|$)/) country="PT"
+          else if (up ~ /ARGENTINA|(^|[^A-Z])AR([^A-Z]|$)/) country="AR"
+          else if (up ~ /MEXICO|(^|[^A-Z])MX([^A-Z]|$)/) country="MX"
+          else if (up ~ /PERU|(^|[^A-Z])PE([^A-Z]|$)/) country="PE"
+          else if (up ~ /SPAIN|ESPANA|ESPAÑA|(^|[^A-Z])ES([^A-Z]|$)/) country="ES"
+          else if (up ~ /UNITED STATES|USA|(^|[^A-Z])US([^A-Z]|$)/) country="US"
+          else if (up ~ /UNITED KINGDOM|UK|BRITAIN|(^|[^A-Z])GB([^A-Z]|$)/) country="GB"
+          else if (up ~ /ITALY|ITALIA|(^|[^A-Z])IT([^A-Z]|$)/) country="IT"
+          else if (up ~ /FRANCE|(^|[^A-Z])FR([^A-Z]|$)/) country="FR"
+          else if (up ~ /JAPAN|(^|[^A-Z])JP([^A-Z]|$)/) country="JP"
+          else country="UN"
+        }
+        if (country == target) {
           if (grp != "") print "#EXTGRP:" grp
           print meta
-          print $0
+          print url
           print ""
         }
-        meta=""
       }
-    ' "$TEMP_FILTERED"
+    ' "$blocks" >> "$OUTPUT"
   done
-} > "$OUTPUT"
+}
 
-# Remove linhas internas se sobrarem
-sed -i '/^##COUNTRY:/d;/^##GROUP:/d' "$OUTPUT"
+main() {
+  fetch_all
+  TOTAL_ANTES=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || echo 0)
+  echo "📊 Canais brutos: $TOTAL_ANTES"
 
-cat "$TEMP_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
-sort -u "$BLACKLIST" -o "$BLACKLIST"
+  parse_and_filter
 
-rm -f "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_FILTERED" "$TEMP_BLACKLIST"
+  : > "$TMPDIR/kept.txt"
+  : > "$NEW_BLACKLIST"
 
-FINAL_COUNT=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || echo 0)
-SUCCESS_RATE=$([ "$TOTAL_ANTES" -eq 0 ] && echo 0 || echo $((FINAL_COUNT * 100 / TOTAL_ANTES)))
+  while IFS= read -r meta && IFS= read -r url && IFS= read -r country && IFS= read -r grp && IFS= read -r blank; do
+    [ -z "$url" ] && continue
+    if grep -qF -- "$url" "$BLACKLIST" 2>/dev/null; then
+      continue
+    fi
+    if test_url "$url"; then
+      printf '%s\n%s\n%s\n%s\n\n' "$meta" "$url" "$country" "$grp" >> "$TMPDIR/kept.txt"
+    else
+      printf '%s\n' "$url" >> "$NEW_BLACKLIST"
+    fi
+  done < "$TMPDIR/all_blocks.txt"
 
-echo "=========================================="
-echo "✅ FINALIZADO!"
-echo "📊 Brutos: $TOTAL_ANTES"
-echo "📊 Funcionais: $FINAL_COUNT"
-echo "📊 Taxa de sucesso: $SUCCESS_RATE%"
-echo "📄 Saída: $OUTPUT"
-echo "📄 Blacklist: $BLACKLIST"
-echo "📄 Log: $LOG"
-echo "=========================================="
+  cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
+  sort -u "$BLACKLIST" -o "$BLACKLIST"
+
+  mv -f "$TMPDIR/kept.txt" "$TMPDIR/all_blocks.txt"
+  rebuild_master
+
+  FINAL_COUNT=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || echo 0)
+  SUCCESS_RATE=$([ "$TOTAL_ANTES" -eq 0 ] && echo 0 || echo $((FINAL_COUNT * 100 / TOTAL_ANTES)))
+
+  echo "=========================================="
+  echo "✅ FINALIZADO!"
+  echo "📊 Brutos: $TOTAL_ANTES"
+  echo "📊 Funcionais: $FINAL_COUNT"
+  echo "📊 Taxa de sucesso: $SUCCESS_RATE%"
+  echo "📄 Saída: $OUTPUT"
+  echo "📄 Blacklist: $BLACKLIST"
+  echo "📄 Log: $LOG"
+  echo "=========================================="
+}
+
+main
