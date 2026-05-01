@@ -1,17 +1,25 @@
 #!/bin/bash
-# =====================================
-# Script: update_playlist.sh
-# Deduplicação + Teste Robusto (2 tentativas, 8s timeout) + Blacklist
-# SEM paralelismo - versão estável
-# =====================================
+# ==========================================================
+# update_playlist.sh
+# Playlist master com:
+# - deduplicação por URL e nome
+# - organização por país e categoria
+# - leitura de tvg-country e group-title
+# - blacklist persistente
+# - teste robusto de conectividade
+# ==========================================================
+
+set -euo pipefail
 
 OUTPUT="master.m3u"
 TEMP_RAW="temp_raw.m3u"
 TEMP_DEDUP="temp_dedup.m3u"
+TEMP_FILTERED="temp_filtered.m3u"
 BLACKLIST="blacklist.txt"
 TEMP_BLACKLIST="blacklist_new.txt"
+LOG="update.log"
 
-touch "$BLACKLIST"
+exec > >(tee -a "$LOG") 2>&1
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -56,122 +64,195 @@ URLS=(
   "https://www.apsattv.com/jplg.m3u"
 )
 
-rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_BLACKLIST"
+COUNTRY_ORDER=(BR PT AR MX PE ES US GB IT FR JP UN)
+
+declare -A COUNTRY_NAMES=(
+  [BR]="Brasil"
+  [PT]="Portugal"
+  [AR]="Argentina"
+  [MX]="México"
+  [PE]="Peru"
+  [ES]="España"
+  [US]="Estados Unidos"
+  [GB]="Reino Unido"
+  [IT]="Itália"
+  [FR]="França"
+  [JP]="Japão"
+  [UN]="Outros"
+)
+
+mkdir -p output
+rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_FILTERED" "$TEMP_BLACKLIST"
+touch "$BLACKLIST"
+
 echo "#EXTM3U" > "$OUTPUT"
 
 echo "🔄 Baixando listas..."
 for url in "${URLS[@]}"; do
-  curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
+  curl -fsSL --connect-timeout 10 --max-time 30 "$url" | sed '/^#EXTM3U$/d' >> "$TEMP_RAW" || true
 done
 
-TOTAL_ANTES=$(grep -c "^#EXTINF" "$TEMP_RAW" 2>/dev/null || echo "0")
-echo "📊 Canais brutos baixados: $TOTAL_ANTES"
+TOTAL_ANTES=$(grep -c '^#EXTINF' "$TEMP_RAW" 2>/dev/null || echo 0)
+echo "📊 Canais brutos: $TOTAL_ANTES"
 
-echo "🧹 DEDUPLICAÇÃO: Removendo canais duplicados (URL + nome)..."
-
-# Deduplica: mantém o primeiro de cada URL ou nome
 awk '
+function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
+function up(s){return toupper(s)}
+function normalize(s){s=up(s); gsub(/Á|À|Ã|Â/, "A", s); gsub(/É|Ê/, "E", s); gsub(/Í/, "I", s); gsub(/Ó|Õ|Ô/, "O", s); gsub(/Ú/, "U", s); gsub(/Ç/, "C", s); return s}
+function detect_country(text,  t){
+  t=normalize(text)
+  if (t ~ /BRAZIL|BRASIL|\bBR\b/) return "BR"
+  if (t ~ /PORTUGAL|\bPT\b/) return "PT"
+  if (t ~ /ARGENTINA|\bAR\b/) return "AR"
+  if (t ~ /MEXICO|MÉXICO|\bMX\b/) return "MX"
+  if (t ~ /PERU|\bPE\b/) return "PE"
+  if (t ~ /ESPANA|ESPAÑA|SPAIN|\bES\b/) return "ES"
+  if (t ~ /UNITED STATES|USA|\bUS\b/) return "US"
+  if (t ~ /UNITED KINGDOM|UK|BRITAIN|\bGB\b/) return "GB"
+  if (t ~ /ITALY|ITALIA|\bIT\b/) return "IT"
+  if (t ~ /FRANCE|\bFR\b/) return "FR"
+  if (t ~ /JAPAN|\bJP\b/) return "JP"
+  return "UN"
+}
+
 /^#EXTINF/ {
-  n = split($0, parts, ",")
-  name = parts[n]
-  gsub(/^[ \t]+|[ \t]+$/, "", name)
-  buffer = $0
+  meta=$0
+  name=meta
+  if (match(meta, /tvg-country="[^"]+"/)) {
+    country=substr(meta, RSTART+12, RLENGTH-13)
+  } else country=""
+  if (match(meta, /group-title="[^"]+"/)) {
+    grp=substr(meta, RSTART+13, RLENGTH-14)
+  } else grp=""
+  sub(/^.*,/ , "", name)
+  name=trim(name)
   next
 }
-/^#EXTGRP/ { buffer = buffer "\n" $0; next }
 /^(http|https|rtmp|rtsp|m3u8):/ {
-  url = $0
-  gsub(/^[ \t]+|[ \t]+$/, "", url)
-  
-  if (seen_url[url]) { buffer = ""; next }
-  if (name && seen_name[name]) { buffer = ""; next }
-  
-  seen_url[url] = 1
-  if (name) seen_name[name] = 1
-  print buffer "\n" url
-  buffer = ""
-  name = ""
+  url=trim($0)
+  if (seen_url[url]++) next
+  keytext = name " " grp " " country " " url
+  c = (country != "" ? detect_country(country) : detect_country(keytext))
+  print "##COUNTRY:" c
+  print "##GROUP:" grp
+  print meta
+  print url
+  print ""
+  name=""; grp=""; country=""
 }
 ' "$TEMP_RAW" > "$TEMP_DEDUP"
 
-TOTAL_DEPOIS=$(grep -c "^#EXTINF" "$TEMP_DEDUP" 2>/dev/null || echo "0")
-DUPLICATAS=$(echo "$TOTAL_ANTES - $TOTAL_DEPOIS" | bc)
-REDUCAO=$(echo "scale=1; ($TOTAL_ANTES - $TOTAL_DEPOIS) * 100 / $TOTAL_ANTES" | bc 2>/dev/null || echo "0")
+# Filtra blacklist e valida URL
+current_country="UN"
+current_group=""
+current_meta=""
+current_url=""
 
-echo "📊 Deduplicação: $TOTAL_ANTES → $TOTAL_DEPOIS canais ($DUPLICATAS removidas, $REDUCAO%)"
+extract_country() {
+  local txt="$1"
+  txt=$(echo "$txt" | tr '[:lower:]' '[:upper:]')
+  case "$txt" in
+    *BRAZIL*|*BRASIL*|*"BR"*|* BR *) echo BR ;;
+    *PORTUGAL*|*"PT"*|* PT *) echo PT ;;
+    *ARGENTINA*|*"AR"*|* AR *) echo AR ;;
+    *MEXICO*|*"MX"*|* MX *) echo MX ;;
+    *PERU*|*"PE"*|* PE *) echo PE ;;
+    *SPAIN*|*ESPANA*|*ESPAÑA*|*"ES"*|* ES *) echo ES ;;
+    *USA*|*UNITED\ STATES*|*"US"*|* US *) echo US ;;
+    *UK*|*UNITED\ KINGDOM*|*BRITAIN*|*"GB"*|* GB *) echo GB ;;
+    *ITALY*|*ITALIA*|*"IT"*|* IT *) echo IT ;;
+    *FRANCE*|*"FR"*|* FR *) echo FR ;;
+    *JAPAN*|*"JP"*|* JP *) echo JP ;;
+    *) echo UN ;;
+  esac
+}
 
-echo "🔍 Testando conectividade dos canais..."
-
-# =====================================
-# FUNÇÃO DE TESTE ROBUSTA
-# =====================================
 test_channel() {
-    local URL="$1"
-    local retries=2
-    local timeout=5
-    
-    for i in $(seq 1 $retries); do
-        HTTP_CODE=$(curl -sL -r 0-1024 \
-            --connect-timeout $timeout \
-            --max-time $timeout \
-            -o /dev/null \
-            -w "%{http_code}" \
-            "$URL" 2>/dev/null)
-        
-        # 200 = OK, 206 = Partial Content (streaming)
-        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "206" ]; then
-            return 0
-        fi
-        
-        # Se não foi sucesso e ainda tem tentativas, espera 1s
-        if [ $i -lt $retries ]; then
-            sleep 1
-        fi
-    done
-    
-    return 1
+  local URL="$1"
+  local retries=2
+  local timeout=8
+  local code=0
+  for i in $(seq 1 $retries); do
+    code=$(curl -sL -r 0-1024 --connect-timeout "$timeout" --max-time "$timeout" -o /dev/null -w "%{http_code}" "$URL" 2>/dev/null || echo 0)
+    if [ "$code" = "200" ] || [ "$code" = "206" ]; then
+      return 0
+    fi
+    [ "$i" -lt "$retries" ] && sleep 1
+  done
+  return 1
 }
 
-# Extrai e processa canais
-awk '
-/^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
-/^(http|https|rtmp|rtsp|m3u8):/ {
-  if (!seen[$0]++) {
-    if (buffer != "") print buffer "###DELIM###" $0;
-  }
-  buffer = "";
-}
-' "$TEMP_DEDUP" | while IFS="###DELIM###" read -r METADATA URL; do
-
-    # Se já está na blacklist, ignora
-    if grep -qF "$URL" "$BLACKLIST" 2>/dev/null; then
-        echo "⏭️  Ignorado (blacklist): ${URL:0:60}..."
+while IFS= read -r line; do
+  case "$line" in
+    '##COUNTRY:'*)
+      current_country=${line###COUNTRY:}
+      ;;
+    '##GROUP:'*)
+      current_group=${line###GROUP:}
+      ;;
+    '#EXTINF:'*)
+      current_meta="$line"
+      ;;
+    'http://'*)
+      current_url="$line"
+      if grep -qF -- "$current_url" "$BLACKLIST" 2>/dev/null; then
+        echo "⏭️ Blacklist: ${current_url:0:60}..."
         continue
-    fi
+      fi
+      if test_channel "$current_url"; then
+        final_country=$(extract_country "$current_meta $current_group $current_country")
+        echo "##COUNTRY:$final_country" >> "$TEMP_FILTERED"
+        [ -n "$current_group" ] && echo "##GROUP:$current_group" >> "$TEMP_FILTERED"
+        echo "$current_meta" >> "$TEMP_FILTERED"
+        echo "$current_url" >> "$TEMP_FILTERED"
+        echo "" >> "$TEMP_FILTERED"
+      else
+        echo "$current_url" >> "$TEMP_BLACKLIST"
+      fi
+      ;;
+  esac
+done < "$TEMP_DEDUP"
 
-    # Testa o canal
-    if test_channel "$URL"; then
-        echo -e "$METADATA\n$URL" >> "$OUTPUT"
-        echo "✅ OK (${URL:0:60}...)"
-    else
-        echo "$URL" >> "$TEMP_BLACKLIST"
-        echo "❌ OFF (${URL:0:60}...)"
-    fi
+# Reorganiza por país e grupo no arquivo final
+{
+  echo "#EXTM3U"
+  for cc in "${COUNTRY_ORDER[@]}"; do
+    echo "#EXTGRP:${COUNTRY_NAMES[$cc]}"
+    awk -v target="$cc" '
+      BEGIN { show=0 }
+      /^##COUNTRY:/ { show = (substr($0,12) == target); next }
+      /^##GROUP:/ { grp = substr($0,9); next }
+      /^#EXTINF:/ { meta=$0; next }
+      /^http/ {
+        if (show) {
+          if (grp != "") print "#EXTGRP:" grp
+          print meta
+          print $0
+          print ""
+        }
+        meta=""
+      }
+    ' "$TEMP_FILTERED"
+  done
+} > "$OUTPUT"
 
-done
+# Remove linhas internas se sobrarem
+sed -i '/^##COUNTRY:/d;/^##GROUP:/d' "$OUTPUT"
 
-rm -f "$TEMP_RAW" "$TEMP_DEDUP"
+cat "$TEMP_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
+sort -u "$BLACKLIST" -o "$BLACKLIST"
 
-mv "$TEMP_BLACKLIST" "$BLACKLIST" 2>/dev/null || touch "$BLACKLIST"
+rm -f "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_FILTERED" "$TEMP_BLACKLIST"
 
-FINAL_COUNT=$(grep -c "^#EXTINF" "$OUTPUT" 2>/dev/null || echo "0")
+FINAL_COUNT=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || echo 0)
+SUCCESS_RATE=$([ "$TOTAL_ANTES" -eq 0 ] && echo 0 || echo $((FINAL_COUNT * 100 / TOTAL_ANTES)))
 
-echo ""
 echo "=========================================="
 echo "✅ FINALIZADO!"
-echo "=========================================="
-echo "📊 Canais brutos:     $TOTAL_ANTES"
-echo "📊 Canais únicos:     $TOTAL_DEPOIS"
-echo "📊 Canais funcionais: $FINAL_COUNT"
-echo "📊 Taxa de sucesso:   $(echo "scale=1; $FINAL_COUNT * 100 / $TOTAL_DEPOIS" | bc 2>/dev/null || echo "0")%"
+echo "📊 Brutos: $TOTAL_ANTES"
+echo "📊 Funcionais: $FINAL_COUNT"
+echo "📊 Taxa de sucesso: $SUCCESS_RATE%"
+echo "📄 Saída: $OUTPUT"
+echo "📄 Blacklist: $BLACKLIST"
+echo "📄 Log: $LOG"
 echo "=========================================="
