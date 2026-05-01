@@ -1,9 +1,4 @@
 #!/bin/bash
-# ==========================================================
-# update_playlist.sh
-# Fix de sintaxe + organização por país
-# ==========================================================
-
 set -Eeuo pipefail
 trap 'echo "Error on line $LINENO" >&2' ERR
 
@@ -37,6 +32,27 @@ URLS=(
   "https://www.apsattv.com/ssungpor.m3u"
   "https://www.apsattv.com/ssungmex.m3u"
   "https://www.apsattv.com/metax.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/Backup.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/buddylive_v1.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/TheTVApp.m3u8"
+  "https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/ppv/refs/heads/main/PPVLand.m3u8"
+  "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/StreamedSU.m3u8"
+  "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/24-7.m3u8"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/roku_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/plex_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/plutotv_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/samsungtvplus_all.m3u"
+  "https://www.apsattv.com/ptlg.m3u"
+  "https://www.apsattv.com/arlg.m3u"
+  "https://www.apsattv.com/mxlg.m3u"
+  "https://www.apsattv.com/pelg.m3u"
+  "https://www.apsattv.com/eslg.m3u"
+  "https://www.apsattv.com/uslg.m3u"
+  "https://www.apsattv.com/gblg.m3u"
+  "https://www.apsattv.com/itlg.m3u"
+  "https://www.apsattv.com/frlg.m3u"
+  "https://www.apsattv.com/jplg.m3u"
 )
 
 COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
@@ -55,41 +71,26 @@ declare -A COUNTRY_NAME=(
   [UN]="Outros"
 )
 
-cleanup() {
-  rm -f "$TMPDIR"/*.tmp 2>/dev/null || true
-}
-trap cleanup EXIT
-
+touch "$BLACKLIST"
 : > "$RAW"
 : > "$OUTPUT"
-touch "$BLACKLIST"
+: > "$NEW_BLACKLIST"
 
-echo "#EXTM3U" > "$OUTPUT"
-echo "🔄 Baixando listas..."
-
-for u in "${URLS[@]}"; do
-  curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
-done
-
-TOTAL_ANTES=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || echo 0)
-echo "📊 Canais brutos: $TOTAL_ANTES"
-
-normalize_country() {
-  local txt="$1"
-  txt=$(printf '%s' "$txt" | tr '[:lower:]' '[:upper:]')
-  txt=$(printf '%s' "$txt" | sed 's/[ÁÀÃÂ]/A/g; s/[ÉÊ]/E/g; s/[Í]/I/g; s/[ÓÕÔ]/O/g; s/[Ú]/U/g; s/[Ç]/C/g')
-  case "$txt" in
-    *BRAZIL*|*BRASIL* ) echo BR ;;
-    *PORTUGAL* ) echo PT ;;
-    *ARGENTINA* ) echo AR ;;
-    *MEXICO* ) echo MX ;;
-    *PERU* ) echo PE ;;
-    *SPAIN*|*ESPANA*|*ESPAÑA* ) echo ES ;;
-    *USA*|*UNITED STATES* ) echo US ;;
-    *UK*|*UNITED KINGDOM*|*BRITAIN* ) echo GB ;;
-    *ITALY*|*ITALIA* ) echo IT ;;
-    *FRANCE* ) echo FR ;;
-    *JAPAN* ) echo JP ;;
+country_of_text() {
+  local s
+  s=$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]' | sed 's/[ÁÀÃÂ]/A/g; s/[ÉÊ]/E/g; s/[Í]/I/g; s/[ÓÕÔ]/O/g; s/[Ú]/U/g; s/[Ç]/C/g')
+  case "$s" in
+    *BRAZIL*|*BRASIL*) echo BR ;;
+    *PORTUGAL*) echo PT ;;
+    *ARGENTINA*) echo AR ;;
+    *MEXICO*) echo MX ;;
+    *PERU*) echo PE ;;
+    *SPAIN*|*ESPANA*|*ESPAÑA*) echo ES ;;
+    *UNITED*STATES*|*USA*) echo US ;;
+    *UNITED*KINGDOM*|*UK*|*BRITAIN*) echo GB ;;
+    *ITALY*|*ITALIA*) echo IT ;;
+    *FRANCE*) echo FR ;;
+    *JAPAN*) echo JP ;;
     *) echo UN ;;
   esac
 }
@@ -100,14 +101,19 @@ extract_field() {
 }
 
 test_url() {
-  local url="$1"
-  local code
+  local url="$1" code
   code=$(curl -sL -r 0-1024 --connect-timeout 8 --max-time 8 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || echo 0)
   [[ "$code" == "200" || "$code" == "206" ]]
 }
 
+for u in "${URLS[@]}"; do
+  curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
+done
+
+TOTAL_ANTES=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || echo 0)
+echo "📊 Canais brutos: $TOTAL_ANTES"
+
 : > "$TMPDIR/kept.tmp"
-: > "$NEW_BLACKLIST"
 
 meta=""
 name=""
@@ -122,38 +128,23 @@ while IFS= read -r line; do
       country="$(extract_field "$line" 'tvg-country')"
       grp="$(extract_field "$line" 'group-title')"
       ;;
-    http://*|https://*|rtmp://*|rtsp://*|m3u8://*)
+    http://*|https://*|rtmp://*|rtsp://*)
       url="$line"
-      if [ -z "$meta" ]; then
-        continue
-      fi
-
+      [ -z "$meta" ] && continue
       if grep -qF -- "$url" "$BLACKLIST" 2>/dev/null; then
-        meta=""
-        name=""
-        country=""
-        grp=""
+        meta=""; name=""; country=""; grp=""
         continue
       fi
-
       if test_url "$url"; then
-        final_country="$(normalize_country "$country $grp $name $url")"
+        final_country="$(country_of_text "$country $grp $name $url")"
         printf '%s\n%s\n%s\n%s\n\n' "$meta" "$url" "$final_country" "$grp" >> "$TMPDIR/kept.tmp"
       else
         printf '%s\n' "$url" >> "$NEW_BLACKLIST"
       fi
-
-      meta=""
-      name=""
-      country=""
-      grp=""
+      meta=""; name=""; country=""; grp=""
       ;;
   esac
-done < <(
-  for u in "${URLS[@]}"; do
-    curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' || true
-  done
-)
+done < <(cat "$RAW")
 
 cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
 sort -u "$BLACKLIST" -o "$BLACKLIST"
@@ -166,9 +157,9 @@ NF >= 4 {
 }
 END {
   print "#EXTM3U" > out
-  split("BR PT AR MX PE ES US GB IT FR JP UN", order, " ")
+  n=split("BR PT AR MX PE ES US GB IT FR JP UN", order, " ")
   names["BR"]="Brasil"; names["PT"]="Portugal"; names["AR"]="Argentina"; names["MX"]="México"; names["PE"]="Peru"; names["ES"]="España"; names["US"]="Estados Unidos"; names["GB"]="Reino Unido"; names["IT"]="Itália"; names["FR"]="França"; names["JP"]="Japão"; names["UN"]="Outros"
-  for (i=1; i<=12; i++) {
+  for (i=1; i<=n; i++) {
     c=order[i]
     print "#EXTGRP:" names[c] >> out
     if (c in blocks) printf "%s", blocks[c] >> out
