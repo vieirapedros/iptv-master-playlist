@@ -1,10 +1,9 @@
-name: Atualizar Playlist
+name: Update Playlist
 
 on:
+  workflow_dispatch:
   schedule:
-    # Sextas-feiras às 12:00 UTC (09:00 Horário de Brasília)
-    - cron: "0 12 * * 5"
-  workflow_dispatch: # Permite rodar manualmente pelo site do GitHub
+    - cron: '0 3 * * *'
 
 permissions:
   contents: write
@@ -12,29 +11,35 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
-      - name: Clonar repositório
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
 
-      - name: Rodar script de atualização
+      - name: Validate files
         run: |
-          chmod +x update_playlist.sh
+          test -f ./update_playlist.sh
+          chmod +x ./update_playlist.sh
+
+      - name: Run playlist update
+        run: |
+          set -euo pipefail
           ./update_playlist.sh
 
-      - name: Commit e Push das mudanças
+      - name: Commit and push if changed
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          git pull --rebase origin main || true
-          
-          # Adiciona playlist e a lista de reteste
-          git add master.m3u blacklist.txt
-          
-          git commit -m "Limpeza Semanal: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || exit 0
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files=()
+          [ -f master.m3u ] && files+=(master.m3u)
+          [ -f blacklist.txt ] && files+=(blacklist.txt)
+          [ -f update.log ] && files+=(update.log)
+          if [ ${#files[@]} -gt 0 ]; then
+            git add "${files[@]}"
+            if ! git diff --cached --quiet; then
+              git commit -m "Update playlist"
+              git push
+            fi
+          fi
