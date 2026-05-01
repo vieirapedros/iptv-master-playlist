@@ -1,7 +1,8 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Lógica: Deduplicação + Teste Paralelo (8 jobs) + Blacklist
+# Deduplicação + Teste Robusto (2 tentativas, 8s timeout) + Blacklist
+# SEM paralelismo - versão estável
 # =====================================
 
 OUTPUT="master.m3u"
@@ -9,12 +10,8 @@ TEMP_RAW="temp_raw.m3u"
 TEMP_DEDUP="temp_dedup.m3u"
 BLACKLIST="blacklist.txt"
 TEMP_BLACKLIST="blacklist_new.txt"
-SEEN_URLS="seen_urls.txt"
-SEEN_NAMES="seen_names.txt"
 
 touch "$BLACKLIST"
-touch "$SEEN_URLS"
-touch "$SEEN_NAMES"
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -59,7 +56,7 @@ URLS=(
   "https://www.apsattv.com/jplg.m3u"
 )
 
-rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_BLACKLIST" "$SEEN_URLS" "$SEEN_NAMES"
+rm -f "$OUTPUT" "$TEMP_RAW" "$TEMP_DEDUP" "$TEMP_BLACKLIST"
 echo "#EXTM3U" > "$OUTPUT"
 
 echo "🔄 Baixando listas..."
@@ -67,108 +64,114 @@ for url in "${URLS[@]}"; do
   curl -sL --connect-timeout 10 "$url" | sed '/^#EXTM3U/d' >> "$TEMP_RAW"
 done
 
+TOTAL_ANTES=$(grep -c "^#EXTINF" "$TEMP_RAW" 2>/dev/null || echo "0")
+echo "📊 Canais brutos baixados: $TOTAL_ANTES"
+
 echo "🧹 DEDUPLICAÇÃO: Removendo canais duplicados (URL + nome)..."
 
-# Deduplica mantendo apenas o primeiro de cada URL ou nome
+# Deduplica: mantém o primeiro de cada URL ou nome
 awk '
-  /^#EXTINF/ {
-    n = split($0, parts, ",")
-    name = parts[n]
-    gsub(/^[ \t]+|[ \t]+$/, "", name)
-    buffer = $0
-    next
-  }
-  /^#EXTGRP/ { buffer = buffer "\n" $0; next }
-  /^(http|https|rtmp|rtsp|m3u8):/ {
-    url = $0
-    gsub(/^[ \t]+|[ \t]+$/, "", url)
-
-    if (seen_url[url]) { buffer = ""; next }
-
-    if (name && seen_name[name]) { buffer = ""; next }
-
-    seen_url[url] = 1
-    if (name) seen_name[name] = 1
-    print buffer "\n" url
-    buffer = ""
-    name = ""
-  }
+/^#EXTINF/ {
+  n = split($0, parts, ",")
+  name = parts[n]
+  gsub(/^[ \t]+|[ \t]+$/, "", name)
+  buffer = $0
+  next
+}
+/^#EXTGRP/ { buffer = buffer "\n" $0; next }
+/^(http|https|rtmp|rtsp|m3u8):/ {
+  url = $0
+  gsub(/^[ \t]+|[ \t]+$/, "", url)
+  
+  if (seen_url[url]) { buffer = ""; next }
+  if (name && seen_name[name]) { buffer = ""; next }
+  
+  seen_url[url] = 1
+  if (name) seen_name[name] = 1
+  print buffer "\n" url
+  buffer = ""
+  name = ""
+}
 ' "$TEMP_RAW" > "$TEMP_DEDUP"
 
-TOTAL_ANTES=$(grep -c "^#EXTINF" "$TEMP_RAW" || echo 0)
-TOTAL_DEPOIS=$(grep -c "^#EXTINF" "$TEMP_DEDUP" || echo 0)
-echo "📊 Deduplicação: $TOTAL_ANTES → $TOTAL_DEPOIS canais"
+TOTAL_DEPOIS=$(grep -c "^#EXTINF" "$TEMP_DEDUP" 2>/dev/null || echo "0")
+DUPLICATAS=$(echo "$TOTAL_ANTES - $TOTAL_DEPOIS" | bc)
+REDUCAO=$(echo "scale=1; ($TOTAL_ANTES - $TOTAL_DEPOIS) * 100 / $TOTAL_ANTES" | bc 2>/dev/null || echo "0")
+
+echo "📊 Deduplicação: $TOTAL_ANTES → $TOTAL_DEPOIS canais ($DUPLICATAS removidas, $REDUCAO%)"
+
+echo "🔍 Testando conectividade dos canais..."
 
 # =====================================
-# FUNÇÃO DE TESTE (usada em paralelo)
+# FUNÇÃO DE TESTE ROBUSTA
 # =====================================
 test_channel() {
-  local METADATA="$1"
-  local URL="$2"
-
-  # Se já na blacklist, falha automaticamente
-  if grep -qF "$URL" "$BLACKLIST"; then
-    echo "FAIL|$METADATA|$URL"
+    local URL="$1"
+    local retries=2
+    local timeout=5
+    
+    for i in $(seq 1 $retries); do
+        HTTP_CODE=$(curl -sL -r 0-1024 \
+            --connect-timeout $timeout \
+            --max-time $timeout \
+            -o /dev/null \
+            -w "%{http_code}" \
+            "$URL" 2>/dev/null)
+        
+        # 200 = OK, 206 = Partial Content (streaming)
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "206" ]; then
+            return 0
+        fi
+        
+        # Se não foi sucesso e ainda tem tentativas, espera 1s
+        if [ $i -lt $retries ]; then
+            sleep 1
+        fi
+    done
+    
     return 1
-  fi
-
-  local retries=2
-  local timeout=5
-
-  for i in $(seq 1 $retries); do
-    HTTP_CODE=$(curl -sL -r 0-1024 \
-      --connect-timeout $timeout \
-      --max-time $timeout \
-      -o /dev/null \
-      -w "%{http_code}" \
-      "$URL" 2>/dev/null)
-
-    if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "206" ]; then
-      echo "OK|$METADATA|$URL"
-      return 0
-    fi
-
-    if [ $i -lt $retries ]; then
-      sleep 1
-    fi
-  done
-
-  echo "FAIL|$METADATA|$URL"
-  return 1
 }
 
-echo "🔍 Testando canais em PARALELO (8 jobs simultâneos)..."
-
-# Processa canais deduplicados e testa EM PARALELO
+# Extrai e processa canais
 awk '
-  /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
-  /^(http|https|rtmp|rtsp|m3u8):/ {
-    if (!seen[$0]++) {
-      if (buffer != "") print buffer "|||"$0;
-    }
-    buffer = "";
+/^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
+/^(http|https|rtmp|rtsp|m3u8):/ {
+  if (!seen[$0]++) {
+    if (buffer != "") print buffer "###DELIM###" $0;
   }
-' "$TEMP_DEDUP" > canais_para_testar.txt
+  buffer = "";
+}
+' "$TEMP_DEDUP" | while IFS="###DELIM###" read -r METADATA URL; do
 
-# Testa em paralelo (8 jobs simultâneos)
-PARALLEL_JOBS=8
-export -f test_channel
-export BLACKLIST
+    # Se já está na blacklist, ignora
+    if grep -qF "$URL" "$BLACKLIST" 2>/dev/null; then
+        echo "⏭️  Ignorado (blacklist): ${URL:0:60}..."
+        continue
+    fi
 
-cat canais_para_testar.txt | parallel -j $PARALLEL_JOBS --block 1 --line-buffer \
-  'IFS="|||" read -r METADATA URL; test_channel "$METADATA" "$URL"' > resultados_teste.txt
+    # Testa o canal
+    if test_channel "$URL"; then
+        echo -e "$METADATA\n$URL" >> "$OUTPUT"
+        echo "✅ OK (${URL:0:60}...)"
+    else
+        echo "$URL" >> "$TEMP_BLACKLIST"
+        echo "❌ OFF (${URL:0:60}...)"
+    fi
 
-# Processa resultados
-grep "^OK" resultados_teste.txt | cut -d"|" -f2- | while IFS="|" read -r METADATA URL; do
-  echo -e "$METADATA\n$URL" >> "$OUTPUT"
 done
 
-grep "^FAIL" resultados_teste.txt | cut -d"|" -f3- >> "$TEMP_BLACKLIST"
-
-rm canais_para_testar.txt resultados_teste.txt
+rm -f "$TEMP_RAW" "$TEMP_DEDUP"
 
 mv "$TEMP_BLACKLIST" "$BLACKLIST" 2>/dev/null || touch "$BLACKLIST"
-rm -f "$TEMP_RAW" "$TEMP_DEDUP" "$SEEN_URLS" "$SEEN_NAMES"
 
-echo "✅ Finalizado!"
-echo "📊 Canais funcionais: $(grep -c "^#EXTINF" "$OUTPUT")"
+FINAL_COUNT=$(grep -c "^#EXTINF" "$OUTPUT" 2>/dev/null || echo "0")
+
+echo ""
+echo "=========================================="
+echo "✅ FINALIZADO!"
+echo "=========================================="
+echo "📊 Canais brutos:     $TOTAL_ANTES"
+echo "📊 Canais únicos:     $TOTAL_DEPOIS"
+echo "📊 Canais funcionais: $FINAL_COUNT"
+echo "📊 Taxa de sucesso:   $(echo "scale=1; $FINAL_COUNT * 100 / $TOTAL_DEPOIS" | bc 2>/dev/null || echo "0")%"
+echo "=========================================="
