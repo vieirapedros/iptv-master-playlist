@@ -1,7 +1,7 @@
 #!/bin/bash
 # =====================================
 # Script: update_playlist.sh
-# Lógica: Teste de Conexão Simples + Blacklist de 7 dias
+# Lógica: Teste de Conexão Robusto (3 tentativas + GET parcial) + Blacklist de 7 dias
 # =====================================
 
 OUTPUT="master.m3u"
@@ -63,6 +63,35 @@ for url in "${URLS[@]}"; do
 done
 
 echo "🧹 Unificando e Testando integridade básica..."
+
+# =====================================
+# FUNÇÃO DE TESTE ROBUSTA
+# =====================================
+test_channel() {
+    local URL="$1"
+    local retries=3
+    local timeout=10
+    
+    for i in $(seq 1 $retries); do
+        HTTP_CODE=$(curl -sL -r 0-1024 \
+            --connect-timeout $timeout \
+            --max-time $timeout \
+            -o /dev/null \
+            -w "%{http_code}" \
+            "$URL" 2>/dev/null)
+        
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "206" ]; then
+            return 0
+        fi
+        
+        if [ $i -lt $retries ]; then
+            sleep 2
+        fi
+    done
+    
+    return 1
+}
+
 # Extrai os canais para processamento
 awk '
   /^#EXTINF/ || /^#EXTGRP/ { buffer = (buffer == "" ? $0 : buffer ORS $0); next }
@@ -74,23 +103,18 @@ awk '
   }
 ' "$TEMP_RAW" | while IFS="!!!" read -r METADATA URL; do
 
-    RETEST=false
-    if grep -qF "$URL" "$BLACKLIST"; then RETEST=true; fi
+    if grep -qF "$URL" "$BLACKLIST"; then
+        echo "🚫 Ignorado (na blacklist): $URL"
+        continue
+    fi
 
-    # TESTE SIMPLIFICADO: Verifica se o host está resolvendo (DNS + TCP Check)
-    # Muito mais rápido e não é bloqueado como bot de streaming
-    if curl -s --head --connect-timeout 5 "$URL" > /dev/null 2>&1; then
+    if test_channel "$URL"; then
         echo -e "$METADATA\n$URL" >> "$OUTPUT"
     else
-        if [ "$RETEST" = true ]; then
-            # Falhou pela segunda vez (estava na blacklist), então remove
-            echo "🚫 Deletado (OFF pela 2ª semana): $URL"
-        else
-            # Falhou a primeira vez, vai para a blacklist e ganha sobrevida na lista
-            echo "$URL" >> "$TEMP_BLACKLIST"
-            echo -e "$METADATA\n$URL" >> "$OUTPUT"
-        fi
+        echo "$URL" >> "$TEMP_BLACKLIST"
+        echo "❌ Off (adicionado à blacklist): $URL"
     fi
+
 done
 
 mv "$TEMP_BLACKLIST" "$BLACKLIST" 2>/dev/null || touch "$BLACKLIST"
