@@ -11,8 +11,6 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     defaults:
       run:
         shell: bash
@@ -22,37 +20,24 @@ jobs:
 
       - name: Validate script
         run: |
-          [[ -f ./update_playlist.sh ]] || { echo 'update_playlist.sh not found'; exit 1; }
+          test -f ./update_playlist.sh
           chmod +x ./update_playlist.sh
 
-      - name: Run playlist update
-        run: |
-          set -Eeuo pipefail
-          trap 'echo "Update script failed at line $LINENO"' ERR
-          ./update_playlist.sh
+      - name: Run update script
+        run: ./update_playlist.sh
 
       - name: Commit and push if changed
         run: |
-          set -Eeuo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           files=()
-          [[ -f master.m3u ]] && files+=(master.m3u)
-          [[ -f blacklist.txt ]] && files+=(blacklist.txt)
-          [[ -f update.log ]] && files+=(update.log)
-
-          if (( ${#files[@]} == 0 )); then
-            echo "No files to commit"
-            exit 0
+          [ -f master.m3u ] && files+=(master.m3u)
+          [ -f blacklist.txt ] && files+=(blacklist.txt)
+          [ -f update.log ] && files+=(update.log)
+          if [ ${#files[@]} -gt 0 ]; then
+            git add -- "${files[@]}"
+            if ! git diff --cached --quiet; then
+              git commit -m "Update playlist"
+              git push
+            fi
           fi
-
-          git add -- "${files[@]}"
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git commit -m "Update playlist"
-          git push
