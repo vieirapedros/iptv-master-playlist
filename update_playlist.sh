@@ -71,10 +71,13 @@ declare -A COUNTRY_NAME=(
   [UN]="Outros"
 )
 
-touch "$BLACKLIST"
+cleanup() { rm -f "$TMPDIR"/*.tmp 2>/dev/null || true; }
+trap cleanup EXIT
+
 : > "$RAW"
 : > "$OUTPUT"
 : > "$NEW_BLACKLIST"
+touch "$BLACKLIST"
 
 country_of_text() {
   local s
@@ -97,7 +100,7 @@ country_of_text() {
 
 extract_field() {
   local line="$1" field="$2"
-  sed -n "s/.*$field=\"\([^\"]*\)\".*/\1/p" <<< "$line"
+  sed -n "s/.*$field="([^"]*)".*/\u0001/p" <<< "$line"
 }
 
 test_url() {
@@ -137,9 +140,15 @@ while IFS= read -r line; do
       fi
       if test_url "$url"; then
         final_country="$(country_of_text "$country $grp $name $url")"
-        printf '%s\n%s\n%s\n%s\n\n' "$meta" "$url" "$final_country" "$grp" >> "$TMPDIR/kept.tmp"
+        printf '%s
+%s
+%s
+%s
+
+' "$meta" "$url" "$final_country" "$grp" >> "$TMPDIR/kept.tmp"
       else
-        printf '%s\n' "$url" >> "$NEW_BLACKLIST"
+        printf '%s
+' "$url" >> "$NEW_BLACKLIST"
       fi
       meta=""; name=""; country=""; grp=""
       ;;
@@ -150,10 +159,15 @@ cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
 sort -u "$BLACKLIST" -o "$BLACKLIST"
 
 awk -v out="$OUTPUT" '
-BEGIN { RS="\n\n" }
+BEGIN { RS="
+
+" }
 NF >= 4 {
   meta=$1; url=$2; country=$3; grp=$4
-  blocks[country] = blocks[country] sprintf("%s\n%s\n\n", meta, url)
+  blocks[country] = blocks[country] sprintf("%s
+%s
+
+", meta, url)
 }
 END {
   print "#EXTM3U" > out
@@ -168,7 +182,11 @@ END {
 ' "$TMPDIR/kept.tmp"
 
 FINAL_COUNT=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || echo 0)
-SUCCESS_RATE=$([ "$TOTAL_ANTES" -eq 0 ] && echo 0 || echo $((FINAL_COUNT * 100 / TOTAL_ANTES)))
+if [ "$TOTAL_ANTES" -eq 0 ]; then
+  SUCCESS_RATE=0
+else
+  SUCCESS_RATE=$(( FINAL_COUNT * 100 / TOTAL_ANTES ))
+fi
 
 echo "=========================================="
 echo "✅ FINALIZADO!"
