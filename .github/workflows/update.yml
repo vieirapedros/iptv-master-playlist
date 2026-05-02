@@ -21,6 +21,7 @@ jobs:
       - name: Validate script
         run: |
           test -f ./update_playlist.sh
+          bash -n ./update_playlist.sh
           chmod +x ./update_playlist.sh
 
       - name: Run update script
