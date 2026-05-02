@@ -24,9 +24,6 @@ https://d25usgadhphvwi.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68
 #EXTINF:-1,2042 CNN Brasil (BR) alt
 https://d25usgadhphvwi.cloudfront.net/hls/main.m3u8
 
-#EXTINF:-1,2049 CNN Brasil Money (BR) (Substituto BRLG)
-https://amg01391-sbtinfast-amg01391c11-lg-br-9982.playouts.now.amagi.tv/playlist/amg01391-addigital-cnnmoneyhevc-lgbr/playlist.m3u8
-
 #EXTINF:-1,2063 New Brasil (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/NewCo/New_Brasil_BR/New_Brasil.m3u8
 
@@ -135,9 +132,6 @@ https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 #EXTINF:-1,Freetv Drama Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cinereal-xiaomi/playlist.m3u8
 
-#EXTINF:-1,Freetv Sureno Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cinesureno-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Freetv Terror Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-horrorfy-xiaomi/playlist.m3u8
 
@@ -193,9 +187,6 @@ https://cc-zvni27dp2ukyu.akamaized.net/ogc/acel/acel.m3u8
 #EXTINF:-1,2340 People Are Awesome (BR)
 https://jukin-peopleareawesome-2-br.samsung.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2468 Nickelodeon iCarly (BR)
-https://jmp2.uk/plu-620ff46e0a576e0007dc2f89.m3u8
-
 #EXTINF:-1,2705 Spark TV (BR)
 https://d25usgadhphvwi.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-sr15nxkp06uk9/playlist.m3u8
 
@@ -236,9 +227,6 @@ https://amg01821-lovetv-amg01821c21-tcl-us-4060.playouts.now.amagi.tv/playlist.m
 #EXTGRP:França
 #EXTINF:-1,Fuel TV (FR)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeafrance-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Wannasee
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01602-themahqfrance-wannasee-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Fuel TV .FR -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeafrance-tcl/playlist.m3u8
@@ -473,9 +461,6 @@ https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8
 #EXTINF:-1,2038 Record News (BR) alt H265
 https://cc-dozswt8rxfksa.akamaized.net/rnw/rn/rnw_rn_h265.m3u8
 
-#EXTINF:-1 2039 SBT News (subtituto LG)
-https://amg00527-amg00527c5-amgplt0026.playout.now3.amagi.tv/ts-us-w2-n1/playlist/amg00527-amg00527c5-amgplt0026/playlist.m3u8
-
 #EXTINF:-1,2040 Jovem Pan News (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Jovem_Pan/Jovem_Pan_News_BR/Jovem_Pan_News.m3u8
 
@@ -499,9 +484,6 @@ https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/TV_Aparecida/TV_Aparecida_BR/TV_
 
 #EXTINF:-1,2080 Canal Rural (BR) 
 https://amg26188-amg26188c2-amgplt0005.playout.now3.amagi.tv/playlist/amg26188-amg26188c2-amgplt0005/playlist.m3u8
-
-#EXTINF:-1,2081 BR IN TV (BR) Substituto LG
-https://amg26188-amg26188c1-amgplt0026.playout.now3.amagi.tv/playlist/amg26188-amg26188c1-amgplt0026/playlist.m3u8
 
 #EXTINF:-1,2083 WhE Play (BR)
 https://cc-codg0y3nex6h2.akamaized.net/ogc/whepl/whepl.m3u8
@@ -538,9 +520,6 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/The_Soul_Publishing/Ideias_Incri
 
 #EXTINF:-1,2172 Tastemade Casa
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Tastemade/TastemadeHome_BR/TastemadeHome.m3u8
-
-#EXTINF:-1,2173 Homeful (BR) Substituto LG
-https://d29h829bjuxghm.cloudfront.net/hls/master.m3u8?ads.xumo_channelId=99992530&ads.xumo_streamId=99992530
 
 #EXTINF:-1,2177 Tastemade Viagem
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Tastemade/TastemadeTravel_BR/TastemadeTravel.m3u8
@@ -688,9 +667,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00447-qwesttv-qwesttv-samsungbr/pla
 
 #EXTINF:-1,2454 Stingray Classica (BR)
 https://lotus.stingray.com/manifest/classica-cla008-montreal/samsung-br/master.m3u8
-
-#EXTINF:-1,2460 Porta TV (BR) (Substituto BRLG)
-https://amg00740-sofa-amg00740c22-lg-br-9875.playouts.now.amagi.tv/playlist/amg00740-addigitalinternationalcorp-portatv-lgbr/playlist.m3u8
 
 #EXTINF:-1,2462 Mr Bean Live Action
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/MrBeanLiveAction_BR/MrBeanLiveAction.m3u8
@@ -959,9 +935,6 @@ https://amg00711-zylo-amg00711c1-xiaomi-in-1317.playouts.now.amagi.tv/playlist/a
 #EXTINF:-1,Beond TV Geo
 https://amg01681-beondtv-amg01681c1-xiaomi-international-378.playouts.now.amagi.tv/playlist/amg01681-amg01681c1-277/playlist.m3u8
 
-#EXTINF:-1,Tastemade
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00047-tastemade-tmes8intl-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Tastemade (ES)
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00047-tastemade-tmes16intl-xiaomi/playlist.m3u8
 
@@ -1118,17 +1091,8 @@ https://amg13231-amg13231c4-xiaomi-international-2910.playouts.now.amagi.tv/play
 #EXTINF:-1,Powder
 https://amg13231-amg13231c5-xiaomi-international-2912.playouts.now.amagi.tv/playlist/amg13231-actvefast-powder-xiaomiinternational/playlist.m3u8
 
-#EXTINF:-1,Inwild
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwild-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Inwonder
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonder-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Inwonder HD
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonderhd-xiaomi/playlist.m3u8
-
-#EXTINF:-1,InTrouble
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-introuble-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Infast
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-lifestyle-xiaomi/playlist.m3u8
@@ -1841,9 +1805,6 @@ https://linear-866.frequency.stream/dist/tcltv/866/hls/master/playlist.m3u8
 #EXTINF:-1,BET x Tyler Perry Comedy -TCL
 https://linear-867.frequency.stream/dist/tcltv/867/hls/master/playlist.m3u8
 
-#EXTINF:-1,Highway Thru Hell -TCL
-https://amg00627-banijay-amg00627c15-tcl-us-3378.playouts.now.amagi.tv/playlist/amg00627-banijayfast-highwaythruhell-tclus/playlist.m3u8
-
 #EXTINF:-1,Mr Bean Animated .IT -TCL (Geo)
 https://amg00627-banijay-amg00627c29-tcl-us-4138.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-tclus/playlist.m3u8
 
@@ -1970,14 +1931,8 @@ https://amg00500-amg00500c6-tcl-us-3597.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,Freemovies Plus -TCL (Geo)
 https://amg02042-ottstudio-amg02042c15-tcl-us-949.playouts.now.amagi.tv/playlist/amg02042-ottstudiofast-freemoviespluslite-tclus/playlist.m3u8
 
-#EXTINF:-1,Moviesphere -TCL (Geo)
-https://amg00353-lionsgatestudios-amg00353c2-tclideo-na-2304.playouts.now.amagi.tv/playlist/amg00353-lionsgatetvfast-moviesphere-tclideona/playlist.m3u8
-
 #EXTINF:-1,Moviesphere -TCL c27 (Geo)
 https://amg00353-amg00353c27-tcl-us-6386.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,Are We There Yet -TCL (Geo)
-https://amg00353-lionsgatestudios-amg00353c5-tclideo-na-2173.playouts.now.amagi.tv/playlist/amg00353-lionsgatetvfast-arewethereyet-tclideona/playlist.m3u8
 
 #EXTINF:-1,Maverick Black Cinema -TCL
 https://maverick-maverick-black-cinema-2-us.tcl.wurl.tv/playlist.m3u8
@@ -2165,9 +2120,6 @@ https://amg00375-fusemedia-amg00375c2-tclideo-northamerica-720.playouts.now.amag
 #EXTINF:-1,Mansa Mix -TCL
 https://mansa-mansamix-1-us.tcltvplus.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Backstage -TCL (Geo)
-https://amg00375-fusemedia-amg00375c1-tclideo-northamerica-719.playouts.now.amagi.tv/playlist/amg00375-fusemediafast-backstage-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Trace Sports Stars -TCL
 https://trace-sportstars-tcl.amagi.tv/playlist.m3u8
 
@@ -2231,12 +2183,6 @@ https://airvuz-dronetv-1-de.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Drone TV .FR -TCL
 https://airvuz-dronetv-1-fr.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,History and Warfare Now -TCL (Geo)
-https://amg00376-magellan-amg00376c16-tclideo-northamerica-1370.playouts.now.amagi.tv/playlist/amg00376-magellantv-historyandwarfarenowmainus-tclideonorthamerica/playlist.m3u8
-
-#EXTINF:-1,Space Science Now -TCL (Geo)
-https://amg00376-magellan-amg00376c13-tclideo-northamerica-1369.playouts.now.amagi.tv/playlist/amg00376-magellantv-spacesciencenowmainus-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Docsville -TCL
 https://amg01076-lightning-amg01076c2-tcl-us-2470.playouts.now.amagi.tv/playlist/amg01076-lightning-docsville-tclus/playlist.m3u8
 
@@ -2260,9 +2206,6 @@ https://srpdigital-xplorationstation-1-au.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Dread TV -TCL
 https://epicpictures-dreadtv-1-us.tcltvplus.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go Traveler -TCL (Geo)
-https://amg09501-amg09501c1-tclideo-na-2400.playouts.now.amagi.tv/playlist/amg09501-quester-gotraveler-tclideona/playlist.m3u8
 
 #EXTINF:-1,XITE Celebrates -TCL (Geo)
 https://amg01243-xite-amg01243c1-tcl-us-6480.playouts.now.amagi.tv/playlist.m3u8
@@ -2342,9 +2285,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=3406
 #EXTINF:-1,Outdoor Action TV -TCL
 https://careco-outdoor-action-1-us.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Fox Sports -TCL (Geo)
-https://amg02855-foxsports-amg02855c1-tclideo-na-2100.playouts.now.amagi.tv/playlist/amg02855-foxnewsnetwork-foxsports-tclideona/playlist.m3u8
-
 #EXTINF:-1,Motorvision -TCL
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=3467
 
@@ -2356,9 +2296,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg02873-kravemedia-mtrspt1-tcl/playli
 
 #EXTINF:-1,Mav TV Select -TCL (Geo)
 https://amg00378-mavtv-amg00378c4-tcl-us-1327.playouts.now.amagi.tv/playlist/amg00378-mavtvfast-mavtvselectdomestic-tclus/playlist.m3u8
-
-#EXTINF:-1,Mav TV Select N.A -TCL (Geo)
-https://amg00378-mavtv-amg00378c4-tclideo-na-2696.playouts.now.amagi.tv/playlist/amg00378-mavtvfast-mavtvselectdomestic-tclideona/playlist.m3u8
 
 #EXTINF:-1,Women's Sport Network
 https://faststudios-womensnetwork-tcl.amagi.tv/playlist.m3u8
@@ -2407,9 +2344,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-gustotv-tcl-i
 
 #EXTINF:-1,Commune -TCL
 https://bec-commune-1-us.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Baywatch -TCL (Geo)
-https://amg00145-fremantlemedia-amg00145c2-tclideo-northamerica-617.playouts.now.amagi.tv/playlist/amg00145-fremantlemediafast-baywatch-tclideonorthamerica/playlist.m3u8
 
 #EXTINF:-1,McLeods Daughter's -TCL (Geo)
 https://amg00627-banijay-amg00627c7-tclideo-northamerica-644.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mcleodsdaughters-tclideonorthamerica/playlist.m3u8
@@ -2555,9 +2489,6 @@ https://tclAAAAAA-lawandcrime-tcl-tk7zp.amagi.tv/playlist/tclAAAAAA-lawandcrime-
 #EXTINF:-1,Naruto -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-naruto-tcl/playlist.m3u8
 
-#EXTINF:-1,Kartoon -TCL
-https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-kartoon-tclus/playlist.m3u8
-
 #EXTINF:-1,Brat TV -TCL
 https://tclAAAAAA-brat-tcl-2mpk7.amagi.tv/playlist/tclAAAAAA-brat-tcl/playlist.m3u8
 
@@ -2672,9 +2603,6 @@ https://amg01821-lovetv-amg01821c26-tcl-us-4125.playouts.now.amagi.tv/playlist.m
 #EXTINF:-1,PowerNation -TCL (Geo)
 https://amg01258-raycom-amg01258c3-tcl-us-908.playouts.now.amagi.tv/playlist/amg01258-raycomsportsfast-powernation-tclus/playlist.m3u8
 
-#EXTINF:-1,PowerNation Spanish -TCL (Geo)
-https://amg01258-raycom-amg01258c3-tclideo-na-2029.playouts.now.amagi.tv/playlist/amg01258-raycomsportsfast-powernationspanish-tclideona/playlist.m3u8
-
 #EXTINF:-1,Super Simple Songs -TCL
 https://janson-supersimplesongs-1-us.tcl.wurl.tv/playlist.m3u8
 
@@ -2720,9 +2648,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01255-secomcofites-my-myzentv-tcl/p
 #EXTINF:-1,Bein Xtra Espanol -TCL
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01334-beinsportsllc-beinxtraespanol-tcl/playlist.m3u8
 
-#EXTINF:-1,Magellan TV Now -TCL (Geo)
-https://amg00376-magellan-amg00376c1-tclideo-northamerica-1371.playouts.now.amagi.tv/playlist/amg00376-magellantv-magellantvnowmainus-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Ditty TV -TCL
 https://memphisstudios-dittytv-1-us.tcl.wurl.tv/playlist.m3u8
 
@@ -2743,9 +2668,6 @@ https://memphisstudios-dittytv-1-de.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Ditty TV .SA -TCL
 https://memphisstudios-dittytv-1-sa.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Circle TV -TCL (Geo)
-https://amg00432-circletvfast-amg00432c1-tclideo-northamerica-412.playouts.now.amagi.tv/playlist/amg00432-circletv-circletv-tclideonorthamerica/playlist.m3u8
 
 #EXTINF:-1,MHZ -TCL
 https://mhz-samsung-linear-us.tcl.wurl.tv/playlist.m3u8
@@ -2774,9 +2696,6 @@ https://telecine-pelimex-1-us.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Pelimex .MX -TCL
 https://telecine-pelimex-1-mx.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Intouchplus -TCL (Geo)
-https://amg01540-apexmedia-amg01540c2-tclideo-northamerica-983.playouts.now.amagi.tv/playlist/amg01540-apexmediafast-intouchplus-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Sony One Novelas .MX -TCL
 https://spt-sonyonenovelas-1-mx.tcl.wurl.tv/playlist.m3u8
 
@@ -2798,9 +2717,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-estrellanews-
 #EXTINF:-1,Estrella TV -TCL (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-estrellatv-tcl-ideo/playlist.m3u8
 
-#EXTINF:-1,Nuestravision -TCL (Geo)  
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01914-nuestravision-nuestravision-tcl-ideo/playlist.m3u8
-
 #EXTINF:-1,Kanal D Drama -TCL
 https://amg01602-amg01602c2-tcl-us-4910.playouts.now.amagi.tv/playlist.m3u8
 
@@ -2821,9 +2737,6 @@ https://amg02393-awpg-amg02393c5-tcl-us-2154.playouts.now.amagi.tv/playlist/amg0
 
 #EXTINF:-1,Les secrets denos regions -TCL (Geo)
 https://amg02393-awpg-amg02393c6-tcl-us-2188.playouts.now.amagi.tv/playlist/amg02393-awpg-lessecretsdenosregions-tclus/playlist.m3u8
-
-#EXTINF:-1,Out TV Proud -TCL (Geo)
-https://amg00375-fusemedia-amg00375c3-tclideo-northamerica-721.playouts.now.amagi.tv/playlist/amg00375-fusemediafast-outtvproud-tclideonorthamerica/playlist.m3u8
 
 #EXTINF:-1,Forensic Files
 https://d3f4oii5n0oeqi.cloudfront.net/11701/88814501/hls/master.m3u8?includeAssetTags=true&ads.xumo_channelId=88814501&ads.xumo_streamId=88814501&declaredCC1Language=en&ads.caid=ForensicFiles&ads.csid=tcl2_us_forensicfiles_ssai&ads.xumo_ifaType=%5BIFA_TYPE%5D&ads.xumo_ifa=%5BIFA%5D&ads.appName=%5BAPP_NAME%5D&ads.appVersion=%5BAPP_VERSION%5D&ads._fw_app_bundle=%5BTCL_APP_BUNDLE%5D&ads.genre=Crime&ads._fw_content_category=IAB1-7&ads._fw_content_genre=television&ads._fw_content_language=en&ads._fw_content_rating=tv-14&ads._fw_deviceMake=%5BDEVICE_MAKE%5D&ads._fw_device_model=%5BDEVICE_MODEL%5D&ads._fw_devicetype=3-Connected_TV&ads._fw_coppa=0&ads._fw_is_lat=%5BLMT%5D&ads._fw_us_privacy=%5BUS_PRIVACY%5D&ads._fw_h_x_country=US&ads._fw_player_width=%5BPLAYER_WIDTH%5D&ads._fw_player_height=%5BPLAYER_HEIGHT%5D&ads.xumo_contentId=1072&ads.xumo_contentName=ForensicFiles&ads.xumo_providerId=1072&ads.xumo_providerName=ForensicFiles&ads.xumo_channelName=ForensicFiles&ads._fw_app_store_url=%5BTCL_APP_STORE_URL%5D
