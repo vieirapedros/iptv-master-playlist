@@ -134,7 +134,8 @@ fetch_all() {
 
 parse_blocks() {
   awk '
-    function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
+    function trim(s){ gsub(/^[ \t]+|[ \t]+$/, "", s); return s }
+
     /^#EXTINF:/ {
       meta=$0
       grp=""
@@ -143,13 +144,16 @@ parse_blocks() {
       if (match($0, /group-title="[^"]+"/)) grp=substr($0, RSTART+13, RLENGTH-14)
       next
     }
-    /^https?:/// {
+
+    $0 ~ /^http/ {
       url=trim($0)
       if (url == "") next
       if (meta == "") next
       if (seen[url]++) next
       print meta "\t" url "\t" country "\t" grp
-      meta=""; grp=""; country=""
+      meta=""
+      grp=""
+      country=""
     }
   ' "$RAW" > "$BLOCKS"
 }
@@ -160,6 +164,7 @@ build_master() {
   : > "$OUTPUT"
   printf '#EXTM3U
 ' > "$OUTPUT"
+
   for c in "${COUNTRIES[@]}"; do
     printf '#EXTGRP:%s
 ' "${COUNTRY_NAME[$c]}" >> "$OUTPUT"
