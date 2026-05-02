@@ -1,16 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 trap 'echo "Error on line $LINENO" >&2' ERR
 
 OUTPUT="master.m3u"
 RAW="temp_raw.m3u"
+BLOCKS="temp_blocks.tsv"
 BLACKLIST="blacklist.txt"
 NEW_BLACKLIST="blacklist_new.txt"
 LOG="update.log"
-TMPDIR="tmp_playlist"
-
-mkdir -p "$TMPDIR"
-exec > >(tee -a "$LOG") 2>&1
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -71,17 +68,24 @@ declare -A COUNTRY_NAME=(
   [UN]="Outros"
 )
 
-cleanup() { rm -f "$TMPDIR"/*.tmp 2>/dev/null || true; }
-trap cleanup EXIT
-
+mkdir -p output
 : > "$RAW"
-: > "$OUTPUT"
+: > "$BLOCKS"
 : > "$NEW_BLACKLIST"
 touch "$BLACKLIST"
 
-country_of_text() {
+exec > >(tee -a "$LOG") 2>&1
+
+normalize() {
+  local s="$1"
+  s=$(printf '%s' "$s" | tr '[:lower:]' '[:upper:]')
+  s=$(printf '%s' "$s" | sed 's/[ÁÀÃÂ]/A/g; s/[ÉÊ]/E/g; s/[Í]/I/g; s/[ÓÕÔ]/O/g; s/[Ú]/U/g; s/[Ç]/C/g')
+  printf '%s' "$s"
+}
+
+country_from_text() {
   local s
-  s=$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]' | sed 's/[ÁÀÃÂ]/A/g; s/[ÉÊ]/E/g; s/[Í]/I/g; s/[ÓÕÔ]/O/g; s/[Ú]/U/g; s/[Ç]/C/g')
+  s=$(normalize "$1")
   case "$s" in
     *BRAZIL*|*BRASIL*) echo BR ;;
     *PORTUGAL*) echo PT ;;
@@ -98,102 +102,119 @@ country_of_text() {
   esac
 }
 
-extract_field() {
-  local line="$1" field="$2"
-  sed -n "s/.*$field="([^"]*)".*/\u0001/p" <<< "$line"
+extract_attr() {
+  local line="$1" attr="$2"
+  sed -n "s/.*$attr="([^"]*)".*/\u0001/p" <<< "$line"
 }
 
-test_url() {
-  local url="$1" code
-  code=$(curl -sL -r 0-1024 --connect-timeout 8 --max-time 8 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || echo 0)
-  [[ "$code" == "200" || "$code" == "206" ]]
-}
-
-for u in "${URLS[@]}"; do
-  curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
-done
-
-TOTAL_ANTES=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || echo 0)
-echo "📊 Canais brutos: $TOTAL_ANTES"
-
-: > "$TMPDIR/kept.tmp"
-
-meta=""
-name=""
-country=""
-grp=""
-
-while IFS= read -r line; do
-  case "$line" in
-    '#EXTINF:'*)
-      meta="$line"
-      name="${line##*,}"
-      country="$(extract_field "$line" 'tvg-country')"
-      grp="$(extract_field "$line" 'group-title')"
-      ;;
-    http://*|https://*|rtmp://*|rtsp://*)
-      url="$line"
-      [ -z "$meta" ] && continue
-      if grep -qF -- "$url" "$BLACKLIST" 2>/dev/null; then
-        meta=""; name=""; country=""; grp=""
-        continue
-      fi
-      if test_url "$url"; then
-        final_country="$(country_of_text "$country $grp $name $url")"
-        printf '%s
-%s
-%s
-%s
-
-' "$meta" "$url" "$final_country" "$grp" >> "$TMPDIR/kept.tmp"
-      else
-        printf '%s
-' "$url" >> "$NEW_BLACKLIST"
-      fi
-      meta=""; name=""; country=""; grp=""
-      ;;
+safe_curl_test() {
+  local url="$1"
+  local code
+  code=$(curl -sL -r 0-1024 --connect-timeout 8 --max-time 8 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || printf '0')
+  case "$code" in
+    200|206) return 0 ;;
+    *) return 1 ;;
   esac
-done < <(cat "$RAW")
+}
 
-cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
-sort -u "$BLACKLIST" -o "$BLACKLIST"
+fetch_all() {
+  for u in "${URLS[@]}"; do
+    curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
+  done
+}
 
-awk -v out="$OUTPUT" '
-BEGIN { RS="
+parse_blocks() {
+  awk '
+    function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
+    /^#EXTINF:/ {
+      meta=$0
+      name=$0
+      sub(/^.*,/ , "", name)
+      grp=""
+      country=""
+      if (match($0, /tvg-country="[^"]+"/)) country=substr($0, RSTART+12, RLENGTH-13)
+      if (match($0, /group-title="[^"]+"/)) grp=substr($0, RSTART+13, RLENGTH-14)
+      next
+    }
+    /^https?:/// {
+      url=trim($0)
+      if (url == "") next
+      if (seen[url]++) next
+      print meta "\t" url "\t" country "\t" grp
+      meta=""; name=""; grp=""; country=""
+    }
+  ' "$RAW" > "$BLOCKS"
+}
 
-" }
-NF >= 4 {
-  meta=$1; url=$2; country=$3; grp=$4
-  blocks[country] = blocks[country] sprintf("%s
+build_master() {
+  local final_blocks="$1"
+  : > "$OUTPUT"
+  printf '#EXTM3U
+' > "$OUTPUT"
+  for c in "${COUNTRIES[@]}"; do
+    printf '#EXTGRP:%s
+' "${COUNTRY_NAME[$c]}" >> "$OUTPUT"
+    while IFS=$'\t' read -r meta url country grp; do
+      [ -z "${meta:-}" ] && continue
+      if [ "$country" = "$c" ]; then
+        printf '%s
 %s
 
-", meta, url)
+' "$meta" "$url" >> "$OUTPUT"
+      fi
+    done < "$final_blocks"
+  done
 }
-END {
-  print "#EXTM3U" > out
-  n=split("BR PT AR MX PE ES US GB IT FR JP UN", order, " ")
-  names["BR"]="Brasil"; names["PT"]="Portugal"; names["AR"]="Argentina"; names["MX"]="México"; names["PE"]="Peru"; names["ES"]="España"; names["US"]="Estados Unidos"; names["GB"]="Reino Unido"; names["IT"]="Itália"; names["FR"]="França"; names["JP"]="Japão"; names["UN"]="Outros"
-  for (i=1; i<=n; i++) {
-    c=order[i]
-    print "#EXTGRP:" names[c] >> out
-    if (c in blocks) printf "%s", blocks[c] >> out
-  }
+
+main() {
+  fetch_all
+  total_before=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || printf '0')
+  echo "📊 Canais brutos: $total_before"
+
+  parse_blocks
+
+  kept="$TMPDIR/kept.tsv"
+  mkdir -p "$TMPDIR"
+  : > "$kept"
+  : > "$NEW_BLACKLIST"
+
+  while IFS=$'\t' read -r meta url country grp; do
+    [ -z "${meta:-}" ] && continue
+    if grep -qF -- "$url" "$BLACKLIST" 2>/dev/null; then
+      continue
+    fi
+    if safe_curl_test "$url"; then
+      final_country="$country"
+      [ -z "$final_country" ] && final_country="$(country_from_text "$meta $grp $url")"
+      printf '%s\t%s\t%s\t%s
+' "$meta" "$url" "$final_country" "$grp" >> "$kept"
+    else
+      printf '%s
+' "$url" >> "$NEW_BLACKLIST"
+    fi
+  done < "$BLOCKS"
+
+  cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
+  sort -u "$BLACKLIST" -o "$BLACKLIST"
+
+  build_master "$kept"
+
+  final_count=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || printf '0')
+  if [ "$total_before" -eq 0 ]; then
+    success_rate=0
+  else
+    success_rate=$(( final_count * 100 / total_before ))
+  fi
+
+  echo "=========================================="
+  echo "✅ FINALIZADO!"
+  echo "📊 Brutos: $total_before"
+  echo "📊 Funcionais: $final_count"
+  echo "📊 Taxa de sucesso: $success_rate%"
+  echo "📄 Saída: $OUTPUT"
+  echo "📄 Blacklist: $BLACKLIST"
+  echo "📄 Log: $LOG"
+  echo "=========================================="
 }
-' "$TMPDIR/kept.tmp"
 
-FINAL_COUNT=$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || echo 0)
-if [ "$TOTAL_ANTES" -eq 0 ]; then
-  SUCCESS_RATE=0
-else
-  SUCCESS_RATE=$(( FINAL_COUNT * 100 / TOTAL_ANTES ))
-fi
-
-echo "=========================================="
-echo "✅ FINALIZADO!"
-echo "📊 Brutos: $TOTAL_ANTES"
-echo "📊 Funcionais: $FINAL_COUNT"
-echo "📊 Taxa de sucesso: $SUCCESS_RATE%"
-echo "📄 Saída: $OUTPUT"
-echo "📄 Blacklist: $BLACKLIST"
-echo "📄 Log: $LOG"
-echo "=========================================="
+main
