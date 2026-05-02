@@ -8,6 +8,7 @@ BLOCKS="temp_blocks.tsv"
 BLACKLIST="blacklist.txt"
 NEW_BLACKLIST="blacklist_new.txt"
 LOG="update.log"
+TMPDIR="tmp_playlist"
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -68,7 +69,7 @@ declare -A COUNTRY_NAME=(
   [UN]="Outros"
 )
 
-mkdir -p output
+mkdir -p "$TMPDIR"
 : > "$RAW"
 : > "$BLOCKS"
 : > "$NEW_BLACKLIST"
@@ -87,24 +88,31 @@ country_from_text() {
   local s
   s=$(normalize "$1")
   case "$s" in
-    *BRAZIL*|*BRASIL*) echo BR ;;
-    *PORTUGAL*) echo PT ;;
-    *ARGENTINA*) echo AR ;;
-    *MEXICO*) echo MX ;;
-    *PERU*) echo PE ;;
-    *SPAIN*|*ESPANA*|*ESPAÑA*) echo ES ;;
-    *UNITED*STATES*|*USA*) echo US ;;
-    *UNITED*KINGDOM*|*UK*|*BRITAIN*) echo GB ;;
-    *ITALY*|*ITALIA*) echo IT ;;
-    *FRANCE*) echo FR ;;
-    *JAPAN*) echo JP ;;
-    *) echo UN ;;
+    *BRAZIL*|*BRASIL*) printf 'BR
+' ;;
+    *PORTUGAL*) printf 'PT
+' ;;
+    *ARGENTINA*) printf 'AR
+' ;;
+    *MEXICO*) printf 'MX
+' ;;
+    *PERU*) printf 'PE
+' ;;
+    *SPAIN*|*ESPANA*|*ESPAÑA*) printf 'ES
+' ;;
+    *UNITED*STATES*|*USA*) printf 'US
+' ;;
+    *UNITED*KINGDOM*|*UK*|*BRITAIN*) printf 'GB
+' ;;
+    *ITALY*|*ITALIA*) printf 'IT
+' ;;
+    *FRANCE*) printf 'FR
+' ;;
+    *JAPAN*) printf 'JP
+' ;;
+    *) printf 'UN
+' ;;
   esac
-}
-
-extract_attr() {
-  local line="$1" attr="$2"
-  sed -n "s/.*$attr="([^"]*)".*/\u0001/p" <<< "$line"
 }
 
 safe_curl_test() {
@@ -118,6 +126,7 @@ safe_curl_test() {
 }
 
 fetch_all() {
+  local u
   for u in "${URLS[@]}"; do
     curl -fsSL --connect-timeout 10 --max-time 30 "$u" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW" || true
   done
@@ -128,26 +137,26 @@ parse_blocks() {
     function trim(s){gsub(/^[ \t]+|[ \t]+$/, "", s); return s}
     /^#EXTINF:/ {
       meta=$0
-      name=$0
-      sub(/^.*,/ , "", name)
       grp=""
       country=""
-      if (match($0, /tvg-country="[^"]+"/)) country=substr($0, RSTART+12, RLENGTH-13)
+      if (match($0, /tvg-country="[^"]+"/)) country=substr($0, RSTART+13, RLENGTH-14)
       if (match($0, /group-title="[^"]+"/)) grp=substr($0, RSTART+13, RLENGTH-14)
       next
     }
     /^https?:/// {
       url=trim($0)
       if (url == "") next
+      if (meta == "") next
       if (seen[url]++) next
       print meta "\t" url "\t" country "\t" grp
-      meta=""; name=""; grp=""; country=""
+      meta=""; grp=""; country=""
     }
   ' "$RAW" > "$BLOCKS"
 }
 
 build_master() {
   local final_blocks="$1"
+  local c meta url country grp
   : > "$OUTPUT"
   printf '#EXTM3U
 ' > "$OUTPUT"
@@ -156,6 +165,7 @@ build_master() {
 ' "${COUNTRY_NAME[$c]}" >> "$OUTPUT"
     while IFS=$'\t' read -r meta url country grp; do
       [ -z "${meta:-}" ] && continue
+      [ -z "${url:-}" ] && continue
       if [ "$country" = "$c" ]; then
         printf '%s
 %s
@@ -167,6 +177,8 @@ build_master() {
 }
 
 main() {
+  local total_before kept meta url country grp final_country final_count success_rate
+
   fetch_all
   total_before=$(grep -c '^#EXTINF' "$RAW" 2>/dev/null || printf '0')
   echo "📊 Canais brutos: $total_before"
@@ -174,18 +186,22 @@ main() {
   parse_blocks
 
   kept="$TMPDIR/kept.tsv"
-  mkdir -p "$TMPDIR"
   : > "$kept"
   : > "$NEW_BLACKLIST"
 
   while IFS=$'\t' read -r meta url country grp; do
     [ -z "${meta:-}" ] && continue
+    [ -z "${url:-}" ] && continue
+
     if grep -qF -- "$url" "$BLACKLIST" 2>/dev/null; then
       continue
     fi
+
     if safe_curl_test "$url"; then
       final_country="$country"
-      [ -z "$final_country" ] && final_country="$(country_from_text "$meta $grp $url")"
+      if [ -z "$final_country" ]; then
+        final_country="$(country_from_text "$meta $grp $url")"
+      fi
       printf '%s\t%s\t%s\t%s
 ' "$meta" "$url" "$final_country" "$grp" >> "$kept"
     else
@@ -194,7 +210,7 @@ main() {
     fi
   done < "$BLOCKS"
 
-  cat "$NEW_BLACKLIST" 2>/dev/null >> "$BLACKLIST" || true
+  cat "$NEW_BLACKLIST" >> "$BLACKLIST" 2>/dev/null || true
   sort -u "$BLACKLIST" -o "$BLACKLIST"
 
   build_master "$kept"
