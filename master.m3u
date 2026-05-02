@@ -135,14 +135,8 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cinereal-xiaomi/pla
 #EXTINF:-1,Freetv Terror Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-horrorfy-xiaomi/playlist.m3u8
 
-#EXTINF:-1,Freetv Familia Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-juntos-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Freetv Accion Latm Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcinelatam-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Freetv Estella latm Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-tucinelatam-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Cine Classico (EU) Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cineclasicoeu-xiaomi/playlist.m3u8
@@ -1129,9 +1123,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01796-fastmediabackbo-enquetesdecho
 
 #EXTINF:-1,Qui veut gagner des millions Geo
 https://amg02393-awpg-amg02393c1-xiaomi-international-2301.playouts.now.amagi.tv/playlist/amg02393-awpg-quiveutgagnerdesmillions-xiaomiinternational/playlist.m3u8
-
-#EXTINF:-1,Lesanges Geo
-https://amg02393-awpg-amg02393c2-xiaomi-international-2300.playouts.now.amagi.tv/playlist/amg02393-awpg-lesanges--xiaomiinternational/playlist.m3u8
 
 #EXTINF:-1,Les Z Amours Geo
 https://amg02393-awpg-amg02393c3-xiaomi-international-2303.playouts.now.amagi.tv/playlist/amg02393-awpg-leszamours-xiaomiinternational/playlist.m3u8
@@ -2185,9 +2176,6 @@ https://airvuz-dronetv-1-fr.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Docsville -TCL
 https://amg01076-lightning-amg01076c2-tcl-us-2470.playouts.now.amagi.tv/playlist/amg01076-lightning-docsville-tclus/playlist.m3u8
-
-#EXTINF:-1,Pulse -TCL
-https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-pulse-tclus/playlist.m3u8
 
 #EXTINF:-1,Xploration Station -TCL
 https://srpdigital-xplorationstation-1-us.tcl.wurl.tv/playlist.m3u8
