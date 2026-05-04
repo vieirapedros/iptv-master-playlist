@@ -129,12 +129,6 @@ https://brandusa-gousa-1-br.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1,Go USA (EU)
 https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Freetv Accion Latm Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcinelatam-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Flash Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-flash-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Team USA
 https://amg01416-amg01416c4-firetv-us-4522.playouts.now.amagi.tv/playlist.m3u8
 
@@ -1208,6 +1202,12 @@ https://lagenceducourtmetrage-brefcinema-01-eu.xiaomi.wurl.tv/playlist.m3u8
 #EXTINF:-1,Pelimex (EU)
 https://telecine-pelimex-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
+#EXTINF:-1,Western Bound em Portugês
+https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/f5db557dc5ea4552bb723690a52f5aee/playlist.m3u8
+
+#EXTINF:-1,Adoro Cinema
+https://1e876365f9bb431e8eb8e87808b6f245.mediatailor.us-east-1.amazonaws.com/v1/master/28cabd810dcffe6911c4fb534c3616fcb64e6894/Adoro_Cinema/index.m3u8
+
 #EXTINF:-1,Runtime Ação
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/00c452757e8745849f778dbcafb4e62d/playlist.m3u8
 
@@ -1238,6 +1238,9 @@ https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/3ada6fb1fe46
 #EXTINF:-1,Runtime Romance
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/daf56ed11a104537888487ebcc17c256/playlist.m3u8
 
+#EXTINF:-1,Jesus
+https://ffalconnow.api.leiniao.com/media-channel-api/ffalconLive/v1/693bd7bc2df9f443e2855c2d/bunnycontent_main.m3u8
+
 #EXTINF:-1,Filmelier TV Esperança
 https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/d8c82ef3962a4866bbff81317936d8cf/playlist.m3u8
 
@@ -1258,6 +1261,9 @@ https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/3f5318807c54
 
 #EXTINF:-1,CINDIE LITE
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/b1226ff17e924e59803c486e434e96d4/playlist.m3u8
+
+#EXTINF:-1,Fatos Desconhecidos
+https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/a75bb3eed9b546a49f3978312da537ae/playlist.m3u8
 
 #EXTINF:-1,Os Arquivos do FBI
 https://ffalconnow.api.leiniao.com/media-channel-api/ffalconLive/v1/68773c30e9e90f4e11b35d9e/bunnycontent_main.m3u8
@@ -1288,9 +1294,6 @@ https://ffalconnow.api.leiniao.com/media-channel-api/ffalconLive/v1/68ed0ab66453
 
 #EXTINF:-1,Play TV
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/766a8419066b439d96b7895f14bf0271/playlist.m3u8
-
-#EXTINF:-1,Novela Jesus
-https://ffalconnow.api.leiniao.com/media-channel-api/ffalconLive/v1/693bd7bc2df9f443e2855c2d/bunnycontent_main.m3u8
 
 #EXTINF:-1,FREETV DRAMA
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=13317
@@ -1325,6 +1328,9 @@ https://ffalconnow-us.api.leiniao.com/media-channel-api/ffalcon/RestreamLive/v1/
 #EXTINF:-1,BM&C NEWS
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/8887808ea3454f8ab4a529620ad0c3c2/playlist.m3u8
 
+#EXTINF:-1,SBT News
+https://amg00527-amg00527c5-amgplt0728.playout.now3.amagi.tv/ts-us-e2-n2/playlist/amg00527-amg00527c5-amgplt0728/playlist.m3u8
+
 #EXTINF:-1,TV Notícias Agrícolas
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/57c5007f0b9f489399149e9e2b9d785b/playlist.m3u8
 
@@ -1357,6 +1363,9 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=10958
 
 #EXTINF:-1,El Reino Infantil
 https://amg17724-amg17724c3-tcl-br-10079.playouts.now.amagi.tv/playlist/amg17724-purodigitalandstudioslu-elreinoinfantilerpor-tclbr/playlist.m3u8
+
+#EXTINF:-1,Olá, Mundo
+https://ffalconnow.api.leiniao.com/media-channel-api/ffalconLive/v1/69ba63ecdd8e6418eb54997f/bunnycontent_main.m3u8
 
 #EXTINF:-1,CazéTV
 https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/5a9eaefac5584455afb01b50b1bcc619/playlist.m3u8
@@ -1496,7 +1505,7 @@ https://amg00627-banijay-amg00627c47-tcl-us-8086.playouts.now.amagi.tv/playlist/
 #EXTINF:-1,NOW 70s
 https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/pipAd/f128243bea1c4b46b4cd29ceca92d2b7/playlist.m3u8
 
-#EXTINF:-1,NOW ROCK
+#EXTINF:-1,That's ROCK
 https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/pipAd/520efa73c0f6481aa2bf92435fa0035d/playlist.m3u8
 
 #EXTINF:-1,Trace Latina
@@ -1688,14 +1697,8 @@ https://amogonetworx-moconomy-2-us.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Moconomy .DE -TCL
 https://amogonetworx-moconomy-3-de.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,GB News -TCL
-https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-gbnews-tclus/playlist.m3u8
-
 #EXTINF:-1,Newsworld -TCL
 https://amg01076-lightning-amg01076c3-tcl-us-2445.playouts.now.amagi.tv/playlist/amg01076-lightning-newsworld-tclus/playlist.m3u8
-
-#EXTINF:-1,Newsnet -TCL (Geo)
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-newsnet-tcl-ideo/playlist.m3u8
 
 #EXTINF:-1,ROI .US -TCL
 https://rise-financial-roi-tv-1-us.tcl.wurl.tv/playlist.m3u8
