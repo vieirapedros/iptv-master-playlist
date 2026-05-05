@@ -160,6 +160,30 @@ https://jmp2.uk/plu-666c9c60a7efd40008f552f0.m3u8
 #EXTINF:-1,2231 Weather Spy (BR)
 https://jukin-weatherspy-2-br.samsung.wurl.tv/playlist.m3u8
 
+#EXTINF:-1,2238 TV Turma da Mônica (BR)
+https://jmp2.uk/plu-5f997e44949bc70007a6941e.m3u8
+
+#EXTINF:-1,2242 Baby Shark TV (BR)
+https://jmp2.uk/plu-63da6bcd60bc8f0008a5d364.m3u8
+
+#EXTINF:-1,2245 O Reino Infantil (BR)
+https://jmp2.uk/plu-5f5c216df68f920007888315.m3u8
+
+#EXTINF:-1,2251 Pluto TV Moraguinhos (BR)
+https://jmp2.uk/plu-63eba189c111bc0008ff59c5.m3u8
+
+#EXTINF:-1,2255 As Tartarugas Ninja (BR)
+https://jmp2.uk/plu-63dd5c904e83e700088fb68a.m3u8
+
+#EXTINF:-1,2268 Nick Clássico (BR)
+https://jmp2.uk/plu-6824ce10c5d53e1351ceb8d1.m3u8
+
+#EXTINF:-1,2270 Nick Junior Club (BR)
+https://jmp2.uk/plu-6824ce95f09106f4b18f4114.m3u8
+
+#EXTINF:-1,2279 One Piece
+https://jmp2.uk/plu-624b1c8d4321e200073ee421.m3u8
+
 #EXTINF:-1,2324 Acelerados (BR) alt
 https://cc-zvni27dp2ukyu.akamaized.net/ogc/acel/acel.m3u8
 
@@ -452,9 +476,6 @@ https://gpa-vja-samsungtvplus-br.otteravision.com/gpa/vja/vja_h265.m3u8
 #EXTINF:-1,2067 NBC News Now
 https://d1si3n1st4nkgb.cloudfront.net/10000/88876010/hls/master.m3u8?ads.xumo_channelId=88876010
 
-#EXTINF:-1,2069 Euronews Portugues (BR) (Substituto BRLG)
-https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/619e6614c9d9650007a2b171/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=424e55da-1dda-11f0-ab45-a30a4ae8334b&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=1626e761-a9fe-491b-a8fc-b0150ac1b02e&userId=&serverSideAds=true
-
 #EXTINF:-1,2071 Breaking News By Leadstory (BR)
 https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/LeadStory/Breaking_News_BR/Breaking_News.m3u8
 
@@ -509,8 +530,11 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/TravelPlus/Travel_Plus_BR/Travel
 #EXTINF:-1,2195 Zenlife by Stingray (BR)
 https://lotus.stingray.com/manifest/zenlife-zen001-montreal/samsungbr/master.m3u8
 
-#EXTINF:-1,2197 Luxe Fireplace Vibes (Substituto) (GB)
-https://d21izs34d0y5tl.cloudfront.net/Fireplace_4K_SONO20.m3u8
+#EXTINF:-1,2197 Luxe Fireplace Vibes
+https://cc-6cs96sqhen1kk.akamaized.net/mt/samsungtv/973/hls/master/playlist.m3u8
+
+#EXTINF:-1,2199 Cozy Vibes
+https://cc-o9vd1sft3o6ei.akamaized.net/mt/samsungtv/974/hls/master/playlist.m3u8
 
 #EXTINF:-1,2200 Stingray Naturescape (BR)
 https://lotus.stingray.com/manifest/naturescape-a003s-montreal/samsungbr/master.m3u8
@@ -524,47 +548,20 @@ https://d25usgadhphvwi.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68
 #EXTINF:-1,2223 Wild Earth alt (BR)
 https://cc-0573ljsgymaix.akamaized.net/playlist.m3u8
 
-#EXTINF:-1,2238 TV Turma da Mônica (BR) check
-http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f997e44949bc70007a6941e/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus
-
 #EXTINF:-1,2240 3 Palavrinhas (BR)
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=6207
-
-#EXTINF:-1,2242 Baby Shark TV (BR)
-https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/63da6bcd60bc8f0008a5d364/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=706&deviceId=5f121460b73ac6000719fbaf&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=-23.5475&deviceLon=-46.6361&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=BR&serverSideAds=false
-
-#EXTINF:-1,2245 O Reino Infantil (BR) check
-http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f5c216df68f920007888315/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=TARGETOPT&deviceId=PSID&advertisingId=PSID&us_privacy=1YNY&samsung_app_domain=APP_DOMAIN&samsung_app_name=APP_NAME&profileLimit=&profileFloor=&embedPartner=samsung-tvplus
 
 #EXTINF:-1,2249 Toon Goggles (BR)
 https://tg-tg-br-samsung.otteravision.com/tg/tg_br_h265/tg_br_h265.m3u8
 
-#EXTINF:-1,2251 Pluto TV Moraguinhos (BR)
-https://stitcher.pluto.tv/stitch/hls/channel/63eba189c111bc0008ff59c5/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=f9f2b24b-6a97-11ef-9ed7-d66fb14cb385
-
 #EXTINF:-1,2256 Inspetor Bugiganga (BR)
 https://d1si3n1st4nkgb.cloudfront.net/10000/88876020/hls/master.m3u8?ads.xumo_channelId=88876020
-
-#EXTINF:-1,2257 Nickelodeon Bob Esponja Calça Quadrada (BR)
-http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/62545c0b002f4b0007688b61/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=0&deviceId=e1760207-0a78-8a50-619d-f898605668f9&advertisingId=e1760207-0a78-8a50-619d-f898605668f9&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus
 
 #EXTINF:-1,2259 Sonic (BR)
 https://d1si3n1st4nkgb.cloudfront.net/10000/88876021/hls/master.m3u8?ads.xumo_channelId=88876021
 
 #EXTINF:-1,2266 D.P.A Fast (BR) 
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/DPA_Fast_BR/DPA_Fast.m3u8
-
-#EXTINF:-1,2268 Nick Clássico (BR)
-https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f12151794c1800007a8ae63/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=730&deviceId=5f12151794c1800007a8ae63&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=-23.5475&deviceLon=-46.6361&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=BR&serverSideAds=false
-
-#EXTINF:-1,2270 Nick Junior Club (BR)
-https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f121460b73ac6000719fbaf/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=706&deviceId=5f121460b73ac6000719fbaf&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=-23.5475&deviceLon=-46.6361&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=BR&serverSideAds=false
-
-#EXTINF:-1,2277 Pluto TV Naruto (BR)
-http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f12136385bccc00070142ed/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=0&deviceId=e1760207-0a78-8a50-619d-f898605668f9&advertisingId=e1760207-0a78-8a50-619d-f898605668f9&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus
-
-#EXTINF:-1,2286 Pluto TV Anime (BR) Check
-http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5ff609de50ab210008025c1b/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus
 
 #EXTINF:-1,2288 Sato + (BR)
 https://sto-sat-samsung.otteravision.com/sto/sat/sat.m3u8
@@ -661,9 +658,6 @@ https://failarmy-international-br.samsung.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,2485 Just for Laughs Gags (BR)
 https://distributionsjustepourrire-justforlaughsgags-1-br.samsung.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,2530 Smithsonian Channel Pluto TV (BR) Check
-https://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/6298bd10d88ef000073f16b7/master.m3u8?deviceId=PSID&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1
 
 #EXTINF:-1,2534 Royalworld Nobreza e Dinastias (BR)
 https://cc-4e6doav3fdfaw.akamaized.net/playlist.m3u8
@@ -1385,9 +1379,6 @@ https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/49a71877481f
 #EXTINF:-1,Acelerados
 https://ssai-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/15e0929cac2745c59c7a6bc1455a8ab2/playlist.m3u8
 
-#EXTINF:-1,GPTV
-https://amg26329-amg26329c1-amgplt0019.playout.now3.amagi.tv/playlist/amg26329-amg26329c1-amgplt0019/playlist.m3u8
-
 #EXTINF:-1,World Poker Tour Portuguese
 https://d8nb73nfb7dd5.cloudfront.net/scheduler/scheduleMaster/466.m3u8
 
@@ -2092,9 +2083,6 @@ https://amg02784-amg02784c1-tcl-us-2728.playouts.now.amagi.tv/playlist/amg02784-
 
 #EXTINF:-1,Shades of Black -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00375-fusemedia-fusebeat-tcl/playlist.m3u8
-
-#EXTINF:-1,Shades of Black -TCL (Geo)
-https://amg00375-fusemedia-amg00375c2-tclideo-northamerica-720.playouts.now.amagi.tv/playlist/amg00375-fusemediafast-shadesofblack-tclideonorthamerica/playlist.m3u8
 
 #EXTINF:-1,Mansa Mix -TCL
 https://mansa-mansamix-1-us.tcltvplus.wurl.tv/playlist.m3u8
@@ -3140,9 +3128,6 @@ https://d3f4oii5n0oeqi.cloudfront.net/11701/88814621/hls/master.m3u8?includeAsse
 #EXTINF:-1,The Addams Family
 https://linear-1146.frequency.stream/dist/tcltv/1146/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
 
-#EXTINF:-1,Cagney & Lacey
-https://linear-1229.frequency.stream/dist/tcltv/1229/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
-
 #EXTINF:-1,Filmrise Classic TV
 https://d3f4oii5n0oeqi.cloudfront.net/11701/88814514/hls/master.m3u8?includeAssetTags=true&ads.xumo_channelId=88814514&ads.xumo_streamId=88814514&declaredCC1Language=en&ads.caid=FilmriseClassicTV&ads.csid=tcl2_us_filmriseclassictv_ssai&ads.xumo_ifaType=%5BIFA_TYPE%5D&ads.xumo_ifa=%5BIFA%5D&ads.appName=%5BAPP_NAME%5D&ads.appVersion=%5BAPP_VERSION%5D&ads._fw_app_bundle=%5BTCL_APP_BUNDLE%5D&ads._fw_content_category=IAB1-7&ads._fw_content_genre=television&ads._fw_content_language=en&ads._fw_content_rating=tv-14&ads._fw_deviceMake=%5BDEVICE_MAKE%5D&ads._fw_device_model=%5BDEVICE_MODEL%5D&ads._fw_devicetype=3-Connected_TV&ads._fw_coppa=0&ads._fw_is_lat=%5BLMT%5D&ads._fw_us_privacy=%5BUS_PRIVACY%5D&ads._fw_h_x_country=US&ads._fw_player_width=%5BPLAYER_WIDTH%5D&ads._fw_player_height=%5BPLAYER_HEIGHT%5D&ads.xumo_contentId=260&ads.xumo_contentName=FilmriseClassicTV&ads.xumo_providerId=260&ads.xumo_providerName=FilmRise&ads.xumo_channelName=FilmriseClassicTV&ads._fw_app_store_url=%5BTCL_APP_STORE_URL%5D
 
@@ -3374,9 +3359,6 @@ https://linear-1145.frequency.stream/dist/tcltv/1145/hls/master/playlist.m3u8?ad
 #EXTINF:-1,UnXplained Zone
 https://53257bca.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/VENMVFZQbHVzX1VuWHBsYWluZWRab25lX0hMUw/playlist.m3u8?ads.wurl_channel=1018&ads.wurl_name=UnXplainedZone&ads.coppa=0&ads.device_id=%7BDEVICE_ID%7D&ads.dnt=%7BDNT%7D&ads.us_privacy=%7BUS_PRIVACY%7D&ads.gdpr=%7BGDPR%7D&ads.consent=%7BCONSENT%7D&ads.app_name=%7BAPP_NAME%7D&ads.app_bundle=%7BAPP_BUNDLE%7D&ads.app_store_url=%7BAPP_STORE_URL%7D&ads.ifa_type=%7BIFA_TYPE%7D&ads.custom=%7BCUSTOM%7D&ads.device_make=%7BDEVICE_MAKE%7D&ads.device_model=%7BDEVICE_MODEL%7D&ads.givn=%7BGIVN%7D&ads.u_paln=%7BU_PALN%7D
 
-#EXTINF:-1,Teen Wolf
-https://linear-1143.frequency.stream/dist/tcltv/1143/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
-
 #EXTINF:-1,Filmrise Sci-Fi
 https://d3f4oii5n0oeqi.cloudfront.net/11701/88814517/hls/master.m3u8?includeAssetTags=true&ads.xumo_channelId=88814517&ads.xumo_streamId=88814517&declaredCC1Language=en&ads.caid=FilmriseSciFi&ads.csid=tcl2_us_filmrisescifi_ssai&ads.xumo_ifaType=%5BIFA_TYPE%5D&ads.xumo_ifa=%5BIFA%5D&ads.appName=%5BAPP_NAME%5D&ads.appVersion=%5BAPP_VERSION%5D&ads._fw_app_bundle=%5BTCL_APP_BUNDLE%5D&ads.genre=Horror%252CSci-Fi&ads._fw_content_category=IAB1-7&ads._fw_content_genre=television&ads._fw_content_language=en&ads._fw_content_rating=tv-14&ads._fw_deviceMake=%5BDEVICE_MAKE%5D&ads._fw_device_model=%5BDEVICE_MODEL%5D&ads._fw_devicetype=3-Connected_TV&ads._fw_coppa=0&ads._fw_is_lat=%5BLMT%5D&ads._fw_us_privacy=%5BUS_PRIVACY%5D&ads._fw_h_x_country=US&ads._fw_player_width=%5BPLAYER_WIDTH%5D&ads._fw_player_height=%5BPLAYER_HEIGHT%5D&ads.xumo_contentId=260&ads.xumo_contentName=FilmriseSciFi&ads.xumo_providerId=260&ads.xumo_providerName=FilmRise&ads.xumo_channelName=FilmriseSciFi&ads._fw_app_store_url=%5BTCL_APP_STORE_URL%5D
 
@@ -3425,9 +3407,6 @@ https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_na
 #EXTINF:-1,Barbie and Friends by Mattel
 https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=100&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
 
-#EXTINF:-1,Pink Panther
-https://linear-1069.frequency.stream/dist/tcltv/1069/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
-
 #EXTINF:-1,Hot Wheels Action
 https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=918&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
 
@@ -3442,12 +3421,6 @@ https://d3f4oii5n0oeqi.cloudfront.net/11701/88814525/hls/master.m3u8?includeAsse
 
 #EXTINF:-1,Toon Goggles
 https://api.toongoggles.com/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=263519&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
-
-#EXTINF:-1,Are You Smarter Than a 5th Grader?
-https://linear-1234.frequency.stream/dist/tcltv/1234/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
-
-#EXTINF:-1,American Gladiators
-https://linear-1106.frequency.stream/dist/tcltv/1106/hls/master/playlist.m3u8?ads.dnt=DNT&ads.ic=IC&ads.duration=DURATION&ads.app_bundle=APP_BUNDLE&ads.app_name=APP_NAME&ads.app_store_url=APP_STORE_URL&ads.device_id=DID&ads.device_make=DEVICE_MAKE&ads.device_model=DEVICE_MODEL&ads.brand_name=BRAND_NAME&ads.ifa_type=IFA_TYPE&ads.gdpr_consent=GDPR_CONSENT&ads.gdpr=GDPR&ads.us_privacy=US_PRIVACY&ads.coppa=COPPA&ads.lmt=LMT&ads.gpp_sid=GPP_SID&ads.gpp=GPP&ads.csid=CSID
 
 #EXTINF:-1,At Home with Family Handyman
 https://d3f4oii5n0oeqi.cloudfront.net/11701/88814550/hls/playlist.m3u8?includeAssetTags=true&ads.xumo_channelId=88814550&ads.xumo_streamId=88814550&declaredCC1Language=en&ads.caid=AtHomewithFamilyHandyman&ads.csid=tcl2_us_trustedmediaathomewithfamilyhandyman_ssai&ads.xumo_ifaType=%5BIFA_TYPE%5D&ads.xumo_ifa=%5BIFA%5D&ads.appName=%5BAPP_NAME%5D&ads.appVersion=%5BAPP_VERSION%5D&ads._fw_app_bundle=%5BTCL_APP_BUNDLE%5D&ads._fw_content_category=IAB1-7&ads._fw_content_genre=television&ads._fw_content_language=en&ads._fw_content_rating=tv-pg&ads._fw_deviceMake=%5BDEVICE_MAKE%5D&ads._fw_device_model=%5BDEVICE_MODEL%5D&ads._fw_devicetype=3-Connected_TV&ads._fw_coppa=0&ads._fw_is_lat=%5BLMT%5D&ads._fw_us_privacy=%5BUS_PRIVACY%5D&ads._fw_h_x_country=US&ads._fw_player_width=%5BPLAYER_WIDTH%5D&ads._fw_player_height=%5BPLAYER_HEIGHT%5D&ads.xumo_contentId=3814&ads.xumo_contentName=AtHomewithFamilyHandyman&ads.xumo_providerId=3814&ads.xumo_providerName=TrustedMediaAtHomeWithFamilyHandyman&ads.xumo_channelName=AtHomewithFamilyHandyman&ads._fw_app_store_url=%5BTCL_APP_STORE_URL%5D
