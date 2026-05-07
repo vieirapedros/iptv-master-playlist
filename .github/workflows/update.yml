@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-playlist
+  group: update-playlist-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -62,7 +62,6 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
           compression-level: 0
-          overwrite: true
 
       - name: Commit and push if changed
         run: |
