@@ -15,14 +15,14 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
 
     defaults:
       run:
         shell: bash
 
     env:
-      PARALLEL_JOBS: 24
+      PARALLEL_JOBS: 1
       CACHE_MAX_AGE_DAYS: 2
 
     steps:
@@ -51,7 +51,7 @@ jobs:
 
       - name: Upload generated files
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: playlist-output
           path: |
