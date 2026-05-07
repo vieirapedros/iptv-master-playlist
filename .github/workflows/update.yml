@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Validate script
         run: |
@@ -30,15 +32,24 @@ jobs:
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           files=()
           [ -f master.m3u ] && files+=(master.m3u)
           [ -f blacklist.txt ] && files+=(blacklist.txt)
           [ -f update.log ] && files+=(update.log)
-          if [ ${#files[@]} -gt 0 ]; then
-            git add -- "${files[@]}"
-            if ! git diff --cached --quiet; then
-              git commit -m "Update playlist"
-              git push
-            fi
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "Nenhum arquivo gerado."
+            exit 0
           fi
+
+          git add -- "${files[@]}"
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança para commit."
+            exit 0
+          fi
+
+          git commit -m "Update playlist"
+          git push
