@@ -2555,9 +2555,6 @@ https://amg01821-lovetv-amg01821c11-tcl-us-4050.playouts.now.amagi.tv/playlist.m
 #EXTINF:-1,Love the Planet Spanish -TCL (Geo)
 https://amg01821-lovetv-amg01821c26-tcl-us-4125.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,PowerNation -TCL (Geo)
-https://amg01258-raycom-amg01258c3-tcl-us-908.playouts.now.amagi.tv/playlist/amg01258-raycomsportsfast-powernation-tclus/playlist.m3u8
-
 #EXTINF:-1,Super Simple Songs -TCL
 https://janson-supersimplesongs-1-us.tcl.wurl.tv/playlist.m3u8
 
@@ -3710,9 +3707,6 @@ https://amg01918-cnnus-amg01918c1-tablo-us-7236.playouts.now.amagi.tv/playlist.m
 #EXTINF:-1,CNN Originals
 https://amg01918-cnnus-amg01918c2-tablo-us-7234.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Latin Nation
-https://amg00779-latv-amg00779c1-tablo-us-6459.playouts.now.amagi.tv/playlist/amg00779-latvnetworkllc-latination-tablous/playlist.m3u8
-
 #EXTINF:-1,Estrella News
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00567-estrellamedia-estrellanews-tablo/playlist.m3u8
 
@@ -3859,9 +3853,6 @@ https://37ed58e7.wurl.com/v1/amc_msgsportszone_1/tablo_us/latest/main/hls/playli
 
 #EXTINF:-1,Fubo Sports Network (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00242-fubotvinc-fubosports-tablo/playlist.m3u8
-
-#EXTINF:-1,Sports News Highlights
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01756-newsnet-sportsnewshighlights-tablo/playlist.m3u8
 
 #EXTINF:-1,Womensports Network 
 https://amg01416-amg01416c2-tablo-us-3842.playouts.now.amagi.tv/playlist.m3u8
