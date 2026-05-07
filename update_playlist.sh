@@ -13,7 +13,6 @@ LOG="update.log"
 USER_AGENT="Mozilla/5.0"
 CACHE_MAX_AGE_DAYS="${CACHE_MAX_AGE_DAYS:-2}"
 
-CPU_CORES="$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)"
 PARALLEL_JOBS="${PARALLEL_JOBS:-1}"
 
 URLS=(
