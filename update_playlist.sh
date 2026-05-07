@@ -14,7 +14,7 @@ USER_AGENT="Mozilla/5.0"
 CACHE_MAX_AGE_DAYS="${CACHE_MAX_AGE_DAYS:-2}"
 
 CPU_CORES="$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)"
-PARALLEL_JOBS="${PARALLEL_JOBS:-$(( CPU_CORES * 4 ))}"
+PARALLEL_JOBS="${PARALLEL_JOBS:-1}"
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -71,6 +71,7 @@ URLS=(
 )
 
 COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
+
 declare -A COUNTRY_NAME=(
   [BR]="Brasil"
   [PT]="Portugal"
@@ -99,9 +100,11 @@ cleanup() {
   rm -rf "$TMPDIR"
   exit "$rc"
 }
+
 trap cleanup EXIT INT TERM
 
 touch "$BLACKLIST" "$CACHE_OK"
+
 : > "$RAW"
 : > "$BLOCKS"
 : > "$CHECK_INPUT"
@@ -239,13 +242,13 @@ safe_validate_worker() {
   )"
 
   if [[ "$url" =~ \.(m3u8|mpd|ts)(\?|$) ]]; then
-    echo "$url"
+    printf '%s\n' "$url"
     return 0
   fi
 
   case "$ctype" in
     video/*|audio/*|application/vnd.apple.mpegurl*|application/x-mpegurl*)
-      echo "$url"
+      printf '%s\n' "$url"
       return 0
       ;;
   esac
@@ -260,13 +263,12 @@ safe_validate_worker() {
         "$url" 2>/dev/null || true
     )"
 
-    grep -q '#EXTM3U' <<< "$probe" && {
-      echo "$url"
-      return 0
-    }
+    if grep -q '#EXTM3U' <<< "$probe"; then
+      printf '%s\n' "$url"
+    fi
   fi
 
-  return 1
+  return 0
 }
 
 export USER_AGENT
@@ -274,7 +276,7 @@ export -f safe_validate_worker
 
 prepare_validation() {
   declare -A blacklist=()
-  local url meta country grp line
+  local line meta url country grp
 
   while IFS='|' read -r line _; do
     [[ -n "$line" ]] && blacklist["$line"]=1
@@ -285,9 +287,9 @@ prepare_validation() {
     [[ -n "${blacklist[$url]:-}" ]] && continue
 
     if is_cache_valid "$url"; then
-      echo "$url" >> "$VALID_URLS"
+      printf '%s\n' "$url" >> "$VALID_URLS"
     else
-      echo "$url" >> "$CHECK_INPUT"
+      printf '%s\n' "$url" >> "$CHECK_INPUT"
     fi
   done < "$BLOCKS"
 }
@@ -297,10 +299,12 @@ validate_urls() {
 
   echo "🔎 Validando URLs..."
 
-  xargs -P "$PARALLEL_JOBS" -I{} bash -lc 'safe_validate_worker "$@"' _ "{}" < "$CHECK_INPUT" |
-    sort -u >> "$VALID_URLS"
-
-  sort -u "$VALID_URLS" -o "$VALID_URLS"
+  xargs \
+    -P "$PARALLEL_JOBS" \
+    -I{} \
+    bash -lc 'safe_validate_worker "$@"' _ "{}" \
+    < "$CHECK_INPUT" |
+    sort -u > "$VALID_URLS"
 }
 
 build_kept() {
