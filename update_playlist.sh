@@ -99,41 +99,26 @@ country_from_text() {
   local s
   s=$(normalize "$1")
   case "$s" in
-    *BRAZIL*|*BRASIL*) printf 'BR
-' ;;
-    *PORTUGAL*) printf 'PT
-' ;;
-    *ARGENTINA*) printf 'AR
-' ;;
-    *MEXICO*) printf 'MX
-' ;;
-    *PERU*) printf 'PE
-' ;;
-    *SPAIN*|*ESPANA*|*ESPAÑA*) printf 'ES
-' ;;
-    *UNITED*STATES*|*USA*) printf 'US
-' ;;
-    *UNITED*KINGDOM*|*UK*|*BRITAIN*) printf 'GB
-' ;;
-    *ITALY*|*ITALIA*) printf 'IT
-' ;;
-    *FRANCE*) printf 'FR
-' ;;
-    *JAPAN*) printf 'JP
-' ;;
-    *) printf 'UN
-' ;;
+    *BRAZIL*|*BRASIL*) printf 'BR\n' ;;
+    *PORTUGAL*) printf 'PT\n' ;;
+    *ARGENTINA*) printf 'AR\n' ;;
+    *MEXICO*) printf 'MX\n' ;;
+    *PERU*) printf 'PE\n' ;;
+    *SPAIN*|*ESPANA*|*ESPAÑA*) printf 'ES\n' ;;
+    *UNITED*STATES*|*USA*) printf 'US\n' ;;
+    *UNITED*KINGDOM*|*UK*|*BRITAIN*) printf 'GB\n' ;;
+    *ITALY*|*ITALIA*) printf 'IT\n' ;;
+    *FRANCE*) printf 'FR\n' ;;
+    *JAPAN*) printf 'JP\n' ;;
+    *) printf 'UN\n' ;;
   esac
 }
 
 safe_curl_test() {
   local url="$1"
   local code
-  code=$(curl -sL -r 0-1024 --connect-timeout 8 --max-time 8 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || printf '0')
-  case "$code" in
-    200|206) return 0 ;;
-    *) return 1 ;;
-  esac
+  code=$(curl -sL -A "Mozilla/5.0" --connect-timeout 8 --max-time 12 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || printf '000')
+  [ "$code" != "000" ]
 }
 
 fetch_all() {
@@ -173,20 +158,15 @@ build_master() {
   local final_blocks="$1"
   local c meta url country grp
   : > "$OUTPUT"
-  printf '#EXTM3U
-' > "$OUTPUT"
+  printf '#EXTM3U\n' > "$OUTPUT"
 
   for c in "${COUNTRIES[@]}"; do
-    printf '#EXTGRP:%s
-' "${COUNTRY_NAME[$c]}" >> "$OUTPUT"
+    printf '#EXTGRP:%s\n' "${COUNTRY_NAME[$c]}" >> "$OUTPUT"
     while IFS=$'\t' read -r meta url country grp; do
       [ -z "${meta:-}" ] && continue
       [ -z "${url:-}" ] && continue
       if [ "$country" = "$c" ]; then
-        printf '%s
-%s
-
-' "$meta" "$url" >> "$OUTPUT"
+        printf '%s\n%s\n\n' "$meta" "$url" >> "$OUTPUT"
       fi
     done < "$final_blocks"
   done
@@ -218,11 +198,9 @@ main() {
       if [ -z "$final_country" ]; then
         final_country="$(country_from_text "$meta $grp $url")"
       fi
-      printf '%s\t%s\t%s\t%s
-' "$meta" "$url" "$final_country" "$grp" >> "$kept"
+      printf '%s\t%s\t%s\t%s\n' "$meta" "$url" "$final_country" "$grp" >> "$kept"
     else
-      printf '%s
-' "$url" >> "$NEW_BLACKLIST"
+      printf '%s\n' "$url" >> "$NEW_BLACKLIST"
     fi
   done < "$BLOCKS"
 
