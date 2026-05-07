@@ -8,26 +8,61 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-playlist
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
+
     defaults:
       run:
         shell: bash
+
+    env:
+      PARALLEL_JOBS: 24
+      CACHE_MAX_AGE_DAYS: 2
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Validate script
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl gawk shellcheck gettext-base
+
+      - name: Validate script syntax
         run: |
           test -f ./update_playlist.sh
           bash -n ./update_playlist.sh
           chmod +x ./update_playlist.sh
 
+      - name: Run ShellCheck
+        run: |
+          shellcheck ./update_playlist.sh
+
       - name: Run update script
         run: ./update_playlist.sh
+
+      - name: Upload generated files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playlist-output
+          path: |
+            master.m3u
+            blacklist.txt
+            cache_ok.txt
+            update.log
+          if-no-files-found: warn
+          retention-days: 7
+          compression-level: 0
+          overwrite: true
 
       - name: Commit and push if changed
         run: |
@@ -37,6 +72,7 @@ jobs:
           files=()
           [ -f master.m3u ] && files+=(master.m3u)
           [ -f blacklist.txt ] && files+=(blacklist.txt)
+          [ -f cache_ok.txt ] && files+=(cache_ok.txt)
           [ -f update.log ] && files+=(update.log)
 
           if [ ${#files[@]} -eq 0 ]; then
