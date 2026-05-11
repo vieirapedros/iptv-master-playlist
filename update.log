@@ -42,15 +42,15 @@
 📥 Baixando: https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_all.m3u
 📥 Baixando: https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/tubi_all.m3u
 📥 Baixando: https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u
-📊 Brutos: 40216
-📊 Parseados: 39327
+📊 Brutos: 39972
+📊 Parseados: 39085
 🔎 Validando URLs...
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      40216
-📊 Parseados:   39327
-📊 Funcionais:  1408
-📊 Taxa:        3%
+📊 Brutos:      39972
+📊 Parseados:   39085
+📊 Funcionais:  119
+📊 Taxa:        0%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
