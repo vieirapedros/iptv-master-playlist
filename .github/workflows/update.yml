@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
 
   schedule:
-    # 03:00 UTC = meia-noite no Brasil (UTC-3)
+    # 03:00 UTC = 00:00 Brasil (UTC-3)
     - cron: '0 3 * * *'
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-playlist
+  group: update-iptv-playlist
   cancel-in-progress: false
 
 env:
@@ -19,6 +19,7 @@ env:
 
 jobs:
   update:
+    name: Build Playlist
     runs-on: ubuntu-latest
 
     timeout-minutes: 180
@@ -28,26 +29,13 @@ jobs:
       CACHE_MAX_AGE_DAYS: 2
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-
-          sudo apt-get install -y \
-            curl \
-            gawk \
-            sed \
-            grep \
-            coreutils \
-            findutils \
-            jq \
-            shellcheck
-
       - name: Show environment
         run: |
-          echo "===== SYSTEM INFO ====="
+          echo "===== SYSTEM ====="
           uname -a
 
           echo
@@ -58,27 +46,43 @@ jobs:
           echo "===== CPU ====="
           nproc
 
-      - name: Verify repository files
-        run: |
+          echo
           echo "===== ROOT FILES ====="
           ls -lah
 
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+
+          sudo apt-get install -y \
+            curl \
+            gawk \
+            jq \
+            shellcheck
+
+      - name: Verify required files
+        run: |
           test -f update_playlist.sh || {
             echo "ERRO: update_playlist.sh não encontrado"
             exit 1
           }
 
-      - name: Fix CRLF line endings
+      - name: Fix CRLF
         run: |
           sed -i 's/\r$//' update_playlist.sh
 
       - name: Make script executable
         run: |
-          chmod +x ./update_playlist.sh
+          chmod +x update_playlist.sh
 
       - name: Run ShellCheck
         run: |
-          shellcheck -S error ./update_playlist.sh
+          shellcheck -S error update_playlist.sh
+
+      - name: Create empty runtime files
+        run: |
+          touch blacklist.txt
+          touch cache_ok.txt
 
       - name: Run playlist update
         run: |
@@ -86,6 +90,7 @@ jobs:
 
       - name: Verify generated files
         run: |
+          echo
           echo "===== GENERATED FILES ====="
           ls -lah
 
@@ -95,14 +100,22 @@ jobs:
           }
 
           echo
-          echo "===== OUTPUT SIZE ====="
+          echo "===== MASTER SIZE ====="
           du -h master.m3u
 
           echo
           echo "===== CHANNEL COUNT ====="
           grep -c '^#EXTINF' master.m3u || true
 
-      - name: Commit and push changes
+          echo
+          echo "===== BLACKLIST ====="
+          wc -l blacklist.txt || true
+
+          echo
+          echo "===== CACHE ====="
+          wc -l cache_ok.txt || true
+
+      - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -118,7 +131,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Auto update playlist"
+          git commit -m "Auto update IPTV playlist"
 
           git push origin HEAD:${{ github.ref_name }}
 
@@ -128,6 +141,7 @@ jobs:
         with:
           name: playlist-output
           retention-days: 7
+          if-no-files-found: warn
           path: |
             master.m3u
             blacklist.txt
