@@ -195,8 +195,8 @@ is_cache_valid() {
 
   while IFS='|' read -r cached_url cached_date; do
     [[ "$cached_url" != "$url" ]] && continue
-    epoch_cache="$(date -d "$cached_date" +%s 2>/dev/null || echo 0)"
-    (( epoch_cache == 0 )) && continue
+    epoch="$(date -d "$date_part" +%s 2>/dev/null)"
+    epoch="${epoch:-0}"
     diff=$(( (now - epoch_cache) / 86400 ))
     (( diff <= CACHE_MAX_AGE_DAYS )) && return 0
   done < "$CACHE_OK"
@@ -350,8 +350,8 @@ merge_blacklist() {
 
   while IFS='|' read -r url date_part; do
     [[ -z "$url" ]] && continue
-    epoch="$(date -d "$date_part" +%s 2>/dev/null || echo 0)"
-    (( epoch == 0 )) && continue
+    epoch="$(date -d "$date_part" +%s 2>/dev/null)"
+    epoch="${epoch:-0}"
     (( (now - epoch) / 86400 <= cutoff_days )) && keep["$url|$date_part"]=1
   done < "$BLACKLIST"
 
