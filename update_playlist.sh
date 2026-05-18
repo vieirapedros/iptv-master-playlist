@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -Eeuo pipefail
 
 trap 'rc=$?;
@@ -12,8 +13,7 @@ LOG="update.log"
 
 USER_AGENT="Mozilla/5.0"
 CACHE_MAX_AGE_DAYS="${CACHE_MAX_AGE_DAYS:-2}"
-
-PARALLEL_JOBS="${PARALLEL_JOBS:-1}"
+PARALLEL_JOBS="${PARALLEL_JOBS:-16}"
 
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
@@ -35,7 +35,6 @@ URLS=(
   "https://www.apsattv.com/ssungpor.m3u"
   "https://www.apsattv.com/ssungmex.m3u"
   "https://www.apsattv.com/metax.m3u"
-  "https://www.apsattv.com/moviearkbr.m3u"
   "https://www.apsattv.com/tablo.m3u"
   "https://www.apsattv.com/veely.m3u"
   "https://www.apsattv.com/redeitv.m3u"
@@ -50,17 +49,6 @@ URLS=(
   "https://www.apsattv.com/itlg.m3u"
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
-  "https://github.com/iprtl/m3u/raw/live/Pluto.m3u"
-  "https://github.com/iprtl/m3u/raw/live/Freetv.m3u"
-  "https://raw.githubusercontent.com/abusaeeidx/IPTV-Scraper-Zilla/main/combined-playlist.m3u"
-  "https://raw.githubusercontent.com/appcml/iptv-live-validator/refs/heads/main/output/lista_tv.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/buddylive-combined/refs/heads/main/combined_playlist.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/plutotv_all.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/plex_all.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/roku_all.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_all.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/tubi_all.m3u"
-  "https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u"
 )
 
 COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
@@ -81,6 +69,7 @@ declare -A COUNTRY_NAME=(
 )
 
 TMPDIR="$(mktemp -d)"
+
 RAW="$TMPDIR/raw.m3u"
 BLOCKS="$TMPDIR/blocks.tsv"
 CHECK_INPUT="$TMPDIR/check_input.txt"
@@ -110,17 +99,19 @@ exec > >(tee -a "$LOG") 2>&1
 
 normalize() {
   local s="$1"
+
   s="$(
     printf '%s' "$s" |
-      iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null ||
-      printf '%s' "$s"
+    iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null || printf '%s' "$s"
   )"
+
   printf '%s' "$s" | tr '[:lower:]' '[:upper:]'
 }
 
 country_from_text() {
   local s
   s="$(normalize "$1")"
+
   case "$s" in
     *BRAZIL*|*BRASIL*) echo BR ;;
     *PORTUGAL*) echo PT ;;
@@ -129,7 +120,7 @@ country_from_text() {
     *PERU*) echo PE ;;
     *SPAIN*|*ESPANA*) echo ES ;;
     *UNITED*STATES*|*USA*) echo US ;;
-    *UNITED*KINGDOM*|*UK*|*BRITAIN*) echo GB ;;
+    *UNITED*KINGDOM*|*UK*) echo GB ;;
     *ITALY*|*ITALIA*) echo IT ;;
     *FRANCE*) echo FR ;;
     *JAPAN*) echo JP ;;
@@ -142,44 +133,60 @@ fetch_all() {
   local url
 
   for url in "${URLS[@]}"; do
+
+    [[ -z "${url:-}" ]] && continue
     [[ -n "${seen[$url]:-}" ]] && continue
+
     seen["$url"]=1
 
     echo "📥 Baixando: $url"
 
-    if ! curl \
+    curl \
       -fsSL \
       -A "$USER_AGENT" \
-      --connect-timeout 10 \
-      --max-time 30 \
-      --retry 2 \
-      --retry-delay 1 \
-      "$url" 2>/dev/null | sed '/^#EXTM3U$/d' >> "$RAW"
-    then
-      echo "⚠️ Falhou: $url"
-    fi
+      --connect-timeout 5 \
+      --max-time 20 \
+      --retry 1 \
+      "$url" 2>/dev/null |
+      sed '/^#EXTM3U$/d' >> "$RAW" || true
+
   done
 }
 
 parse_blocks() {
   awk '
-    function trim(s){ gsub(/^[ \t]+|[ \t]+$/, "", s); return s }
+    function trim(s){
+      gsub(/^[ \t]+|[ \t]+$/, "", s)
+      return s
+    }
 
     /^#EXTINF:/ {
       meta=$0
       grp=""
       country=""
-      if (match($0, /tvg-country="[^"]+"/)) country=substr($0, RSTART+13, RLENGTH-14)
-      if (match($0, /group-title="[^"]+"/)) grp=substr($0, RSTART+13, RLENGTH-14)
+
+      if (match($0, /tvg-country="[^"]+"/))
+        country=substr($0, RSTART+13, RLENGTH-14)
+
+      if (match($0, /group-title="[^"]+"/))
+        grp=substr($0, RSTART+13, RLENGTH-14)
+
       next
     }
 
-    $0 ~ /^https?:\/\// {
+    /^https?:\/\// {
       url=trim($0)
-      if (url == "" || meta == "") next
+
+      if (meta == "" || url == "")
+        next
+
       key=meta "|" url
-      if (seen[key]++) next
+
+      if (seen[key]++)
+        next
+
       print meta "\t" url "\t" country "\t" grp
+
       meta=""
       grp=""
       country=""
@@ -189,16 +196,28 @@ parse_blocks() {
 
 is_cache_valid() {
   local url="$1"
-  local cached_url cached_date now epoch_cache diff
+  local cached_url cached_date
+  local now epoch_cache diff
 
   now="$(date +%s)"
 
-  while IFS='|' read -r cached_url cached_date; do
-    [[ "$cached_url" != "$url" ]] && continue
-    epoch="$(date -d "$date_part" +%s 2>/dev/null)"
-    epoch="${epoch:-0}"
+  while IFS='|' read -r cached_url cached_date || [[ -n "${cached_url:-}" ]]; do
+
+    [[ -z "${cached_url:-}" ]] && continue
+    [[ -z "${cached_date:-}" ]] && continue
+    [[ "${cached_url:-}" != "${url:-}" ]] && continue
+
+    epoch_cache="$(date -d "${cached_date:-}" +%s 2>/dev/null || true)"
+
+    epoch_cache="${epoch_cache//[^0-9]/}"
+    epoch_cache="${epoch_cache:-0}"
+
+    (( epoch_cache == 0 )) && continue
+
     diff=$(( (now - epoch_cache) / 86400 ))
+
     (( diff <= CACHE_MAX_AGE_DAYS )) && return 0
+
   done < "$CACHE_OK"
 
   return 1
@@ -206,62 +225,26 @@ is_cache_valid() {
 
 safe_validate_worker() {
   local url="$1"
-  local headers code ctype probe
 
-  headers="$(
+  [[ -z "${url:-}" ]] && return 0
+
+  local code
+
+  code="$(
     curl \
-      -sLI \
+      -o /dev/null \
+      -L \
+      -s \
+      -w '%{http_code}' \
       -A "$USER_AGENT" \
-      --connect-timeout 5 \
-      --max-time 15 \
-      --retry 1 \
+      --connect-timeout 3 \
+      --max-time 8 \
       "$url" 2>/dev/null || true
   )"
 
-  code="$(
-    printf '%s\n' "$headers" |
-      awk '/^HTTP/{code=$2} END{print code}'
-  )"
-
-  ctype="$(
-    printf '%s\n' "$headers" |
-      awk -F': ' '
-        BEGIN{IGNORECASE=1}
-        /^Content-Type:/{
-          gsub(/\r/,"",$2)
-          print tolower($2)
-          exit
-        }'
-  )"
-
-  if [[ "$url" =~ \.(m3u8|mpd|ts)(\?|$) ]]; then
+  if [[ "$code" =~ ^2|3 ]]; then
     printf '%s\n' "$url"
-    return 0
   fi
-
-  case "$ctype" in
-    video/*|audio/*|application/vnd.apple.mpegurl*|application/x-mpegurl*)
-      printf '%s\n' "$url"
-      return 0
-      ;;
-  esac
-
-  if [[ "$code" =~ ^2[0-9][0-9]$ ]]; then
-    probe="$(
-      curl \
-        -sr 0-512 \
-        -A "$USER_AGENT" \
-        --connect-timeout 5 \
-        --max-time 10 \
-        "$url" 2>/dev/null || true
-    )"
-
-    if grep -q '#EXTM3U' <<< "$probe"; then
-      printf '%s\n' "$url"
-    fi
-  fi
-
-  return 0
 }
 
 export USER_AGENT
@@ -269,13 +252,15 @@ export -f safe_validate_worker
 
 prepare_validation() {
   declare -A blacklist=()
+
   local line meta url country grp
 
-  while IFS='|' read -r line _; do
-    [[ -n "$line" ]] && blacklist["$line"]=1
+  while IFS='|' read -r line _ || [[ -n "${line:-}" ]]; do
+    [[ -n "${line:-}" ]] && blacklist["$line"]=1
   done < "$BLACKLIST"
 
-  while IFS=$'\t' read -r meta url country grp; do
+  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
+
     [[ -z "${url:-}" ]] && continue
     [[ -n "${blacklist[$url]:-}" ]] && continue
 
@@ -284,6 +269,7 @@ prepare_validation() {
     else
       printf '%s\n' "$url" >> "$CHECK_INPUT"
     fi
+
   done < "$BLOCKS"
 }
 
@@ -296,46 +282,61 @@ validate_urls() {
     -P "$PARALLEL_JOBS" \
     -I{} \
     bash -lc 'safe_validate_worker "$@"' _ "{}" \
-    < "$CHECK_INPUT" |
-    sort -u > "$VALID_URLS"
+    < "$CHECK_INPUT" >> "$VALID_URLS"
+
+  sort -u "$VALID_URLS" -o "$VALID_URLS"
 }
 
 build_kept() {
   declare -A valid=()
+
   local line meta url country grp final_country
 
-  while IFS= read -r line; do
-    [[ -n "$line" ]] && valid["$line"]=1
+  while IFS= read -r line || [[ -n "${line:-}" ]]; do
+    [[ -n "${line:-}" ]] && valid["$line"]=1
   done < "$VALID_URLS"
 
-  while IFS=$'\t' read -r meta url country grp; do
+  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
+
     [[ -z "${url:-}" ]] && continue
 
     if [[ -n "${valid[$url]:-}" ]]; then
-      final_country="$country"
-      [[ -z "$final_country" ]] && final_country="$(country_from_text "$meta $grp $url")"
-      printf '%s\t%s\t%s\t%s\n' "$meta" "$url" "$final_country" "$grp" >> "$KEPT"
+
+      final_country="${country:-}"
+
+      [[ -z "${final_country:-}" ]] &&
+        final_country="$(country_from_text "$meta $grp $url")"
+
+      printf '%s\t%s\t%s\t%s\n' \
+        "$meta" \
+        "$url" \
+        "$final_country" \
+        "$grp" >> "$KEPT"
+
     else
       printf '%s|%(%F)T\n' "$url" -1 >> "$NEW_BLACKLIST"
     fi
+
   done < "$BLOCKS"
 }
 
 update_cache() {
   local now url date line
+
   declare -A cache=()
 
   now="$(date +%F)"
 
-  while IFS='|' read -r url date; do
-    [[ -n "$url" ]] && cache["$url"]="$date"
+  while IFS='|' read -r url date || [[ -n "${url:-}" ]]; do
+    [[ -n "${url:-}" ]] && cache["$url"]="$date"
   done < "$CACHE_OK"
 
-  while IFS= read -r line; do
-    [[ -n "$line" ]] && cache["$line"]="$now"
+  while IFS= read -r line || [[ -n "${line:-}" ]]; do
+    [[ -n "${line:-}" ]] && cache["$line"]="$now"
   done < "$VALID_URLS"
 
   : > "$CACHE_OK"
+
   for line in "${!cache[@]}"; do
     printf '%s|%s\n' "$line" "${cache[$line]}"
   done | sort > "$CACHE_OK"
@@ -344,39 +345,61 @@ update_cache() {
 merge_blacklist() {
   local cutoff_days=7
   local now url date_part epoch line
+
   declare -A keep=()
 
   now="$(date +%s)"
 
-  while IFS='|' read -r url date_part; do
-    [[ -z "$url" ]] && continue
-    epoch="$(date -d "$date_part" +%s 2>/dev/null)"
+  while IFS='|' read -r url date_part || [[ -n "${url:-}" ]]; do
+
+    [[ -z "${url:-}" ]] && continue
+    [[ -z "${date_part:-}" ]] && continue
+
+    epoch="$(date -d "${date_part:-}" +%s 2>/dev/null || true)"
+
+    epoch="${epoch//[^0-9]/}"
     epoch="${epoch:-0}"
-    (( (now - epoch) / 86400 <= cutoff_days )) && keep["$url|$date_part"]=1
+
+    (( epoch == 0 )) && continue
+
+    if (( (now - epoch) / 86400 <= cutoff_days )); then
+      keep["$url|$date_part"]=1
+    fi
+
   done < "$BLACKLIST"
 
-  while IFS= read -r line; do
-    [[ -n "$line" ]] && keep["$line"]=1
+  while IFS= read -r line || [[ -n "${line:-}" ]]; do
+    [[ -n "${line:-}" ]] && keep["$line"]=1
   done < "$NEW_BLACKLIST"
 
-  printf '%s\n' "${!keep[@]}" | sort > "$BLACKLIST"
+  if ((${#keep[@]})); then
+    printf '%s\n' "${!keep[@]}" | sort > "$BLACKLIST"
+  else
+    : > "$BLACKLIST"
+  fi
 }
 
 build_master() {
   declare -A grouped=()
+
   local meta url country grp c
 
-  while IFS=$'\t' read -r meta url country grp; do
+  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
+
     [[ -z "${url:-}" ]] && continue
+
     grouped["$country"]+="$meta"$'\n'"$url"$'\n\n'
+
   done < "$KEPT"
 
   {
     echo '#EXTM3U'
+
     for c in "${COUNTRIES[@]}"; do
       echo "#EXTGRP:${COUNTRY_NAME[$c]}"
       printf '%s' "${grouped[$c]:-}"
     done
+
   } > "$OUTPUT"
 }
 
@@ -384,10 +407,12 @@ main() {
   local total_raw total_parsed total_final success_rate
 
   fetch_all
+
   total_raw="$(grep -c '^#EXTINF' "$RAW" || echo 0)"
   echo "📊 Brutos: $total_raw"
 
   parse_blocks
+
   total_parsed="$(wc -l < "$BLOCKS")"
   echo "📊 Parseados: $total_parsed"
 
