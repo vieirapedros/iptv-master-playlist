@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
+    # 03:00 UTC = meia-noite no Brasil (UTC-3)
     - cron: '0 3 * * *'
 
 permissions:
@@ -46,12 +47,20 @@ jobs:
 
       - name: Show environment
         run: |
-          echo "Runner: $(uname -a)"
-          echo "Bash: $(bash --version | head -n 1)"
-          echo "CPU cores: $(nproc)"
+          echo "===== SYSTEM INFO ====="
+          uname -a
 
-      - name: Verify files
+          echo
+          echo "===== BASH ====="
+          bash --version | head -n 1
+
+          echo
+          echo "===== CPU ====="
+          nproc
+
+      - name: Verify repository files
         run: |
+          echo "===== ROOT FILES ====="
           ls -lah
 
           test -f update_playlist.sh || {
@@ -59,7 +68,7 @@ jobs:
             exit 1
           }
 
-      - name: Fix line endings
+      - name: Fix CRLF line endings
         run: |
           sed -i 's/\r$//' update_playlist.sh
 
@@ -77,6 +86,7 @@ jobs:
 
       - name: Verify generated files
         run: |
+          echo "===== GENERATED FILES ====="
           ls -lah
 
           test -f master.m3u || {
@@ -84,13 +94,15 @@ jobs:
             exit 1
           }
 
-          echo "Tamanho final:"
+          echo
+          echo "===== OUTPUT SIZE ====="
           du -h master.m3u
 
-          echo "Quantidade de canais:"
+          echo
+          echo "===== CHANNEL COUNT ====="
           grep -c '^#EXTINF' master.m3u || true
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -102,7 +114,7 @@ jobs:
             update.log
 
           if git diff --cached --quiet; then
-            echo "Nenhuma alteração para commit"
+            echo "Nenhuma alteração detectada"
             exit 0
           fi
 
