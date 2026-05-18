@@ -35,6 +35,7 @@ URLS=(
   "https://www.apsattv.com/ssungpor.m3u"
   "https://www.apsattv.com/ssungmex.m3u"
   "https://www.apsattv.com/metax.m3u"
+  "https://www.apsattv.com/moviearkbr.m3u"
   "https://www.apsattv.com/tablo.m3u"
   "https://www.apsattv.com/veely.m3u"
   "https://www.apsattv.com/redeitv.m3u"
@@ -49,6 +50,17 @@ URLS=(
   "https://www.apsattv.com/itlg.m3u"
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
+  "https://github.com/iprtl/m3u/raw/live/Pluto.m3u"
+  "https://github.com/iprtl/m3u/raw/live/Freetv.m3u"
+  "https://raw.githubusercontent.com/abusaeeidx/IPTV-Scraper-Zilla/main/combined-playlist.m3u"
+  "https://raw.githubusercontent.com/appcml/iptv-live-validator/refs/heads/main/output/lista_tv.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/buddylive-combined/refs/heads/main/combined_playlist.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/plutotv_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/plex_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/roku_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/tubi_all.m3u"
+  "https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u"
 )
 
 COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
