@@ -1,90 +1,123 @@
-name: Update Playlist
+name: Update IPTV Playlist
 
 on:
   workflow_dispatch:
+
   schedule:
+    # 03:00 UTC = 00:00 Brasil (UTC-3)
     - cron: '0 3 * * *'
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-playlist-${{ github.ref }}
+  group: update-playlist
   cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
 
-    defaults:
-      run:
-        shell: bash
+    timeout-minutes: 180
 
     env:
-      PARALLEL_JOBS: 1
+      PARALLEL_JOBS: 16
       CACHE_MAX_AGE_DAYS: 2
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl gawk shellcheck gettext-base
 
-      - name: Validate script syntax
+          sudo apt-get install -y \
+            curl \
+            gawk \
+            sed \
+            grep \
+            coreutils \
+            findutils \
+            xargs \
+            jq \
+            iconv \
+            shellcheck
+
+      - name: Show environment
         run: |
-          test -f ./update_playlist.sh
-          bash -n ./update_playlist.sh
+          echo "Runner: $(uname -a)"
+          echo "Bash: $(bash --version | head -n 1)"
+          echo "CPU cores: $(nproc)"
+
+      - name: Verify files
+        run: |
+          ls -lah
+
+          test -f update_playlist.sh || {
+            echo "ERRO: update_playlist.sh não encontrado"
+            exit 1
+          }
+
+      - name: Fix line endings
+        run: |
+          sed -i 's/\r$//' update_playlist.sh
+
+      - name: Make script executable
+        run: |
           chmod +x ./update_playlist.sh
 
       - name: Run ShellCheck
         run: |
-          shellcheck ./update_playlist.sh
+          shellcheck -S error ./update_playlist.sh
 
-      - name: Run update script
-        run: ./update_playlist.sh
+      - name: Run playlist update
+        run: |
+          ./update_playlist.sh
 
-      - name: Upload generated files
+      - name: Verify generated files
+        run: |
+          ls -lah
+
+          test -f master.m3u || {
+            echo "ERRO: master.m3u não foi gerado"
+            exit 1
+          }
+
+          echo "Tamanho final:"
+          du -h master.m3u
+
+          echo "Quantidade de canais:"
+          grep -c '^#EXTINF' master.m3u || true
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            master.m3u \
+            blacklist.txt \
+            cache_ok.txt \
+            update.log
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração para commit"
+            exit 0
+          fi
+
+          git commit -m "Auto update playlist"
+
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playlist-output
+          retention-days: 7
           path: |
             master.m3u
             blacklist.txt
             cache_ok.txt
             update.log
-          if-no-files-found: warn
-          retention-days: 7
-          compression-level: 0
-
-      - name: Commit and push if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          files=()
-          [ -f master.m3u ] && files+=(master.m3u)
-          [ -f blacklist.txt ] && files+=(blacklist.txt)
-          [ -f cache_ok.txt ] && files+=(cache_ok.txt)
-          [ -f update.log ] && files+=(update.log)
-
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "Nenhum arquivo gerado."
-            exit 0
-          fi
-
-          git add -- "${files[@]}"
-
-          if git diff --cached --quiet; then
-            echo "Nenhuma mudança para commit."
-            exit 0
-          fi
-
-          git commit -m "Update playlist"
-          git push
