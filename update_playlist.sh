@@ -212,6 +212,10 @@ parse_blocks() {
     /^https?:\/\// {
       url=trim($0)
 
+      # Remove carriage return e chars de controle que quebram xargs
+      gsub(/\r/, "", url)
+      gsub(/[[:cntrl:]]/, "", url)
+
       if (meta == "" || url == "")
         next
 
@@ -344,8 +348,10 @@ validate_urls() {
   total="$(wc -l < "$CHECK_INPUT")"
   echo "🔎 Validando $total URLs com $PARALLEL_JOBS jobs paralelos..."
 
-  # FIX: removido bash -l (desnecessário e causa overhead de login shell)
+  # FIX: -d '\n' evita que xargs interprete aspas/barras dentro das URLs
+  # FIX: -I{} combinado com -d'\n' garante que cada linha vira um argumento literal
   xargs \
+    -d '\n' \
     -P "$PARALLEL_JOBS" \
     -I{} \
     bash -c 'safe_validate_worker "$@"' _ "{}" \
