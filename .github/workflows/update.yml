@@ -22,10 +22,11 @@ jobs:
     name: Build Playlist
     runs-on: ubuntu-latest
 
-    timeout-minutes: 180
+    timeout-minutes: 360
 
     env:
-      PARALLEL_JOBS: 16
+      # FIX: aumentado de 16 para 64 — reduz tempo de validação ~4x
+      PARALLEL_JOBS: 64
       CACHE_MAX_AGE_DAYS: 2
 
     steps:
