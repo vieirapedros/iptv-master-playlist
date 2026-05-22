@@ -5,7 +5,7 @@ on:
 
   schedule:
     # 03:00 UTC = 00:00 Brasil (UTC-3)
-    - cron: '0 3 * * *'
+    - cron: '0 15 * * 1,5'
 
 permissions:
   contents: write
