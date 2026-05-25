@@ -117,14 +117,8 @@ https://brandusa-gousa-1-br.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1,Go USA (EU)
 https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Freetv Drama Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cinereal-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Freetv Sureno Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cinesureno-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Freetv Terror Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-horrorfy-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Freetv Familia Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-juntos-xiaomi/playlist.m3u8
@@ -1315,9 +1309,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=4016
 #EXTINF:-1,1569 Adrenalina Pura TV (BR)
 https://amg00740-sofa-amg00740c7-tcl-us-7126.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,2125 Free TV Crime (BR)
-https://oly-ftvcbr.otteravision.com/oly/ftvcbr/ftvcbr.m3u8
-
 #EXTINF:-1,2127 Pluto TV Rockie Blue (BR)
 https://amg00353-amg00353c44-tcl-us-7113.playouts.now.amagi.tv/playlist/amg00353-lionsgatetvfast-rookieblueportuguese-tclus/playlist.m3u8
 
@@ -1326,9 +1317,6 @@ https://amg00740-sofa-amg00740c13-tcl-us-8730.playouts.now.amagi.tv/playlist.m3u
 
 #EXTINF:-1,2280 Filmelier TV Vida Real (BR)
 https://amg00740-sofa-amg00740c16-tcl-us-8738.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,2400 Free TV Drama (BR)
-https://oly-ftvcbr.otteravision.com/oly/ftvdrbr/ftvdrbr.m3u8
 
 #EXTINF:-1,3050 Moviesphere (BR)
 https://amg00353-amg00353c29-tcl-us-6383.playouts.now.amagi.tv/playlist.m3u8
@@ -1389,9 +1377,6 @@ https://amg01391-sbtinfast-amg01391c6-tcl-us-5081.playouts.now.amagi.tv/playlist
 
 #EXTINF:-1,23098 Travel XP (BR)
 https://mediaworldwidelimited-travelxp-6-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1 tvg-logo="http://dki01q1l7yn3y.cloudfront.net/thumbnails-platform-prod/assets/cs::content::channels/0-2048/1360-LG-Logo-PNG-100x100_v4.png",829 GLORY Kickboxing
-https://932b672f.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfR2xvcnlLaWNrYm94aW5nX0hMUw/playlist.m3u8
 
 #EXTINF:-1,2000 Heartland TV (BR)
 https://amg00353-amg00353c61-samsung-br-8766.playouts.now.amagi.tv/playlist.m3u8
@@ -1746,9 +1731,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00500-studiocitypictu-mytimede-xiao
 
 #EXTINF:-1,Top True Crime Geo
 https://amg00609-palatinmedia-amg00609c2-xiaomi-international-546.playouts.now.amagi.tv/playlist/amg00609-palatinmediafast-toptruecrime-xiaomiinternational/playlist.m3u8
-
-#EXTINF:-1,Craction TV Geo
-https://amg00609-palatinmedia-amg00609c3-xiaomi-international-547.playouts.now.amagi.tv/playlist/amg00609-palatinmediafast-craction-xiaomiinternational/playlist.m3u8
 
 #EXTINF:-1,TopFilme Geo
 https://amg00609-palatinmedia-amg00609c4-xiaomi-international-1862.playouts.now.amagi.tv/playlist/amg00609-palatinmediafast-topfilme-xiaomiinternational/playlist.m3u8
@@ -2196,9 +2178,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=10958
 
 #EXTINF:-1,El Reino Infantil
 https://amg17724-amg17724c3-tcl-br-10079.playouts.now.amagi.tv/playlist/amg17724-purodigitalandstudioslu-elreinoinfantilerpor-tclbr/playlist.m3u8
-
-#EXTINF:-1,GPTV
-https://amg26329-amg26329c1-amgplt0019.playout.now3.amagi.tv/playlist/amg26329-amg26329c1-amgplt0019/playlist.m3u8
 
 #EXTINF:-1,FUEL TV
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvbr-tcl/playlist.m3u8
@@ -3532,12 +3511,6 @@ https://amg01540-apexmedia-amg01540c2-tclideo-northamerica-983.playouts.now.amag
 #EXTINF:-1,Sony One Novelas .MX -TCL
 https://spt-sonyonenovelas-1-mx.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,FreeTV Crime .BR -TCL
-https://oly-ftvcbr.otteravision.com/oly/ftvcbr/ftvcbr.m3u8
-
-#EXTINF:-1,FreeTV Drama .BR -TCL
-https://oly-ftvdrbr.otteravision.com/oly/ftvdrbr/ftvdrbr.m3u8
-
 #EXTINF:-1,FreeTV Sureno -TCL (Geo)
 https://amg01024-amg01024c21-tcl-us-4434.playouts.now.amagi.tv/playlist.m3u8
 
@@ -3792,9 +3765,6 @@ https://amg00163-amg00163c2-tablo-us-9188.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,Mystery Science Theatre
 https://amg00163-amg00163c4-tablo-us-9165.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,Docurama
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01201-cinedigmenterta-docurama-tablo/playlist.m3u8
 
 #EXTINF:-1,Great American Adventures
 https://amg01884-gac-amg01884c2-tablo-us-7399.playouts.now.amagi.tv/playlist.m3u8
