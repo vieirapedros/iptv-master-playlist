@@ -538,9 +538,6 @@ https://lotus.stingray.com/manifest/zenlife-zen001-montreal/samsungbr/master.m3u
 #EXTINF:-1,2197 Luxe Fireplace Vibes
 https://cc-6cs96sqhen1kk.akamaized.net/mt/samsungtv/973/hls/master/playlist.m3u8
 
-#EXTINF:-1,2199 Cozy Vibes
-https://cc-o9vd1sft3o6ei.akamaized.net/mt/samsungtv/974/hls/master/playlist.m3u8
-
 #EXTINF:-1,2200 Stingray Naturescape (BR)
 https://lotus.stingray.com/manifest/naturescape-a003s-montreal/samsungbr/master.m3u8
 
@@ -1461,9 +1458,6 @@ https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist
 
 #EXTINF:-1,Newsworld -TCL
 https://amg01076-lightning-amg01076c3-tcl-us-2445.playouts.now.amagi.tv/playlist/amg01076-lightning-newsworld-tclus/playlist.m3u8
-
-#EXTINF:-1,Newsnet -TCL (Geo)
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-newsnet-tcl-ideo/playlist.m3u8
 
 #EXTINF:-1,ROI .US -TCL
 https://rise-financial-roi-tv-1-us.tcl.wurl.tv/playlist.m3u8
@@ -2446,9 +2440,6 @@ https://newidco-newkid-1-ca.tcltvplus.wurl.tv/playlist.m3u8
 #EXTINF:-1,Kids TV -TCL
 https://jansonmedia-kidstv-1-us.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,WeDO Movies -TCL
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00735-videosolutionsa-w4freemovies-tcl/playlist.m3u8
-
 #EXTINF:-1,Wedo Big Stories c41 not identified -TCL
 https://amg00735-amg00735c41-tcl-us-4255.playouts.now.amagi.tv/playlist.m3u8
 
@@ -3093,9 +3084,6 @@ https://37ed58e7.wurl.com/v1/amc_msgsportszone_1/tablo_us/latest/main/hls/playli
 
 #EXTINF:-1,Fubo Sports Network (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00242-fubotvinc-fubosports-tablo/playlist.m3u8
-
-#EXTINF:-1,Sports News Highlights
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01756-newsnet-sportsnewshighlights-tablo/playlist.m3u8
 
 #EXTINF:-1,Womensports Network 
 https://amg01416-amg01416c2-tablo-us-3842.playouts.now.amagi.tv/playlist.m3u8
