@@ -129,9 +129,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-tucineeurope-xiaomi
 #EXTINF:-1,Cine Classico (EU) Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-cineclasicoeu-xiaomi/playlist.m3u8
 
-#EXTINF:-1,Flash Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-flash-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Team USA
 https://amg01416-amg01416c4-firetv-us-4522.playouts.now.amagi.tv/playlist.m3u8
 
@@ -1059,9 +1056,6 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00315-sportsgrid-sportsgrid-xiaomi/
 
 #EXTINF:-1,Surfer
 https://amg13231-amg13231c4-xiaomi-international-2910.playouts.now.amagi.tv/playlist/amg13231-actvefast-surfer-xiaomiinternational/playlist.m3u8
-
-#EXTINF:-1,Powder
-https://amg13231-amg13231c5-xiaomi-international-2912.playouts.now.amagi.tv/playlist/amg13231-actvefast-powder-xiaomiinternational/playlist.m3u8
 
 #EXTINF:-1,Inwild
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwild-xiaomi/playlist.m3u8
@@ -2277,9 +2271,6 @@ https://tclAAAAAA-lawandcrime-tcl-tk7zp.amagi.tv/playlist/tclAAAAAA-lawandcrime-
 
 #EXTINF:-1,Naruto -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-naruto-tcl/playlist.m3u8
-
-#EXTINF:-1,Brat TV -TCL
-https://tclAAAAAA-brat-tcl-2mpk7.amagi.tv/playlist/tclAAAAAA-brat-tcl/playlist.m3u8
 
 #EXTINF:-1,Brat TV alt -TCL (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-brattv-tcl-ideo/playlist.m3u8
