@@ -586,6 +586,12 @@ https://cc-zv5hyc9jj47n5.akamaized.net/ogc/nsprt/nsprt_h265.m3u8
 #EXTINF:-1,2310 GE TV (BR) 
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8
 
+#EXTINF:-1,2311 Canal Goat (BR)
+https://cng-cngt-samsungtvplus-br.otteravision.com/cng/cngt/cngt.m3u8
+
+#EXTINF:-1,2311 Canal Goat (BR) alt H265
+https://cng-cngt-samsungtvplus-br.otteravision.com/cng/cngt/cngt_h265.m3u8
+
 #EXTINF:-1,2312 Desimpedidos (BR)
 https://cc-vvkv6xjfc6w5v.akamaized.net/ogc/desi/desi.m3u8
 
@@ -660,9 +666,6 @@ https://amg00740-sofa-amg00740c7-tcl-us-7126.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,2670 Adrenalina Pura TV Halloween (BR) (Substituto TCL)
 https://amg00740-sofa-amg00740c15-tcl-us-8747.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,2685 Cindie Lite Portuguese (BR)
-https://cc-hqw8u5r1nshjc.akamaized.net/scheduler/scheduleMaster/352.m3u8
 
 #EXTINF:-1,2695 MyTime Movie Network (BR)
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00500-studiocitypictu-mytimemovie-samsungbr/playlist.m3u8
@@ -1059,9 +1062,6 @@ https://amg13231-amg13231c4-xiaomi-international-2910.playouts.now.amagi.tv/play
 
 #EXTINF:-1,Inwild
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwild-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Inwonder
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonder-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Inwonder HD
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonderhd-xiaomi/playlist.m3u8
@@ -2016,9 +2016,6 @@ https://amg01243-xite-amg01243c25-tcl-us-6509.playouts.now.amagi.tv/playlist.m3u
 
 #EXTINF:-1,XITE Reggae Vibes -TCL (Geo)
 https://amg01243-xite-amg01243c26-tcl-us-6510.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,Now 70s -TCL
-https://amg01076-lightning-amg01076c3-tcl-us-2445.playouts.now.amagi.tv/playlist/amg01076-lightning-now70s-tclus/playlist.m3u8
 
 #EXTINF:-1,Now 80s -TCL
 https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-now80s-tclus/playlist.m3u8
