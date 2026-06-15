@@ -2044,9 +2044,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=3406
 #EXTINF:-1,Outdoor Action TV -TCL
 https://careco-outdoor-action-1-us.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Fox Sports -TCL (Geo)
-https://amg02855-foxsports-amg02855c1-tclideo-na-2100.playouts.now.amagi.tv/playlist/amg02855-foxnewsnetwork-foxsports-tclideona/playlist.m3u8
-
 #EXTINF:-1,Motorvision -TCL
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=3467
 
