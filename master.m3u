@@ -568,6 +568,9 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/DiaEstudio/Dia_TV_BR/Dia_TV.m3u8
 #EXTINF:-1,2301 Caras TV
 https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Caras/CarasTV_BR/CarasTV.m3u8
 
+#EXTINF:-1,2305 Pod Pah (BR)
+https://ogc-ppah-samsungtvplus-br.otteravision.com/ogc/ppah/ppah.m3u8
+
 #EXTINF:-1,2306 Flow TV (BR)
 https://cc-l2unazbogzufr.akamaized.net/gpf/tvfl/tvfl_h265.m3u8
 
@@ -1056,9 +1059,6 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00315-sportsgrid-sportsgrid-xiaomi/
 
 #EXTINF:-1,Surfer
 https://amg13231-amg13231c4-xiaomi-international-2910.playouts.now.amagi.tv/playlist/amg13231-actvefast-surfer-xiaomiinternational/playlist.m3u8
-
-#EXTINF:-1,Inwild
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwild-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Inwonder HD
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonderhd-xiaomi/playlist.m3u8
@@ -1752,9 +1752,6 @@ https://wingspan-airandspace-1-au.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Air and Space .CA -TCL
 https://wingspan-airandspace-1-ca.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Wedo Movies -TCL
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00735-videosolutionsa-watch4movies-tcl/playlist.m3u8
 
 #EXTINF:-1,Trailers from Hell -TCL
 https://bec-trailersfromhell-1-us.tcl.wurl.tv/playlist.m3u8
