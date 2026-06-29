@@ -191,9 +191,6 @@ https://amg01416-amg01416c4-tablo-us-4553.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:None,TV Florida
 https://cdn-tiva-srv6-zcast-com-br.smartbit.co/tvfloridausa/tvfloridausa/playlist.m3u8
 
-#EXTINF:None,TV Difusão
-https://tvdsoultv.acessaradios.com.br/tvdsoultv/tvdsoultv.stream/playlist.m3u8
-
 #EXTGRP:Reino Unido
 #EXTINF:-1,2231 Weather Spy (BR)
 https://jukin-weatherspy-2-br.samsung.wurl.tv/playlist.m3u8
@@ -3219,9 +3216,6 @@ https://40gtv-aovivo.nuvemplay.live/hls/stream.m3u8
 #EXTINF:None,Tv Nordestina
 https://5ad482a77183d.streamlock.net/estudiosabiliojosegmail.com/estudiosabiliojosegmail.com/playlist.m3u8
 
-#EXTINF:None,TV Litoral RN
-https://5ad482a77183d.streamlock.net/tvnordesteegmail.com/tvnordesteegmail.com/playlist.m3u8
-
 #EXTINF:None,TV CNB
 https://5cf4a2c2512a2.streamlock.net/tvcnb/tvcnb/playlist.m3u8
 
@@ -3395,9 +3389,6 @@ https://cdn-tiva-video09-logicahost-com-br.smartbit.co/redefamilia/redefamilia/p
 
 #EXTINF:None,TV Gazin
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvgazin/tvgazin/playlist.m3u8
-
-#EXTINF:None,TV MAX
-https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvmax/tvmax/playlist.m3u8
 
 #EXTINF:None,TV Notícias Agrícolas
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvnoticiasagricolas/tvnoticiasagricolas/playlist.m3u8
