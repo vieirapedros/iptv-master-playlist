@@ -137,9 +137,6 @@ https://brandusa-gousa-1-br.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1,Go USA (EU)
 https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Freetv Familia Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-juntos-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Freetv Accion Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcine-xiaomi/playlist.m3u8
 
@@ -1295,9 +1292,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-traceurban-tcl/playlist.m
 
 #EXTINF:-1,Vice TV
 https://vicetv-vicefast1-firetv.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,Vice News
-https://vicetv-vicefast2-firetv.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,Gusto
 https://amg01077-gusto-gustous-firetv.amagi.tv/playlist.m3u8
@@ -3234,9 +3228,6 @@ https://acesso.ecast.site:3648/live/ritlive.m3u8
 #EXTINF:None,AWTV
 https://awtv.nuvemplay.live/hls/stream.m3u8
 
-#EXTINF:None,TV Portuguesa
-https://cdn-origin-sp.smartbit.co/tvportuguesa/index.m3u8
-
 #EXTINF:None,THELED E
 https://cdn-ssai-dev.smartbit.co/sp/theledextrema/index.m3u8
 
@@ -3263,9 +3254,6 @@ https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/redemeio/index.m3u8
 
 #EXTINF:None,VGS TV
 https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/vgstv/index.m3u8
-
-#EXTINF:None,BH TV
-https://cdn-tiva-sc1-wasidata-com.smartbit.co/Bhtv/video.m3u8
 
 #EXTINF:None,CANAL START
 https://cdn-tiva-srv5-zcast-com-br.smartbit.co/canalstart/canalstart/playlist.m3u8
@@ -3479,9 +3467,6 @@ https://stmv7.samcast.com.br/tvsertao/tvsertao/playlist.m3u8
 
 #EXTINF:None,Tv Life America
 https://streaming.cloudecast.com/hls/tvlifeamerica/index.m3u8
-
-#EXTINF:None,Central TV
-https://tv01.zas.media:1936/centraltvweb/centraltvweb/playlist.m3u8
 
 #EXTINF:None,Rede TV Paraná
 https://tv01.zas.media:1936/redetvparana/redetvparana/playlist.m3u8
