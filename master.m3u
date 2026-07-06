@@ -140,9 +140,6 @@ https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 #EXTINF:-1,Freetv Accion Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcine-xiaomi/playlist.m3u8
 
-#EXTINF:-1,Freetv Accion Latm Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcinelatam-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Freetv Estella us Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-tucineus-xiaomi/playlist.m3u8
 
@@ -1089,9 +1086,6 @@ https://amg13231-amg13231c4-xiaomi-international-2910.playouts.now.amagi.tv/play
 #EXTINF:-1,Inwonder HD
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-inwonderhd-xiaomi/playlist.m3u8
 
-#EXTINF:-1,InTrouble
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00861-terninternation-introuble-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Infast
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00861-terninternation-lifestyle-xiaomi/playlist.m3u8
 
@@ -1950,9 +1944,6 @@ https://amg00376-magellan-amg00376c13-tclideo-northamerica-1369.playouts.now.ama
 #EXTINF:-1,Docsville -TCL
 https://amg01076-lightning-amg01076c2-tcl-us-2470.playouts.now.amagi.tv/playlist/amg01076-lightning-docsville-tclus/playlist.m3u8
 
-#EXTINF:-1,Pulse -TCL
-https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-pulse-tclus/playlist.m3u8
-
 #EXTINF:-1,Xploration Station -TCL
 https://srpdigital-xplorationstation-1-us.tcl.wurl.tv/playlist.m3u8
 
@@ -2535,9 +2526,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00658-canelamediainc-canelatelenove
 #EXTINF:-1,Canela TV -TCL (Geo) 
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00658-canelamediainc-canelatv-tcl-ideo/playlist.m3u8
 
-#EXTINF:-1,Nuestravision -TCL (Geo)  
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01914-nuestravision-nuestravision-tcl-ideo/playlist.m3u8
-
 #EXTINF:-1,Kanal D Drama -TCL
 https://amg01602-amg01602c2-tcl-us-4910.playouts.now.amagi.tv/playlist.m3u8
 
@@ -2804,9 +2792,6 @@ https://amg00136-wbd-amg00136c21-tablo-us-7196.playouts.now.amagi.tv/playlist.m3
 
 #EXTINF:-1,Generation Drama
 https://amg00136-wbd-amg00136c22-tablo-us-7201.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,On The Telly
-https://amg00136-wbd-amg00136c23-tablo-us-7193.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,In The Garage
 https://amg00136-wbd-amg00136c24-tablo-us-7198.playouts.now.amagi.tv/playlist.m3u8
