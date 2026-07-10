@@ -54,9 +54,6 @@ https://amg00627-amg00627c9-xiaomi-international-4915.playouts.now.amagi.tv/play
 #EXTINF:-1,RACER Brasil
 https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist/amg16379-sports7fast-mavtvbrasil-tclus/playlist.m3u8
 
-#EXTINF:-1,Tastemade Brasil
-https://tastemade-tastemadept16intl-tcl-jdsom.amagi.tv/playlist/tastemade-tastemadept16intl-tcl/playlist.m3u8
-
 #EXTINF:-1,UBISOFT TV Brasil
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=11961
 
@@ -3351,17 +3348,11 @@ https://cdn-tiva-video07-logicahost-com-br.smartbit.co/vamborachannel/vamboracha
 #EXTINF:None,FMTV
 https://cdn-tiva-video08-logicahost-com-br.smartbit.co/fmtvbr/fmtvbr/playlist.m3u8
 
-#EXTINF:None,Lider TV
-https://cdn-tiva-video08-logicahost-com-br.smartbit.co/lidertvssp/lidertvssp/playlist.m3u8
-
 #EXTINF:None,Bem + TV
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/bemmaistv01/bemmaistv01/playlist.m3u8
 
 #EXTINF:None,TV Rede Mais Familia
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/redefamilia/redefamilia/playlist.m3u8
-
-#EXTINF:None,TV Gazin
-https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvgazin/tvgazin/playlist.m3u8
 
 #EXTINF:None,TV Notícias Agrícolas
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvnoticiasagricolas/tvnoticiasagricolas/playlist.m3u8
