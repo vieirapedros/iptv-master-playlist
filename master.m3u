@@ -2130,9 +2130,6 @@ https://amg00627-banijay-amg00627c2-tclideo-northamerica-643.playouts.now.amagi.
 #EXTINF:-1,The Biggest Loser -TCL (Geo)
 https://amg00627-banijay-amg00627c3-tclideo-northamerica-641.playouts.now.amagi.tv/playlist/amg00627-banijayfast-thebiggestloser-tclideonorthamerica/playlist.m3u8
 
-#EXTINF:-1,Wipeout Xtra -TCL (Geo)
-https://amg00627-banijay-amg00627c4-tclideo-northamerica-640.playouts.now.amagi.tv/playlist/amg00627-banijayfast-wipeoutxtra-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Fear Factor -TCL (Geo)
 https://amg00627-banijay-amg00627c5-tclideo-northamerica-639.playouts.now.amagi.tv/playlist/amg00627-banijayfast-fearfactor-tclideonorthamerica/playlist.m3u8
 
@@ -3326,9 +3323,6 @@ https://live.tvinterior.com.br/hls/stream.m3u8
 
 #EXTINF:None,Alpha Channel TV
 https://maystreaming.cloudecast.com/alphachannel/index.m3u8
-
-#EXTINF:None,REISEN CLUBE TV
-https://pop.uniquetv.com.br/reisenclubetv/video.m3u8
 
 #EXTINF:None,Conexão TV
 https://pop.uniquetv.com.br/tvconexao/video.m3u8
