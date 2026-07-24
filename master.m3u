@@ -1635,9 +1635,6 @@ https://amg00500-amg00500c5-tcl-us-3590.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,Mytime Movie Network c6 English text and cc -TCL (Geo)
 https://amg00500-amg00500c6-tcl-us-3597.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Freemovies Plus -TCL (Geo)
-https://amg02042-ottstudio-amg02042c15-tcl-us-949.playouts.now.amagi.tv/playlist/amg02042-ottstudiofast-freemoviespluslite-tclus/playlist.m3u8
-
 #EXTINF:-1,Moviesphere -TCL (Geo)
 https://amg00353-lionsgatestudios-amg00353c2-tclideo-na-2304.playouts.now.amagi.tv/playlist/amg00353-lionsgatetvfast-moviesphere-tclideona/playlist.m3u8
 
@@ -3111,9 +3108,6 @@ http://177.74.174.57:8080/hls/primertv.m3u8
 #EXTINF:None,Onda Digital TV
 http://live.ondadigitaltv.com/ODTV/index.m3u8
 
-#EXTINF:None,TV Educar
-http://v1.comunicabh.com.br/tveducar/tveducar/playlist.m3u8
-
 #EXTINF:None,40 gtv
 https://40gtv-aovivo.nuvemplay.live/hls/stream.m3u8
 
@@ -3156,9 +3150,6 @@ https://cdn-tiva-isaocorp-cloudecast-com.smartbit.co/tvadorar/index.m3u8
 #EXTINF:None,Astral TV
 https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/astraltv/index.m3u8
 
-#EXTINF:None,Play TV
-https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/playtv/index.m3u8
-
 #EXTINF:None,TV Meio
 https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/redemeio/index.m3u8
 
@@ -3179,9 +3170,6 @@ https://cdn-tiva-stmv1-samcast-com-br.smartbit.co/junior4319/junior4319/playlist
 
 #EXTINF:None,TV Erga Omnes
 https://cdn-tiva-stmv1-srvif-com.smartbit.co/grupoergaomnes/grupoergaomnes/playlist.m3u8
-
-#EXTINF:None,Hip Hop Vai Além TV
-https://cdn-tiva-stmv4-voxtvhd-com-br.smartbit.co/carlosdavi6787/carlosdavi6787/playlist.m3u8
 
 #EXTINF:None,Tv Metropolitana Rio
 https://cdn-tiva-stmv5-samcast-com-br.smartbit.co/claudio8701/claudio8701/playlist.m3u8
@@ -3330,32 +3318,11 @@ https://pop.uniquetv.com.br/uniquetv/video.m3u8
 #EXTINF:None,Record News
 https://rnw-rn-soultv.otteravision.com/rnw/rn/rnw_rn.m3u8
 
-#EXTINF:None,VRT Channel
-https://sistemavrt2023.vrtchannel.tv.br:3626/hybrid/play.m3u8
-
-#EXTINF:None,Bitt TV
-https://srt.logicahost.com.br/memfs/f3d27992-7c26-4e18-bd88-e35ce3850065_output_0.m3u8
-
 #EXTINF:None,TV Correio do Imbé
 https://srv2.tvmais.net.br/hls/tvcorreio/index.m3u8
 
-#EXTINF:None,Blits TV
-https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8
-
-#EXTINF:None,TV Folha do Campo
-https://stmv1.transmissaodigital.com/folha-do-campo/folha-do-campo/playlist.m3u8
-
-#EXTINF:None,Q Tal Channel
-https://stmv1.transmissaodigital.com/qtalchannel/qtalchannel/playlist.m3u8
-
 #EXTINF:None,Rede QDM
 https://stmv1.transmissaodigital.com/redeqdm/redeqdm/playlist.m3u8
-
-#EXTINF:None,Atitude New
-https://stmv1.transmissaodigital.com/tvatitudenew/tvatitudenew/playlist.m3u8
-
-#EXTINF:None,Kids Mais
-https://stmv1.transmissaodigital.com/tvkidmais/tvkidmais/playlist.m3u8
 
 #EXTINF:None,OK TV
 https://stmv2.srvsh.com.br/douglas5010/douglas5010/playlist.m3u8
