@@ -615,6 +615,9 @@ https://cc-vvkv6xjfc6w5v.akamaized.net/ogc/desi/desi.m3u8
 #EXTINF:-1,2312 Desimpedidos (BR) alt H265
 https://cc-vvkv6xjfc6w5v.akamaized.net/ogc/desi/desi_h265.m3u8
 
+#EXTINF:-1,2314 Xsports (BR)
+https://pb-r54iiecsw1gj5.akamaized.net/XSports.m3u8
+
 #EXTINF:-1,2326 Fuel TV (BR)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvbr-samsungbr/playlist.m3u8
 
