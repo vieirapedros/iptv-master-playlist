@@ -2124,9 +2124,6 @@ https://amg00627-banijay-amg00627c7-tclideo-northamerica-644.playouts.now.amagi.
 #EXTINF:-1,Deal or no Deal -TCL (Geo)
 https://amg00627-banijay-amg00627c2-tclideo-northamerica-643.playouts.now.amagi.tv/playlist/amg00627-banijayfast-dealornodeal-tclideonorthamerica/playlist.m3u8
 
-#EXTINF:-1,The Biggest Loser -TCL (Geo)
-https://amg00627-banijay-amg00627c3-tclideo-northamerica-641.playouts.now.amagi.tv/playlist/amg00627-banijayfast-thebiggestloser-tclideonorthamerica/playlist.m3u8
-
 #EXTINF:-1,Fear Factor -TCL (Geo)
 https://amg00627-banijay-amg00627c5-tclideo-northamerica-639.playouts.now.amagi.tv/playlist/amg00627-banijayfast-fearfactor-tclideonorthamerica/playlist.m3u8
 
@@ -3237,9 +3234,6 @@ https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvavivandonacoes/tvavivan
 #EXTINF:None,TV Nova MT
 https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvnovaweb/tvnovaweb/playlist.m3u8
 
-#EXTINF:None,TV PAMPA
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvpampa/tvpampa/playlist.m3u8
-
 #EXTINF:None,TV Reconcavo
 https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvreconcavo/tvreconcavo/playlist.m3u8
 
@@ -3347,9 +3341,6 @@ https://tvgrandenatalhdtv.duckdns.org:3334/hls/live.m3u8
 
 #EXTINF:None,UMA TV
 https://umatv.nuvemplay.live/hls/stream.m3u8
-
-#EXTINF:None,Veza TV
-https://vezatv.mediastreaming.com.br/vezatv/live.stream/playlist.m3u8
 
 #EXTINF:None,AG Tv
 https://video01.brascast.com/grezzana1839/grezzana1839/playlist.m3u8
