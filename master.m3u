@@ -54,9 +54,6 @@ https://amg00627-amg00627c9-xiaomi-international-4915.playouts.now.amagi.tv/play
 #EXTINF:-1,RACER Brasil
 https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist/amg16379-sports7fast-mavtvbrasil-tclus/playlist.m3u8
 
-#EXTINF:-1,UBISOFT TV Brasil
-https://stream.ads.ottera.tv/playlist.m3u8?network_id=11961
-
 #EXTINF:-1,MasterChef Brasil
 https://amg00627-banijay-amg00627c9-tcl-us-3379.playouts.now.amagi.tv/playlist/amg00627-banijayfast-masterchefbrazil-tclus/playlist.m3u8
 
@@ -235,9 +232,6 @@ https://amg01821-lovetv-amg01821c21-tcl-us-4060.playouts.now.amagi.tv/playlist.m
 #EXTGRP:França
 #EXTINF:-1,Fuel TV (FR)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeafrance-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Wannasee
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01602-themahqfrance-wannasee-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Fuel TV .FR -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeafrance-tcl/playlist.m3u8
@@ -1191,9 +1185,6 @@ https://ixmediasrl-seriallycrime-1-it.xiaomi.wurl.tv/playlist.m3u8
 #EXTINF:-1,Risate al Sud (IT)
 https://ixmedia-srl-risatealsud-1-it.xiaomi.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,The Boat Show (IT)
-https://boatshowtvsrl-theboatshow-1-it.xiaomi.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Chili Alta Tensione (IT)
 https://chili-chili-alta-tensione-1-it.xiaomi.wurl.tv/playlist.m3u8
 
@@ -1523,12 +1514,6 @@ https://amg00315-amg00315c1-tcl-us-3349.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,Craction TV -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-cractionstv-tcl/playlist.m3u8
-
-#EXTINF:-1,Conflict .US -TCL
-https://rightsboosterltd-conflict-1-us.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Conflict .US alt -TCL
-https://rightsboosterltd-conflict-1-us.tcltvplus.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,The Homestyle Channel .AU -TCL
 https://pitch5-thehomestylechannel-1-au.tcl.wurl.tv/playlist.m3u8
@@ -2178,12 +2163,6 @@ https://unbeaten-tcl.amagi.tv/playlist.m3u8
 #EXTINF:-1,Sports Grid Network -TCL (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-sportsgridnetwork-tcl-ideo/playlist.m3u8
 
-#EXTINF:-1,The Boat Show .BR -TCL
-https://vitor-theboatshow-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,The Boat Show .US -TCL
-https://vitor-theboatshow-1-us.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,PBS Kids -TCL (Geo)
 https://amg02333-pbs-amg02333c6-tcl-us-5687.playouts.now.amagi.tv/playlist.m3u8
 
@@ -2643,9 +2622,6 @@ https://dai.google.com/linear/hls/event/RjvF1cd0Qx-65Dz14THpPA/master.m3u8?imafw
 #EXTINF:-1,Real Crime Uncovered by VideoElephant
 https://wurlvideoelephant.global.transmit.live/hls/68b9f02a9347e9b8706d1be7/playlist.m3u8?wurl_channel=1726&wurl_name=CrimeFiles&coppa=0&rdid={DEVICE_ID}&dnt={DNT}&pr={US_PRIVACY}&gdpr={GDPR}&isgdpr={CONSENT}&appname={APP_NAME}&bundleid={APP_BUNDLE}&appstoreurl={APP_STORE_URL}&ifatype={IFA_TYPE}&custom={CUSTOM}&make={DEVICE_MAKE}&model={DEVICE_MODEL}&givn={GIVN}&u_paln={U_PALN}
 
-#EXTINF:-1,Conflict
-https://wurlrightsbooster.global.transmit.live/hls/689fa2beba15bec7b4403ec0/playlist.m3u8?wurl_channel=1336&wurl_name=Conflict&coppa=0&rdid={DEVICE_ID}&dnt={DNT}&pr={US_PRIVACY}&gdpr={GDPR}&isgdpr={CONSENT}&appname={APP_NAME}&bundleid={APP_BUNDLE}&appstoreurl={APP_STORE_URL}&ifatype={IFA_TYPE}&custom={CUSTOM}&make={DEVICE_MAKE}&model={DEVICE_MODEL}&givn={GIVN}&u_paln={U_PALN}
-
 #EXTINF:-1,Sports HQ
 https://dai.google.com/linear/hls/event/9Lq0ERvoSR-z9AwvFS-xYA/master.m3u8?imafw__fw_app_bundle=%5BAPP+ID%5D&imafw__fw_did=%5Bidtype%3AdeviceID%5D&imafw__fw_is_lat=%5BLIMITED+AD+TRACKING%5D&imafw__fw_us_privacy=%5BCCPA+STRING%5D&imafw__fw_vcid2=%5Bunique_identifier%5D&imafw_csid=%5BSITE+SECTION%5D&is_lat=%5BLIMITED+AD+TRACKING%5D
 
@@ -2666,9 +2642,6 @@ https://wurlvideoelephant.global.transmit.live/hls/6877cd30357c1ec5230b48cb/play
 
 #EXTINF:-1,Travel Escapes
 https://wurlvideoelephant.global.transmit.live/hls/6877cd5dcc25a7bfe9220bdd/playlist.m3u8?wurl_channel=1550&wurl_name=TravelEscapes&coppa=0&rdid={DEVICE_ID}&dnt={DNT}&pr={US_PRIVACY}&gdpr={GDPR}&isgdpr={CONSENT}&appname={APP_NAME}&bundleid={APP_BUNDLE}&appstoreurl={APP_STORE_URL}&ifatype={IFA_TYPE}&custom={CUSTOM}&make={DEVICE_MAKE}&model={DEVICE_MODEL}&givn={GIVN}&u_paln={U_PALN}
-
-#EXTINF:-1,Mattel Jr.
-https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=1209&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
 
 #EXTINF:-1,Barbie and Friends by Mattel
 https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=100&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
@@ -3285,9 +3258,6 @@ https://cdn.jmvstream.com/w/LVW-9730/LVW9730_LmUwslM8jt/playlist.m3u8
 #EXTINF:None,America TV
 https://cdn.live.br1.jmvstream.com/webtv/AVJ-12962/playlist/playlist.m3u8
 
-#EXTINF:None,Tv Londres
-https://cdn.tvlondres.com/8744_push_3653_001/05a4e5d3c1769a61f8350e4fc677a4a5.sdp/playlist.m3u8
-
 #EXTINF:None,ATV
 https://csm-e-yopoc1-live-usw2-eb.bln1.yospace.com/csm/extlive/smartbitdev01,cdn2-origin-sp-atv-abr.m3u8
 
@@ -3359,6 +3329,9 @@ https://video11.logicahost.com.br/jornaloreporter/jornaloreporter/playlist.m3u8
 
 #EXTINF:None,Vivax
 https://video11.logicahost.com.br/redevivaxtv/redevivaxtv/playlist.m3u8#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/Images/Daystar_Espanol_400x200.png",603 Daystar Espanol
+https://amg22111-amg22111c1-amgplt0025.playout.now3.amagi.tv/smarttv/64wj6m6d8/playlist_cmaf.m3u8
 
 #EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/feeds/images/foxfirstrun/Divorce_Court_logo_400x200.png",402 Divorce Court
 https://amg30655-amg30655c1-amgplt0023.playout.now3.amagi.tv/ts-us-w2-n1/playlist/amg30655-amg30655c1-amgplt0023/playlist.m3u8?coppa=0
