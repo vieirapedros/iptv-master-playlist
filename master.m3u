@@ -327,17 +327,11 @@ https://rise-financial-roi-tv-1-br.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,1118 Stingray Karaoke
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=4018
 
-#EXTINF:-1,1139 Real Nosey (BR)
-https://nosey-realnosey-1-br.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,1142 Stingray Naturescape
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=4023
 
 #EXTINF:-1,1151 Stingray Music Easy Listening
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=4011
-
-#EXTINF:-1,1160 Nosey (BR)
-https://nosey-3-br.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,1166 Stingray Qello Concerts
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=4021
@@ -740,12 +734,6 @@ https://amg00866-amg00866c8-xiaomi-in-3555.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,Cops (GB)
 https://langleyproductions-cops-2-gb.xiaomi.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey other (EU)
-https://nosey-3-eu.xiaomi.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey (EU)
-https://nosey-realnosey-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Shade TV (EU)
 https://shadeiqllc-shadetv-1-eu.xiaomi.wurl.tv/playlist.m3u8
@@ -1584,27 +1572,6 @@ https://amg01024-amg01024c24-tcl-us-4431.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,FreeTV Hits -TCL (Geo) 
 https://amg01024-amg01024c25-tcl-us-4435.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Nosey Escandalos .CA -TCL 
-https://nosey-3-ca.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .AU -TCL
-https://nosey-3-au.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .SA -TCL
-https://nosey-3-sa.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .BR -TCL
-https://nosey-3-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .DE -TCL
-https://nosey-3-de.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .FR -TCL
-https://nosey-3-fr.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey 3 .MX -TCL
-https://nosey-3-mx.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Filmzie -TCL
 https://filmzie-filmzie-3-us.tcl.wurl.tv/playlist.m3u8
 
@@ -1800,29 +1767,8 @@ https://connection3-ent-mx.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Cinelife -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00308-magnoliapicture-cinelife-tcl/playlist.m3u8
 
-#EXTINF:-1,Real Nosey -TCL
-https://nosey-realnosey-1-us.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Real Nosey alt -TCL
 https://nosey-realnosey-1-us.tcltvplus.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .AU -TCL
-https://nosey-realnosey-1-au.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .CA -TCL
-https://nosey-realnosey-1-ca.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .DE -TCL
-https://nosey-realnosey-1-de.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .FR -TCL
-https://nosey-realnosey-1-fr.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .BR -TCL
-https://nosey-realnosey-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Real Nosey .SA -TCL
-https://nosey-realnosey-1-sa.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Dont tell the Bride -TCL
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-dttb-tcl/playlist.m3u8
@@ -2319,9 +2265,6 @@ https://amg01076-lightning-amg01076c4-tcl-us-2469.playouts.now.amagi.tv/playlist
 #EXTINF:-1,NewsWorld -TCL
 https://amg01076-lightning-amg01076c5-tcl-us-2468.playouts.now.amagi.tv/playlist/amg01076-lightning-newsworld-tclus/playlist.m3u8
 
-#EXTINF:-1,Pulse -TCL
-https://amg01076-lightning-amg01076c8-tcl-us-2447.playouts.now.amagi.tv/playlist/amg01076-lightning-pulse-tclus/playlist.m3u8
-
 #EXTINF:-1,Docsville -TCL
 https://amg01076-lightning-amg01076c9-tcl-us-2480.playouts.now.amagi.tv/playlist/amg01076-lightning-docsville-tclus/playlist.m3u8
 
@@ -2432,9 +2375,6 @@ https://mhz-samsung-linear-us.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,MHZ .CA -TCL
 https://mhz-samsung-linear-ca.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Nosey Escandalos -TCL
-https://nosey-3-us.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Nosey Escandolas alt -TCL
 https://nosey-3-us.tcltvplus.wurl.tv/playlist.m3u8
@@ -3227,9 +3167,6 @@ https://cdn-tiva-video07-logicahost-com-br.smartbit.co/vamborachannel/vamboracha
 
 #EXTINF:None,FMTV
 https://cdn-tiva-video08-logicahost-com-br.smartbit.co/fmtvbr/fmtvbr/playlist.m3u8
-
-#EXTINF:None,Bem + TV
-https://cdn-tiva-video09-logicahost-com-br.smartbit.co/bemmaistv01/bemmaistv01/playlist.m3u8
 
 #EXTINF:None,TV Rede Mais Familia
 https://cdn-tiva-video09-logicahost-com-br.smartbit.co/redefamilia/redefamilia/playlist.m3u8
