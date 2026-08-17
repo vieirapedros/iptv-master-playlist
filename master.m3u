@@ -69,27 +69,8 @@ https://amg01391-sbtinfast-amg01391c5-tcl-us-5080.playouts.now.amagi.tv/playlist
 #EXTINF:-1,Mav TV Brasil -TCL (Geo)
 https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:None,Amazon Sat
-https://cdn-tiva-amazonsat-brasilstream-com-br.smartbit.co/hls/amazonsat/index.m3u8
-
-#EXTINF:None,WTV Brasil
-https://cdn-tiva-stmv7-samcast-com-br.smartbit.co/wtvbrasil/wtvbrasil/playlist.m3u8
-
-#EXTINF:None,TV Mais Brasil
-https://cdn-tiva-stmv8-samcast-com-br.smartbit.co/tvmaisbrasil/tvmaisbrasil/playlist.m3u8
-
-#EXTINF:None,TV Itapê
-https://cdn-tiva-stream01-msolutionbrasil-com-br.smartbit.co/hls/tvitape/live.m3u8
-
-#EXTINF:None,Hackathon Brasil TV
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/hackathonbrasil/hackathonbrasil/playlist.m3u8
-
 #EXTINF:None,Rede UTV Brasil
 https://utvsoultv.acessaradios.com.br/utvsoultv/utvsoultv.stream/playlist.m3u8
-
-#EXTGRP:Portugal
-#EXTINF:None,Assim é Portugal
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/assimeportugal/assimeportugal/playlist.m3u8
 
 #EXTGRP:México
 #EXTINF:-1,Fuel TV .MX -TCL
@@ -103,10 +84,6 @@ https://appletree-mytime-samsungmexico.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,InWonder (Mexico)
 https://inwonder-samsungmexico.amagi.tv/playlist.m3u8
-
-#EXTGRP:Peru
-#EXTINF:None,Peru Channel
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/entertainmentplay/entertainmentplay/playlist.m3u8
 
 #EXTGRP:España
 #EXTINF:-1,10030 TV Jovem Pan News (BR)
@@ -175,9 +152,6 @@ https://brandusa-gousa-1-fr.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Team USA
 https://amg01416-amg01416c4-tablo-us-4553.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:None,TV Florida
-https://cdn-tiva-srv6-zcast-com-br.smartbit.co/tvfloridausa/tvfloridausa/playlist.m3u8
 
 #EXTGRP:Reino Unido
 #EXTINF:-1,2231 Weather Spy (BR)
@@ -938,9 +912,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-sportsgridin-xiaom
 
 #EXTINF:-1,Trace Sports Stars (Asia)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-tracesportsstar-xiaomi/playlist.m3u8
-
-#EXTINF:-1,Zee News (Asia)
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-zeenews-xiaomi/playlist.m3u8
 
 #EXTINF:-1,Zee Business (Asia)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-zeebusiness-xiaomi/playlist.m3u8
@@ -3015,9 +2986,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ewscripps-wtv
 #EXTINF:-1,WTXL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ewscripps-wtxl-tablo/playlist.m3u8
 
-#EXTINF:None,Primer TV
-http://177.74.174.57:8080/hls/primertv.m3u8
-
 #EXTINF:None,Onda Digital TV
 http://live.ondadigitaltv.com/ODTV/index.m3u8
 
@@ -3044,144 +3012,6 @@ https://acesso.ecast.site:3648/live/ritlive.m3u8
 
 #EXTINF:None,AWTV
 https://awtv.nuvemplay.live/hls/stream.m3u8
-
-#EXTINF:None,THELED E
-https://cdn-ssai-dev.smartbit.co/sp/theledextrema/index.m3u8
-
-#EXTINF:None,THELED M
-https://cdn-ssai-dev.smartbit.co/sp/theledmooca/index.m3u8
-
-#EXTINF:None,THELED P
-https://cdn-ssai-dev.smartbit.co/sp/theledpinheiro/index.m3u8
-
-#EXTINF:None,Rede Metrópole
-https://cdn-tiva-isaocorp-cloudecast-com.smartbit.co/metropole/index.m3u8
-
-#EXTINF:None,Tv Adorar
-https://cdn-tiva-isaocorp-cloudecast-com.smartbit.co/tvadorar/index.m3u8
-
-#EXTINF:None,Astral TV
-https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/astraltv/index.m3u8
-
-#EXTINF:None,TV Meio
-https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/redemeio/index.m3u8
-
-#EXTINF:None,VGS TV
-https://cdn-tiva-maystreaming-cloudecast-com.smartbit.co/vgstv/index.m3u8
-
-#EXTINF:None,CANAL START
-https://cdn-tiva-srv5-zcast-com-br.smartbit.co/canalstart/canalstart/playlist.m3u8
-
-#EXTINF:None,TV Alagoinha
-https://cdn-tiva-stmv-jnbhost-com-br.smartbit.co/tvalagoinha/tvalagoinha/playlist.m3u8
-
-#EXTINF:None,D+ TV
-https://cdn-tiva-stmv1-samcast-com-br.smartbit.co/demaistv6503/demaistv6503/playlist.m3u8
-
-#EXTINF:None,TV Marcheti
-https://cdn-tiva-stmv1-samcast-com-br.smartbit.co/junior4319/junior4319/playlist.m3u8
-
-#EXTINF:None,TV Erga Omnes
-https://cdn-tiva-stmv1-srvif-com.smartbit.co/grupoergaomnes/grupoergaomnes/playlist.m3u8
-
-#EXTINF:None,Tv Metropolitana Rio
-https://cdn-tiva-stmv5-samcast-com-br.smartbit.co/claudio8701/claudio8701/playlist.m3u8
-
-#EXTINF:None,TV Alternativa
-https://cdn-tiva-stmv5-samcast-com-br.smartbit.co/wagner7919/wagner7919/playlist.m3u8
-
-#EXTINF:None,Bem Melhor
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/bemmelhor/bemmelhor/playlist.m3u8
-
-#EXTINF:None,Auge TV
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/canalaugetv/canalaugetv/playlist.m3u8
-
-#EXTINF:None,POA Streaming TV
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/poastreaming/poastreaming/playlist.m3u8
-
-#EXTINF:None,RAE TV
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/raetv/raetv/playlist.m3u8
-
-#EXTINF:None,TV A Folha
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/tvafolha/tvafolha/playlist.m3u8
-
-#EXTINF:None,TV COM
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/tvcomsantos/tvcomsantos/playlist.m3u8
-
-#EXTINF:None,TVídeoNews
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/tvideonews/tvideonews/chunklist.m3u8
-
-#EXTINF:None,Viva e Eduque
-https://cdn-tiva-video01-logicahost-com-br.smartbit.co/vivaedeixeviver/vivaedeixeviver/playlist.m3u8
-
-#EXTINF:None,Coletiva TV
-https://cdn-tiva-video02-logicahost-com-br.smartbit.co/coletivatv/coletivatv/playlist.m3u8
-
-#EXTINF:None,TV Petrópolis
-https://cdn-tiva-video02-logicahost-com-br.smartbit.co/tvpetropolis/tvpetropolis/playlist.m3u8
-
-#EXTINF:None,TV Rio Preto
-https://cdn-tiva-video02-logicahost-com-br.smartbit.co/tvriopreto/tvriopreto/playlist.m3u8
-
-#EXTINF:None,WTJ TV
-https://cdn-tiva-video02-logicahost-com-br.smartbit.co/wtjtvminas/wtjtvminas/playlist.m3u8
-
-#EXTINF:None,TV Carioca Net
-https://cdn-tiva-video03-logicahost-com-br.smartbit.co/cariocainternacional1/cariocainternacional1/playlist.m3u8
-
-#EXTINF:None,DM Kids TV
-https://cdn-tiva-video03-logicahost-com-br.smartbit.co/dmkidstv/dmkidstv/playlist.m3u8
-
-#EXTINF:None,TV Sonata
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/isonata/isonata/playlist.m3u8
-
-#EXTINF:None,Pet Lovers TV
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/petloverstv/petloverstv/playlist.m3u8
-
-#EXTINF:None,Sou + Pop TV
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/soumaispop/soumaispop/playlist.m3u8
-
-#EXTINF:None,TV Avivando Nações
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvavivandonacoes/tvavivandonacoes/playlist.m3u8
-
-#EXTINF:None,TV Nova MT
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvnovaweb/tvnovaweb/playlist.m3u8
-
-#EXTINF:None,TV Reconcavo
-https://cdn-tiva-video04-logicahost-com-br.smartbit.co/tvreconcavo/tvreconcavo/playlist.m3u8
-
-#EXTINF:None,Extremo Oriental TV
-https://cdn-tiva-video05-logicahost-com-br.smartbit.co/extremotv/extremotv/playlist.m3u8
-
-#EXTINF:None,RS SPORTS
-https://cdn-tiva-video07-logicahost-com-br.smartbit.co/rssports01/rssports01/playlist.m3u8
-
-#EXTINF:None,RS SPORTS 2
-https://cdn-tiva-video07-logicahost-com-br.smartbit.co/rssports02/rssports02/playlist.m3u8
-
-#EXTINF:None,RS SPORTS 3
-https://cdn-tiva-video07-logicahost-com-br.smartbit.co/rssports03/rssports03/playlist.m3u8
-
-#EXTINF:None,Vambora Channel
-https://cdn-tiva-video07-logicahost-com-br.smartbit.co/vamborachannel/vamborachannel/playlist.m3u8
-
-#EXTINF:None,FMTV
-https://cdn-tiva-video08-logicahost-com-br.smartbit.co/fmtvbr/fmtvbr/playlist.m3u8
-
-#EXTINF:None,TV Rede Mais Familia
-https://cdn-tiva-video09-logicahost-com-br.smartbit.co/redefamilia/redefamilia/playlist.m3u8
-
-#EXTINF:None,TV Notícias Agrícolas
-https://cdn-tiva-video09-logicahost-com-br.smartbit.co/tvnoticiasagricolas/tvnoticiasagricolas/playlist.m3u8
-
-#EXTINF:None,Séries Classic
-https://cdn-tiva-video10-logicahost-com-br.smartbit.co/serieclassic/serieclassic/playlist.m3u8
-
-#EXTINF:None,Tv História
-https://cdn-tiva-video10-logicahost-com-br.smartbit.co/tvhistoria/tvhistoria/playlist.m3u8
-
-#EXTINF:None,TV Mon HD
-https://cdn-tiva-video10-logicahost-com-br.smartbit.co/tvmon/tvmon/playlist.m3u8
 
 #EXTINF:None,Tv Amplitude Juara
 https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/playlist.m3u8
