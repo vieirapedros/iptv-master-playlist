@@ -102,9 +102,6 @@ https://amg01821-amg01821c27-tcl-spain-5969.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,1043 Go Usa (BR)
 https://brandusa-gousa-1-br.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2180 GoUSA TV (BR)
-https://brandusa-gousa-1-br.samsung.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Go USA (EU)
 https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
@@ -666,15 +663,6 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/Sofa_Digital/Filmelier_TV_BR/Fil
 
 #EXTINF:-1,2725 Sony One Cinema (BR)
 https://spt-sonyoneclassicas-1-br.samsung.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Billiards TV (EU)
-https://newidco-billiardstv-1-eu.xiaomi.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,NEW KPOP (EU)
-https://newidco-newkid-1-eu.xiaomi.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Rakuten Viki (EU)
-https://newidco-rakutenviki-2-eu.xiaomi.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Rise Financial (EU)
 https://rise-financial-roi-tv-1-eu.xiaomi.wurl.tv/playlist.m3u8
