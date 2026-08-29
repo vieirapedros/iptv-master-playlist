@@ -111,9 +111,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcine-xiaomi/play
 #EXTINF:-1,Freetv Estella us Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-tucineus-xiaomi/playlist.m3u8
 
-#EXTINF:-1,Tucine Europe (EU) Geo
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-tucineeurope-xiaomi/playlist.m3u8
-
 #EXTINF:-1,Team USA
 https://amg01416-amg01416c4-firetv-us-4522.playouts.now.amagi.tv/playlist.m3u8
 
@@ -550,9 +547,6 @@ https://ogc-ppah-samsungtvplus-br.otteravision.com/ogc/ppah/ppah.m3u8
 #EXTINF:-1,2306 Flow TV (BR)
 https://cc-l2unazbogzufr.akamaized.net/gpf/tvfl/tvfl_h265.m3u8
 
-#EXTINF:-1,2308 Cazé TV (BR)
-https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
-
 #EXTINF:-1,2309 Nsports FAST (BR)
 https://cc-zv5hyc9jj47n5.akamaized.net/ogc/nsprt/nsprt.m3u8
 
@@ -843,9 +837,6 @@ https://amg02051-soulpublishing-amg02051c5-xiaomi-international-383.playouts.now
 
 #EXTINF:-1,123 Go! English (IN)
 https://amg02051-soulpublishing-amg02051c17-xiaomi-in-399.playouts.now.amagi.tv/playlist/amg02051-admecyltd-123goenglish-xiaomiin/playlist.m3u8
-
-#EXTINF:-1,123 Go! Spanish 
-https://amg02051-soulpublishing-amg02051c18-xiaomi-international-372.playouts.now.amagi.tv/playlist/amg02051-admecyltd-123gospanish-xiaomiinternational/playlist.m3u8
 
 #EXTINF:-1,Ideas En 5 Minutos Spanish
 https://amg02051-soulpublishing-amg02051c3-xiaomi-international-370.playouts.now.amagi.tv/playlist/amg02051-admecyltd-5minutecraftsspanish-xiaomiinternational/playlist.m3u8
