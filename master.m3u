@@ -99,12 +99,6 @@ https://amg01391-amg01391c3-tcl-spain-5038.playouts.now.amagi.tv/playlist.m3u8
 https://amg01821-amg01821c27-tcl-spain-5969.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTGRP:Estados Unidos
-#EXTINF:-1,1043 Go Usa (BR)
-https://brandusa-gousa-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go USA (EU)
-https://brandusa-gousa-1-eu.xiaomi.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Freetv Accion Geo
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcine-xiaomi/playlist.m3u8
 
@@ -128,21 +122,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-horrifyeng-tcl/play
 
 #EXTINF:-1,FreeTV Action -TCL (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01024-olympusat-topcineeng-tcl/playlist.m3u8
-
-#EXTINF:-1,Go Usa .AU -TCL
-https://brandusa-gousa-1-au.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go Usa .BR -TCL
-https://brandusa-gousa-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go Usa .MX -TCL
-https://brandusa-gousa-1-mx.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go Usa .DE -TCL
-https://brandusa-gousa-1-de.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Go Usa .FR -TCL
-https://brandusa-gousa-1-fr.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Team USA
 https://amg01416-amg01416c4-tablo-us-4553.playouts.now.amagi.tv/playlist.m3u8
@@ -1996,9 +1975,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amgx0019-amagicontentplu-gustotv-tcl-i
 #EXTINF:-1,Real Life -TCL
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-reallife-tcl/playlist.m3u8
 
-#EXTINF:-1,Commune -TCL
-https://bec-commune-1-us.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Baywatch -TCL (Geo)
 https://amg00145-fremantlemedia-amg00145c2-tclideo-northamerica-617.playouts.now.amagi.tv/playlist/amg00145-fremantlemediafast-baywatch-tclideonorthamerica/playlist.m3u8
 
@@ -3013,9 +2989,6 @@ https://jireh-5-hls-video-us-isp.dps.live/hls-video/567ffde3fa319fadf3419efda256
 #EXTINF:None,TV IN
 https://live.tvinterior.com.br/hls/stream.m3u8
 
-#EXTINF:None,Alpha Channel TV
-https://maystreaming.cloudecast.com/alphachannel/index.m3u8
-
 #EXTINF:None,Conexão TV
 https://pop.uniquetv.com.br/tvconexao/video.m3u8
 
@@ -3057,12 +3030,6 @@ https://umatv.nuvemplay.live/hls/stream.m3u8
 
 #EXTINF:None,AG Tv
 https://video01.brascast.com/grezzana1839/grezzana1839/playlist.m3u8
-
-#EXTINF:None,SBC
-https://video01.brascast.com/rede1250/rede1250/playlist.m3u8
-
-#EXTINF:None,Rede SDP TV
-https://video01.brascast.com/rede8652/rede8652/playlist.m3u8
 
 #EXTINF:None,Rede SP TV
 https://video01.logicahost.com.br/websptv/websptv/playlist.m3u8
