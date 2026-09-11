@@ -21,7 +21,7 @@ https://spt-sonyonesharktankbrasil-1-br.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,2042 CNN Brasil (BR) alt
 https://d25usgadhphvwi.cloudfront.net/hls/main.m3u8
 
-#EXTINF:-1,2049 CNN Brasil Money (BR) (Substituto BRLG)
+#EXTINF:-1,2042 CNN Brasil (BR) (Substituto BRLG)
 https://amg01391-sbtinfast-amg01391c11-lg-br-9982.playouts.now.amagi.tv/playlist/amg01391-addigital-cnnmoneyhevc-lgbr/playlist.m3u8
 
 #EXTINF:-1,2063 New Brasil (BR)
@@ -397,14 +397,14 @@ https://amg01391-sbtinfast-amg01391c6-tcl-us-5081.playouts.now.amagi.tv/playlist
 #EXTINF:-1,23098 Travel XP (BR)
 https://mediaworldwidelimited-travelxp-6-br.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2000 Heartland TV (BR)
-https://amg00353-amg00353c61-samsung-br-8766.playouts.now.amagi.tv/playlist.m3u8
-
 #EXTINF:-1,2000 Reis (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Samsung/Os_Dez_Mandamentos_BR/Os_Dez_Mandamentos.m3u8
 
 #EXTINF:-1,2001 The Chosen (BR)
 https://amg00353-amg00353c84-samsung-br-11495.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,2003 60 Dias infiltrados na prisão (BR)
+https://pb-rgoucsi31222d.akamaized.net/60DaysIn.m3u8
 
 #EXTINF:-1,2003 Novela: A Terra Prometida (BR)
 https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Samsung/ATerraPrometida_BR/ATerraPrometida.m3u8
@@ -421,6 +421,9 @@ https://amg00527-amg00527c5-amgplt0026.playout.now3.amagi.tv/ts-us-w2-n1/playlis
 #EXTINF:-1,2040 Jovem Pan News (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Jovem_Pan/Jovem_Pan_News_BR/Jovem_Pan_News.m3u8
 
+#EXTINF:-1,2043 BandNews FM (BR)
+https://pb-qdlphgd0nvd7v.akamaized.net/BandnewsFM.m3u8
+
 #EXTINF:-1,2059 Veja Mais (BR) 
 https://gpa-vja-samsungtvplus-br.otteravision.com/gpa/vja/vja_h265.m3u8
 
@@ -433,17 +436,20 @@ https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/TV_Aparecida/TV_Aparecida_BR/TV_
 #EXTINF:-1,2080 Canal Rural (BR) 
 https://amg26188-amg26188c2-amgplt0005.playout.now3.amagi.tv/playlist/amg26188-amg26188c2-amgplt0005/playlist.m3u8
 
-#EXTINF:-1,2081 BR IN TV (BR) Substituto LG
+#EXTINF:-1,2082 BR IN TV (BR) Substituto LG
 https://amg26188-amg26188c1-amgplt0026.playout.now3.amagi.tv/playlist/amg26188-amg26188c1-amgplt0026/playlist.m3u8
 
-#EXTINF:-1,2083 WhE Play (BR)
+#EXTINF:-1,2084 WhE Play (BR)
 https://cc-codg0y3nex6h2.akamaized.net/ogc/whepl/whepl.m3u8
 
-#EXTINF:-1,2084 Cultne.tv (BR)
+#EXTINF:-1,2086 Cultne.tv (BR)
 https://cc-wn1j3f2wnu5lr.akamaized.net/manifest.m3u8
 
 #EXTINF:-1,2089 Malhação Fast (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/Malhacao_Fast_BR/Malhacao_Fast.m3u8
+
+#EXTINF:-1,2091 Amor de Aluguel by Noverama
+https://pb-fl34n9hbwzj2v.akamaized.net/AmorDeAluguel.m3u8
 
 #EXTINF:-1,2092 Wedo TV Pele Selvagem (BR)
 https://amg00735-amg00735c49-samsung-br-8325.playouts.now.amagi.tv/playlist.m3u8
@@ -456,6 +462,9 @@ https://amg00627-banijay-amg00627c54-tcl-br-10605.playouts.now.amagi.tv/playlist
 
 #EXTINF:-1,2111 Hardcore Pawn (BR)
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/HardcorePawn_BR/HardcorePawn.m3u8
+
+#EXTINF:-1,2117 Pequenas Grandes Mulheres LA (BR)
+https://pb-ht1r2nvqla54n.akamaized.net/LittleWomenLA.m3u8
 
 #EXTINF:-1,2168 Receitas Fast (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/Receitas_Fast_BR/Receitas_Fast.m3u8
@@ -487,7 +496,7 @@ https://cc-6cs96sqhen1kk.akamaized.net/mt/samsungtv/973/hls/master/playlist.m3u8
 #EXTINF:-1,2200 Stingray Naturescape (BR)
 https://lotus.stingray.com/manifest/naturescape-a003s-montreal/samsungbr/master.m3u8
 
-#EXTINF:-1,2223 Wild Earth alt (BR)
+#EXTINF:-1,2223 Wild Earth (BR)
 https://cc-0573ljsgymaix.akamaized.net/playlist.m3u8
 
 #EXTINF:-1,2240 3 Palavrinhas (BR)
@@ -556,6 +565,9 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvbr-samsungbr/pla
 #EXTINF:-1,2328 Tennis TV Classics (BR)
 https://amg01470-amg01470c1-samsung-br-4768.playouts.now.amagi.tv/playlist.m3u8
 
+#EXTINF:-1,2329 UFC (BR)
+https://pb-drwvokx73qpxg.akamaized.net/playlist.m3u8
+
 #EXTINF:-1,2330 SFT Combat (BR)
 https://hrm-sftc-samsungtvplus-br.otteravision.com/hrm/sftc_h265/sftc_h265.m3u8
 
@@ -597,6 +609,9 @@ https://failarmy-international-br.samsung.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,2485 Just for Laughs Gags (BR)
 https://distributionsjustepourrire-justforlaughsgags-1-br.samsung.wurl.tv/playlist.m3u8
+
+#EXTINF:-1,2512 Mark Rober TV 
+https://pb-slu3sr0tscoho.akamaized.net/MarkRoberTV.m3u8
 
 #EXTINF:-1,2534 Royalworld Nobreza e Dinastias (BR)
 https://cc-4e6doav3fdfaw.akamaized.net/playlist.m3u8
@@ -2754,9 +2769,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-bouncexl-tabl
 
 #EXTINF:-1,Court TV
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-courttv-tablo/playlist.m3u8
-
-#EXTINF:-1,Court TV Legendary
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-courttvlegenderytrials-tablo/playlist.m3u8
 
 #EXTINF:-1,Stories by AMC
 https://amc-amcpresents-1-us.tablo.wurl.tv/playlist.m3u8
