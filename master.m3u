@@ -529,17 +529,8 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/DiaEstudio/Dia_TV_BR/Dia_TV.m3u8
 #EXTINF:-1,2301 Caras TV
 https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Caras/CarasTV_BR/CarasTV.m3u8
 
-#EXTINF:-1,2305 Pod Pah (BR)
-https://ogc-ppah-samsungtvplus-br.otteravision.com/ogc/ppah/ppah.m3u8
-
 #EXTINF:-1,2306 Flow TV (BR)
 https://cc-l2unazbogzufr.akamaized.net/gpf/tvfl/tvfl_h265.m3u8
-
-#EXTINF:-1,2309 Nsports FAST (BR)
-https://cc-zv5hyc9jj47n5.akamaized.net/ogc/nsprt/nsprt.m3u8
-
-#EXTINF:-1,2309 Nsports FAST (BR) (H265)
-https://cc-zv5hyc9jj47n5.akamaized.net/ogc/nsprt/nsprt_h265.m3u8
 
 #EXTINF:-1,2310 GE TV (BR) 
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8
