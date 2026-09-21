@@ -130,6 +130,9 @@ https://cc-zvni27dp2ukyu.akamaized.net/ogc/acel/acel.m3u8
 #EXTINF:-1,2340 People Are Awesome (BR)
 https://jukin-peopleareawesome-2-br.samsung.wurl.tv/playlist.m3u8
 
+#EXTINF:-1,2524 Sobrevivi
+https://jmp2.uk/plu-69fca7fadf0b6d462c0a0ac3.m3u8
+
 #EXTINF:-1,Trailers (UK) Geo
 https://amg01821-lovetv-amg01821c3-xiaomi-international-656.playouts.now.amagi.tv/playlist/amg01821-lovetvfast-trailersuk-xiaomiinternational/playlist.m3u8
 
@@ -391,17 +394,11 @@ https://amg01391-sbtinfast-amg01391c6-tcl-us-5081.playouts.now.amagi.tv/playlist
 #EXTINF:-1,23098 Travel XP (BR)
 https://mediaworldwidelimited-travelxp-6-br.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2000 Reis (BR)
-https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Samsung/Os_Dez_Mandamentos_BR/Os_Dez_Mandamentos.m3u8
-
-#EXTINF:-1,2001 The Chosen (BR)
-https://amg00353-amg00353c84-samsung-br-11495.playouts.now.amagi.tv/playlist.m3u8
+#EXTINF:-1,2003 Pequenas Grandes Mulheres LA (BR)
+https://pb-ht1r2nvqla54n.akamaized.net/LittleWomenLA.m3u8
 
 #EXTINF:-1,2003 60 Dias infiltrados na prisão (BR)
 https://pb-rgoucsi31222d.akamaized.net/60DaysIn.m3u8
-
-#EXTINF:-1,2003 Novela: A Terra Prometida (BR)
-https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Samsung/ATerraPrometida_BR/ATerraPrometida.m3u8
 
 #EXTINF:-1,2038 Record News (BR)
 https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8
@@ -409,14 +406,20 @@ https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8
 #EXTINF:-1,2038 Record News (BR) alt H265
 https://cc-dozswt8rxfksa.akamaized.net/rnw/rn/rnw_rn_h265.m3u8
 
-#EXTINF:-1 2039 SBT News (subtituto LG)
-https://amg00527-amg00527c5-amgplt0026.playout.now3.amagi.tv/ts-us-w2-n1/playlist/amg00527-amg00527c5-amgplt0026/playlist.m3u8
+#EXTINF:-1,2039 SBT News (BR)
+https://dfr80qz435crc.cloudfront.net/QRST/Amagi/SBT/SBTNews_BR/SBTNews.m3u8
 
 #EXTINF:-1,2040 Jovem Pan News (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Jovem_Pan/Jovem_Pan_News_BR/Jovem_Pan_News.m3u8
 
 #EXTINF:-1,2043 BandNews FM (BR)
 https://pb-qdlphgd0nvd7v.akamaized.net/BandnewsFM.m3u8
+
+#EXTINF:-1,2044 Metropoles (Via LG)
+https://amg30834-amg30834c1-amgplt0026.playout.now3.amagi.tv/ts-us-e2-n1/playlist/amg30834-amg30834c1-amgplt0026/playlist.m3u8
+
+#EXTINF:-1,2047 TVT News
+https://pb-k6qlbl6pc1xqh.akamaized.net/TVTNews.m3u8
 
 #EXTINF:-1,2059 Veja Mais (BR) 
 https://gpa-vja-samsungtvplus-br.otteravision.com/gpa/vja/vja_h265.m3u8
@@ -426,6 +429,9 @@ https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/LeadStory/Breaking_News_BR/Break
 
 #EXTINF:-1,2077 TV Aparecida (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/TV_Aparecida/TV_Aparecida_BR/TV_Aparecida.m3u8
+
+#EXTINF:-1,2078 Redevida
+https://dfr80qz435crc.cloudfront.net/QRST/Amagi/Redevida/Redevida_BR/Redevida.m3u8
 
 #EXTINF:-1,2080 Canal Rural (BR) 
 https://amg26188-amg26188c2-amgplt0005.playout.now3.amagi.tv/playlist/amg26188-amg26188c2-amgplt0005/playlist.m3u8
@@ -439,6 +445,9 @@ https://cc-codg0y3nex6h2.akamaized.net/ogc/whepl/whepl.m3u8
 #EXTINF:-1,2086 Cultne.tv (BR)
 https://cc-wn1j3f2wnu5lr.akamaized.net/manifest.m3u8
 
+#EXTINF:-1,2087 Reis (BR)
+https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Samsung/Os_Dez_Mandamentos_BR/Os_Dez_Mandamentos.m3u8
+
 #EXTINF:-1,2089 Malhação Fast (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/Malhacao_Fast_BR/Malhacao_Fast.m3u8
 
@@ -451,14 +460,11 @@ https://amg00735-amg00735c49-samsung-br-8325.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,2093 Novelisima em Português (BR)
 https://cis-no-samsung.otteravision.com/cis/no/no_h265.m3u8
 
-#EXTINF:-1,2105 Topa ou Não Topa EUA (Substituto) TCL
-https://amg00627-banijay-amg00627c54-tcl-br-10605.playouts.now.amagi.tv/playlist/amg00627-banijayfast-dealornodealbr-tclbr/playlist.m3u8
+#EXTINF:-1,2105 Topa ou Não Topa EUA (BR)
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/DealOrNoDeal_BR/DealOrNoDeal.m3u8
 
-#EXTINF:-1,2111 Hardcore Pawn (BR)
+#EXTINF:-1,2111 Negocio Fechado (BR)
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/HardcorePawn_BR/HardcorePawn.m3u8
-
-#EXTINF:-1,2117 Pequenas Grandes Mulheres LA (BR)
-https://pb-ht1r2nvqla54n.akamaized.net/LittleWomenLA.m3u8
 
 #EXTINF:-1,2168 Receitas Fast (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/Receitas_Fast_BR/Receitas_Fast.m3u8
@@ -469,9 +475,6 @@ https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/NewCo/Sabor_e_Arte_BR/Sabor_e_Ar
 #EXTINF:-1,2170 Tastemade
 https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Tastemade/Tastemade_BR/Tastemade.m3u8
 
-#EXTINF:-1,2171 Ideias Incríveis
-https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/The_Soul_Publishing/Ideias_Incriveis_BR/Ideias_Incriveis.m3u8
-
 #EXTINF:-1,2172 Tastemade Casa
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Tastemade/TastemadeHome_BR/TastemadeHome.m3u8
 
@@ -480,6 +483,9 @@ https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Tastemade/TastemadeTravel_BR/Tas
 
 #EXTINF:-1,2178 Travel Plus (BR)
 https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/TravelPlus/Travel_Plus_BR/Travel_Plus.m3u8
+
+#EXTINF:-1,2183 Salon Line (BR)
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/SalonLine/SalonLine_BR/SalonLine.m3u8
 
 #EXTINF:-1,2195 Zenlife by Stingray (BR)
 https://lotus.stingray.com/manifest/zenlife-zen001-montreal/samsungbr/master.m3u8
@@ -511,9 +517,6 @@ https://ubl-ut-samsung.otteravision.com/ubl/ut/ut.m3u8
 #EXTINF:-1,2289 Ubisoft TV (BR) alt H265
 https://ubl-ut-samsung.otteravision.com/ubl/ut/ut_h265.m3u8
 
-#EXTINF:-1,2290 Manual Do Mundo (BR)
-https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Offgrid/Manual_do_Mundo_BR/Manual_do_Mundo.m3u8
-
 #EXTINF:-1,2294 Canal L!ke (BR)
 https://cnl-cl-samsung.otteravision.com/cnl/cl_h265/cl_h265.m3u8
 
@@ -526,7 +529,7 @@ https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Caras/CarasTV_BR/CarasTV.m3u8
 #EXTINF:-1,2306 Flow TV (BR)
 https://cc-l2unazbogzufr.akamaized.net/gpf/tvfl/tvfl_h265.m3u8
 
-#EXTINF:-1,2310 GE TV (BR) 
+#EXTINF:-1,2001 GE TV (BR) 
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8
 
 #EXTINF:-1,2311 Canal Goat (BR)
@@ -547,7 +550,7 @@ https://pb-r54iiecsw1gj5.akamaized.net/XSports.m3u8
 #EXTINF:-1,2326 Fuel TV (BR)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvbr-samsungbr/playlist.m3u8
 
-#EXTINF:-1,2328 Tennis TV Classics (BR)
+#EXTINF:-1,2328 Tennis TV (BR)
 https://amg01470-amg01470c1-samsung-br-4768.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,2329 UFC (BR)
@@ -556,10 +559,10 @@ https://pb-drwvokx73qpxg.akamaized.net/playlist.m3u8
 #EXTINF:-1,2330 SFT Combat (BR)
 https://hrm-sftc-samsungtvplus-br.otteravision.com/hrm/sftc_h265/sftc_h265.m3u8
 
-#EXTINF:-1,2334 Grand Premio (BR)
+#EXTINF:-1,2334 GPTV (BR)
 https://ogc-gptv-samsungtvplus-br.otteravision.com/ogc/gptv/gptv.m3u8
 
-#EXTINF:-1,2334 Grand Premio (BR) H265
+#EXTINF:-1,2334 GPTV (BR) H265
 https://ogc-gptv-samsungtvplus-br.otteravision.com/ogc/gptv/gptv_h265.m3u8
 
 #EXTINF:-1,2336 Acelerados (BR)
@@ -595,14 +598,29 @@ https://failarmy-international-br.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1,2485 Just for Laughs Gags (BR)
 https://distributionsjustepourrire-justforlaughsgags-1-br.samsung.wurl.tv/playlist.m3u8
 
+#EXTINF:-1,2290 Manual Do Mundo (BR)
+https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Offgrid/Manual_do_Mundo_BR/Manual_do_Mundo.m3u8
+
 #EXTINF:-1,2512 Mark Rober TV 
 https://pb-slu3sr0tscoho.akamaized.net/MarkRoberTV.m3u8
+
+#EXTINF:-1,2514 Ideias Incríveis
+https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/The_Soul_Publishing/Ideias_Incriveis_BR/Ideias_Incriveis.m3u8
+
+#EXTINF:-1,2516 Canal do Artesanato
+https://ogc-cda.otteravision.com/ogc/cda/cda.m3u8
+
+#EXTINF:-1,2531 Fatos Desconhecidos (via LG)
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=16826
 
 #EXTINF:-1,2534 Royalworld Nobreza e Dinastias (BR)
 https://cc-4e6doav3fdfaw.akamaized.net/playlist.m3u8
 
 #EXTINF:-1,2550 Heartland (BR)
 https://amg00353-amg00353c61-samsung-br-8766.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,2553 The Chosen (BR)
+https://amg00353-amg00353c84-samsung-br-11495.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,2555 Western Bound em Portugês (BR)            
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=16614
