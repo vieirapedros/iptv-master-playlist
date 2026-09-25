@@ -778,9 +778,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00350-bratstudio-bratttv-xiaomi/pla
 #EXTINF:-1,Whoa That Was Wild (EU)
 https://newsflare-whoathatwaswild-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Ninja Kidz TV (EU)
-https://playworksdigital-ninjakidztv-1-eu.xiaomi.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Now 70s 
 https://lightning-now70s-xiaomi.amagi.tv/playlist.m3u8
 
@@ -2140,9 +2137,6 @@ https://spt-sonyoneclassicas-1-br.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Sony One Emoções .BR -TCL
 https://spt-sonyoneemocoes-1-br.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Degrassi -TCL
-https://dhx-degrassi-1-us.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Darkmatter -TCL
 https://tricoast-tv-dark-matter-01-us.tcltvplus.wurl.tv/playlist.m3u8
 
@@ -2382,9 +2376,6 @@ https://amg02393-awpg-amg02393c2-tcl-us-2151.playouts.now.amagi.tv/playlist/amg0
 
 #EXTINF:-1,Les Amours -TCL (Geo)
 https://amg02393-awpg-amg02393c3-tcl-us-2152.playouts.now.amagi.tv/playlist/amg02393-awpg-leszamours-tclus/playlist.m3u8
-
-#EXTINF:-1,Le meilleur de la tv Realite -TCL (Geo)
-https://amg02393-awpg-amg02393c4-tcl-us-2153.playouts.now.amagi.tv/playlist/amg02393-awpg-lemeilleurdelatvrealite-tclus/playlist.m3u8
 
 #EXTINF:-1,Lesanges -TCL (Geo)
 https://amg02393-awpg-amg02393c5-tcl-us-2154.playouts.now.amagi.tv/playlist/amg02393-awpg-lesanges-tclus/playlist.m3u8
@@ -2937,9 +2928,6 @@ http://live.ondadigitaltv.com/ODTV/index.m3u8
 
 #EXTINF:None,40 gtv
 https://40gtv-aovivo.nuvemplay.live/hls/stream.m3u8
-
-#EXTINF:None,Tv Nordestina
-https://5ad482a77183d.streamlock.net/estudiosabiliojosegmail.com/estudiosabiliojosegmail.com/playlist.m3u8
 
 #EXTINF:None,TV CNB
 https://5cf4a2c2512a2.streamlock.net/tvcnb/tvcnb/playlist.m3u8
