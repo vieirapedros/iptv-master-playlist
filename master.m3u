@@ -685,9 +685,6 @@ https://amg00866-amg00866c7-xiaomi-in-3551.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,News 18 Bangla Geo
 https://amg00866-amg00866c8-xiaomi-in-3555.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Cops (GB)
-https://langleyproductions-cops-2-gb.xiaomi.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Shade TV (EU)
 https://shadeiqllc-shadetv-1-eu.xiaomi.wurl.tv/playlist.m3u8
 
@@ -1957,15 +1954,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeade-tcl/playl
 #EXTINF:-1,Beyblade -TCL German French Spanish (Geo)
 https://amg01796-fastmedia-amg01796c8-tcl-us-4400.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Cops .CA -TCL
-https://langleyproductions-cops-2-ca.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Cops .CA alt -TCL
-https://langley-productions-cops-1-ca.tcltvplus.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Cops .Au -TCL
-https://langleyproductions-cops-2-au.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Tastemade Home -TCL (Geo)
 https://amg00047-tastemade-amg00047c2-tcl-us-5026.playouts.now.amagi.tv/playlist.m3u8
 
@@ -2386,9 +2374,6 @@ https://amg02393-awpg-amg02393c6-tcl-us-2188.playouts.now.amagi.tv/playlist/amg0
 #EXTINF:-1,Out TV Proud -TCL (Geo)
 https://amg00375-fusemedia-amg00375c3-tclideo-northamerica-721.playouts.now.amagi.tv/playlist/amg00375-fusemediafast-outtvproud-tclideonorthamerica/playlist.m3u8
 
-#EXTINF:-1,COPS
-https://wurlrightsbooster.global.transmit.live/hls/689e4bfbc6a7f2ccc9372073/playlist.m3u8?wurl_channel=1089&wurl_name=COPS&coppa=0&rdid={DEVICE_ID}&dnt={DNT}&pr={US_PRIVACY}&gdpr={GDPR}&isgdpr={CONSENT}&appname={APP_NAME}&bundleid={APP_BUNDLE}&appstoreurl={APP_STORE_URL}&ifatype={IFA_TYPE}&custom={CUSTOM}&make={DEVICE_MAKE}&model={DEVICE_MODEL}&givn={GIVN}&u_paln={U_PALN}
-
 #EXTINF:-1,Fawesome She Streams
 https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=5386&live=1&avod=1&app_bundle=%5BFT_APP_STORE_ID%5D&app_name=%5BFT_APP_NAME%5D&ua=%5BFT_USER_AGENT%5D&did=%5BFT_TRACKING_ID%5D&cb=%5BFT_TIMESTAMP%5D&is_lat=%5BFT_TRACKING_ENABLED%5D&us_privacy=%5BFT_US_PRIVACY%5D&content_channel=Fawesome+She+Streams&content_network=%5BFT_CONTENT_NETWORK%5D&ifa_type=%5BFT_IFA_TYPE%5D&coppa=%5BFT_COPPA%5D&device_make=%5BDEVICE_MAKE%5D&device_type=%5BDEVICE_TYPE%5D&device_model=%5BDEVICE_MODEL%5D&app_store_url=%5BAPP_STORE_URL%5D&app_version=%5BAPP_VERSION%5D&player_height=1080&player_width=1920&min_ad_duration=2&max_ad_duration=65&hls_marker=1&content_id=1380&content_rating=&content_genre=Drama&content_cat=IAB1-7&content_producer=Fawesome&genre=Drama&content_title=%5BContent%20Title%5D&content_series=%5BContent%20Series%5D&channelname=Fawesome+She+Streams&ssai_vendor=Publica&ssai_enabled=1&content_length=86400&content_language=en&content_prodqual=1&app_category=%5BAPP_CATEGORY%5D&app_domain=%5BAPP_DOMAIN%5D&app_id=%5BAPP_ID%5D&ifatype=%5BFT_IFA_TYPE%5D&publisher=Fawesome
 
@@ -2707,9 +2692,6 @@ https://amg02298-nuvyoo-amg02298c7-tablo-us-8945.playouts.now.amagi.tv/playlist.
 #EXTINF:-1,Horror Machine
 https://amg02298-nuvyoo-amg02298c8-tablo-us-8946.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,Wild West TV
-https://amg02298-nuvyoo-amg02298c9-tablo-us-9920.playouts.now.amagi.tv/playlist.m3u8
-
 #EXTINF:-1,Outside TV
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00354-outsidetv-outsidetv-tablo/playlist.m3u8
 
@@ -2965,9 +2947,6 @@ https://jireh-5-hls-video-us-isp.dps.live/hls-video/567ffde3fa319fadf3419efda256
 #EXTINF:None,TV IN
 https://live.tvinterior.com.br/hls/stream.m3u8
 
-#EXTINF:None,Unique TV
-https://pop.uniquetv.com.br/uniquetv/video.m3u8
-
 #EXTINF:None,Record News
 https://rnw-rn-soultv.otteravision.com/rnw/rn/rnw_rn.m3u8
 
@@ -3014,15 +2993,21 @@ https://video11.logicahost.com.br/jornaloreporter/jornaloreporter/playlist.m3u8
 https://video11.logicahost.com.br/redevivaxtv/redevivaxtv/playlist.m3u8#EXTM3U
 
 #EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/Images/Daystar_Espanol_400x200.png",603 Daystar Espanol
+https://amg22111-amg22111c1-amgplt0046.playout.now3.amagi.tv/smarttv/64wj6m6d8/playlist_cmaf.m3u8
+
+#EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/Images/Daystar_Espanol_400x200.png",603 Daystar Espanol
 https://amg22111-amg22111c1-amgplt0025.playout.now3.amagi.tv/smarttv/64wj6m6d8/playlist_cmaf.m3u8
+
+#EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/Images/Daystar_Espanol_400x200.png",603 Daystar Espanol
+https://amg22111-amg22111c1-amgplt0047.playout.now3.amagi.tv/smarttv/64wj6m6d8/playlist_cmaf.m3u8
 
 #EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/feeds/images/foxfirstrun/Divorce_Court_logo_400x200.png",402 Divorce Court
 https://amg30655-amg30655c1-amgplt0023.playout.now3.amagi.tv/ts-us-w2-n1/playlist/amg30655-amg30655c1-amgplt0023/playlist.m3u8?coppa=0
 
-#EXTINF:-1 tvg-logo="https://image.xumo.com/v1/channels/channel/99992230/600x200.png?type=white_cropped",772 QVC
+#EXTINF:-1 tvg-logo="https://image.xumo.com/v1/channels/channel/99992230/400x200.png?type=white_cropped",772 QVC
 https://qvc-amd-live.akamaized.net/hls/live/2034113/lsqvc1usott/master.m3u8
 
-#EXTINF:-1 tvg-logo="https://image.xumo.com/v1/channels/channel/99992232/600x200.png?type=white_cropped",773 HSN
+#EXTINF:-1 tvg-logo="https://image.xumo.com/v1/channels/channel/99992232/400x200.png?type=white_cropped",773 HSN
 https://qvc-amd-live.akamaized.net/hls/live/2034113/lshsn1usott/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/feeds/images/MDDH_Logo_Transparent_400x200.png",1534 Million Dollar Dream Home
