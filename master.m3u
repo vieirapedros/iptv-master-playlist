@@ -130,9 +130,6 @@ https://cc-zvni27dp2ukyu.akamaized.net/ogc/acel/acel.m3u8
 #EXTINF:-1,2340 People Are Awesome (BR)
 https://jukin-peopleareawesome-2-br.samsung.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2524 Sobrevivi
-https://jmp2.uk/plu-69fca7fadf0b6d462c0a0ac3.m3u8
-
 #EXTINF:-1,Trailers (UK) Geo
 https://amg01821-lovetv-amg01821c3-xiaomi-international-656.playouts.now.amagi.tv/playlist/amg01821-lovetvfast-trailersuk-xiaomiinternational/playlist.m3u8
 
@@ -2230,12 +2227,6 @@ https://amg01821-lovetv-amg01821c11-tcl-us-4050.playouts.now.amagi.tv/playlist.m
 #EXTINF:-1,Love the Planet Spanish -TCL (Geo)
 https://amg01821-lovetv-amg01821c26-tcl-us-4125.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,PowerNation -TCL (Geo)
-https://amg01258-raycom-amg01258c3-tcl-us-908.playouts.now.amagi.tv/playlist/amg01258-raycomsportsfast-powernation-tclus/playlist.m3u8
-
-#EXTINF:-1,PowerNation Spanish -TCL (Geo)
-https://amg01258-raycom-amg01258c3-tclideo-na-2029.playouts.now.amagi.tv/playlist/amg01258-raycomsportsfast-powernationspanish-tclideona/playlist.m3u8
-
 #EXTINF:-1,Super Simple Songs -TCL
 https://janson-supersimplesongs-1-us.tcl.wurl.tv/playlist.m3u8
 
@@ -2922,9 +2913,6 @@ https://5ffab78b24f94.streamlock.net/pdsertaotv/pdsertaotv/playlist.m3u8
 
 #EXTINF:None,RIT TV
 https://acesso.ecast.site:3648/live/ritlive.m3u8
-
-#EXTINF:None,AWTV
-https://awtv.nuvemplay.live/hls/stream.m3u8
 
 #EXTINF:None,Tv Amplitude Juara
 https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/playlist.m3u8
