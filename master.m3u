@@ -15,9 +15,6 @@ https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist.m
 #EXTINF:-1,3038 Trace Brazil (BR)
 https://amg00520-tcl-tracebrazuca-tcl-u9wpp.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,10028 Sony One Shark Tank Brasil (BR)
-https://spt-sonyonesharktankbrasil-1-br.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,2042 CNN Brasil (BR) alt
 https://d25usgadhphvwi.cloudfront.net/hls/main.m3u8
 
@@ -56,9 +53,6 @@ https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist/a
 
 #EXTINF:-1,MasterChef Brasil
 https://amg00627-banijay-amg00627c9-tcl-us-3379.playouts.now.amagi.tv/playlist/amg00627-banijayfast-masterchefbrazil-tclus/playlist.m3u8
-
-#EXTINF:-1,Sony One Shark Tank Brasil -TCL
-https://spt-sonyonesharktankbrasil-1-br.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Masterchef Brazil -TCL (Geo)
 https://amg00627-banijay-amg00627c9-tcl-us-3379.playouts.now.amagi.tv/playlist.m3u8
@@ -217,9 +211,6 @@ https://amg00740-sofa-amg00740c9-tcl-us-7185.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,1011 GPTV (BR)
 https://amg26329-amg26329c1-amgplt0019.playout.now3.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,1014 Sony One Cinema (BR)
-https://spt-sonyoneclassicas-1-br.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,1016 Filmelier TV (BR)
 https://amg00740-sofa-amg00740c8-tcl-us-7180.playouts.now.amagi.tv/playlist.m3u8
 
@@ -360,9 +351,6 @@ https://amg00520-tcl-traceurban-tcl-8x2hv.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,10020 Spark TV (BR)
 https://candlelightmedia-sparklightlove-3-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,10021 Sony One Emoções (BR)
-https://spt-sonyoneemocoes-1-br.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,10022 Desimpedidos (BR)
 https://ogc-desi-tcl-roku-syndication.otteravision.com/ogc/desi/desi.m3u8
@@ -2116,12 +2104,6 @@ https://brat-tcl.amagi.tv/playlist.m3u8
 #EXTINF:-1,So Real -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/tclAAAAAA-cinedigm-soreal-tcl/playlist.m3u8
 
-#EXTINF:-1,Sony One Cinema .BR -TCL
-https://spt-sonyoneclassicas-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Sony One Emoções .BR -TCL
-https://spt-sonyoneemocoes-1-br.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Darkmatter -TCL
 https://tricoast-tv-dark-matter-01-us.tcltvplus.wurl.tv/playlist.m3u8
 
@@ -2307,9 +2289,6 @@ https://telecine-pelimex-1-mx.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Intouchplus -TCL (Geo)
 https://amg01540-apexmedia-amg01540c2-tclideo-northamerica-983.playouts.now.amagi.tv/playlist/amg01540-apexmediafast-intouchplus-tclideonorthamerica/playlist.m3u8
-
-#EXTINF:-1,Sony One Novelas .MX -TCL
-https://spt-sonyonenovelas-1-mx.tcl.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,FreeTV Sureno -TCL (Geo)
 https://amg01024-amg01024c21-tcl-us-4434.playouts.now.amagi.tv/playlist.m3u8
