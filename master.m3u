@@ -331,9 +331,6 @@ https://hrm-sftc-tcl-roku-syndication.otteravision.com/hrm/sftc/sftc.m3u8
 #EXTINF:-1,4902 Receitas Fast (BR)
 https://amg00716-globo-amg00716c3-tcl-br-9498.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,4980 Canal do Artesanato (BR)
-https://ogc-cda-tcl-roku-syndication.otteravision.com/ogc/cda/cda.m3u8
-
 #EXTINF:-1,8551 Now 70's (BR)
 https://amg01076-lightning-amg01076c1-tcl-us-2471.playouts.now.amagi.tv/playlist/amg01076-lightning-now70s-tclus/playlist.m3u8
 
@@ -351,12 +348,6 @@ https://amg00520-tcl-traceurban-tcl-8x2hv.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,10020 Spark TV (BR)
 https://candlelightmedia-sparklightlove-3-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,10022 Desimpedidos (BR)
-https://ogc-desi-tcl-roku-syndication.otteravision.com/ogc/desi/desi.m3u8
-
-#EXTINF:-1,10022 Desimpedidos H265 (BR)
-https://ogc-desi-tcl-roku-syndication.otteravision.com/ogc/desi/desi_h265.m3u8
 
 #EXTINF:-1,10024 DPA Fast (BR)
 https://amg00716-globo-amg00716c2-tcl-br-9497.playouts.now.amagi.tv/playlist.m3u8
@@ -379,12 +370,6 @@ https://amg01391-sbtinfast-amg01391c6-tcl-us-5081.playouts.now.amagi.tv/playlist
 #EXTINF:-1,23098 Travel XP (BR)
 https://mediaworldwidelimited-travelxp-6-br.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,2003 Pequenas Grandes Mulheres LA (BR)
-https://pb-ht1r2nvqla54n.akamaized.net/LittleWomenLA.m3u8
-
-#EXTINF:-1,2003 60 Dias infiltrados na prisão (BR)
-https://pb-rgoucsi31222d.akamaized.net/60DaysIn.m3u8
-
 #EXTINF:-1,2038 Record News (BR)
 https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8
 
@@ -403,7 +388,10 @@ https://pb-qdlphgd0nvd7v.akamaized.net/BandnewsFM.m3u8
 #EXTINF:-1,2044 Metropoles (Via LG)
 https://amg30834-amg30834c1-amgplt0026.playout.now3.amagi.tv/ts-us-e2-n1/playlist/amg30834-amg30834c1-amgplt0026/playlist.m3u8
 
-#EXTINF:-1,2047 TVT News
+#EXTINF:-1,2045 Oeste TV (BR)
+https://cc-ugbqi59nx461h.akamaized.net/playlist.m3u8
+
+#EXTINF:-1,2047 TVT News (BR)
 https://pb-k6qlbl6pc1xqh.akamaized.net/TVTNews.m3u8
 
 #EXTINF:-1,2059 Veja Mais (BR) 
@@ -451,6 +439,12 @@ https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/DealOrNoDeal_BR/DealOrNo
 #EXTINF:-1,2111 Negocio Fechado (BR)
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Banijay/HardcorePawn_BR/HardcorePawn.m3u8
 
+#EXTINF:-1,2115 60 Dias infiltrados na prisão (BR)
+https://pb-rgoucsi31222d.akamaized.net/60DaysIn.m3u8
+
+#EXTINF:-1,2117 Pequenas Grandes Mulheres LA (BR)
+https://pb-ht1r2nvqla54n.akamaized.net/LittleWomenLA.m3u8
+
 #EXTINF:-1,2168 Receitas Fast (BR)
 https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/Receitas_Fast_BR/Receitas_Fast.m3u8
 
@@ -469,7 +463,7 @@ https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Tastemade/TastemadeTravel_BR/Tas
 #EXTINF:-1,2178 Travel Plus (BR)
 https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/TravelPlus/Travel_Plus_BR/Travel_Plus.m3u8
 
-#EXTINF:-1,2183 Salon Line (BR)
+#EXTINF:-1,2190 Salon Line (BR)
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/SalonLine/SalonLine_BR/SalonLine.m3u8
 
 #EXTINF:-1,2195 Zenlife by Stingray (BR)
@@ -589,7 +583,7 @@ https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Offgrid/Manual_do_Mundo_BR/Manua
 #EXTINF:-1,2512 Mark Rober TV 
 https://pb-slu3sr0tscoho.akamaized.net/MarkRoberTV.m3u8
 
-#EXTINF:-1,2514 Ideias Incríveis
+#EXTINF:-1,2171 Ideias Incríveis
 https://dfr80qz435crc.cloudfront.net/ABCD/Amagi/The_Soul_Publishing/Ideias_Incriveis_BR/Ideias_Incriveis.m3u8
 
 #EXTINF:-1,2516 Canal do Artesanato
@@ -627,6 +621,9 @@ https://amg00740-sofa-amg00740c15-tcl-us-8747.playouts.now.amagi.tv/playlist.m3u
 
 #EXTINF:-1,2695 MyTime Movie Network (BR)
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00500-studiocitypictu-mytimemovie-samsungbr/playlist.m3u8
+
+#EXTINF:-1,2697 Film Plus TV (BR)
+https://pb-7dac9juxe0240.akamaized.net/playlist.m3u8
 
 #EXTINF:-1,2710 Filmelier Esperanca (BR)
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/SofaDigital/FilmelierEsperanca_BR/FilmelierEsperanca.m3u8
@@ -1744,9 +1741,6 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-realcrime-tcl
 #EXTINF:-1,Top True Crime -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-toptruecrime-tcl/playlist.m3u8
 
-#EXTINF:-1,True Crime Now C8 not fully identified -TCL (Geo)
-https://amg00376-magellan-amg00376c8-tcl-us-3385.playouts.now.amagi.tv/playlist.m3u8
-
 #EXTINF:-1,True Crime Now C9 not fully identified -TCL (Geo)
 https://amg00376-magellan-amg00376c9-tcl-us-3386.playouts.now.amagi.tv/playlist.m3u8
 
@@ -2416,9 +2410,6 @@ https://ads.its-newid.net/api/manifest.m3u8?tp=tcl&channel_name=rakutenviki&chan
 #EXTINF:-1,Jubao
 https://api-ott.jubaotv.com/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=11&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
 
-#EXTINF:-1,Toon Goggles en Español
-https://api.toongoggles.com/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=266202&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
-
 #EXTINF:-1,CBS News 24/7
 https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8?imafw__fw_app_bundle=%5BAPP+ID%5D&imafw__fw_did=%5Bidtype%3AdeviceID%5D&imafw__fw_is_lat=%5BLIMITED+AD+TRACKING%5D&imafw__fw_us_privacy=%5BCCPA+STRING%5D&imafw__fw_vcid2=%5Bunique_identifier%5D&imafw_csid=%5BSITE+SECTION%5D&is_lat=%5BLIMITED+AD+TRACKING%5D
 
@@ -2466,12 +2457,6 @@ https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_na
 
 #EXTINF:-1,Hot Wheels Action
 https://api-ott-mat-bf.ottera.tv/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=918&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
-
-#EXTINF:-1,TG Junior
-https://api.toongoggles.com/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=263528&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
-
-#EXTINF:-1,Toon Goggles
-https://api.toongoggles.com/loggingmediaurlpassthrough/a.m3u8?avod=1&app_name=%7B%7BappName%7D%7D&app_bundle=%7B%7BappPackage%7D%7D&device_width=%7B%7BplayerWidth%7D%7D&device_height=%7B%7BplayerHeight%7D%7D&tld=%7B%7BAppDomain%7D%7D&content_cat=%7B%7BAppCat%7D%7D&app_version=%7B%7BAppVersion%7D%7D&app_store_url=%7B%7BAppStoreUrl%7D%7D&did=%7B%7BDID%7D%7D&dnt=%7B%7BDNT%7D%7D&coppa=%7B%7BCoppa%7D%7D&us_privacy=%7B%7BUsPrivacy%7D%7D&gdpr=%7B%7BGdpr%7D%7D&gdpr_consent=%7B%7BGdprConsent%7D%7D&cb=API_randomCB&device_type=tv&device_make=%7B%7BDeviceMake%7D%7D&device_model=%7B%7BDeviceModel%7D%7D&device_os=%7B%7BoperatingSystem%7D%7D&language=%7B%7Blanguage%7D%7D&partner=tcl_tv_plus&livestream=1&connection=wifi&version=12.5&id=263519&platform=html5&slated_vod=0&streaming_format=hls&vid=a.m3u8
 
 #EXTINF:-1,QVC
 https://4c3cfb97.wurl.com/v1/qvchsn_qvc_2/tcltvplus_us/latest/main/hls/playlist.m3u8
