@@ -535,12 +535,6 @@ https://pb-drwvokx73qpxg.akamaized.net/playlist.m3u8
 #EXTINF:-1,2330 SFT Combat (BR)
 https://hrm-sftc-samsungtvplus-br.otteravision.com/hrm/sftc_h265/sftc_h265.m3u8
 
-#EXTINF:-1,2334 GPTV (BR)
-https://ogc-gptv-samsungtvplus-br.otteravision.com/ogc/gptv/gptv.m3u8
-
-#EXTINF:-1,2334 GPTV (BR) H265
-https://ogc-gptv-samsungtvplus-br.otteravision.com/ogc/gptv/gptv_h265.m3u8
-
 #EXTINF:-1,2336 Acelerados (BR)
 https://dfr80qz435crc.cloudfront.net/IJKL/Amagi/Offgrid/Acelerados_BR/Acelerados.m3u8
 
@@ -2890,17 +2884,8 @@ https://stmv7.samcast.com.br/tvsertao/tvsertao/playlist.m3u8
 #EXTINF:None,Tv Life America
 https://streaming.cloudecast.com/hls/tvlifeamerica/index.m3u8
 
-#EXTINF:None,Rede TV Paraná
-https://tv01.zas.media:1936/redetvparana/redetvparana/playlist.m3u8
-
 #EXTINF:None,Masper TV
 https://tv02.zas.media:1936/masper/masper/playlist.m3u8
-
-#EXTINF:None,Tenda TV
-https://tv02.zas.media:1936/tendatv/tendatv/playlist.m3u8
-
-#EXTINF:None,Tv Grande Natal HDTV
-https://tvgrandenatalhdtv.duckdns.org:3334/hls/live.m3u8
 
 #EXTINF:None,UMA TV
 https://umatv.nuvemplay.live/hls/stream.m3u8
