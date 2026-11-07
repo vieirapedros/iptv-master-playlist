@@ -3,9 +3,6 @@
 #EXTINF:-1,1005 MasterChef Brasil (BR)
 https://amg00627-banijay-amg00627c9-tcl-us-3379.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,1006 Grjngo Brasil (BR)
-https://amogonetworx-grjngo-1-br.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,1012 New Brasil (BR)
 https://amg01391-sbtinfast-amg01391c5-tcl-us-5080.playouts.now.amagi.tv/playlist.m3u8
 
@@ -67,6 +64,9 @@ https://amg16379-sports7-amg16379c2-tcl-us-4436.playouts.now.amagi.tv/playlist.m
 https://utvsoultv.acessaradios.com.br/utvsoultv/utvsoultv.stream/playlist.m3u8
 
 #EXTGRP:México
+#EXTINF:-1,KOB4 New Mexico
+https://amg01942-amg01942c1-firetv-us-10169.playouts.now.amagi.tv/playlist.m3u8
+
 #EXTINF:-1,Fuel TV .MX -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvusmexico-tcl/playlist.m3u8
 
@@ -1174,6 +1174,213 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-tracebrazuca-tcl/playlist
 #EXTINF:-1,Trace Urban
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00520-tcl-traceurban-tcl/playlist.m3u8
 
+#EXTINF:-1,Cash Cab
+https://amg00089-amg00089c10-firetv-us-11323.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,TSN The Ocho
+https://amg00089-amg00089c11-firetv-us-11324.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Noovo Cinema
+https://amg00089-amg00089c12-firetv-us-11319.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CTV Movies
+https://amg00089-amg00089c17-firetv-us-11328.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CTV News
+https://amg00089-amg00089c3-firetv-us-11327.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Corner Gas
+https://amg00089-amg00089c4-firetv-us-11322.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CTV Laughs
+https://amg00089-amg00089c8-firetv-us-11330.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,How To
+https://amg00136-wbd-amg00136c16-firetv-us-10124.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Chasing Criminals
+https://amg00136-wbd-amg00136c17-firetv-us-10114.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,The FBI
+https://amg00136-wbd-amg00136c19-firetv-us-10125.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Science is Amazing
+https://amg00136-wbd-amg00136c20-firetv-us-10132.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,In the Garage
+https://amg00136-wbd-amg00136c24-firetv-us-10120.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Travel + Adventure
+https://amg00136-wbd-amg00136c27-firetv-us-10135.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Rustic Retreats
+https://amg00136-wbd-amg00136c34-firetv-us-10346.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Beach Day
+https://amg00136-wbd-amg00136c37-firetv-us-10305.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,HBO Boxing
+https://amg00136-wbd-amg00136c41-firetv-us-10116.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Bizarre Foods
+https://amg00136-wbd-amg00136c42-firetv-us-10118.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,MythBusters
+https://amg00136-wbd-amg00136c44-firetv-us-10119.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,No Reservations
+https://amg00136-wbd-amg00136c45-firetv-us-10117.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Bodas+
+https://amg00136-wbd-amg00136c51-firetv-us-10343.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Aventura de
+https://amg00136-wbd-amg00136c53-firetv-us-10128.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Vidas Extremas
+https://amg00136-wbd-amg00136c54-firetv-us-10127.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Construcciones Asombrosas
+https://amg00136-wbd-amg00136c56-firetv-us-10131.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Expedientes Sobrenaturales
+https://amg00136-wbd-amg00136c58-firetv-us-10129.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,TLN Discovery
+https://amg00136-wbd-amg00136c59-firetv-us-10241.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Young Hollywood
+https://amg00143-amg00143c1-firetv-us-10844.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Crimen
+https://amg00136-wbd-amg00136c60-firetv-us-10130.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Sweet Escapes
+https://amg00136-wbd-amg00136c64-firetv-us-10123.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Welcome Home
+https://amg00136-wbd-amg00136c67-firetv-us-10121.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Paws & Claws
+https://amg00136-wbd-amg00136c7-firetv-us-10307.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Ultimate Builds
+https://amg00136-wbd-amg00136c71-firetv-us-10344.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Home Crashers
+https://amg00136-wbd-amg00136c72-firetv-us-10113.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,The Repair Shop
+https://amg00136-wbd-amg00136c77-firetv-us-10122.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Crime Scenes
+https://amg00136-wbd-amg00136c84-firetv-us-10231.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Extreme Expeditions
+https://amg00136-wbd-amg00136c85-firetv-us-10431.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,All-Out Alaska
+https://amg00136-wbd-amg00136c86-firetv-us-10432.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,My First Place
+https://amg00136-wbd-amg00136c87-firetv-us-10433.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Curb Appeal
+https://amg00136-wbd-amg00136c88-firetv-us-10434.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Extreme Living
+https://amg00136-wbd-amg00136c89-firetv-us-10435.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,WPT
+https://amg00218-amg00218c1-firetv-us-10145.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,LOL!
+https://amg00375-amg00375c15-firetv-us-9834.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Wild Nature Now
+https://amg00376-amg00376c1-firetv-us-9259.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Shockwave
+https://amg00376-amg00376c30-firetv-us-11609.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Space Science Now
+https://amg00376-amg00376c38-firetv-us-11625.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,True Crime Now
+https://amg00376-amg00376c8-firetv-us-11608.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,True Crime Now Espanol
+https://amg00376-amg00376c9-firetv-us-11606.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Hasbro Legends
+https://amg00461-eone-amg00461c11-firetv-us-10109.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Hollywood Y Mas
+https://amg00658-amg00658c105-firetv-us-9070.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Canela Deportes
+https://amg00658-amg00658c11-firetv-us-9069.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Narco Drama
+https://amg00658-amg00658c13-firetv-us-9072.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Canela.TV Clasicos
+https://amg00658-amg00658c9-firetv-us-9068.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Novelas and Dramas
+https://amg00658-amg00658c99-firetv-us-9067.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Love Nature Spanish
+https://amg01515-amg01515c17-firetv-us-11590.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Love Nature
+https://amg01515-amg01515c19-firetv-us-11591.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Love Pets
+https://amg01515-amg01515c44-firetv-us-11599.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Homeful
+https://amg01515-amg01515c51-firetv-us-11595.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Haunt TV
+https://amg01515-amg01515c52-firetv-us-11597.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Great American Rom-coms
+https://amg01884-gac-amg01884c2-firetv-us-9648.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CNN Headlines
+https://amg01918-cnnus-amg01918c1-firetv-us-10200.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CNN Originals
+https://amg01918-cnnus-amg01918c2-firetv-us-10323.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,CNN Noticias
+https://amg01918-cnnus-amg01918c4-firetv-us-10201.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,5ABC Twin Cities Minnesota
+https://amg01942-amg01942c2-firetv-us-10175.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,WDIO ABC
+https://amg01942-amg01942c3-firetv-us-10199.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,News 10+ Rochester NY
+https://amg01942-amg01942c4-firetv-us-10193.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,News Channel 13+
+https://amg01942-amg01942c5-firetv-us-10187.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,5ABC Kaal
+https://amg01942-amg01942c6-firetv-us-10181.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,KHQ Nonstop Local
+https://amg02326-amg02326c1-firetv-us-10499.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Moto
+https://amg12058-amg12058c11-firetv-us-9195.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,Yahoo Sports
+https://amg12058-amg12058c12-firetv-us-9196.playouts.now.amagi.tv/playlist.m3u8
+
 #EXTINF:-1,Vice TV
 https://vicetv-vicefast1-firetv.amagi.tv/playlist.m3u8
 
@@ -1182,18 +1389,6 @@ https://amg01077-gusto-gustous-firetv.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,NBC Chicago News
 https://nbcu-nbcchicagonews-firetv.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,NBCU Telemundo West
-https://nbcu-telemundowest-firetv.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,NBCU Telemundo Florida
-https://nbcu-telemundoflorida-firetv.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,NBCU Telemundo Texas
-https://nbcu-telemundotexas-firetv.amagi.tv/playlist.m3u8
-
-#EXTINF:-1,NBCU Telemundo North East
-https://nbcu-telemundonortheast-firetv.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,Yahoo Finance (Geo)
 https://amg00119-amg00119c1-firetv-us-4205.playouts.now.amagi.tv/playlist.m3u8
@@ -1303,8 +1498,8 @@ https://amg00979-amg00979c1-firetv-us-3622.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1,TYT (Geo)
 https://amg01220-amg01220c1-firetv-us-5111.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,PBS Nature (Geo)
-https://amg02333-pbs-amg02333c11-firetv-us-4242.playouts.now.amagi.tv/playlist.m3u8
+#EXTINF:-1,PBS Science (Geo)
+https://amg02333-pbs-amg02333c7-firetv-us-4238.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,PBS Antiques Roadshow (Geo)
 https://amg02333-pbs-amg02333c8-firetv-us-4239.playouts.now.amagi.tv/playlist.m3u8
@@ -1312,8 +1507,14 @@ https://amg02333-pbs-amg02333c8-firetv-us-4239.playouts.now.amagi.tv/playlist.m3
 #EXTINF:-1,PBS Antiques Road Trip (Geo)
 https://amg02333-pbs-amg02333c9-firetv-us-4249.playouts.now.amagi.tv/playlist.m3u8
 
-#EXTINF:-1,PBS Science (Geo)
-https://amg02333-pbs-amg02333c7-firetv-us-4238.playouts.now.amagi.tv/playlist.m3u8
+#EXTINF:-1,PBS Nature (Geo)
+https://amg02333-pbs-amg02333c11-firetv-us-4242.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,PBS Geneology (Geo)
+https://amg02333-pbs-amg02333c14-firetv-us-8989.playouts.now.amagi.tv/playlist.m3u8
+
+#EXTINF:-1,PBS Travel (Geo)
+https://amg02333-pbs-amg02333c15-firetv-us-8988.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1,BYU TV (Geo)
 https://amg02604-byutv-amg02604c2-firetv-us-4981.playouts.now.amagi.tv/playlist.m3u8
@@ -1552,12 +1753,6 @@ https://amogonetworx-charlie-1-us.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1,Grjngo Films de Western .FR -TCL
 https://amogo-networx-grjngofilmsdewestern-1-fr.tcl.wurl.tv/playlist.m3u8
 
-#EXTINF:-1,Grjngo .BR -TCL
-https://amogonetworx-grjngo-1-br.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Grjngo .MX -TCL
-https://amogonetworx-grjngo-2-mx.tcl.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Grjngo .AU -TCL
 https://amogonetworx-grjngo-3-au.tcl.wurl.tv/playlist.m3u8
 
@@ -1690,9 +1885,6 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00375-fusemedia-fusebeat-tcl/playli
 #EXTINF:-1,Shades of Black -TCL (Geo)
 https://amg00375-fusemedia-amg00375c2-tclideo-northamerica-720.playouts.now.amagi.tv/playlist/amg00375-fusemediafast-shadesofblack-tclideonorthamerica/playlist.m3u8
 
-#EXTINF:-1,Mansa Mix -TCL
-https://mansa-mansamix-1-us.tcltvplus.wurl.tv/playlist.m3u8
-
 #EXTINF:-1,Backstage -TCL (Geo)
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00375-fusemedia-fusebackstage-tcl/playlist.m3u8
 
@@ -1734,12 +1926,6 @@ https://amg00376-magellan-amg00376c9-tcl-us-3386.playouts.now.amagi.tv/playlist.
 
 #EXTINF:-1,Homicide -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01796-fastmediabackbo-homicide-tcl/playlist.m3u8
-
-#EXTINF:-1,Witz .US -TCL
-https://bec-witz-1-us.tcl.wurl.tv/playlist.m3u8
-
-#EXTINF:-1,Witz .US alt -TCL
-https://bec-witz-1-us.tcltvplus.wurl.tv/playlist.m3u8
 
 #EXTINF:-1,Real Stories -TCL
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-realstories-tcl/playlist.m3u8
@@ -2832,12 +3018,6 @@ http://live.ondadigitaltv.com/ODTV/index.m3u8
 
 #EXTINF:None,40 gtv
 https://40gtv-aovivo.nuvemplay.live/hls/stream.m3u8
-
-#EXTINF:None,TV CNB
-https://5cf4a2c2512a2.streamlock.net/tvcnb/tvcnb/playlist.m3u8
-
-#EXTINF:None,CNB American TV
-https://5cf4a2c2512a2.streamlock.net/tvcnbamerican/tvcnbamerican/playlist.m3u8
 
 #EXTINF:None,TV Diário do Sertão
 https://5ffab78b24f94.streamlock.net/pdsertaotv/pdsertaotv/playlist.m3u8
