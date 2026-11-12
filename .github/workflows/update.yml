@@ -106,4 +106,6 @@ jobs:
         run: |
           gh run list --limit 1000 --json databaseId,createdAt \
             --jq '.[] | select((now - (.createdAt | fromdateiso8601)) > 2592000) | .databaseId' \
-            | xargs -r gh run delete
+          | while read -r id; do
+              gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/runs/${id}"
+            done
