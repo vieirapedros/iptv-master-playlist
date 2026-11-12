@@ -100,6 +100,9 @@ URLS=(
   "https://raw.githubusercontent.com/LITUATUI/M3UPT/main/M3U/M3UPT.m3u"
   "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u"
   "https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8"
+
+  # iptv-org — índice global remoto (snapshot local permanece como fallback)
+  "https://iptv-org.github.io/iptv/index.m3u"
 )
 
 # ─── Fontes locais (versionadas no repo) ──────────────────────────────────────
