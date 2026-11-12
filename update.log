@@ -63,38 +63,39 @@
 📥 Baixando: https://raw.githubusercontent.com/LITUATUI/M3UPT/main/M3U/M3UPT.m3u
 📥 Baixando: https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
-📥 Baixando: https://iptv-org.github.io/iptv/index.m3u
-📂 Fonte local: playlist_iptv-org.m3u
-📊 Brutos: 61193
+📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
+📂 Fonte local (iptv-org): playlist_iptv-org.m3u
+📊 Brutos: 37440
 📊 Parseados (únicos por URL): 42259
-⚡ Cache atual (sem validação): 15517
-⚡ Domínio confiável:           24
-⏭️  Pulados (blacklist ativa):  22277
+⚡ Cache atual (sem validação): 0
+⚡ Domínio confiável:           92
+⏭️  Pulados (blacklist ativa):  0
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 4441
-🔎 Validando 4441 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 18600
-🚫 Blacklist final: 23817 entradas
-📌 (Brasil)        69 canais
-📌 (Portugal)      55 canais
-📌 (Argentina)     31 canais
-📌 (México)        26 canais
-📌 (Peru)          23 canais
-📌 (España)        41 canais
-📌 (Estados Unidos) 239 canais
-📌 (Reino Unido)   132 canais
-📌 (Itália)        317 canais
-📌 (França)        72 canais
-📌 (Japão)         13 canais
-📌 (Outros)        17582 canais
+🔎 Para validar agora: 42167
+🔎 Validando 42167 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 18256
+🚫 Blacklist final: 24003 entradas
+📌 (Brasil)        49 canais
+📌 (Portugal)      51 canais
+📌 (Argentina)     21 canais
+📌 (México)        10 canais
+📌 (Peru)          7 canais
+📌 (España)        25 canais
+📌 (Estados Unidos) 158 canais
+📌 (Reino Unido)   86 canais
+📌 (Itália)        266 canais
+📌 (França)        53 canais
+📌 (Japão)         7 canais
+📌 (Outros)        10118 canais
+📌 (IPTV-ORG (Global)) 7405 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      61193
+📊 Brutos:      37440
 📊 Parseados:   42259
-📊 Anterior:    15517
-📊 Funcionais:  18600
-📊 Taxa:        44%
+📊 Anterior:    18600
+📊 Funcionais:  18256
+📊 Taxa:        43%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
