@@ -14,9 +14,10 @@ LOG="update.log"
 USER_AGENT="Mozilla/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.0 TV Safari/538.1"
 CACHE_MAX_AGE_DAYS="${CACHE_MAX_AGE_DAYS:-2}"
 PARALLEL_JOBS="${PARALLEL_JOBS:-64}"
+BLACKLIST_TTL_DAYS="${BLACKLIST_TTL_DAYS:-7}"
+MIN_DIFF_PCT="${MIN_DIFF_PCT:-50}"
 
-# ─── Fontes ────────────────────────────────────────────────────────────────────
-# FIX: removida URL duplicada (moviearkbr.m3u aparecia duas vezes)
+# ─── Fontes remotas ───────────────────────────────────────────────────────────
 URLS=(
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
@@ -46,6 +47,8 @@ URLS=(
   "https://www.apsattv.com/mxlg.m3u"
   "https://www.apsattv.com/pelg.m3u"
   "https://www.apsattv.com/eslg.m3u"
+  "https://www.apsattv.com/klg.m3u"
+  "https://www.apsattv.com/eslg.m3u"
   "https://www.apsattv.com/uslg.m3u"
   "https://www.apsattv.com/gblg.m3u"
   "https://www.apsattv.com/itlg.m3u"
@@ -62,6 +65,11 @@ URLS=(
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_all.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/tubi_all.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u"
+)
+
+# ─── Fontes locais (versionadas no repo) ──────────────────────────────────────
+LOCAL_SOURCES=(
+  "playlist_iptv-org.m3u"
 )
 
 COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
@@ -81,28 +89,30 @@ declare -A COUNTRY_NAME=(
   [UN]="Outros"
 )
 
-# ─── Trusted domains: skip validation (always online) ─────────────────────────
-# Streams dessas fontes são pré-validados; economiza centenas de verificações
-TRUSTED_DOMAINS=(
+# Domínios confiáveis: comparação EXATA de host (sem substring)
+TRUSTED_HOSTS=(
   "raw.githubusercontent.com"
   "github.com"
 )
 
-TMPDIR="$(mktemp -d)"
+WORKDIR="$(mktemp -d)"
 
-RAW="$TMPDIR/raw.m3u"
-BLOCKS="$TMPDIR/blocks.tsv"
-CHECK_INPUT="$TMPDIR/check_input.txt"
-VALID_URLS="$TMPDIR/valid_urls.txt"
-KEPT="$TMPDIR/kept.tsv"
-NEW_BLACKLIST="$TMPDIR/new_blacklist.txt"
+RAW="$WORKDIR/raw.m3u"
+BLOCKS="$WORKDIR/blocks.tsv"
+CHECK_INPUT="$WORKDIR/check_input.txt"
+VALID_URLS="$WORKDIR/valid_urls.txt"
+KEPT="$WORKDIR/kept.tsv"
+CLEAN_BLACKLIST="$WORKDIR/blacklist_kept.txt"
+CLEAN_CACHE="$WORKDIR/cache_pruned.txt"
+TRUSTED_FILE="$WORKDIR/trusted_hosts.txt"
+NAMES_FILE="$WORKDIR/country_names.txt"
+OUT_TMP="$WORKDIR/master.tmp"
 
 cleanup() {
   local rc=$?
-  rm -rf "$TMPDIR"
+  rm -rf "$WORKDIR"
   exit "$rc"
 }
-
 trap cleanup EXIT INT TERM
 
 touch "$BLACKLIST" "$CACHE_OK"
@@ -112,159 +122,260 @@ touch "$BLACKLIST" "$CACHE_OK"
 : > "$CHECK_INPUT"
 : > "$VALID_URLS"
 : > "$KEPT"
-: > "$NEW_BLACKLIST"
 : > "$LOG"
 
 exec > >(tee -a "$LOG") 2>&1
 
-normalize() {
-  local s="$1"
+printf '%s\n' "${TRUSTED_HOSTS[@]}" > "$TRUSTED_FILE"
 
-  s="$(
-    printf '%s' "$s" |
-    iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null || printf '%s' "$s"
-  )"
+for c in "${COUNTRIES[@]}"; do
+  printf '%s|%s\n' "$c" "${COUNTRY_NAME[$c]}"
+done > "$NAMES_FILE"
 
-  printf '%s' "$s" | tr '[:lower:]' '[:upper:]'
-}
+# ─── Separadores não-whitespace (US/RS) ───────────────────────────────────────
+# FIX: antes era TAB e IFS=$'\t' colapsava campos vazios (canal sem tvg-country
+# herdava o group-title como "país" e era descartado em silêncio)
+US=$'\x1f'
+RS30=$'\x1e'
 
-country_from_text() {
-  local s
-  s="$(normalize "$1")"
+TODAY="$(date +%F)"
+CACHE_CUTOFF="$(date -d "-$CACHE_MAX_AGE_DAYS days" +%F)"
+BLACKLIST_CUTOFF="$(date -d "-$BLACKLIST_TTL_DAYS days" +%F)"
 
-  case "$s" in
-    *BRAZIL*|*BRASIL*) echo BR ;;
-    *PORTUGAL*) echo PT ;;
-    *ARGENTINA*) echo AR ;;
-    *MEXICO*) echo MX ;;
-    *PERU*) echo PE ;;
-    *SPAIN*|*ESPANA*) echo ES ;;
-    *UNITED*STATES*|*USA*) echo US ;;
-    *UNITED*KINGDOM*|*UK*) echo GB ;;
-    *ITALY*|*ITALIA*) echo IT ;;
-    *FRANCE*) echo FR ;;
-    *JAPAN*) echo JP ;;
-    *) echo UN ;;
-  esac
-}
-
-# ─── Verifica se uma URL é de domínio confiável ────────────────────────────────
-is_trusted_url() {
-  local url="$1"
-  local domain
-
-  for domain in "${TRUSTED_DOMAINS[@]}"; do
-    if [[ "$url" == *"$domain"* ]]; then
-      return 0
-    fi
-  done
-
-  return 1
-}
-
+# ─── Download com log de falhas, CRLF removido e \n garantido no fim ──────────
 fetch_all() {
   declare -A seen=()
   local url
 
   for url in "${URLS[@]}"; do
-
     [[ -z "${url:-}" ]] && continue
     [[ -n "${seen[$url]:-}" ]] && continue
-
     seen["$url"]=1
 
     echo "📥 Baixando: $url"
 
-    curl \
-      -fsSL \
-      -A "$USER_AGENT" \
-      --connect-timeout 10 \
-      --max-time 30 \
-      --retry 2 \
-      --retry-delay 2 \
-      "$url" 2>/dev/null |
-      sed '/^#EXTM3U$/d' >> "$RAW" || true
+    if curl -fsSL -A "$USER_AGENT" \
+            --connect-timeout 10 --max-time 30 \
+            --retry 2 --retry-delay 2 \
+            "$url" 2>/dev/null |
+       tr -d '\r' |
+       sed '/^#EXTM3U[[:space:]]*$/d' >> "$RAW"
+    then
+      printf '\n' >> "$RAW"
+    else
+      echo "⚠️  Falha ao baixar (ignorado): $url" >&2
+    fi
+  done
 
+  local f
+  for f in "${LOCAL_SOURCES[@]}"; do
+    if [[ -f "$f" ]]; then
+      echo "📂 Fonte local: $f"
+      tr -d '\r' < "$f" | sed '/^#EXTM3U[[:space:]]*$/d' >> "$RAW"
+      printf '\n' >> "$RAW"
+    else
+      echo "⚠️  Fonte local ausente (ignorado): $f" >&2
+    fi
   done
 }
 
+# ─── Parse + classificação (tudo em awk, campos com US) ───────────────────────
+cat > "$WORKDIR/parse.awk" <<'AWK'
+function trim(s){ gsub(/^[ \t]+|[ \t]+$/, "", s); return s }
+function sanitize(s){ gsub(/\x1f|\x1e/, " ", s); return s }
+function norm(s){
+  s = toupper(s)
+  gsub(/[^A-Z0-9]+/, " ", s)
+  gsub(/ +/, " ", s)
+  return trim(s)
+}
+function wmatch(n, w){ return index(" " n " ", " " w " ") > 0 }
+
+# Classificação por PALAVRA INTEIRA no nome do canal + grupo (nunca na URL)
+function classify(name, grp,   n){
+  n = norm(name " " grp)
+  if (wmatch(n, "BRAZIL")   || wmatch(n, "BRASIL"))      return "BR"
+  if (wmatch(n, "PORTUGAL"))                              return "PT"
+  if (wmatch(n, "ARGENTINA"))                             return "AR"
+  if (wmatch(n, "MEXICO"))                                return "MX"
+  if (wmatch(n, "PERU"))                                  return "PE"
+  if (wmatch(n, "SPAIN")    || wmatch(n, "ESPANA"))      return "ES"
+  if (wmatch(n, "UNITED STATES") || wmatch(n, "USA"))    return "US"
+  if (wmatch(n, "UNITED KINGDOM") || wmatch(n, "UK"))    return "GB"
+  if (wmatch(n, "ITALY")    || wmatch(n, "ITALIA"))      return "IT"
+  if (wmatch(n, "FRANCE"))                                return "FR"
+  if (wmatch(n, "JAPAN"))                                 return "JP"
+  return "UN"
+}
+
+function map_country(c){
+  c = toupper(trim(c))
+  gsub(/[^A-Z]/, "", c)
+  if (c == "UK")  return "GB"
+  if (c == "USA") return "US"
+  return c
+}
+
+function is_known(c){
+  return index(",BR,PT,AR,MX,PE,ES,US,GB,IT,FR,JP,", "," c ",") > 0
+}
+
+/^#EXTINF:/ {
+  meta = sanitize($0)
+  # FIX: normaliza "#EXTINF:None" para "-1"
+  sub(/^#EXTINF:None/, "#EXTINF:-1", meta)
+
+  grp = ""; tvgcountry = ""
+
+  if (match(meta, /tvg-country="[^"]*"/))
+    tvgcountry = substr(meta, RSTART + 13, RLENGTH - 14)
+
+  if (match(meta, /group-title="[^"]*"/))
+    grp = substr(meta, RSTART + 13, RLENGTH - 14)
+
+  name = ""
+  if (match(meta, /,[^,]*$/))
+    name = substr(meta, RSTART + 1)
+
+  opts = ""
+  next
+}
+
+# FIX: preserva user-agent / referrer / headers que o player precisa
+/^#EXTVLCOPT:|^#EXTHTTP:/ {
+  line = sanitize($0)
+  opts = (opts == "" ? line : opts RS30 line)
+  next
+}
+
+/^https?:\/\// {
+  url = trim($0)
+  gsub(/[[:cntrl:]]/, "", url)
+
+  if (meta == "" || url == "")
+    next
+
+  # FIX: dedupe por URL (antes era meta|url, gerando duplicata do mesmo stream)
+  if (seen[url]++)
+    next
+
+  # tvg-country: pega só o primeiro código de "BR;US"
+  split(tvgcountry, parts, ";")
+  code = map_country(parts[1])
+
+  # FIX: país desconhecido vira classificação / UN, nunca descarte silencioso
+  if (!is_known(code))
+    code = classify(name, grp)
+
+  printf "%s%s%s%s%s%s%s%s%s%s%s\n", \
+    meta, SEP, name, SEP, url, SEP, code, SEP, grp, SEP, opts
+
+  meta = ""; grp = ""; tvgcountry = ""; opts = ""
+}
+AWK
+
+# ─── Cache/blacklist em awk (lookup O(1), cache podado, blacklist com TTL) ───
+cat > "$WORKDIR/prepare.awk" <<'AWK'
+FILENAME == ARGV[1] {
+  split($0, a, "|")
+  if (a[1] == "" || a[2] == "")
+    next
+  # FIX: entradas velhas da blacklist EXPIRAM de verdade
+  if (a[2] >= blcut) {
+    bl[a[1]] = a[2]
+    print $0 > blout
+  } else {
+    exp_bl++
+  }
+  next
+}
+
+FILENAME == ARGV[2] {
+  split($0, a, "|")
+  if (a[1] == "" || a[2] == "")
+    next
+  # FIX: cache_ok podado: entradas velhas são descartadas
+  if (a[2] >= cachecut) {
+    cache[a[1]] = a[2]
+    print $0 > cacheout
+  } else {
+    exp_cache++
+  }
+  next
+}
+
+FILENAME == ARGV[3] {
+  trusted[$0] = 1
+  next
+}
+
+FILENAME == ARGV[4] {
+  nf = split($0, f, SEP)
+  url = f[3]
+  if (url == "")
+    next
+
+  # FIX: URL pulada por blacklist NÃO volta para a blacklist
+  if (url in bl) {
+    skipped++
+    next
+  }
+
+  if (url in cache) {
+    print url > valid
+    cached++
+    next
+  }
+
+  # FIX: host extraído e comparado exatamente (sem substring)
+  host = url
+  sub(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//, "", host)
+  sub(/.*@/, "", host)
+  sub(/[\/?:].*/, "", host)
+  host = tolower(host)
+
+  for (h in trusted)
+    if (host == h || substr(host, length(host) - length(h)) == "." h)
+      { print url > valid; trust++; next }
+
+  print url > checkin
+}
+
+END {
+  printf "⚡ Cache atual (sem validação): %d\n", cached
+  printf "⚡ Domínio confiável:           %d\n", trust
+  printf "⏭️  Pulados (blacklist ativa):  %d\n", skipped + 0
+  printf "🧹 Blacklist expirada podada:   %d\n", exp_bl + 0
+  printf "🧹 Cache expirado podado:       %d\n", exp_cache + 0
+}
+AWK
+
 parse_blocks() {
-  awk '
-    function trim(s){
-      gsub(/^[ \t]+|[ \t]+$/, "", s)
-      return s
-    }
-
-    /^#EXTINF:/ {
-      meta=$0
-      grp=""
-      country=""
-
-      if (match($0, /tvg-country="[^"]+"/))
-        country=substr($0, RSTART+13, RLENGTH-14)
-
-      if (match($0, /group-title="[^"]+"/))
-        grp=substr($0, RSTART+13, RLENGTH-14)
-
-      next
-    }
-
-    /^https?:\/\// {
-      url=trim($0)
-
-      # Remove carriage return e chars de controle que quebram xargs
-      gsub(/\r/, "", url)
-      gsub(/[[:cntrl:]]/, "", url)
-
-      if (meta == "" || url == "")
-        next
-
-      key=meta "|" url
-
-      if (seen[key]++)
-        next
-
-      print meta "\t" url "\t" country "\t" grp
-
-      meta=""
-      grp=""
-      country=""
-    }
-  ' "$RAW" > "$BLOCKS"
+  awk -v SEP="$US" -v RS30="$RS30" \
+      -f "$WORKDIR/parse.awk" "$RAW" > "$BLOCKS"
 }
 
-is_cache_valid() {
-  local url="$1"
-  local cached_url cached_date
-  local now epoch_cache diff
+prepare_validation() {
+  : > "$CLEAN_BLACKLIST"
+  : > "$CLEAN_CACHE"
 
-  now="$(date +%s)"
+  awk \
+    -v SEP="$US" \
+    -v blcut="$BLACKLIST_CUTOFF" \
+    -v cachecut="$CACHE_CUTOFF" \
+    -v blout="$CLEAN_BLACKLIST" \
+    -v cacheout="$CLEAN_CACHE" \
+    -v valid="$VALID_URLS" \
+    -v checkin="$CHECK_INPUT" \
+    -f "$WORKDIR/prepare.awk" \
+    "$BLACKLIST" "$CACHE_OK" "$TRUSTED_FILE" "$BLOCKS"
 
-  while IFS='|' read -r cached_url cached_date || [[ -n "${cached_url:-}" ]]; do
-
-    [[ -z "${cached_url:-}" ]] && continue
-    [[ -z "${cached_date:-}" ]] && continue
-    [[ "${cached_url:-}" != "${url:-}" ]] && continue
-
-    epoch_cache="$(date -d "${cached_date:-}" +%s 2>/dev/null || true)"
-
-    epoch_cache="${epoch_cache//[^0-9]/}"
-    epoch_cache="${epoch_cache:-0}"
-
-    (( epoch_cache == 0 )) && continue
-
-    diff=$(( (now - epoch_cache) / 86400 ))
-
-    (( diff <= CACHE_MAX_AGE_DAYS )) && return 0
-
-  done < "$CACHE_OK"
-
-  return 1
+  local check_count
+  check_count="$(wc -l < "$CHECK_INPUT")"
+  echo "🔎 Para validar agora: $check_count"
 }
 
-# ─── FIX: regex corrigida de ^2|3 para ^[23] ──────────────────────────────────
-# FIX: usa HEAD primeiro (muito mais rápido), com fallback para GET parcial
-# FIX: removido bash -l (login shell desnecessário e lento)
+# ─── Validação: HEAD primeiro, GET de 1 byte como fallback ────────────────────
 safe_validate_worker() {
   local url="$1"
 
@@ -272,37 +383,25 @@ safe_validate_worker() {
 
   local code
 
-  # Tentativa 1: HEAD (sem baixar corpo — rápido)
   code="$(
-    curl \
-      -o /dev/null \
-      -L \
-      -s \
-      -I \
+    curl -o /dev/null -L -s -I \
       -w '%{http_code}' \
       -A "$USER_AGENT" \
-      --connect-timeout 4 \
-      --max-time 8 \
+      --connect-timeout 4 --max-time 8 \
       "$url" 2>/dev/null || true
   )"
 
-  # Alguns servidores IPTV recusam HEAD; tenta GET com 1 byte como fallback
   if [[ "$code" == "405" || "$code" == "000" || -z "$code" ]]; then
     code="$(
-      curl \
-        -o /dev/null \
-        -L \
-        -s \
+      curl -o /dev/null -L -s \
         -w '%{http_code}' \
         -A "$USER_AGENT" \
-        --connect-timeout 4 \
-        --max-time 10 \
+        --connect-timeout 4 --max-time 10 \
         -r 0-0 \
         "$url" 2>/dev/null || true
     )"
   fi
 
-  # FIX: regex era ^2|3 (errada). Correto: ^[23] → "começa com 2 ou 3"
   if [[ "$code" =~ ^[23] ]]; then
     printf '%s\n' "$url"
   fi
@@ -311,36 +410,6 @@ safe_validate_worker() {
 export USER_AGENT
 export -f safe_validate_worker
 
-prepare_validation() {
-  declare -A blacklist=()
-
-  local line meta url country grp
-
-  while IFS='|' read -r line _ || [[ -n "${line:-}" ]]; do
-    [[ -n "${line:-}" ]] && blacklist["$line"]=1
-  done < "$BLACKLIST"
-
-  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
-
-    [[ -z "${url:-}" ]] && continue
-    [[ -n "${blacklist[$url]:-}" ]] && continue
-
-    # URLs de domínios confiáveis ou em cache: aceitas diretamente
-    if is_trusted_url "$url" || is_cache_valid "$url"; then
-      printf '%s\n' "$url" >> "$VALID_URLS"
-    else
-      printf '%s\n' "$url" >> "$CHECK_INPUT"
-    fi
-
-  done < "$BLOCKS"
-
-  local trusted_count check_count
-  trusted_count="$(wc -l < "$VALID_URLS")"
-  check_count="$(wc -l < "$CHECK_INPUT")"
-  echo "✅ Aceitos sem validação (cache/trusted): $trusted_count"
-  echo "🔎 Para validar: $check_count"
-}
-
 validate_urls() {
   [[ ! -s "$CHECK_INPUT" ]] && return 0
 
@@ -348,8 +417,6 @@ validate_urls() {
   total="$(wc -l < "$CHECK_INPUT")"
   echo "🔎 Validando $total URLs com $PARALLEL_JOBS jobs paralelos..."
 
-  # FIX: -d '\n' evita que xargs interprete aspas/barras dentro das URLs
-  # FIX: -I{} combinado com -d'\n' garante que cada linha vira um argumento literal
   xargs \
     -d '\n' \
     -P "$PARALLEL_JOBS" \
@@ -365,146 +432,174 @@ validate_urls() {
 }
 
 build_kept() {
-  declare -A valid=()
+  awk \
+    -v kept="$KEPT" \
+    '
+    FILENAME == ARGV[1] {
+      if ($0 != "")
+        valid[$0] = 1
+      next
+    }
+    {
+      nf = split($0, f, sprintf("%c", 31))
+      if (f[3] != "" && (f[3] in valid))
+        print $0 > kept
+    }
+    ' "$VALID_URLS" "$BLOCKS"
 
-  local line meta url country grp final_country
+  # Ordena por nome de canal para saída estável entre execuções
+  LC_ALL=C sort -t "$US" -k2,2 -o "$KEPT" "$KEPT"
+}
 
-  while IFS= read -r line || [[ -n "${line:-}" ]]; do
-    [[ -n "${line:-}" ]] && valid["$line"]=1
-  done < "$VALID_URLS"
+# ─── Blacklist: só entra URL testada que falhou NESTA execução ────────────────
+merge_blacklist() {
+  {
+    cat "$CLEAN_BLACKLIST"
+    awk \
+      -v today="$TODAY" \
+      '
+      FILENAME == ARGV[1] {
+        if ($0 != "")
+          valid[$0] = 1
+        next
+      }
+      FILENAME == ARGV[2] {
+        if ($0 != "" && !($0 in valid))
+          print $0 "|" today
+      }
+      ' "$VALID_URLS" "$CHECK_INPUT"
+  } | sort -u > "$BLACKLIST"
 
-  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
-
-    [[ -z "${url:-}" ]] && continue
-
-    if [[ -n "${valid[$url]:-}" ]]; then
-
-      final_country="${country:-}"
-
-      [[ -z "${final_country:-}" ]] &&
-        final_country="$(country_from_text "$meta $grp $url")"
-
-      printf '%s\t%s\t%s\t%s\n' \
-        "$meta" \
-        "$url" \
-        "$final_country" \
-        "$grp" >> "$KEPT"
-
-    else
-      # FIX: apenas adiciona à blacklist se não for domínio confiável
-      if ! is_trusted_url "$url"; then
-        printf '%s|%(%F)T\n' "$url" -1 >> "$NEW_BLACKLIST"
-      fi
-    fi
-
-  done < "$BLOCKS"
+  echo "🚫 Blacklist final: $(wc -l < "$BLACKLIST") entradas"
 }
 
 update_cache() {
-  local now url date line
-
-  declare -A cache=()
-
-  now="$(date +%F)"
-
-  while IFS='|' read -r url date || [[ -n "${url:-}" ]]; do
-    [[ -n "${url:-}" ]] && cache["$url"]="$date"
-  done < "$CACHE_OK"
-
-  while IFS= read -r line || [[ -n "${line:-}" ]]; do
-    [[ -n "${line:-}" ]] && cache["$line"]="$now"
-  done < "$VALID_URLS"
-
-  : > "$CACHE_OK"
-
-  for line in "${!cache[@]}"; do
-    printf '%s|%s\n' "$line" "${cache[$line]}"
-  done | sort > "$CACHE_OK"
+  awk \
+    -v today="$TODAY" \
+    '
+    FILENAME == ARGV[1] {
+      split($0, a, "|")
+      if (a[1] != "")
+        cache[a[1]] = a[2]
+      next
+    }
+    FILENAME == ARGV[2] {
+      if ($0 != "")
+        cache[$0] = today
+      next
+    }
+    END {
+      for (u in cache)
+        print u "|" cache[u]
+    }
+    ' "$CLEAN_CACHE" "$VALID_URLS" | sort > "$CACHE_OK"
 }
 
-merge_blacklist() {
-  local cutoff_days=7
-  local now url date_part epoch line
-
-  declare -A keep=()
-
-  now="$(date +%s)"
-
-  while IFS='|' read -r url date_part || [[ -n "${url:-}" ]]; do
-
-    [[ -z "${url:-}" ]] && continue
-    [[ -z "${date_part:-}" ]] && continue
-
-    epoch="$(date -d "${date_part:-}" +%s 2>/dev/null || true)"
-
-    epoch="${epoch//[^0-9]/}"
-    epoch="${epoch:-0}"
-
-    (( epoch == 0 )) && continue
-
-    if (( (now - epoch) / 86400 <= cutoff_days )); then
-      keep["$url|$date_part"]=1
-    fi
-
-  done < "$BLACKLIST"
-
-  while IFS= read -r line || [[ -n "${line:-}" ]]; do
-    [[ -n "${line:-}" ]] && keep["$line"]=1
-  done < "$NEW_BLACKLIST"
-
-  if ((${#keep[@]})); then
-    printf '%s\n' "${!keep[@]}" | sort > "$BLACKLIST"
-  else
-    : > "$BLACKLIST"
-  fi
+# ─── Master: agrupa por país e reescreve o group-title (players leem isso) ────
+cat > "$WORKDIR/build_master.awk" <<'AWK'
+FILENAME == ARGV[1] {
+  split($0, a, "|")
+  disp[a[1]] = a[2]
+  next
 }
+
+FILENAME == ARGV[2] {
+  nf = split($0, f, SEP)
+  meta = f[1]; url = f[3]; code = f[4]; grp = f[5]; opts = f[6]
+
+  if (url == "")
+    next
+  if (!(code in disp))
+    code = "UN"
+
+  gt = disp[code]
+  if (grp != "")
+    gt = gt " - " grp
+
+  # reescreve (ou insere) o group-title no EXTINF
+  if (match(meta, /group-title="[^"]*"/))
+    meta = substr(meta, 1, RSTART + 12) gt substr(meta, RSTART + RLENGTH - 1)
+  else if (match(meta, /,[^,]*$/))
+    meta = substr(meta, 1, RSTART - 1) " group-title=\"" gt "\"" substr(meta, RSTART)
+
+  body[code] = body[code] meta "\n"
+
+  if (opts != "") {
+    n = split(opts, o, RS30)
+    for (i = 1; i <= n; i++)
+      body[code] = body[code] o[i] "\n"
+  }
+
+  body[code] = body[code] url "\n\n"
+  cnt[code]++
+}
+
+END {
+  printf "#EXTM3U\n" > out
+
+  n = split(order, seq, " ")
+
+  for (i = 1; i <= n; i++) {
+    cc = seq[i]
+    if (!(cc in cnt))
+      continue
+    printf "\n#EXTGRP:%s\n\n", disp[cc] > out
+    printf "%s", body[cc] > out
+    printf "📌 %-15s %d canais\n", "(" disp[cc] ")", cnt[cc]
+  }
+}
+AWK
 
 build_master() {
-  declare -A grouped=()
+  local order="BR PT AR MX PE ES US GB IT FR JP UN"
 
-  local meta url country grp c
-
-  while IFS=$'\t' read -r meta url country grp || [[ -n "${url:-}" ]]; do
-
-    [[ -z "${url:-}" ]] && continue
-
-    grouped["$country"]+="$meta"$'\n'"$url"$'\n\n'
-
-  done < "$KEPT"
-
-  {
-    echo '#EXTM3U'
-
-    for c in "${COUNTRIES[@]}"; do
-      [[ -z "${grouped[$c]:-}" ]] && continue
-      echo "#EXTGRP:${COUNTRY_NAME[$c]}"
-      printf '%s' "${grouped[$c]}"
-    done
-
-  } > "$OUTPUT"
+  awk \
+    -v SEP="$US" \
+    -v RS30="$RS30" \
+    -v out="$OUT_TMP" \
+    -v order="$order" \
+    -f "$WORKDIR/build_master.awk" \
+    "$NAMES_FILE" "$KEPT"
 }
 
 main() {
-  local total_raw total_parsed total_final success_rate
+  local total_raw total_parsed total_final success_rate prev_count
+
+  prev_count="$(grep -c '^#EXTINF' "$OUTPUT" 2>/dev/null || true)"
+  prev_count="${prev_count:-0}"
 
   fetch_all
 
-  total_raw="$(grep -c '^#EXTINF' "$RAW" || echo 0)"
+  total_raw="$(grep -c '^#EXTINF' "$RAW" || true)"
   echo "📊 Brutos: $total_raw"
 
   parse_blocks
 
   total_parsed="$(wc -l < "$BLOCKS")"
-  echo "📊 Parseados (únicos): $total_parsed"
+  echo "📊 Parseados (únicos por URL): $total_parsed"
 
   prepare_validation
   validate_urls
+  merge_blacklist
   build_kept
   update_cache
-  merge_blacklist
   build_master
 
-  total_final="$(grep -c '^#EXTINF' "$OUTPUT" || echo 0)"
+  total_final="$(grep -c '^#EXTINF' "$OUT_TMP" || true)"
+
+  # ─── Sanidade: nunca publicar uma playlist vazia ou muito menor ────────────
+  if (( total_final == 0 )); then
+    echo "❌ SANIDADE: playlist final vazia. master.m3u NÃO foi alterado." >&2
+    exit 1
+  fi
+
+  if (( prev_count > 0 && total_final * 100 < prev_count * MIN_DIFF_PCT )); then
+    echo "❌ SANIDADE: $total_final canais < $MIN_DIFF_PCT% do anterior ($prev_count)." >&2
+    echo "   master.m3u NÃO foi alterado. Investigue as fontes." >&2
+    exit 1
+  fi
+
+  mv "$OUT_TMP" "$OUTPUT"
 
   if (( total_parsed == 0 )); then
     success_rate=0
@@ -516,13 +611,15 @@ main() {
   echo "✅ FINALIZADO"
   echo "📊 Brutos:      $total_raw"
   echo "📊 Parseados:   $total_parsed"
+  echo "📊 Anterior:    $prev_count"
   echo "📊 Funcionais:  $total_final"
   echo "📊 Taxa:        $success_rate%"
   echo "📄 Output:      $OUTPUT"
   echo "📄 Blacklist:   $BLACKLIST"
   echo "📄 Cache:       $CACHE_OK"
   echo "📄 Log:         $LOG"
-  echo "⚙️ Jobs:        $PARALLEL_JOBS"
+  echo "⚙️  Jobs:        $PARALLEL_JOBS"
+  echo "⚙️  TTL blacklist: $BLACKLIST_TTL_DAYS dias | Cache: $CACHE_MAX_AGE_DAYS dias"
   echo "=================================="
 }
 

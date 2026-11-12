@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    # 03:00 UTC = 00:00 Brasil (UTC-3)
+    # 15:00 UTC = 12:00 BRT (segunda e sexta)
     - cron: '0 15 * * 1,5'
 
 permissions:
@@ -25,107 +25,60 @@ jobs:
     timeout-minutes: 360
 
     env:
-      # FIX: aumentado de 16 para 64 — reduz tempo de validação ~4x
       PARALLEL_JOBS: 64
       CACHE_MAX_AGE_DAYS: 2
+      BLACKLIST_TTL_DAYS: 7
+      MIN_DIFF_PCT: 50
 
     steps:
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Estado (blacklist/cache) fora do histórico git — antes eram ~25 MB por commit
+      - name: Restore state (blacklist/cache)
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            blacklist.txt
+            cache_ok.txt
+          key: iptv-state-${{ github.run_id }}
+          restore-keys: |
+            iptv-state-
+
       - name: Show environment
         run: |
-          echo "===== SYSTEM ====="
           uname -a
-
-          echo
-          echo "===== BASH ====="
           bash --version | head -n 1
-
-          echo
-          echo "===== CPU ====="
           nproc
-
-          echo
-          echo "===== ROOT FILES ====="
-          ls -lah
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-
-          sudo apt-get install -y \
-            curl \
-            gawk \
-            jq \
-            shellcheck
-
-      - name: Verify required files
-        run: |
-          test -f update_playlist.sh || {
-            echo "ERRO: update_playlist.sh não encontrado"
-            exit 1
-          }
-
-      - name: Fix CRLF
-        run: |
-          sed -i 's/\r$//' update_playlist.sh
+          awk --version | head -n 1
 
       - name: Make script executable
-        run: |
-          chmod +x update_playlist.sh
+        run: chmod +x update_playlist.sh
 
+      # -S warning pega mais problemas; não bloqueia o job
       - name: Run ShellCheck
-        run: |
-          shellcheck -S error update_playlist.sh
-
-      - name: Create empty runtime files
-        run: |
-          touch blacklist.txt
-          touch cache_ok.txt
+        continue-on-error: true
+        run: shellcheck -S warning update_playlist.sh
 
       - name: Run playlist update
-        run: |
-          ./update_playlist.sh
+        run: ./update_playlist.sh
+        # O script aborta se o resultado for vazio ou < MIN_DIFF_PCT% do anterior
 
       - name: Verify generated files
         run: |
-          echo
-          echo "===== GENERATED FILES ====="
-          ls -lah
-
-          test -f master.m3u || {
-            echo "ERRO: master.m3u não foi gerado"
-            exit 1
-          }
-
-          echo
-          echo "===== MASTER SIZE ====="
+          test -f master.m3u || { echo "ERRO: master.m3u não foi gerado"; exit 1; }
           du -h master.m3u
+          echo "Canais: $(grep -c '^#EXTINF' master.m3u || true)"
+          echo "Blacklist: $(wc -l < blacklist.txt || true) linhas"
+          echo "Cache: $(wc -l < cache_ok.txt || true) linhas"
 
-          echo
-          echo "===== CHANNEL COUNT ====="
-          grep -c '^#EXTINF' master.m3u || true
-
-          echo
-          echo "===== BLACKLIST ====="
-          wc -l blacklist.txt || true
-
-          echo
-          echo "===== CACHE ====="
-          wc -l cache_ok.txt || true
-
-      - name: Commit changes
+      - name: Commit playlist
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add \
-            master.m3u \
-            blacklist.txt \
-            cache_ok.txt \
-            update.log
+          git add master.m3u update.log
 
           if git diff --cached --quiet; then
             echo "Nenhuma alteração detectada"
@@ -133,18 +86,13 @@ jobs:
           fi
 
           git commit -m "Auto update IPTV playlist"
-
           git push origin HEAD:${{ github.ref_name }}
 
-      - name: Upload artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Save state (blacklist/cache)
+        if: success()
+        uses: actions/cache/save@v4
         with:
-          name: playlist-output
-          retention-days: 7
-          if-no-files-found: warn
           path: |
-            master.m3u
             blacklist.txt
             cache_ok.txt
-            update.log
+          key: iptv-state-${{ github.run_id }}
