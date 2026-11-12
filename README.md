@@ -1,6 +1,6 @@
 # IPTV Master Playlist
 
-Pipeline que consolida ~46 fontes públicas de listas IPTV (`.m3u`) em uma única
+Pipeline que consolida dezenas de fontes públicas de listas IPTV (`.m3u`) em uma única
 playlist validada e organizada por país.
 
 ## URL da playlist (aponte o player para cá)
@@ -8,6 +8,20 @@ playlist validada e organizada por país.
 ```
 https://raw.githubusercontent.com/vieirapedros/iptv-master-playlist/main/master.m3u
 ```
+
+## Fontes e créditos
+
+- **Apsattv** — listas de LG Channels, Samsung TV Plus, Rakuten TV, Movie Ark BR e outras plataformas.
+  Fonte: https://www.apsattv.com/streams.html. As listas são de uso pessoal e gratuito;
+  o autor não permite o uso em nenhum serviço pago.
+- **Free-TV/IPTV** — listas por país (https://github.com/Free-TV/IPTV).
+- **LITUATUI/M3UPT** — canais de Portugal (https://github.com/LITUATUI/M3UPT).
+- **xN1ckuz/OpenIPTVItaly** — canais da Itália (https://github.com/xN1ckuz/OpenIPTVItaly).
+- **doms9/iptv** — canais e eventos (https://github.com/doms9/iptv).
+- **BuddyChewChew, iprtl, abusaeeidx, appcml** — agregadores de plataformas FAST (Pluto, Plex, Roku, Samsung, Tubi, Xumo).
+- **iptv-org/iptv** — fonte local `playlist_iptv-org.m3u`.
+
+A lista completa de URLs está no array `URLS` de `update_playlist.sh`.
 
 ## Como funciona
 

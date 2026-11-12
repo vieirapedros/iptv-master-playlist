@@ -18,42 +18,59 @@ BLACKLIST_TTL_DAYS="${BLACKLIST_TTL_DAYS:-7}"
 MIN_DIFF_PCT="${MIN_DIFF_PCT:-50}"
 
 # ─── Fontes remotas ───────────────────────────────────────────────────────────
+# Listas do Apsattv: https://www.apsattv.com/streams.html (uso pessoal e gratuito)
 URLS=(
+  # Apsattv — Brasil
   "https://www.apsattv.com/tclbr.m3u"
   "https://www.apsattv.com/brlg.m3u"
   "https://www.apsattv.com/ssungbra.m3u"
+  "https://www.apsattv.com/moviearkbr.m3u"
+  "https://www.apsattv.com/redeitv.m3u"
+  "https://www.apsattv.com/olhosnatv.m3u"
+  "https://www.apsattv.com/soultv.m3u"
+
+  # Apsattv — plataformas
   "https://www.apsattv.com/whaletvplus_all.m3u"
   "https://www.apsattv.com/freelivesports.m3u"
   "https://www.apsattv.com/xiaomi.m3u"
   "https://www.apsattv.com/vizio.m3u"
-  "https://www.apsattv.com/redbox.m3u"
   "https://www.apsattv.com/rok.m3u"
   "https://www.apsattv.com/vidaa.m3u"
   "https://www.apsattv.com/localnow.m3u"
-  "https://www.apsattv.com/moviearkbr.m3u"
   "https://www.apsattv.com/firetv.m3u"
   "https://www.apsattv.com/tcl.m3u"
   "https://www.apsattv.com/tclplus.m3u"
   "https://www.apsattv.com/distro.m3u"
-  "https://www.apsattv.com/ssungpor.m3u"
-  "https://www.apsattv.com/ssungmex.m3u"
   "https://www.apsattv.com/metax.m3u"
   "https://www.apsattv.com/tablo.m3u"
   "https://www.apsattv.com/veely.m3u"
-  "https://www.apsattv.com/redeitv.m3u"
-  "https://www.apsattv.com/soultv.m3u"
+  "https://www.apsattv.com/cineverse.m3u"
+  "https://www.apsattv.com/hp.m3u"
+
+  # Apsattv — Rakuten TV (algumas com bloqueio regional)
+  "https://www.apsattv.com/rakuten_pt.m3u"
+  "https://www.apsattv.com/rakuten_es.m3u"
+  "https://www.apsattv.com/rakuten_it.m3u"
+  "https://www.apsattv.com/rakuten_fr.m3u"
+  "https://www.apsattv.com/rakuten_uk.m3u"
+
+  # Apsattv — Samsung TV Plus (fora do app)
+  "https://www.apsattv.com/ssungpor.m3u"
+  "https://www.apsattv.com/ssungmex.m3u"
+
+  # Apsattv — LG Channels
   "https://www.apsattv.com/ptlg.m3u"
   "https://www.apsattv.com/arlg.m3u"
   "https://www.apsattv.com/mxlg.m3u"
   "https://www.apsattv.com/pelg.m3u"
-  "https://www.apsattv.com/eslg.m3u"
-  "https://www.apsattv.com/klg.m3u"
   "https://www.apsattv.com/eslg.m3u"
   "https://www.apsattv.com/uslg.m3u"
   "https://www.apsattv.com/gblg.m3u"
   "https://www.apsattv.com/itlg.m3u"
   "https://www.apsattv.com/frlg.m3u"
   "https://www.apsattv.com/jplg.m3u"
+
+  # GitHub — agregadores
   "https://github.com/iprtl/m3u/raw/live/Pluto.m3u"
   "https://github.com/iprtl/m3u/raw/live/Freetv.m3u"
   "https://raw.githubusercontent.com/abusaeeidx/IPTV-Scraper-Zilla/main/combined-playlist.m3u"
@@ -65,6 +82,24 @@ URLS=(
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_all.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/refs/heads/main/playlists/tubi_all.m3u"
   "https://raw.githubusercontent.com/BuddyChewChew/xumo-playlist-generator/refs/heads/main/playlists/xumo_playlist.m3u"
+
+  # GitHub — Free-TV/IPTV por país
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_brazil.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_portugal.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_argentina.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_mexico.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_peru.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_spain.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_usa.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_uk.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_italy.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_france.m3u8"
+  "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_japan.m3u8"
+
+  # GitHub — listas nacionais e de eventos
+  "https://raw.githubusercontent.com/LITUATUI/M3UPT/main/M3U/M3UPT.m3u"
+  "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u"
+  "https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8"
 )
 
 # ─── Fontes locais (versionadas no repo) ──────────────────────────────────────
