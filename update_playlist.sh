@@ -122,7 +122,7 @@ declare -A COUNTRY_NAME=(
   [IT]="Itália"
   [FR]="França"
   [JP]="Japão"
-  [UN]="Outros"
+  [UN]="WORLD"
   [ORG]="IPTV-ORG (Global)"
 )
 
@@ -580,8 +580,6 @@ FILENAME == ARGV[2] {
     code = "UN"
 
   gt = disp[code]
-  if (grp != "")
-    gt = gt " - " grp
 
   # reescreve (ou insere) o group-title no EXTINF
   if (match(meta, /group-title="[^"]*"/))
