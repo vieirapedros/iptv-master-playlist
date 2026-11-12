@@ -65,35 +65,35 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 37440
-📊 Parseados (únicos por URL): 42259
-⚡ Cache atual (sem validação): 0
-⚡ Domínio confiável:           92
-⏭️  Pulados (blacklist ativa):  0
+📊 Brutos: 37428
+📊 Parseados (únicos por URL): 42247
+⚡ Cache atual (sem validação): 18208
+⚡ Domínio confiável:           0
+⏭️  Pulados (blacklist ativa):  23933
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 42167
-🔎 Validando 42167 URLs com 64 jobs paralelos...
+🔎 Para validar agora: 106
+🔎 Validando 106 URLs com 64 jobs paralelos...
 ✅ URLs válidas após validação: 18256
-🚫 Blacklist final: 24003 entradas
+🚫 Blacklist final: 24061 entradas
 📌 (Brasil)        49 canais
 📌 (Portugal)      51 canais
 📌 (Argentina)     21 canais
 📌 (México)        10 canais
 📌 (Peru)          7 canais
-📌 (España)        25 canais
+📌 (España)        29 canais
 📌 (Estados Unidos) 158 canais
 📌 (Reino Unido)   86 canais
-📌 (Itália)        266 canais
+📌 (Itália)        271 canais
 📌 (França)        53 canais
 📌 (Japão)         7 canais
-📌 (Outros)        10118 canais
+📌 (WORLD)         10109 canais
 📌 (IPTV-ORG (Global)) 7405 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      37440
-📊 Parseados:   42259
-📊 Anterior:    18600
+📊 Brutos:      37428
+📊 Parseados:   42247
+📊 Anterior:    18256
 📊 Funcionais:  18256
 📊 Taxa:        43%
 📄 Output:      master.m3u
