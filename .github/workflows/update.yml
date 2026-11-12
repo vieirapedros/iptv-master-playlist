@@ -36,16 +36,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Estado (blacklist/cache) fora do histórico git — antes eram ~25 MB por commit
+      # Estado (blacklist/cache) fora do histórico git.
+      # FIX: prefixo v2 — caches antigos (com a blacklist envenenada) deixam de ser restaurados
       - name: Restore state (blacklist/cache)
         uses: actions/cache/restore@v4
         with:
           path: |
             blacklist.txt
             cache_ok.txt
-          key: iptv-state-${{ github.run_id }}
+          key: iptv-state-v2-${{ github.run_id }}
           restore-keys: |
-            iptv-state-
+            iptv-state-v2-
 
       - name: Show environment
         run: |
@@ -96,7 +97,7 @@ jobs:
           path: |
             blacklist.txt
             cache_ok.txt
-          key: iptv-state-${{ github.run_id }}
+          key: iptv-state-v2-${{ github.run_id }}
 
       - name: Clean old workflow runs
         if: always()

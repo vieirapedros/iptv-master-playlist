@@ -100,17 +100,15 @@ URLS=(
   "https://raw.githubusercontent.com/LITUATUI/M3UPT/main/M3U/M3UPT.m3u"
   "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u"
   "https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8"
-
-  # iptv-org — índice global remoto (snapshot local permanece como fallback)
-  "https://iptv-org.github.io/iptv/index.m3u"
 )
 
-# ─── Fontes locais (versionadas no repo) ──────────────────────────────────────
-LOCAL_SOURCES=(
+# ─── Fontes iptv-org (categoria própria; snapshot local como fallback) ────────
+ORG_SOURCES=(
+  "https://iptv-org.github.io/iptv/index.m3u"
   "playlist_iptv-org.m3u"
 )
 
-COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN)
+COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN ORG)
 
 declare -A COUNTRY_NAME=(
   [BR]="Brasil"
@@ -125,6 +123,7 @@ declare -A COUNTRY_NAME=(
   [FR]="França"
   [JP]="Japão"
   [UN]="Outros"
+  [ORG]="IPTV-ORG (Global)"
 )
 
 # Domínios confiáveis: comparação EXATA de host (sem substring)
@@ -136,6 +135,7 @@ TRUSTED_HOSTS=(
 WORKDIR="$(mktemp -d)"
 
 RAW="$WORKDIR/raw.m3u"
+RAW_ORG="$WORKDIR/raw_org.m3u"
 BLOCKS="$WORKDIR/blocks.tsv"
 CHECK_INPUT="$WORKDIR/check_input.txt"
 VALID_URLS="$WORKDIR/valid_urls.txt"
@@ -156,6 +156,7 @@ trap cleanup EXIT INT TERM
 touch "$BLACKLIST" "$CACHE_OK"
 
 : > "$RAW"
+: > "$RAW_ORG"
 : > "$BLOCKS"
 : > "$CHECK_INPUT"
 : > "$VALID_URLS"
@@ -205,14 +206,28 @@ fetch_all() {
     fi
   done
 
+  # iptv-org: remoto e snapshot local vão para um arquivo separado (categoria própria)
   local f
-  for f in "${LOCAL_SOURCES[@]}"; do
-    if [[ -f "$f" ]]; then
-      echo "📂 Fonte local: $f"
-      tr -d '\r' < "$f" | sed '/^#EXTM3U[[:space:]]*$/d' >> "$RAW"
-      printf '\n' >> "$RAW"
+  for f in "${ORG_SOURCES[@]}"; do
+    if [[ "$f" == http* ]]; then
+      echo "📥 Baixando (iptv-org): $f"
+      if curl -fsSL -A "$USER_AGENT" \
+              --connect-timeout 10 --max-time 30 \
+              --retry 2 --retry-delay 2 \
+              "$f" 2>/dev/null |
+         tr -d '\r' |
+         sed '/^#EXTM3U[[:space:]]*$/d' >> "$RAW_ORG"
+      then
+        printf '\n' >> "$RAW_ORG"
+      else
+        echo "⚠️  Falha ao baixar iptv-org (ignorado): $f" >&2
+      fi
+    elif [[ -f "$f" ]]; then
+      echo "📂 Fonte local (iptv-org): $f"
+      tr -d '\r' < "$f" | sed '/^#EXTM3U[[:space:]]*$/d' >> "$RAW_ORG"
+      printf '\n' >> "$RAW_ORG"
     else
-      echo "⚠️  Fonte local ausente (ignorado): $f" >&2
+      echo "⚠️  Fonte iptv-org ausente (ignorado): $f" >&2
     fi
   done
 }
@@ -297,13 +312,18 @@ function is_known(c){
   if (seen[url]++)
     next
 
-  # tvg-country: pega só o primeiro código de "BR;US"
-  split(tvgcountry, parts, ";")
-  code = map_country(parts[1])
+  # FIX: fontes iptv-org recebem categoria própria (ORG)
+  if (FORCE_CODE != "") {
+    code = FORCE_CODE
+  } else {
+    # tvg-country: pega só o primeiro código de "BR;US"
+    split(tvgcountry, parts, ";")
+    code = map_country(parts[1])
 
-  # FIX: país desconhecido vira classificação / UN, nunca descarte silencioso
-  if (!is_known(code))
-    code = classify(name, grp)
+    # FIX: país desconhecido vira classificação / UN, nunca descarte silencioso
+    if (!is_known(code))
+      code = classify(name, grp)
+  }
 
   printf "%s%s%s%s%s%s%s%s%s%s%s\n", \
     meta, SEP, name, SEP, url, SEP, code, SEP, grp, SEP, opts
@@ -389,8 +409,17 @@ END {
 AWK
 
 parse_blocks() {
+  # Fontes principais
   awk -v SEP="$US" -v RS30="$RS30" \
       -f "$WORKDIR/parse.awk" "$RAW" > "$BLOCKS"
+
+  # Fontes iptv-org: categoria própria (ORG)
+  awk -v SEP="$US" -v RS30="$RS30" -v FORCE_CODE="ORG" \
+      -f "$WORKDIR/parse.awk" "$RAW_ORG" >> "$BLOCKS"
+
+  # Dedupe cruzado por URL entre fontes principais e iptv-org
+  awk -v SEP="$US" 'BEGIN{FS=SEP} !seen[$3]++' "$BLOCKS" > "$BLOCKS.tmp"
+  mv "$BLOCKS.tmp" "$BLOCKS"
 }
 
 prepare_validation() {
@@ -589,7 +618,7 @@ END {
 AWK
 
 build_master() {
-  local order="BR PT AR MX PE ES US GB IT FR JP UN"
+  local order="BR PT AR MX PE ES US GB IT FR JP UN ORG"
 
   awk \
     -v SEP="$US" \
