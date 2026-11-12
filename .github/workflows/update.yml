@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: update-iptv-playlist
@@ -96,3 +97,12 @@ jobs:
             blacklist.txt
             cache_ok.txt
           key: iptv-state-${{ github.run_id }}
+
+      - name: Clean old workflow runs
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run list --limit 1000 --json databaseId,createdAt \
+            --jq '.[] | select((now - (.createdAt | fromdateiso8601)) > 2592000) | .databaseId' \
+            | xargs -r gh run delete
