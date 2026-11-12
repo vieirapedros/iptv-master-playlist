@@ -63,37 +63,38 @@
 📥 Baixando: https://raw.githubusercontent.com/LITUATUI/M3UPT/main/M3U/M3UPT.m3u
 📥 Baixando: https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
+📥 Baixando: https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local: playlist_iptv-org.m3u
-📊 Brutos: 49702
-📊 Parseados (únicos por URL): 37951
-⚡ Cache atual (sem validação): 13831
-⚡ Domínio confiável:           7
-⏭️  Pulados (blacklist ativa):  21481
+📊 Brutos: 61193
+📊 Parseados (únicos por URL): 42259
+⚡ Cache atual (sem validação): 15517
+⚡ Domínio confiável:           24
+⏭️  Pulados (blacklist ativa):  22277
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 2632
-🔎 Validando 2632 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 15517
-🚫 Blacklist final: 22435 entradas
-📌 (Brasil)        51 canais
-📌 (Portugal)      51 canais
-📌 (Argentina)     22 canais
-📌 (México)        11 canais
-📌 (Peru)          7 canais
-📌 (España)        32 canais
-📌 (Estados Unidos) 195 canais
-📌 (Reino Unido)   111 canais
-📌 (Itália)        303 canais
-📌 (França)        64 canais
-📌 (Japão)         11 canais
-📌 (Outros)        14659 canais
+🔎 Para validar agora: 4441
+🔎 Validando 4441 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 18600
+🚫 Blacklist final: 23817 entradas
+📌 (Brasil)        69 canais
+📌 (Portugal)      55 canais
+📌 (Argentina)     31 canais
+📌 (México)        26 canais
+📌 (Peru)          23 canais
+📌 (España)        41 canais
+📌 (Estados Unidos) 239 canais
+📌 (Reino Unido)   132 canais
+📌 (Itália)        317 canais
+📌 (França)        72 canais
+📌 (Japão)         13 canais
+📌 (Outros)        17582 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      49702
-📊 Parseados:   37951
-📊 Anterior:    13831
-📊 Funcionais:  15517
-📊 Taxa:        40%
+📊 Brutos:      61193
+📊 Parseados:   42259
+📊 Anterior:    15517
+📊 Funcionais:  18600
+📊 Taxa:        44%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
