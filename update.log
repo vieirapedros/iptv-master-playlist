@@ -21,6 +21,20 @@
 📥 Baixando: https://www.apsattv.com/veely.m3u
 📥 Baixando: https://www.apsattv.com/cineverse.m3u
 📥 Baixando: https://www.apsattv.com/hp.m3u
+📥 Baixando: https://www.apsattv.com/xumo.m3u
+📥 Baixando: https://www.apsattv.com/orka.m3u
+📥 Baixando: https://www.apsattv.com/rewardedtv.m3u
+📥 Baixando: https://www.apsattv.com/igocast.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_br.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_ar.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_mx.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_pe.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_es.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_us.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_gb.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_it.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_fr.m3u
+📥 Baixando: https://www.apsattv.com/whaletvplus_jp.m3u
 📥 Baixando: https://www.apsattv.com/rakuten_pt.m3u
 📥 Baixando: https://www.apsattv.com/rakuten_es.m3u
 📥 Baixando: https://www.apsattv.com/rakuten_it.m3u
@@ -65,37 +79,44 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 37428
-📊 Parseados (únicos por URL): 42247
-⚡ Cache atual (sem validação): 18208
+📊 Brutos: 40429
+📊 Parseados (únicos por URL): 44315
+⚡ Cache atual (sem validação): 17925
 ⚡ Domínio confiável:           0
-⏭️  Pulados (blacklist ativa):  23933
+⏭️  Pulados (blacklist ativa):  20337
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 106
-🔎 Validando 106 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 18256
-🚫 Blacklist final: 24061 entradas
+🔎 Para validar agora: 6053
+🔎 Validando 6053 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 18809
+🚫 Blacklist final: 29230 entradas
 📌 (Brasil)        49 canais
 📌 (Portugal)      51 canais
 📌 (Argentina)     21 canais
 📌 (México)        10 canais
 📌 (Peru)          7 canais
-📌 (España)        29 canais
-📌 (Estados Unidos) 158 canais
-📌 (Reino Unido)   86 canais
-📌 (Itália)        271 canais
-📌 (França)        53 canais
+📌 (España)        26 canais
+📌 (Estados Unidos) 147 canais
+📌 (Reino Unido)   80 canais
+📌 (Itália)        266 canais
+📌 (França)        54 canais
 📌 (Japão)         7 canais
-📌 (WORLD)         10109 canais
-📌 (IPTV-ORG (Global)) 7405 canais
+📌 (Colômbia)      1 canais
+📌 (Uruguai)       1 canais
+📌 (Paraguai)      2 canais
+📌 (Alemanha)      4 canais
+📌 (Dinamarca)     2 canais
+📌 (Suécia)        7 canais
+📌 (Países Baixos) 1 canais
+📌 (WORLD - Outros) 10644 canais
+📌 (IPTV-ORG (Global)) 7429 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      37428
-📊 Parseados:   42247
+📊 Brutos:      40429
+📊 Parseados:   44315
 📊 Anterior:    18256
-📊 Funcionais:  18256
-📊 Taxa:        43%
+📊 Funcionais:  18809
+📊 Taxa:        42%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
