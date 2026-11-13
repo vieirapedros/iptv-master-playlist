@@ -126,7 +126,7 @@ ORG_SOURCES=(
   "playlist_iptv-org.m3u"
 )
 
-COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP UN ORG)
+COUNTRIES=(BR PT AR MX PE ES US GB IT FR JP CL CO UY PY BO EC VE DE DK NO SE NL AF OC AS ARA OT ORG)
 
 declare -A COUNTRY_NAME=(
   [BR]="Brasil"
@@ -140,7 +140,23 @@ declare -A COUNTRY_NAME=(
   [IT]="Itália"
   [FR]="França"
   [JP]="Japão"
-  [UN]="WORLD"
+  [CL]="Chile"
+  [CO]="Colômbia"
+  [UY]="Uruguai"
+  [PY]="Paraguai"
+  [BO]="Bolívia"
+  [EC]="Equador"
+  [VE]="Venezuela"
+  [DE]="Alemanha"
+  [DK]="Dinamarca"
+  [NO]="Noruega"
+  [SE]="Suécia"
+  [NL]="Países Baixos"
+  [AF]="WORLD - África"
+  [OC]="WORLD - Oceania"
+  [AS]="WORLD - Ásia"
+  [ARA]="WORLD - Mundo Árabe"
+  [OT]="WORLD - Outros"
   [ORG]="IPTV-ORG (Global)"
 )
 
@@ -190,8 +206,6 @@ for c in "${COUNTRIES[@]}"; do
 done > "$NAMES_FILE"
 
 # ─── Separadores não-whitespace (US/RS) ───────────────────────────────────────
-# FIX: antes era TAB e IFS=$'\t' colapsava campos vazios (canal sem tvg-country
-# herdava o group-title como "país" e era descartado em silêncio)
 US=$'\x1f'
 RS30=$'\x1e'
 
@@ -276,6 +290,18 @@ function classify(name, grp,   n){
   if (wmatch(n, "ITALY")    || wmatch(n, "ITALIA"))      return "IT"
   if (wmatch(n, "FRANCE"))                                return "FR"
   if (wmatch(n, "JAPAN"))                                 return "JP"
+  if (wmatch(n, "CHILE"))                                 return "CL"
+  if (wmatch(n, "COLOMBIA"))                              return "CO"
+  if (wmatch(n, "URUGUAY"))                               return "UY"
+  if (wmatch(n, "PARAGUAY"))                              return "PY"
+  if (wmatch(n, "BOLIVIA"))                               return "BO"
+  if (wmatch(n, "ECUADOR"))                               return "EC"
+  if (wmatch(n, "VENEZUELA"))                             return "VE"
+  if (wmatch(n, "GERMANY") || wmatch(n, "DEUTSCHLAND") || wmatch(n, "ALEMANHA")) return "DE"
+  if (wmatch(n, "DENMARK") || wmatch(n, "DINAMARCA"))     return "DK"
+  if (wmatch(n, "NORWAY") || wmatch(n, "NORUEGA"))        return "NO"
+  if (wmatch(n, "SWEDEN") || wmatch(n, "SUECIA") || wmatch(n, "SU CIA")) return "SE"
+  if (wmatch(n, "NETHERLANDS") || wmatch(n, "HOLLAND") || wmatch(n, "PAISES BAIXOS") || wmatch(n, "PA SES BAIXOS")) return "NL"
   return "UN"
 }
 
@@ -288,12 +314,21 @@ function map_country(c){
 }
 
 function is_known(c){
-  return index(",BR,PT,AR,MX,PE,ES,US,GB,IT,FR,JP,", "," c ",") > 0
+  return index(",BR,PT,AR,MX,PE,ES,US,GB,IT,FR,JP,CL,CO,UY,PY,BO,EC,VE,DE,DK,NO,SE,NL,", "," c ",") > 0
+}
+
+# Mapeia código ISO -> região (para canais fora das categorias por país)
+function region(c){
+  c = toupper(trim(c))
+  if (index(",SA,AE,QA,KW,BH,OM,YE,IQ,SY,LB,JO,PS,EG,MA,DZ,TN,LY,SD,DJ,SO,KM,MR,", "," c ",") > 0) return "ARA"
+  if (index(",DZ,AO,BJ,BW,BF,BI,CM,CV,CF,TD,KM,CD,CG,CI,DJ,GQ,ER,SZ,ET,GA,GM,GH,GN,GW,KE,LS,LR,LY,MG,MW,ML,MU,MZ,NA,NE,NG,RW,ST,SN,SC,SL,SO,ZA,SS,SD,TZ,TG,TN,UG,ZM,ZW,EH,", "," c ",") > 0) return "AF"
+  if (index(",CN,KR,KP,IN,PK,BD,LK,NP,BT,MV,MM,TH,VN,LA,KH,MY,SG,ID,PH,TW,HK,MO,MN,KZ,UZ,TM,KG,TJ,AF,BN,TL,", "," c ",") > 0) return "AS"
+  if (index(",AU,NZ,FJ,PG,SB,VU,WS,TO,KI,FM,MH,PW,NR,TV,NC,PF,CK,NU,TK,WF,AS,GU,MP,", "," c ",") > 0) return "OC"
+  return "OT"
 }
 
 /^#EXTINF:/ {
   meta = sanitize($0)
-  # FIX: normaliza "#EXTINF:None" para "-1"
   sub(/^#EXTINF:None/, "#EXTINF:-1", meta)
 
   grp = ""; tvgcountry = ""
@@ -312,7 +347,6 @@ function is_known(c){
   next
 }
 
-# FIX: preserva user-agent / referrer / headers que o player precisa
 /^#EXTVLCOPT:|^#EXTHTTP:/ {
   line = sanitize($0)
   opts = (opts == "" ? line : opts RS30 line)
@@ -326,21 +360,21 @@ function is_known(c){
   if (meta == "" || url == "")
     next
 
-  # FIX: dedupe por URL (antes era meta|url, gerando duplicata do mesmo stream)
   if (seen[url]++)
     next
 
-  # FIX: fontes iptv-org recebem categoria própria (ORG)
   if (FORCE_CODE != "") {
     code = FORCE_CODE
   } else {
-    # tvg-country: pega só o primeiro código de "BR;US"
     split(tvgcountry, parts, ";")
-    code = map_country(parts[1])
+    orig = map_country(parts[1])
+    code = orig
 
-    # FIX: país desconhecido vira classificação / UN, nunca descarte silencioso
-    if (!is_known(code))
+    if (!is_known(code)) {
       code = classify(name, grp)
+      if (code == "UN")
+        code = region(orig)
+    }
   }
 
   printf "%s%s%s%s%s%s%s%s%s%s%s\n", \
@@ -356,7 +390,6 @@ FILENAME == ARGV[1] {
   split($0, a, "|")
   if (a[1] == "" || a[2] == "")
     next
-  # FIX: entradas velhas da blacklist EXPIRAM de verdade
   if (a[2] >= blcut) {
     bl[a[1]] = a[2]
     print $0 > blout
@@ -370,7 +403,6 @@ FILENAME == ARGV[2] {
   split($0, a, "|")
   if (a[1] == "" || a[2] == "")
     next
-  # FIX: cache_ok podado: entradas velhas são descartadas
   if (a[2] >= cachecut) {
     cache[a[1]] = a[2]
     print $0 > cacheout
@@ -391,7 +423,6 @@ FILENAME == ARGV[4] {
   if (url == "")
     next
 
-  # FIX: URL pulada por blacklist NÃO volta para a blacklist
   if (url in bl) {
     skipped++
     next
@@ -403,7 +434,6 @@ FILENAME == ARGV[4] {
     next
   }
 
-  # FIX: host extraído e comparado exatamente (sem substring)
   host = url
   sub(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//, "", host)
   sub(/.*@/, "", host)
@@ -427,15 +457,12 @@ END {
 AWK
 
 parse_blocks() {
-  # Fontes principais
   awk -v SEP="$US" -v RS30="$RS30" \
       -f "$WORKDIR/parse.awk" "$RAW" > "$BLOCKS"
 
-  # Fontes iptv-org: categoria própria (ORG)
   awk -v SEP="$US" -v RS30="$RS30" -v FORCE_CODE="ORG" \
       -f "$WORKDIR/parse.awk" "$RAW_ORG" >> "$BLOCKS"
 
-  # Dedupe cruzado por URL entre fontes principais e iptv-org
   awk -v SEP="$US" 'BEGIN{FS=SEP} !seen[$3]++' "$BLOCKS" > "$BLOCKS.tmp"
   mv "$BLOCKS.tmp" "$BLOCKS"
 }
@@ -460,7 +487,6 @@ prepare_validation() {
   echo "🔎 Para validar agora: $check_count"
 }
 
-# ─── Validação: HEAD primeiro, GET de 1 byte como fallback ────────────────────
 safe_validate_worker() {
   local url="$1"
 
@@ -532,11 +558,9 @@ build_kept() {
     }
     ' "$VALID_URLS" "$BLOCKS"
 
-  # Ordena por nome de canal para saída estável entre execuções
   LC_ALL=C sort -t "$US" -k2,2 -o "$KEPT" "$KEPT"
 }
 
-# ─── Blacklist: só entra URL testada que falhou NESTA execução ────────────────
 merge_blacklist() {
   {
     cat "$CLEAN_BLACKLIST"
@@ -580,7 +604,7 @@ update_cache() {
     ' "$CLEAN_CACHE" "$VALID_URLS" | sort > "$CACHE_OK"
 }
 
-# ─── Master: agrupa por país e reescreve o group-title (players leem isso) ────
+# ─── Master: agrupa por país/região e reescreve o group-title ─────────────────
 cat > "$WORKDIR/build_master.awk" <<'AWK'
 FILENAME == ARGV[1] {
   split($0, a, "|")
@@ -595,11 +619,10 @@ FILENAME == ARGV[2] {
   if (url == "")
     next
   if (!(code in disp))
-    code = "UN"
+    code = "OT"
 
   gt = disp[code]
 
-  # reescreve (ou insere) o group-title no EXTINF
   if (match(meta, /group-title="[^"]*"/))
     meta = substr(meta, 1, RSTART + 12) gt substr(meta, RSTART + RLENGTH - 1)
   else if (match(meta, /,[^,]*$/))
@@ -634,7 +657,7 @@ END {
 AWK
 
 build_master() {
-  local order="BR PT AR MX PE ES US GB IT FR JP UN ORG"
+  local order="BR PT AR MX PE ES US GB IT FR JP CL CO UY PY BO EC VE DE DK NO SE NL AF OC AS ARA OT ORG"
 
   awk \
     -v SEP="$US" \
@@ -670,7 +693,6 @@ main() {
 
   total_final="$(grep -c '^#EXTINF' "$OUT_TMP" || true)"
 
-  # ─── Sanidade: nunca publicar uma playlist vazia ou muito menor ────────────
   if (( total_final == 0 )); then
     echo "❌ SANIDADE: playlist final vazia. master.m3u NÃO foi alterado." >&2
     exit 1
