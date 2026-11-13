@@ -177,7 +177,7 @@ https://github.com/LITUATUI/M3UPT/raw/main/M3U/CNN_Portugal.m3u8
 https://github.com/thomraider12/canaistvpt/raw/main/m3u8s/cnnpt.m3u8
 
 #EXTINF:-1 tvg-chno="25" cuid="28" tvg-name="CNN Portugal 🇵🇹" tvg-id="CNN.Portugal.HD.pt" tvg-logo="https://github.com/iprtl/p1/raw/master/logo/cnnpt.png" group-logo="https://cdn-icons-png.freepik.com/256/5395/5395694.png" group-title="Portugal",CNN Portugal 🇵🇹
-https://video-auth7.iol.pt/live_cnn/live_cnn/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMTMvMjAyNiAxMjoyNjoxOSBQTSZoYXNoX3ZhbHVlPTNNQnFaaUtISmdZd2VRa1BXdkJRM3c9PSZ2YWxpZG1pbnV0ZXM9MTQ0MCZpZD0zZjRiZjMzNy00YTQzLTQ3ZGMtYmU2NS05YmU1ZjJiNzE0Y2Y=/
+https://video-auth7.iol.pt/live_cnn/live_cnn/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMTMvMjAyNiA3OjU1OjI5IFBNJmhhc2hfdmFsdWU9OEtSU3pCdERCZVlxaHpyVDRIbzZ6QT09JnZhbGlkbWludXRlcz0xNDQwJmlkPTEyNGNmYWU5LTg1MzItNDU1MC04NWFjLTZiMzE3ZGU1YmJiYQ==/
 
 #EXTINF:-1 tvg-logo="https://s3minio.webativa.com.br/redeitv/cancao-nova-portugal.png" group-title="Portugal",Canção Nova Portugal
 https://5c65286fc6ace.streamlock.net/cancaonova/CancaoNova.stream_720p/chunklist_w112988970.m3u8
@@ -327,7 +327,7 @@ https://github.com/LITUATUI/M3UPT/raw/main/M3U/TVI_Ficcao.m3u8
 https://github.com/LITUATUI/M3UPT/raw/main/M3U/TVI_Internacional.m3u8
 
 #EXTINF:-1 tvg-chno="19" cuid="23" tvg-name="TVI Internacionalᶠᴴᴰ)" tvg-id="tvi.internacional.pt" tvg-logo="https://logo.m3uassets.com/tviinternacional.png" group-logo="https://cdn-icons-png.freepik.com/512/4482/4482879.png" group-title="Portugal",TVI Internacional 🇵🇹
-https://video-auth6.iol.pt/live_tvi_internacional/live_tvi_internacional/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMTMvMjAyNiAxMjoyNjoxOSBQTSZoYXNoX3ZhbHVlPTF3amYzZ3JLK1hhM0NWZkJNNVVPaHc9PSZ2YWxpZG1pbnV0ZXM9MTQ0MCZpZD1kYmIzMjA5ZS1hNGJkLTQ5NTItOTllYS1lZDNjMGMyY2U2ZmQ=/
+https://video-auth6.iol.pt/live_tvi_internacional/live_tvi_internacional/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMTMvMjAyNiA3OjU1OjMwIFBNJmhhc2hfdmFsdWU9Y1ZVWHRJVkxycDJQbURMRHRFS2lEZz09JnZhbGlkbWludXRlcz0xNDQwJmlkPTIyY2E1N2Q0LWYxNTMtNDA2Yy04Y2VjLWUzNzdjZTNhMWFjMQ==/
 
 #EXTINF:-1 tvg-chno="29" cuid="32" tvg-name="TVI Reality 🇵🇹" tvg-id="tvi.reality.pt" tvg-logo="https://github.com/iprtl/p1/raw/master/logo/tviReality.webp" group-logo="https://cdn-icons-png.freepik.com/512/4482/4482879.png" group-title="Portugal",TVI Reality 🇵🇹
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
@@ -338,6 +338,9 @@ https://github.com/LITUATUI/M3UPT/raw/main/M3U/TVI_Reality.m3u8
 #EXTINF:-1 tvg-chno="20" cuid="24" tvg-name="TVI 🇵🇹" tvg-id="TVI.HD.pt" tvg-logo="https://github.com/iprtl/p1/raw/master/logo/tvi.webp" group-logo="https://cdn-icons-png.freepik.com/512/4482/4482879.png" group-title="Portugal",TVI 🇵🇹
 https://github.com/LITUATUI/M3UPT/raw/main/M3U/TVI.m3u8
 
+#EXTINF:-1 tvg-chno="22" cuid="26" tvg-name="TVI 🇵🇹" tvg-id="TVI.HD.pt" tvg-logo="https://github.com/iprtl/p1/raw/master/logo/tvi.webp" group-logo="https://cdn-icons-png.freepik.com/512/4482/4482879.png" group-title="Portugal",TVI 🇵🇹
+https://video-auth6.iol.pt/live_tvi/live_tvi/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMTMvMjAyNiA3OjU1OjI5IFBNJmhhc2hfdmFsdWU9VHM5dEhmb1Yra2ZTOThyeE8yRDNOQT09JnZhbGlkbWludXRlcz0xNDQwJmlkPWZmNDMzN2U0LWRhYTYtNGUyZC1hMTAyLTZiNWY3OTQxNWNhMw==/
+
 #EXTINF:-1 tvg-chno="36" cuid="40" tvg-name="TDM Macau" tvg-id="" tvg-logo="https://logo.m3uassets.com/tdmmacau.png" group-logo="https://cdn-icons-png.freepik.com/512/4482/4482879.png" group-title="Portugal",Teledifusão de Macau 🇲🇴
 https://globallive.tdm.com.mo/ch2/ch2.live/playlist.m3u8?wowzasessionid=@iprtlk
 
@@ -347,7 +350,7 @@ https://globallive.tdm.com.mo/ch2/ch2.live/playlist.m3u8?wowzasessionid=@iprtlk
 #EXTVLCOPT:http-referrer=https://tviplayer.iol.pt
 https://github.com/LITUATUI/M3UPT/raw/main/M3U/Vmais_TVI.m3u8
 
-#EXTINF:-1 tvg-chno="250" tvg-id="Soccer.Dummy.us" tvg-name="[Friendly Match] England U21 vs Portugal U21 (FAWA)" tvg-logo="https://files.catbox.moe/r05ma0.png" group-title="Portugal",[Friendly Match] England U21 vs Portugal U21 (FAWA)
+#EXTINF:-1 tvg-chno="240" tvg-id="Soccer.Dummy.us" tvg-name="[Friendly Match] England U21 vs Portugal U21 (FAWA)" tvg-logo="https://files.catbox.moe/r05ma0.png" group-title="Portugal",[Friendly Match] England U21 vs Portugal U21 (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBAAAA.m3u8
@@ -2206,11 +2209,6 @@ http://194.163.157.137:8080/hls/radioalsace.m3u8
 #EXTINF:-1 tvg-name="TV Mulhouse" tvg-logo="https://i.imgur.com/4esQG8H.png" tvg-id="TVMulhouse.fr" tvg-chno="-" tvg-country="FR" group-title="França",TV Mulhouse
 http://194.163.157.137:8080/hls/radiomulhouse.m3u8
 
-#EXTINF:-1 tvg-chno="249" tvg-id="Soccer.Dummy.us" tvg-name="[France Premiere Ligue Women] Nantes W vs Lens W (FAWA)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/7/74/Premi%C3%A8re_Ligue.png" group-title="França",[France Premiere Ligue Women] Nantes W vs Lens W (FAWA)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.41/hls/I000AAAAAAA.m3u8
-
 #EXTINF:-1 tvg-name="franceinfo:" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Franceinfo.svg/500px-Franceinfo.svg.png" tvg-id="Franceinfo.fr" tvg-chno="27" tvg-country="FR" group-title="França",franceinfo: Ⓨ
 https://www.youtube.com/c/franceinfo/live
 
@@ -2247,7 +2245,7 @@ https://jmp2.uk/plu-69fcaa71ea95ffff0987f555.m3u8
 
 #EXTGRP:Uruguai
 
-#EXTINF:-1 tvg-chno="422" tvg-id="Soccer.Dummy.us" tvg-name="[Uruguay Liga AUF] Montevideo City vs Racing Montevideo (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/1592.png" group-title="Uruguai",[Uruguay Liga AUF] Montevideo City vs Racing Montevideo (FAWA)
+#EXTINF:-1 tvg-chno="430" tvg-id="Soccer.Dummy.us" tvg-name="[Uruguay Liga AUF] Montevideo City vs Racing Montevideo (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/1592.png" group-title="Uruguai",[Uruguay Liga AUF] Montevideo City vs Racing Montevideo (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBAAAAAQQ.m3u8
@@ -2273,10 +2271,15 @@ https://jmp2.uk/plu-6447dea7e94c380008dba94c.m3u8
 #EXTINF:-1 group-title="Alemanha",Tastemade Germany -TCL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00047-tastemade-tmgermany-tcl/playlist.m3u8
 
-#EXTINF:-1 tvg-chno="382" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Germany vs Serbia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Alemanha",[UEFA NATIONS] Germany vs Serbia | English (STRMGATE)
+#EXTINF:-1 tvg-chno="367" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Germany vs Serbia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Alemanha",[UEFA NATIONS] Germany vs Serbia | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861158
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge1.candyshop.st/live/tv401861158/master.m3u8?st=EMxo8n8Jn3EHABGQOUxegA&e=1794609011
+
+#EXTINF:-1 tvg-chno="419" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Serbia vs Germany 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Alemanha",[UEFA Nations League] Serbia vs Germany 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/caa9e852-e8ce-4d77-8f62-a864ea03d07e.m3u8
 
 
 #EXTGRP:Dinamarca
@@ -2284,7 +2287,7 @@ https://edge1.candyshop.st/live/tv401861158/master.m3u8?st=EMxo8n8Jn3EHABGQOUxeg
 #EXTINF:-1 channel-id="63c6a7544faf1c0007b496d7" tvg-id="63c6a7544faf1c0007b496d7" tvg-chno="514" tvg-name="Buying Blind Denmark" tvg-logo="https://images.pluto.tv/channels/63c6a7544faf1c0007b496d7/colorLogoPNG.png" group-title="Dinamarca",Buying Blind Denmark
 https://jmp2.uk/plu-63c6a7544faf1c0007b496d7.m3u8
 
-#EXTINF:-1 tvg-chno="239" tvg-id="Soccer.Dummy.us" tvg-name="[Euro U21 Qualification] Denmark U21 vs Netherlands U21 (FAWA)" tvg-logo="https://files.catbox.moe/r05ma0.png" group-title="Dinamarca",[Euro U21 Qualification] Denmark U21 vs Netherlands U21 (FAWA)
+#EXTINF:-1 tvg-chno="232" tvg-id="Soccer.Dummy.us" tvg-name="[Euro U21 Qualification] Denmark U21 vs Netherlands U21 (FAWA)" tvg-logo="https://files.catbox.moe/r05ma0.png" group-title="Dinamarca",[Euro U21 Qualification] Denmark U21 vs Netherlands U21 (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/GYGYGYA.m3u8
@@ -2292,37 +2295,37 @@ http://193.47.62.41/hls/GYGYGYA.m3u8
 
 #EXTGRP:Suécia
 
-#EXTINF:-1 tvg-chno="364" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] BIK Karlskoga vs AIK (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] BIK Karlskoga vs AIK (FAWA)
+#EXTINF:-1 tvg-chno="349" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] BIK Karlskoga vs AIK (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] BIK Karlskoga vs AIK (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000.m3u8
 
-#EXTINF:-1 tvg-chno="365" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Modo vs Ostersund (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Modo vs Ostersund (FAWA)
+#EXTINF:-1 tvg-chno="350" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Modo vs Ostersund (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Modo vs Ostersund (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000A.m3u8
 
-#EXTINF:-1 tvg-chno="366" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Nybro vs Kalmar (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Nybro vs Kalmar (FAWA)
+#EXTINF:-1 tvg-chno="351" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Nybro vs Kalmar (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Nybro vs Kalmar (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000AA.m3u8
 
-#EXTINF:-1 tvg-chno="367" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Oskarshamn vs Vimmerby (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Oskarshamn vs Vimmerby (FAWA)
+#EXTINF:-1 tvg-chno="352" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Oskarshamn vs Vimmerby (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Oskarshamn vs Vimmerby (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000AAA.m3u8
 
-#EXTINF:-1 tvg-chno="368" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Sodertalje vs Almtuna (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Sodertalje vs Almtuna (FAWA)
+#EXTINF:-1 tvg-chno="353" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Sodertalje vs Almtuna (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Sodertalje vs Almtuna (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000AAAA.m3u8
 
-#EXTINF:-1 tvg-chno="369" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Vasteras vs Leksand (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Vasteras vs Leksand (FAWA)
+#EXTINF:-1 tvg-chno="354" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Vasteras vs Leksand (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Vasteras vs Leksand (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000AAAAA.m3u8
 
-#EXTINF:-1 tvg-chno="370" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Visby Roma vs Mora (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Visby Roma vs Mora (FAWA)
+#EXTINF:-1 tvg-chno="355" tvg-id="Ice.Hockey.Dummy.us" tvg-name="[Sweden HockeyAllsvenskan] Visby Roma vs Mora (FAWA)" tvg-logo="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/HockeyAllsvenskan_logo.svg/960px-HockeyAllsvenskan_logo.svg.png" group-title="Suécia",[Sweden HockeyAllsvenskan] Visby Roma vs Mora (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/I000AAAAAA.m3u8
@@ -2330,10 +2333,15 @@ http://193.47.62.41/hls/I000AAAAAA.m3u8
 
 #EXTGRP:Países Baixos
 
-#EXTINF:-1 tvg-chno="384" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Greece vs Netherlands | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Países Baixos",[UEFA NATIONS] Greece vs Netherlands | English (STRMGATE)
+#EXTINF:-1 tvg-chno="369" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Greece vs Netherlands | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Países Baixos",[UEFA NATIONS] Greece vs Netherlands | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861159
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://candyshop.st/live/tv401861159/master.m3u8?st=xXpTyk8EtcQU1VgZ2AUutw&e=1794609010
+
+#EXTINF:-1 tvg-chno="405" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Netherlands vs Greece 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="Países Baixos",[UEFA Nations League] Netherlands vs Greece 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/6b559e8d-c8a6-4a99-aeed-2126610f3a06.m3u8
 
 
 #EXTGRP:WORLD - Outros
@@ -3937,9 +3945,6 @@ https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
 #EXTINF:-1 channel-id="65b915780cb1a1000889b837" tvg-id="65b915780cb1a1000889b837" tvg-chno="217" tvg-name="3point.dk" tvg-logo="https://images.pluto.tv/channels/65b915780cb1a1000889b837/colorLogoPNG.png" group-title="WORLD - Outros",3point.dk
 https://jmp2.uk/plu-65b915780cb1a1000889b837.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="4 Afghanistan" tvg-logo="" group-title="WORLD - Outros" tvg-country="XX",4 Afghanistan
-https://rds3.desdeparaguay.net/4dmasnoticiastv/4dmasnoticiastv/playlist.m3u8
-
 #EXTINF:-1 group-title="WORLD - Outros",-1 tvg-id="4Kurd.fr@SD",4 Kurd
 https://4kuhls.persiana.live/hls/stream.m3u8
 
@@ -4086,6 +4091,9 @@ https://amg00716-globo-amg00716c3-tcl-br-9498.playouts.now.amagi.tv/playlist.m3u
 
 #EXTINF:-1  tvg-id="24.7.Dummy.us" tvg-logo="https://images.pluto.tv/channels/66588931a3865300085ca800/logo.png?w=380&h=110&trim=auto&trim-sd=10&trim-md=0&fit=clip&fm=png" group-title="WORLD - Outros",496 Bob l'éponge
 https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/66588931a3865300085ca800/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=424e55da-1dda-11f0-ab45-a30a4ae8334b&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=1626e761-a9fe-491b-a8fc-b0150ac1b02e&userId=&serverSideAds=true
+
+#EXTINF:-1 tvg-id="" tvg-name="4DmásNoticias TV (1080p) [Not 24/7]" tvg-logo="https://i.ibb.co/1fb5BtN/unnamed.png" group-title="WORLD - Outros" tvg-country="XX",4DmásNoticias TV (1080p) [Not 24/7]
+https://rds3.desdeparaguay.net/4dmasnoticiastv/4dmasnoticiastv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="4E (1080p)" tvg-logo="https://i.imgur.com/Na0UCV7.png" group-title="WORLD - Outros" tvg-country="XX",4E (1080p)
 http://eu2.tv4e.gr:554/live/smil:myStream.sdp.smil/playlist.m3u8
@@ -4483,9 +4491,6 @@ https://6prlive.akamaized.net/hls/live/2033806/6PR/index.m3u8
 #EXTINF:-1 tvg-logo="https://images.vizio.com/v4/btv/1/1736242502/1/267/150/0.jpg" group-title="WORLD - Outros",7 Action News
 https://amg01438-amg01438c19-vizio-us-10919.playouts.now.amagi.tv/playlist/amg01438-ewscrippscompany-ewscrippswxyz-vizious/playlist.m3u8?app_name=%7bAPP_NAME%7d&app_bundle=%7bAPP_BUNDLE%7d&app_store_url=%7bAPP_STORE_URL%7d&url=%7bDOMAIN%7d&ifa_type=%7bIFATYPE%7d&lmt=%7bLMT%7d&dnt=%7bDNT%7d&did=%7bADID%7d&us_privacy=%7bUSPRIVACY%7d&coppa=%7bCOPPA%7d&skip=%7bSKIPPABLE%7d&device_make=%7bDEVICE_MAKE%7d&w=%7bWIDTH%7d&h=%7bHEIGHT%7d&vizio_network_name=%7bVIZIO_NETWORK_NAME%7d&vizdartoken=eyJhdWQiOiI5MyIsIndmcGNpZCI6NDczNTA3ODcyN30
 
-#EXTINF:-1 tvg-id="" tvg-name="7 RadioVisione (720p)" tvg-logo="https://radio7note.com/img/favicon/android-icon-192x192.png" group-title="WORLD - Outros" tvg-country="XX",7 RadioVisione (720p)
-https://cdn.pishow.tv/ott/live/1257/master.m3u8
-
 #EXTINF:-1 tvg-id="" tvg-name="7 TeleValencia (576p)" tvg-logo="https://i.imgur.com/ILfXDRs.png" group-title="WORLD - Outros" tvg-country="XX",7 TeleValencia (576p)
 https://play.cdn.enetres.net/9E9557EFCEBB43A89CEC8FBD3C500247022/028/playlist.m3u8
 
@@ -4539,6 +4544,9 @@ https://jmp2.uk/plu-5dcddf1ed95e740009fef7ab.m3u8
 
 #EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/608030eff4b6f70007e1684c/logo_1746816937761.png?w=380&h=110&trim=auto&trim-sd=10&trim-md=0&fit=clip&fm=png" group-title="WORLD - Outros",739 Pluto TV Sport
 https://jmp2.uk/plu-608030eff4b6f70007e1684c.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="7S Music (576p)" tvg-logo="https://i.imgur.com/zDiIhdN.png" group-title="WORLD - Outros" tvg-country="XX",7S Music (576p)
+https://cdn.pishow.tv/ott/live/1257/master.m3u8
 
 #EXTINF:-1 channel-id="6728c9c85534bb0008b320a4" tvg-id="6728c9c85534bb0008b320a4" tvg-chno="313" tvg-name="7th Heaven" tvg-logo="https://images.pluto.tv/channels/6728c9c85534bb0008b320a4/colorLogoPNG.png" group-title="WORLD - Outros",7th Heaven
 https://jmp2.uk/plu-6728c9c85534bb0008b320a4.m3u8
@@ -4857,7 +4865,7 @@ https://streamer1.connectto.com/AABC_WEB_1201/index.m3u8
 
 #EXTINF:-1 tvg-chno="1" tvg-id="WABC-DT.us_locals1" tvg-name="ABC" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10003_dark_360w_270h.png" group-title="WORLD - Outros",ABC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf6a/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjZhOjE3OTQ2MDkwMDM3NDM6Y2RubGl2ZXR2LnR2OmJjYTQ0ZDBlNGE2Njg1YzEuZmY3M2U3ZDg5ODUyNzg2NmRkMmU0MDA5NmUzZmE2ZWNkZmEwYjFiOTNkNTVjZTI0OWYwYTU1MjBiZWMyZmVlNg
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf6a/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjZhOjE3OTQ2MTgwMDM0MTA6Y2RubGl2ZXR2LnR2OjdkZDZlMjA1YjA1MDhiNjcuOGE3OTdhYzRjMzc3NjVmNGQwY2QwZDI3OGM3OWM0N2IzYWQ0NDExNjcwYjA5ZGExNTQ1OTI2YjEzMzhlODVhNA
 
 #EXTINF:-1 group-title="WORLD - Outros",-1 tvg-id="WPLG101.us@HD",ABC (WPLG-DT1) Miami FL (720p)
 https://pubads.g.doubleclick.net/ssai/event/tQD6w9OJQVOobcyV3Dammw/master.m3u8
@@ -5132,6 +5140,9 @@ https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_014/Stream/playlist.m3u
 #EXTINF:-1 tvg-id="" tvg-name="ACTV" tvg-logo="https://i.imgur.com/Z6lB0Ww.png" group-title="WORLD - Outros" tvg-country="XX",ACTV
 https://castus-vod-dev.s3.amazonaws.com/vod_clients/athens/live/ch2/video.m3u8
 
+#EXTINF:-1 tvg-id="" tvg-name="ACW UG TV (480p)" tvg-logo="https://i.imgur.com/8pzEmcJ.jpeg" group-title="WORLD - Outros" tvg-country="XX",ACW UG TV (480p)
+https://live-evg10.tv360.bitel.com.pe/bitel/alasdeaguilaSRT/playlist.m3u8
+
 #EXTINF:-1 tvg-id="" tvg-name="ADB TV (1080p)" tvg-logo="https://i.ibb.co/HGfTJwt/ADBTV.jpg" group-title="WORLD - Outros" tvg-country="XX",ADB TV (1080p)
 https://live-tv.waytv.pt/adbtv/adbtv/playlist.m3u8
 
@@ -5143,9 +5154,6 @@ https://jmp2.uk/plu-646ccd3681844c000974d6f4.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="ADO TV (720p)" tvg-logo="https://i.imgur.com/pxFamLr.png" group-title="WORLD - Outros" tvg-country="XX",ADO TV (720p)
 https://strhls.streamakaci.tv/ortb/ortb2-multi/playlist.m3u8
-
-#EXTINF:-1 tvg-id="" tvg-name="AE Radio TV (720p) [Not 24/7]" tvg-logo="https://i.imgur.com/425dj2i.jpeg" group-title="WORLD - Outros" tvg-country="XX",AE Radio TV (720p) [Not 24/7]
-https://tls-cl.cdnz.cl/aeradio/live/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="AFN TV" tvg-logo="https://i.imgur.com/LctanF8.png" group-title="WORLD - Outros" tvg-country="XX",AFN TV
 https://bozztv.com/1gbw5/tintv2/tintv2/playlist.m3u8
@@ -5758,6 +5766,9 @@ https://wingspan-airandspace-1-us.tcl.wurl.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="Aire de Santa Fe (1080p)" tvg-logo="https://i.imgur.com/60vSWW0.png" group-title="WORLD - Outros" tvg-country="XX",Aire de Santa Fe (1080p)
 https://mdstrm.com/live-stream-playlist/6931a0eb06778645348008e0.m3u8
 
+#EXTINF:-1 tvg-id="" tvg-name="Ajman TV (1080p)" tvg-logo="https://i.imgur.com/hVNIwgE.png" group-title="WORLD - Outros" tvg-country="XX",Ajman TV (1080p)
+https://cdn1.logichost.in/ajmantv/live/playlist.m3u8
+
 #EXTINF:-1 tvg-id="" tvg-name="Ajyal TV (720p)" tvg-logo="https://i.imgur.com/i6Y7beR.jpg" group-title="WORLD - Outros" tvg-country="XX",Ajyal TV (720p)
 http://htvajyal.mada.ps:8888/ajyal/index.m3u8
 
@@ -6069,7 +6080,7 @@ https://jmp2.uk/plex-6a1610bebdf296985fd95603-62efbb8652f7d73061eec498.m3u8
 
 #EXTINF:-1 tvg-chno="8" tvg-id="Altitude.Sports.us2" tvg-name="Altitude Sports" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s44263_dark_360w_270h.png" group-title="WORLD - Outros",Altitude Sports
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ced8/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZWQ4OjE3OTQ2MDkwMDM5NzY6Y2RubGl2ZXR2LnR2OmY5NjdiNWQxOTdjZTQ4ODIuZmJkMGU3YWNlNDdiMjUzYWJiMjI0MmEwNzQyZWY3Yjk3MjUyNzhhZjE3N2IzY2ZhNzU4NTM3NmQ4ZDk2MTE0Ng
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ced8/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZWQ4OjE3OTQ2MTgwMDM2MTA6Y2RubGl2ZXR2LnR2OmM5ZmJiZTI5YmU4MjJjZmIuNzExNjIyMzFlNzU5ODhiNWE1ZmQyZDliNzAwYTI2YTk0ZjU0M2Y1NDI1ZTNmNGZiN2QxYzFiNDc1OTgxMzdjMQ
 
 #EXTINF:-1 group-title="WORLD - Outros" tvg-logo="https://raw.githubusercontent.com/LITUATUI/M3UPT/main/logos/Meo-Beachcam.png",Alvor
 https://video-auth1.iol.pt/beachcam/alvor/playlist.m3u8
@@ -7069,7 +7080,7 @@ https://jmp2.uk/plu-61dd5bf8db0b8e00080804ff.m3u8
 
 #EXTINF:-1 tvg-chno="18" tvg-id="BET.HD.us2" tvg-name="BET" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10051_dark_360w_270h.png" group-title="WORLD - Outros",BET
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cdd7/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZGQ3OjE3OTQ2MDkwMDQxNzM6Y2RubGl2ZXR2LnR2OjFiNmFmZjhhNjEyMmNhNTAuNzBiOThmODM2YWUwODVkZmNlZTgyYWQ0ZGRhYjA3YTE2ZDcyNTdlOGYxMGZiZGNjMjc5ZWRkNTE5YjMxMjU2Ng
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cdd7/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZGQ3OjE3OTQ2MTgwMDM4MDk6Y2RubGl2ZXR2LnR2Ojk5NDhhMzkxN2RiNTJiNGYuM2NiYjQ1MWY3ZTE1NWQ2NmRlNzQ4NzU2MmQ5NDJhNjM3ZjJhNjIwNjA5MWI0Yjc3MGE4NDIwMWU3ZmFlNzk2Nw
 
 #EXTINF:-1 channel-id="58af4c093a41ca9d4ecabe96" tvg-id="58af4c093a41ca9d4ecabe96" tvg-chno="100" tvg-name="BET Cinema" tvg-logo="https://images.pluto.tv/channels/58af4c093a41ca9d4ecabe96/colorLogoPNG_1759338280891.png" group-title="WORLD - Outros",BET Cinema
 https://jmp2.uk/plu-58af4c093a41ca9d4ecabe96.m3u8
@@ -8396,7 +8407,7 @@ https://jmp2.uk/plu-6aaaec94611342bebfd49e9e.m3u8
 
 #EXTINF:-1 tvg-chno="26" tvg-id="WCBS-DT.us_locals1" tvg-name="CBS" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10098_dark_360w_270h.png" group-title="WORLD - Outros",CBS
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf91/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjkxOjE3OTQ2MDkwMDQzNzQ6Y2RubGl2ZXR2LnR2OjI0NzJmMWI0Njc1M2QxMGMuZGJmYTdiNTJjOWM2Yjk4ODQyMjM5YmUwNWVmYTk5NzNlZmI1M2I2MWJjZmY2Mjc5MWQ4YzY4Njk2MzQyZDA2ZQ
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf91/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjkxOjE3OTQ2MTgwMDQwMjc6Y2RubGl2ZXR2LnR2OjE2ZWVkZWM3N2M0ZGU4NmEuODk2ODM5NjQ0YmY2Y2ZiZWM4NzU1NjcwMDRhOTBlY2M2NGNmMzlkNzVmN2UzMzFkMWFlODQyMTJhZWRhMzk3Nw
 
 #EXTINF:-1 tvg-logo="https://images.vizio.com/v4/btv/1/1654150170/1/267/150/0.jpg" group-title="WORLD - Outros",CBS 47 Fox 30 Action News Jax
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-wjaxbreakingnews-vizious/playlist.m3u8?did=%7bADID%7d&us_privacy=%7bUSPRIVACY%7d&ifa_type=%7bIFATYPE%7d&lmt=%7bLMT%7d&app_name=%7bAPP_NAME%7d&app_bundle=%7bAPP_BUNDLE%7d&app_store_url=%7bAPP_STORE_URL%7d&url=%7bDOMAIN%7d&dnt=%7bDNT%7d&coppa=%7bCOPPA%7d&device_make=%7bDEVICE_MAKE%7d&w=%7bWIDTH%7d&h=%7bHEIGHT%7d&skip=%7bSKIPPABLE%7d&vizdartoken=eyJhdWQiOiI5MyIsIndmcGNpZCI6Mzk3MDk1MjQyMn0
@@ -9415,6 +9426,10 @@ https://amg00136-wbd-amg00136c78-vizio-us-9381.playouts.now.amagi.tv/playlist/am
 
 #EXTINF:-1 channel-id="68bb16a500a2f063fdf89f8c" tvg-id="68bb16a500a2f063fdf89f8c" tvg-chno="3440" tvg-name="Chef vs Chef by Food Network" tvg-logo="https://images.pluto.tv/channels/68bb16a500a2f063fdf89f8c/colorLogoPNG_1757718859405.png" group-title="WORLD - Outros",Chef vs Chef by Food Network
 https://jmp2.uk/plu-68bb16a500a2f063fdf89f8c.m3u8
+
+#EXTINF:-1 tvg-chno="31" tvg-id="CHSN.Chicago.Sports.Network.us2" tvg-name="Chicago Sports Network" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s166708_dark_360w_270h.png" group-title="WORLD - Outros",Chicago Sports Network
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d280/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMjgwOjE3OTQ2MTgwMDQyNDE6Y2RubGl2ZXR2LnR2OmIxMmQzZDM1NDUyN2ZiMzMuOTFlMjlhMGIzNWYyOWU2YmVmYjhkOWNjMzcwY2MyMmJlZDAxYWE3YjMxZGFiMjJlYzA5NWJjMTFlMzMxNGIzZQ
 
 #EXTINF:-1 group-title="WORLD - Outros",Chili Alta Tensione (IT)
 https://chili-chili-alta-tensione-1-it.xiaomi.wurl.tv/playlist.m3u8
@@ -13912,7 +13927,7 @@ https://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/dash/enc/oboxe53wyo/out/v1/f
 
 #EXTINF:-1 tvg-chno="65" tvg-id="FS2.HD.us2" tvg-name="Fox Sports 2" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s33178_dark_360w_270h.png" group-title="WORLD - Outros",Fox Sports 2
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf26/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjI2OjE3OTQ2MDkwMDQ3NDg6Y2RubGl2ZXR2LnR2OmJjODZhMDI4NTQ1ZTk4NTIuNmNmMmU0MzZiOThjZTAyOGQ3MzU4NDI5MTk3YTZmNzMzMDE3NDkyNGJhNTY4ZWFmZWM4YjRhMDgwYjAzZjgxYg
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf26/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjI2OjE3OTQ2MTgwMDQ0MjY6Y2RubGl2ZXR2LnR2OjZhY2VmZjUwNmZlYjgwYzEuZGZmMTg5YjU3MDJmZTg1MWQ5NzVmMjBkMzIwN2M4NGJhNzI0OTZkOWM2NDE3NDUyNmU4ZjRkNTgyZjVlOTFjMQ
 
 #EXTINF:-1 tvg-chno="" cuid="1689" tvg-name="Fox Sports" tvg-id="FOX.SPORTS.2.mx" tvg-logo="https://raw.githubusercontent.com/iprtl/p1/master/logo/FoxSports.webp" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",Fox Sports 2 🇲🇽
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
@@ -15078,7 +15093,7 @@ https://amg01703-amg01703c1-firetv-us-7717.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1 tvg-chno="73" tvg-id="Hallmark.Channel.HD.us2" tvg-name="Hallmark Channel" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s11221_dark_360w_270h.png" group-title="WORLD - Outros",Hallmark Channel
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ce10/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZTEwOjE3OTQ2MDkwMDUwMTc6Y2RubGl2ZXR2LnR2OmYxZDk1NGYzOTUxZDA5NWEuOWE0ZWU1NjRhYjkwMjMzYTQ1M2YzZDkyZjQ5Y2ZhMjUwMDc0MTI3MzkzZDZlNmIwZjk4Y2I1NjEyMjZhMzZiMA
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ce10/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZTEwOjE3OTQ2MTgwMDQ2NDI6Y2RubGl2ZXR2LnR2OmZmMjY4ZDRjMWEwZjVkYWIuYTMwMDgxYmZhN2ZjYWVlMTY3YTBkZDFhNTJkNGI3ODJmY2YxNzMzNTdhMmY0MTc4NWNiYzE0MmI1NzA3Yzc2OQ
 
 #EXTINF:-1 tvg-id="99991709" tvg-name="Hallmark Movies & More" tvg-logo="https://image.xumo.com/v1/channels/channel/99991709/168x168.png?type=color_onBlack" group-title="WORLD - Outros",Hallmark Movies & More
 https://live-content.xumo.com/2777/content/XM0CMP2TAQK7T2/27390004/master.m3u8
@@ -15418,7 +15433,7 @@ https://amg01515-amg01515c89-amgplt0022.playout.now3.amagi.tv/ts-us-w2-n1/playli
 
 #EXTINF:-1 tvg-chno="78" tvg-id="History.HD.us2" tvg-name="History Channel (Alt)" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s87679_dark_360w_270h.png" group-title="WORLD - Outros",History Channel (Alt)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cfc6/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZmM2OjE3OTQ2MDkwMDUyMDE6Y2RubGl2ZXR2LnR2OjY1N2U0OTJjYWZhYmUxYTAuMmE5ZjMxYmJjYmMyMWU5NjQ3ZWE0YTE0ZGQ4MDA2MDJlNDk2NjJjNTQzOTQxMTljZWQ0ZGJjMWY0ODEzYzc3Yg
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cfc6/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZmM2OjE3OTQ2MTgwMDQ4NDM6Y2RubGl2ZXR2LnR2OmY5ZjdkNTdiZGUzMjVlODcuZmI3YjQ1NjFiMDJkOGZiMzMzMjYzYjU1YmVjMDg2M2EzNzJmYjgyMTU2OGNhOTdiMTE2YmMwZDQ4OWMxMzAyNQ
 
 #EXTINF:-1 channel-id="5e20b730f2f8d5003d739db7-5f74cf83ffbe690040689f50-nz" tvg-id="5e20b730f2f8d5003d739db7-5f74cf83ffbe690040689f50" tvg-chno="" tvg-name="History Hit" tvg-logo="https://provider-static.plex.tv/epg/cms/production/122cb7c8-2f6f-429a-8299-e89d9e632925/HistoryHit_Rectangle_colour_1500x1000_logo.png" group-title="WORLD - Outros",History Hit
 https://jmp2.uk/plex-5e20b730f2f8d5003d739db7-5f74cf83ffbe690040689f50.m3u8
@@ -17876,7 +17891,7 @@ https://2-fss-2.streamhoster.com/pl_138/200226-1359204-1/playlist.m3u8
 
 #EXTINF:-1 tvg-chno="86" tvg-id="Lifetime.HD.us2" tvg-name="Lifetime" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10918_dark_360w_270h.png" group-title="WORLD - Outros",Lifetime
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ceae/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZWFlOjE3OTQ2MDkwMDUzOTc6Y2RubGl2ZXR2LnR2OjZlYzI5MTc0ZWJlOTQ2NWEuOTFkODkzN2QzOWYxMjdmNDAyM2M4ZWVlYTUwMGMxZWM2NmRhOGZhM2Y4YzVlZWM2ZjU0MDNjZTVhMTFkNGU2MA
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363ceae/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZWFlOjE3OTQ2MTgwMDUwNDA6Y2RubGl2ZXR2LnR2OmI3Y2ZiZDEwZTc2OWIyMDkuNzNlNjViNjBhOWQ2ZjNmM2FiNTk1NTE3NTA3NzEwNDc3YjljOGU0YjIxNjBhZjg2ZDk4YTk3YmRmZDRhMzQ4ZQ
 
 #EXTINF:-1 tvg-id="Lifetime_Movie_Favorites" tvg-logo="http://img.platform.wurl.dev/channel/999/lg/2c7884/LG-400x225_v2.png" group-title="WORLD - Outros",Lifetime Movie Favorites
 https://aenetworks.global.transmit.live/hls/68b7788c2bcf083f5d656232/v1/aenetworks_holidaymoviefavorites_1/lg_us/latest/main/hls/playlist.m3u8
@@ -18363,7 +18378,7 @@ https://jmp2.uk/plu-615c1e5ce3039400070a0547.m3u8
 
 #EXTINF:-1 tvg-chno="92" tvg-id="MSG.National.us2" tvg-name="MSG" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10979_dark_360w_270h.png" group-title="WORLD - Outros",MSG
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf32/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjMyOjE3OTQ2MDkwMDU2MDg6Y2RubGl2ZXR2LnR2OjkxYmZhY2JmM2VjNzU5YjQuYzU3ZjFmOGQ5MWRhNzdiMTRmYjYxZDQwMjIyNWMxMTA2NmIxMDJhNGYyOTMxYjZjNjE2ODE4NGU2YWJjOGNiOA
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cf32/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZjMyOjE3OTQ2MTgwMDUyNTE6Y2RubGl2ZXR2LnR2OmNlMmVjNzNlODcxZmRmMDIuMmIxMDVlNDUzODlhYWUwOGRkMTU2ZTE5MGVjOTBhNGIzZmNlMjJmOWFjZjJmYzkxMzdlMmZiZTk3YWFhY2FhNw
 
 #EXTINF:-1 tvg-id="MSG_SportsZone" tvg-logo="http://img.platform.wurl.dev/channel/1386/lg/dad2b4/LG-960x540_v1.png" group-title="WORLD - Outros",MSG SportsZone
 https://wurlrainbowmedia.global.transmit.live/hls/68c4987e18e2a74e37774fb6/v1/amc_msgsportszone_1/lg_us/latest/main/hls/playlist.m3u8
@@ -19992,7 +20007,7 @@ https://otte.live.fly.ww.aiv-cdn.net/fra-nitro/live/clients/dash/enc/qio4cutx9r/
 
 #EXTINF:-1 tvg-chno="98" tvg-id="WNBC-DT.us_locals1" tvg-name="NBC" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s10991_dark_360w_270h.png" group-title="WORLD - Outros",NBC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cff6/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZmY2OjE3OTQ2MDkwMDU4MDQ6Y2RubGl2ZXR2LnR2OjhlYjFjMWFiMzViNTk4ZDYuYmU0ZWI0YmQ1NWY2MDkxNjVkODZkYjNkMTE0NDlmODk2MGQ3ZTY1NmY5ODgzMGJkM2RlZjFkNTJlM2ZjMmUyNA
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363cff6/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNjZmY2OjE3OTQ2MTgwMDU0NTQ6Y2RubGl2ZXR2LnR2OmI4NGZkYWY3OTI1Y2M0ZDUuNjc1NmE1YmJmYWZiZDgxNjhjMWJlYzk0ZTQwODMwYzUzNzE1MDY2OGNjOTA5MmQwYjZhYWU2NTQwNmVlZDYyNw
 
 #EXTINF:-1 group-title="WORLD - Outros",-1 tvg-id="NBC.us@WJAR",NBC 10 Providence MA (1080p)
 https://pubads.g.doubleclick.net/ssai/event/kpannrCBQ5KwdV3Hag3Wog/master.m3u8
@@ -20654,7 +20669,7 @@ https://jmp2.uk/plu-654ca7f92c1d3300086b608c.m3u8
 
 #EXTINF:-1 tvg-chno="108" tvg-id="Nickelodeon.HD.us2" tvg-name="Nickelodeon" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s11006_dark_360w_270h.png" group-title="WORLD - Outros",Nickelodeon
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d040/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMDQwOjE3OTQ2MDkwMDYyMjI6Y2RubGl2ZXR2LnR2OmM1OGUzMDAwMjUzOTA4NGMuNzZhMGQ5NjJkMWM2ODNjNjU5M2FhZjhhYTYyMDYzNDVmNWY5YTlhMmJkMjEzMDVkOGFkNTE3ZWViYTI2YTU2ZQ
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d040/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMDQwOjE3OTQ2MTgwMDU4NjM6Y2RubGl2ZXR2LnR2OjJkZjRhYmIyMGVhMmZmYWQuMzAzOTVlNGIwMTkwZWQ4ZmQ1NzFhMGNmYzY4YmI2YTZmMTdiZmVmMDNiN2ZmYzhjODU1NDIxNDQxZWMyZmM1Mw
 
 #EXTINF:-1 channel-id="67f3eb800a1beb98767ca748" tvg-id="67f3eb800a1beb98767ca748" tvg-chno="396" tvg-name="Nickelodeon Classics" tvg-logo="https://images.pluto.tv/channels/67f3eb800a1beb98767ca748/colorLogoPNG_1749200817646.png" group-title="WORLD - Outros",Nickelodeon Classics
 https://jmp2.uk/plu-67f3eb800a1beb98767ca748.m3u8
@@ -25971,7 +25986,7 @@ https://live.corusdigitaldev.com/groupd/live/376c96cd-193f-46d1-a2b6-7c2b78cb0aa
 
 #EXTINF:-1 tvg-chno="122" tvg-id="Showtime.Extreme.HD.us2" tvg-name="Showtime Extreme" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s18086_dark_360w_270h.png" group-title="WORLD - Outros",Showtime Extreme
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d28c/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMjhjOjE3OTQ2MDkwMDY0NDc6Y2RubGl2ZXR2LnR2OjdjZDM5MjNiYTkzYTI4MmYuOTA0ZGRmZWE3ZWM1MDFjODEzMWNlZTA3Mjc4OGY2M2NiNDkzMmNlOTM3MDYwZTRiNGUwYWJiMDRmN2QwYTkzMg
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d28c/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMjhjOjE3OTQ2MTgwMDYwNzU6Y2RubGl2ZXR2LnR2OmJiZWM3M2FmOTg0NTJlZmQuZDE2YWE5ODhiODc4YWY1Y2EwNjc2NThmYjdkNmY3OWZkMzljZTY1MGY4YjkwMWZkNDgxYTEwYTJkNjk1MzZhMQ
 
 #EXTINF:-1 tvg-chno="123" tvg-id="Showtime.Familyzone.HD.us2" tvg-name="Showtime FamilyZone" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s25274_dark_360w_270h.png" group-title="WORLD - Outros",Showtime FamilyZone
 http://23.237.104.106:8080/USA_SHOWTIME_FAMILY/index.m3u8
@@ -26041,37 +26056,37 @@ http://stream.bottledesk.net/p/AQNASgYGemc/index.m3u8
 
 #EXTINF:-1 tvg-chno="126" tvg-id="SkySp.Cricket.uk" tvg-name="Sky Sports Cricket" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-cricket-icon-uk.png" group-title="WORLD - Outros",Sky Sports Cricket
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c860/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODYwOjE3OTQ2MDkwMDY2MzU6Y2RubGl2ZXR2LnR2OmVkNDAzYWQxODgyZjc5NjQuNTE0ZmQ3Y2I4ZmE2ZDdmN2I2MzZhNDk3MWZhODcyMDRkZTdhN2Y0ZTAxOTEzMTZiZDEyZjZlODJhZjNhZjgwMg
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c860/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODYwOjE3OTQ2MTgwMDYyNjY6Y2RubGl2ZXR2LnR2OmM1ZWRkM2E0YmZmODE5MjUuNmQ5MzdmMzg1MWI2Y2ZlYzJjOGQwM2VlMWFlYjIwZjIzZDBlNzkzZTRlNGM2YjA3MjhkYjE2YzEyNDIyOGUxZg
 
 #EXTINF:-1 tvg-chno="127" tvg-id="SkySp.F1.uk" tvg-name="Sky Sports F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-icon-uk.png" group-title="WORLD - Outros",Sky Sports F1
 http://stream.bottledesk.net/p/AwZGQwwEZA/index.m3u8
 
 #EXTINF:-1 tvg-chno="128" tvg-id="SkySp.Fball.uk" tvg-name="Sky Sports Football" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-football-icon-uk.png" group-title="WORLD - Outros",Sky Sports Football
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c88c/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODhjOjE3OTQ2MDkwMDY4Mjk6Y2RubGl2ZXR2LnR2OjRhOTc1ZjVhOGI3ODZlYmYuNTVlMmRlZGQxMjZhMmRkZTljODg2ZmEzOTJjNjE0OWUzZjRhZTMwN2JhNjAwNTJiMzliMDcwYzhkNGY4MWZlNg
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c88c/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODhjOjE3OTQ2MTgwMDY0ODA6Y2RubGl2ZXR2LnR2OjYyMmIyOWU0ZDA3NmRmZjguMzMzZjlmM2RkZmNiMDM3YWNhY2IzYmJiZDgyNzc0NjFlNDk3NjAxNDA0N2JhN2MyYzg2M2UzM2Q1Njg1YTI1OA
 
 #EXTINF:-1 tvg-chno="129" tvg-id="SkySp.Golf.uk" tvg-name="Sky Sports Golf" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-golf-icon-uk.png" group-title="WORLD - Outros",Sky Sports Golf
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c864/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODY0OjE3OTQ2MDkwMDcwNDA6Y2RubGl2ZXR2LnR2OjBhMzI4ZjA5NjA1ZTRhYzEuZjM3MjUzNjQ3YThjODVhYzIxMTNkZTAzNzMyOGI0MGJjZjY4MmRjN2FjMGM1ZTJkODBjN2QxMjY4MGZjYTg0Ng
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c864/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODY0OjE3OTQ2MTgwMDY2ODA6Y2RubGl2ZXR2LnR2OjRhOGM5ZDlkOWRmZDNhNTYuMzlhZWFkMzg3M2MzMDg1NTRiMDgxOTE4YTY2MTBmZWI0YWQxNWNkOTIzNDQ1ODdiNWJlMjUwZGRkZGUzY2Y2Ng
 
 #EXTINF:-1 tvg-chno="130" tvg-id="SkySpMainEvHD.uk" tvg-name="Sky Sports Main Event" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-main-event-icon-uk.png" group-title="WORLD - Outros",Sky Sports Main Event
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c855/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODU1OjE3OTQ2MDkwMDcyNDc6Y2RubGl2ZXR2LnR2OjBjZDQ3OWE5YTRmZmEzNWEuYTAzMjlhYWVmOGNkNmFjZDQ4ODIwNmUyNTcwMTMzNmFjMGIyYzJmZTc5MGU5M2FkZDMzMDEyNDE4YmJhN2E0Yw
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c855/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODU1OjE3OTQ2MTgwMDY5MzQ6Y2RubGl2ZXR2LnR2Ojg3YTJkMjY1NzJhNmIyNDEuODFiNjMyNWI0MGY2MDVhNWI5ZDg1MDFiMmUwNmIyY2I0MmIyOWU1NGQ0NGFlYTJkOTlkOWM2Y2VjZTQxYjAwNQ
 
 #EXTINF:-1 tvg-chno="131" tvg-id="SkySp.Mix.HD.uk" tvg-name="Sky Sports Mix" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-mix-icon-uk.png" group-title="WORLD - Outros",Sky Sports Mix
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c873/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODczOjE3OTQ2MDkwMDc0NDA6Y2RubGl2ZXR2LnR2OjBkNzg3YWRmYTQxYzcyODguMTZhZTE5OTNmZWVhYTU0ZDc0YTJlYzM0NTdlMTMyNWZhMWU5NTEzMWY0OWFjZTk4OTAwYjZkNDkwZWYyNWMxYg
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c873/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODczOjE3OTQ2MTgwMDcwODc6Y2RubGl2ZXR2LnR2OmE1MmVhOGFjN2YyYjcyNmUuMTI5NDU5YjdhMDE2MzcxZTBmNzM4MTI2ZTE5MWIzZWIxOTRlNjNjOTQ4NGU4NDAzZmU0ZTM5OGI5ZjgzMDVmMg
 
 #EXTINF:-1 tvg-chno="132" tvg-id="SkySp.PL.HD.uk" tvg-name="Sky Sports Premier League" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-premier-league-icon-uk.png" group-title="WORLD - Outros",Sky Sports Premier League
 http://stream.bottledesk.net/p/AAxBRQEBc2c/index.m3u8
 
 #EXTINF:-1 tvg-chno="133" tvg-id="SkySp.Racing.HD.uk" tvg-name="Sky Sports Racing" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-racing-icon-uk.png" group-title="WORLD - Outros",Sky Sports Racing
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c87b/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODdiOjE3OTQ2MDkwMDc3OTI6Y2RubGl2ZXR2LnR2OjBlYTg0NGFlNTcxZjNiMDkuNDA2ZmNhOGJkZmQ1YTM3NmFiNDg4YzU1MzZiODA3OWM0NDkxZjE2MGQzMmYyMjNmZjQwMWNhOGEyNGExZGY5Mw
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c87b/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODdiOjE3OTQ2MTgwMDczMDI6Y2RubGl2ZXR2LnR2OmYzMjdkNWIwYmMxMjc5YjcuZjdkMTViMmRkMTdiZDY0NDBlN2NhOGIxYzc5ZDVhMTg2MjYzYzI2MWY1MDRhMDQ3YTAzZWVjNWE1ZTM2MTk2ZA
 
 #EXTINF:-1 tvg-chno="134" tvg-id="SkySp.Tennis.HD.uk" tvg-name="Sky Sports Tennis" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-tennis-icon-uk.png" group-title="WORLD - Outros",Sky Sports Tennis
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c867/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODY3OjE3OTQ2MDkwMDc5NjE6Y2RubGl2ZXR2LnR2OjA4OGEzNmYxOTcxMTg0MzMuOGJkOWZkNDkwN2VlZDhhOTk3MjMzYzljZGQ1YWM5OGUyZGZjZTJkMzhiZmU3MzU0NTNmZTZiZWU1MGJiOGZlMw
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c867/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODY3OjE3OTQ2MTgwMDc1MDI6Y2RubGl2ZXR2LnR2OmE0Y2I4MmU1OWMyMTBlNDkuOGNlOGU3ODg4M2JlNmI3ZGUxZTk2ZmUxOTBkZTg5YmNiNzA2Mzk5NTA4MDFjNTJiNjdjYjU3OWVhOGM5NTk0Nw
 
 #EXTINF:-1 channel-id="FR4000005KE" tvg-id="FR4000005KE" tvg-chno="4004" tvg-name="Skyrock" tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/FR4000005KE_20261026T042258SQUARE.png" group-title="WORLD - Outros",Skyrock
 https://jmp2.uk/stvp-FR4000005KE
@@ -26887,7 +26902,7 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/vizioAAAA-sportsgrid-vizio/playlist.m3
 
 #EXTINF:-1 tvg-chno="137" tvg-id="SNY.SportsNet.New.York.HD.us2" tvg-name="SportsNet New York" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s50038_dark_360w_270h.png" group-title="WORLD - Outros",SportsNet New York
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d4b3/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkNGIzOjE3OTQ2MDkwMDgzNzA6Y2RubGl2ZXR2LnR2OjM3OGJiMzk3MjhkNGVjYTMuMmYzNjNlNmFhMWE2NjVhNWY4MWM2MGNhY2NkYjc3MTY0NmY2MDVkOTYwNGY1YTRkNDc4NGU1OWQzYWM3MTNkMQ
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d4b3/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkNGIzOjE3OTQ2MTgwMDc5MTg6Y2RubGl2ZXR2LnR2OjE4ZjFjYzhiMmIxZTE4ZTEuY2Q0MzFlNGY5MDhjZGFlZDA3M2FhNzI0NTE3ODhhNDQ2NDBmZGM4YmM3ZWUwNzk0M2RkZjUzZTM3NTI5NTA0MQ
 
 #EXTINF:-1 group-title="WORLD - Outros",Sportsgrid
 https://amg00315-sportsgrid-firetv.amagi.tv/playlist.m3u8
@@ -27713,14 +27728,14 @@ https://tntm.mediacdn.ru/cdn/tntmusic/playlist.m3u8
 
 #EXTINF:-1 tvg-chno="152" tvg-id="TNT.Sports.1.HD.uk" tvg-name="TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/tnt-sports-1-uk.png" group-title="WORLD - Outros",TNT Sports 1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c88f/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODhmOjE3OTQ2MDkwMDg1Nzc6Y2RubGl2ZXR2LnR2OmEzNWE4NDVjZjBkNzg4NDUuOTVlYWRlMzRlOWVlZTg4M2UwZTlmZGQ0MzJiMjE4MTA5ZTM1NmI2YWJiZTMyYThiNDczMjU0MWVlZDhmNTBhYg
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c88f/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODhmOjE3OTQ2MTgwMDgxMjc6Y2RubGl2ZXR2LnR2OmI3M2VkMmMwYWM4Nzc3MzAuNDUwYmZiZTM3MjkyMGM5ZTM3ZDU2ZmYyMDNlOTdmMDFjOGZkYzFlN2I5ZmZhMGJmNzkyZDNkN2Y2M2YyOTU4Zg
 
 #EXTINF:-1 tvg-chno="" cuid="1501" tvg-id="TNT.Sports.1.HD.uk" tvg-name="TNT SPORTS 01" tvg-logo="https://github.com/iprtl/tv-logos/raw/main/countries/united-kingdom/tnt-sports-1-uk.png" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",TNT Sports 1 🇬🇧⚽️🏉🎱🏏
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd
 
 #EXTINF:-1 tvg-chno="153" tvg-id="TNT.Sports.2.HD.uk" tvg-name="TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/tnt-sports-2-uk.png" group-title="WORLD - Outros",TNT Sports 2
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c892/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODkyOjE3OTQ2MDkwMDg3MTY6Y2RubGl2ZXR2LnR2OmE2YjMxOGFjOGRiNDZlMWUuNzJmZWE2NTE2NTM0ZjRjZjI1NTI5MDFhMTRkMGJkZTgyMTQ0N2VlZDgzMzUxYmJhM2I1ZjE1MmMyNTM2ZTY0OQ
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c892/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODkyOjE3OTQ2MTgwMDgzMTg6Y2RubGl2ZXR2LnR2OjIxNDEwMzZkYzk5NzBiZGQuYWEwOGRjNTRmODBkOTIzOGNiNGMxMzRhYWVjMGI5MmMzMWYxMmY3ZWRhNzY1OTk5MjhlNTExMzc5MjIxMDQyMw
 
 #EXTINF:-1 tvg-chno="" cuid="1503" tvg-id="TNT.Sports.2.HD.uk" tvg-name="TNT SPORTS 02" tvg-logo="https://github.com/iprtl/tv-logos/raw/main/countries/united-kingdom/tnt-sports-2-uk.png" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",TNT Sports 2 🇬🇧⚽️🐴🎱
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/puehlftk5j/out/v1/f7f0da1ee112481ca0024e6d4dd97f4a/cenc.mpd
@@ -27730,7 +27745,7 @@ https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/dev1hjwzh9/out/v1
 
 #EXTINF:-1 tvg-chno="155" tvg-id="TNT.Sports.4.HD.uk" tvg-name="TNT Sports 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/tnt-sports-4-uk.png" group-title="WORLD - Outros",TNT Sports 4
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c89b/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODliOjE3OTQ2MDkwMDkwOTA6Y2RubGl2ZXR2LnR2OmRmOGY2NTVmMDYwZTNiYzUuNWJiZjcxZTg0ZDc2ODE5NTllY2FkYzY0NWQxNDAyMTVmNGEyNWI0OTY2MmI3YmJlNWFiNTAwZjA5MDE5M2FiNQ
+https://cdnlivetv.tv/secure/api/v1/6add40ae2d4a99e07363c89b/playlist.m3u8?token=NmFkZDQwYWUyZDRhOTllMDczNjNjODliOjE3OTQ2MTgwMDg3Mjk6Y2RubGl2ZXR2LnR2OjFhNTNlOTczOWY2ZDQ1MGQuMGUzMTA0ODM2M2VhYmU5ZWNmNWJlNzEyMjY5ZTYxYmYzNGY0YmRiNTkxNDdkMGIxNzE2ZThkNGY3NTFkZGNlYg
 
 #EXTINF:-1 tvg-chno="" cuid="1508" tvg-id="TNT.Sports.4.HD.uk" tvg-name="TNT SPORTS 04" tvg-logo="https://github.com/iprtl/tv-logos/raw/main/countries/united-kingdom/tnt-sports-4-uk.png" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",TNT Sports 4 🇬🇧⚽️⚾🏏
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
@@ -27870,7 +27885,7 @@ https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/lsibpqruq1/out/v1
 
 #EXTINF:-1 tvg-chno="162" tvg-id="TSN.4.ca2" tvg-name="TSN 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/canada/tsn-4-ca.png" group-title="WORLD - Outros",TSN 4
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40b12d4a99e07363ed3f/playlist.m3u8?token=NmFkZDQwYjEyZDRhOTllMDczNjNlZDNmOjE3OTQ2MDkwMDk1MDI6Y2RubGl2ZXR2LnR2OjE1N2VmZDI4MGQ0N2JlOWEuYjU2YWIxMDJmMWViMTMxOTEyZDI4YjZjZmM1N2JmMjdkNDBiMjQ0NTA4MzhhODQwZmQ3MTYwYWE4YmE5ZjFkNg
+https://cdnlivetv.tv/secure/api/v1/6add40b12d4a99e07363ed3f/playlist.m3u8?token=NmFkZDQwYjEyZDRhOTllMDczNjNlZDNmOjE3OTQ2MTgwMDkxNTY6Y2RubGl2ZXR2LnR2OmZhZjExMDlkZTU5Mjk4ZWIuYzVkNDg1NmIwNzA3Mzg2NGIwMjQxYTgwNTdlMjRmMzYyNmQxY2IxODE1ZGY3YTkxYWYzZmFlYjcwYmQ0NzE0OQ
 
 #EXTINF:-1 tvg-name="TSN" tvg-id="TSN.4.ca2" tvg-logo="https://i.imgur.com/qJyAWU8.png" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",TSN 4 🇨🇦
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/140.0
@@ -27878,7 +27893,7 @@ https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1
 
 #EXTINF:-1 tvg-chno="163" tvg-id="TSN.5.ca2" tvg-name="TSN 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/canada/tsn-5-ca.png" group-title="WORLD - Outros",TSN 5
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40b12d4a99e07363ed42/playlist.m3u8?token=NmFkZDQwYjEyZDRhOTllMDczNjNlZDQyOjE3OTQ2MDkwMDk3MDQ6Y2RubGl2ZXR2LnR2OmQxZTliYWNkZTEwYzI4ZmQuODhiNjZlNGNhZTc1N2QxZmI3ZTc2OGJlMTVhZjk4NTkxMzZmY2NiOWMwNTc2Y2I3MzcyMGUxMjcyYjk4MjI3NQ
+https://cdnlivetv.tv/secure/api/v1/6add40b12d4a99e07363ed42/playlist.m3u8?token=NmFkZDQwYjEyZDRhOTllMDczNjNlZDQyOjE3OTQ2MTgwMDkzNjY6Y2RubGl2ZXR2LnR2OjAzMWM3ODc1YjI4YTQzMTIuZGQyNTY4OGMxZDlhMjAwOTRmODY2OTBhM2VmNTc0YWE5MDhhNmUwZjQ0ODY1Y2U0YWM5NmI2MGNmOGFiYmJjZQ
 
 #EXTINF:-1 tvg-name="TSN" tvg-id="TSN.5.ca2" tvg-logo="https://i.imgur.com/HEzHpzz.png" group-logo="https://cdn-icons-png.freepik.com/512/1080/1080994.png" group-title="WORLD - Outros",TSN 5 🇨🇦
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/140.0
@@ -28132,7 +28147,7 @@ https://video11.logicahost.com.br/jornaloreporter/jornaloreporter/playlist.m3u8
 
 #EXTINF:-1 tvg-chno="166" tvg-id="TV.ONE.HD.us2" tvg-name="TV ONE" tvg-logo="http://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s35513_dark_360w_270h.png" group-title="WORLD - Outros",TV ONE
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d032/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMDMyOjE3OTQ2MDkwMDk5MDY6Y2RubGl2ZXR2LnR2OjMzZjQwMGQyODgzMTZmNDAuZDE2Y2ZkZmU1YzE0MGM4YzdhN2Q3MmMxYjU1Y2QzZGM1NjFjODYzOTMyODI4MDIxYTc2ZTQ5YTZhOTIwNmQ3NQ
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d032/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMDMyOjE3OTQ2MTgwMDk1NTU6Y2RubGl2ZXR2LnR2OjA4ODVkNGVkOTRjMDFmZWYuZDQ5NmRmMGRjYzJmYmJkZDBkYzI4ZWM1ODdiODA1YTk4NWEwZDdhMjFhYmEwYTE4ZDM4Yjc0N2EzYmEyOTE3NQ
 
 #EXTINF:-1 tvg-name="TV ONE (TV Meio Norte PA)" group-title="WORLD - Outros",TV ONE (TV Meio Norte PA)
 https://video02.logicahost.com.br/tvone/tvone/playlist.m3u8
@@ -29663,7 +29678,7 @@ https://amg02451-c3-amg02451c1-vizio-us-3670.playouts.now.amagi.tv/playlist/amg0
 
 #EXTINF:-1 tvg-chno="149" tvg-id="The.Travel.Channel.HD.us2" tvg-name="The Travel Channel" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s11180_dark_360w_270h.png" group-title="WORLD - Outros",The Travel Channel
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d154/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMTU0OjE3OTQ2MDkwMDkyOTQ6Y2RubGl2ZXR2LnR2OjI1YzgyNzA2YzBhYThmM2IuOTcyOTNkNWQ0ZmNmNTUyY2U2ZWQxYWJjMTMwMDljNDUxNGI3MjM4NDFmOGE5OTBiNzVkOGFhYjk3OTU4YjNhZg
+https://cdnlivetv.tv/secure/api/v1/6add40af2d4a99e07363d154/playlist.m3u8?token=NmFkZDQwYWYyZDRhOTllMDczNjNkMTU0OjE3OTQ2MTgwMDg5NDA6Y2RubGl2ZXR2LnR2OmVmNzI2M2VjOGYzZDFlZmUuNmQ2OThlYzYzNjM1MTNmNGUyZWJkMWFiM2JlZWVhYjYyNGJlODAxNmVmYzQ2MTMxOGYyMWY5OGUzOGRmMzQ0ZA
 
 #EXTINF:-1 channel-id="6512d3a0bdcb19000799cc82" tvg-id="6512d3a0bdcb19000799cc82" tvg-chno="686" tvg-name="The Twilight Zone" tvg-logo="https://images.pluto.tv/channels/6512d3a0bdcb19000799cc82/colorLogoPNG.png" group-title="WORLD - Outros",The Twilight Zone
 https://jmp2.uk/plu-6512d3a0bdcb19000799cc82.m3u8
@@ -33006,95 +33021,140 @@ https://jmp2.uk/plex-6a1610bebdf296985fd95603-65f0da6f046e6131ecc31841.m3u8
 #EXTINF:-1 tvg-logo="https://image-cdn.metaxplay.tv/cmsMediaImage/202409/12927_720p_f_16x9.webp?v=1725347126" group-title="WORLD - Outros",Zut Tv
 https://ssai.aniview.com/api/v1/hls/stream.m3u8?AVS_SSAIID=66d13b9f7d8040a397042029&AV_CHANNEL_NAME=ZUT-TV&AV_CONTENT_LANGUAGE=es&AV_CONTENT_RATING=TV-PG&cb=MX_CACHEBUSTER&AV_APPPKGNAME=MX_APP_BUNDLE&AV_APPNAME=MX_APP_NAME&AV_APPSTOREURL=MX_APP_STORE_URL&AV_WIDTH=MX_WIDTH&AV_HEIGHT=MX_HEIGHT&AV_LANGUAGE=MX_DEVICE_LANGUAGE&AV_IFA_TYPE=MX_IFA_TYPE&AV_CATEGORY=IAB1-6&AV_TITLE=ZUT-TV&AV_EPISODE=MX_CONTENT_EPISODE&AV_CONTENT_GENRE=Classics&AV_GDPR=MX_GDPR&AV_CONSENT=MX_CONSENT&AV_COPPA=MX_COPPA&AV_IDFA=MX_IFA&AV_CCPA=MX_US_PRIVACY&AV_CONTENT_CHANNEL=ZUT-TV&AV_CUSTOM17=Google--520678__86__12927__0__0__0____MP&AV_CUSTOM18=MX_GIVN&AV_CUSTOM19=pn%3D2v2lTwj4%26context%3Dmid-12927
 
-#EXTINF:-1 tvg-chno="187" tvg-id="Soccer.Dummy.us" tvg-name="[Africa Cup of Nations] Egypt vs Malawi 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/76.png" group-title="WORLD - Outros",[Africa Cup of Nations] Egypt vs Malawi 2 (FAWA)
+#EXTINF:-1 tvg-chno="184" tvg-id="Soccer.Dummy.us" tvg-name="[Africa Cup of Nations] Egypt vs Malawi 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/76.png" group-title="WORLD - Outros",[Africa Cup of Nations] Egypt vs Malawi 2 (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://www.rtmpcdn.com/live/eff2cec1-a2de-4e47-bf6f-77d432202d16.m3u8
 
-#EXTINF:-1 tvg-chno="189" tvg-id="Soccer.Dummy.us" tvg-name="[Africa Cup of Nations] Mali vs Rwanda 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/76.png" group-title="WORLD - Outros",[Africa Cup of Nations] Mali vs Rwanda 2 (FAWA)
+#EXTINF:-1 tvg-chno="185" tvg-id="Soccer.Dummy.us" tvg-name="[Africa Cup of Nations] Mali vs Rwanda 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/76.png" group-title="WORLD - Outros",[Africa Cup of Nations] Mali vs Rwanda 2 (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://www.rtmpcdn.com/live/0f882ec5-b256-4467-aab8-3c912c365f65.m3u8
 
-#EXTINF:-1 tvg-chno="222" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Anadolu Efes vs Virtus Bologna (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="WORLD - Outros",[Basketball Euroleague] Anadolu Efes vs Virtus Bologna (FAWA)
+#EXTINF:-1 tvg-chno="186" tvg-id="Soccer.Dummy.us" tvg-name="[Africa Cup of Nations] Morocco vs Niger 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/76.png" group-title="WORLD - Outros",[Africa Cup of Nations] Morocco vs Niger 2 (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.41/hls/RPPPAA.m3u8
+https://www.rtmpcdn.com/live/09838268-5f03-4589-a618-76741c722f00.m3u8
 
-#EXTINF:-1 tvg-chno="223" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Lyon-Villeurbanne vs Besiktas (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="WORLD - Outros",[Basketball Euroleague] Lyon-Villeurbanne vs Besiktas (FAWA)
+#EXTINF:-1 tvg-chno="216" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Lyon-Villeurbanne vs Besiktas (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="WORLD - Outros",[Basketball Euroleague] Lyon-Villeurbanne vs Besiktas (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBAAA.m3u8
 
-#EXTINF:-1 tvg-chno="224" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Panathinaikos vs Barcelona (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="WORLD - Outros",[Basketball Euroleague] Panathinaikos vs Barcelona (FAWA)
+#EXTINF:-1 tvg-chno="217" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Panathinaikos vs Barcelona (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="WORLD - Outros",[Basketball Euroleague] Panathinaikos vs Barcelona (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBAA.m3u8
 
-#EXTINF:-1 tvg-chno="227" tvg-id="Soccer.Dummy.us" tvg-name="[CONCACAF Nations League] Bermuda vs Saint Lucia (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2406.png" group-title="WORLD - Outros",[CONCACAF Nations League] Bermuda vs Saint Lucia (FAWA)
+#EXTINF:-1 tvg-chno="220" tvg-id="Soccer.Dummy.us" tvg-name="[CONCACAF Nations League] Bermuda vs Saint Lucia (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2406.png" group-title="WORLD - Outros",[CONCACAF Nations League] Bermuda vs Saint Lucia (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBB.m3u8
 
-#EXTINF:-1 tvg-chno="229" tvg-id="Soccer.Dummy.us" tvg-name="[CONCACAF Nations League] Puerto Rico vs Dominica (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2406.png" group-title="WORLD - Outros",[CONCACAF Nations League] Puerto Rico vs Dominica (FAWA)
+#EXTINF:-1 tvg-chno="222" tvg-id="Soccer.Dummy.us" tvg-name="[CONCACAF Nations League] Puerto Rico vs Dominica (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2406.png" group-title="WORLD - Outros",[CONCACAF Nations League] Puerto Rico vs Dominica (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBA.m3u8
 
-#EXTINF:-1 tvg-chno="256" tvg-id="Golf.Dummy.us" tvg-name="[Golf LPGA] Golf LPGA The ANNIKA (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2024/10/PGA-Tour-Logo-500x281.png" group-title="WORLD - Outros",[Golf LPGA] Golf LPGA The ANNIKA (FAWA)
+#EXTINF:-1 tvg-chno="243" tvg-id="Golf.Dummy.us" tvg-name="[Golf LPGA] Golf LPGA The ANNIKA (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2024/10/PGA-Tour-Logo-500x281.png" group-title="WORLD - Outros",[Golf LPGA] Golf LPGA The ANNIKA (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/FF444.m3u8
 
-#EXTINF:-1 tvg-chno="257" tvg-id="Golf.Dummy.us" tvg-name="[Golf PGA] Golf PGA Austin Championship (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2024/10/PGA-Tour-Logo-500x281.png" group-title="WORLD - Outros",[Golf PGA] Golf PGA Austin Championship (FAWA)
+#EXTINF:-1 tvg-chno="244" tvg-id="Golf.Dummy.us" tvg-name="[Golf PGA] Golf PGA Austin Championship (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2024/10/PGA-Tour-Logo-500x281.png" group-title="WORLD - Outros",[Golf PGA] Golf PGA Austin Championship (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.50/hls/VYYYAAAAq.m3u8
 
-#EXTINF:-1 tvg-chno="361" tvg-id="Live.Event.us" tvg-name="[Snooker] Snooker Champion of Champions (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="WORLD - Outros",[Snooker] Snooker Champion of Champions (FAWA)
+#EXTINF:-1 tvg-chno="346" tvg-id="Live.Event.us" tvg-name="[Snooker] Snooker Champion of Champions (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="WORLD - Outros",[Snooker] Snooker Champion of Champions (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.59/hls/WJJJJJ.m3u8
 
-#EXTINF:-1 tvg-chno="363" tvg-id="Soccer.Dummy.us" tvg-name="[Spanish Segunda Liga] Leganes vs Burgos CF (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/107.png" group-title="WORLD - Outros",[Spanish Segunda Liga] Leganes vs Burgos CF (FAWA)
+#EXTINF:-1 tvg-chno="348" tvg-id="Soccer.Dummy.us" tvg-name="[Spanish Segunda Liga] Leganes vs Burgos CF (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/107.png" group-title="WORLD - Outros",[Spanish Segunda Liga] Leganes vs Burgos CF (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 http://193.47.62.41/hls/EBBBAAAAA.m3u8
 
-#EXTINF:-1 tvg-chno="379" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Azerbaijan vs Liechtenstein | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Azerbaijan vs Liechtenstein | English (STRMGATE)
+#EXTINF:-1 tvg-chno="364" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Azerbaijan vs Liechtenstein | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Azerbaijan vs Liechtenstein | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861153
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge1.candyshop.st/live/tv401861153/master.m3u8?st=T0Vp6DRCeXaf9OHeQl7I6A&e=1794609008
 
-#EXTINF:-1 tvg-chno="380" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Estonia vs Luxembourg | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Estonia vs Luxembourg | English (STRMGATE)
+#EXTINF:-1 tvg-chno="365" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Estonia vs Luxembourg | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Estonia vs Luxembourg | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861154
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge2.candyshop.st/live/tv401861154/master.m3u8?st=zPu2XKi1Wd_YViRJjX_POw&e=1794609009
 
-#EXTINF:-1 tvg-chno="381" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Faroe Islands vs Slovakia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Faroe Islands vs Slovakia | English (STRMGATE)
+#EXTINF:-1 tvg-chno="366" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Faroe Islands vs Slovakia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Faroe Islands vs Slovakia | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861160
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://candyshop.st/live/tv401861160/master.m3u8?st=ORtU8FSHthQaOzbt1BQBLg&e=1794609012
 
-#EXTINF:-1 tvg-chno="383" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Gibraltar vs Andorra | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Gibraltar vs Andorra | English (STRMGATE)
+#EXTINF:-1 tvg-chno="368" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Gibraltar vs Andorra | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Gibraltar vs Andorra | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861155
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge2.candyshop.st/live/tv401861155/master.m3u8?st=HWeXU3EgrkTYMIrpoBZ8VA&e=1794609007
 
-#EXTINF:-1 tvg-chno="386" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Kazakhstan vs Moldova | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Kazakhstan vs Moldova | English (STRMGATE)
-#EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861162
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://edge2.candyshop.st/live/tv401861162/master.m3u8?st=m_ids9_cQVAgQDaZ2EOV7w&e=1794600012
-
-#EXTINF:-1 tvg-chno="387" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] North Macedonia vs Scotland | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] North Macedonia vs Scotland | English (STRMGATE)
+#EXTINF:-1 tvg-chno="372" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] North Macedonia vs Scotland | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] North Macedonia vs Scotland | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861161
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge1.candyshop.st/live/tv401861161/master.m3u8?st=vgZYgETx0y4Xu0JkGLp5-Q&e=1794609010
 
-#EXTINF:-1 tvg-chno="388" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Switzerland vs Slovenia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Switzerland vs Slovenia | English (STRMGATE)
+#EXTINF:-1 tvg-chno="373" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA NATIONS] Switzerland vs Slovenia | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA NATIONS] Switzerland vs Slovenia | English (STRMGATE)
 #EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401861156
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://edge.candyshop.st/live/tv401861156/master.m3u8?st=0OiwussmUkXGR6Ah4Y2JAw&e=1794609013
+
+#EXTINF:-1 tvg-chno="375" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Andorra vs Gibraltar 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Andorra vs Gibraltar 1 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.41/hls/XE777AAA.m3u8
+
+#EXTINF:-1 tvg-chno="376" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Andorra vs Gibraltar 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Andorra vs Gibraltar 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/abcbd7ae-6fe7-42c6-8c82-c9ba83c0189d.m3u8
+
+#EXTINF:-1 tvg-chno="380" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Bulgaria vs Iceland 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Bulgaria vs Iceland 1 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.41/hls/XE777.m3u8
+
+#EXTINF:-1 tvg-chno="381" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Bulgaria vs Iceland 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Bulgaria vs Iceland 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/f88a7d10-f6c5-4203-acd6-0607ce2117c0.m3u8
+
+#EXTINF:-1 tvg-chno="393" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Liechtenstein vs Azerbaijan 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Liechtenstein vs Azerbaijan 1 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.41/hls/XE777AAAA.m3u8
+
+#EXTINF:-1 tvg-chno="394" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Liechtenstein vs Azerbaijan 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Liechtenstein vs Azerbaijan 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/555c237e-9d66-44d2-9f97-071f98c57b1a.m3u8
+
+#EXTINF:-1 tvg-chno="398" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Luxembourg vs Estonia 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Luxembourg vs Estonia 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/53779eaa-23b7-4ae3-81ee-226c1bb9f5fe.m3u8
+
+#EXTINF:-1 tvg-chno="413" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Scotland vs North Macedonia 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Scotland vs North Macedonia 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/85cc27d9-8b2e-4b68-889d-b6c49a9214ef.m3u8
+
+#EXTINF:-1 tvg-chno="423" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Slovakia vs Faroe Islands 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Slovakia vs Faroe Islands 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/6c45cfca-b489-48c0-aad7-299694a96732.m3u8
+
+#EXTINF:-1 tvg-chno="426" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Nations League] Slovenia vs Switzerland 2 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2395.png" group-title="WORLD - Outros",[UEFA Nations League] Slovenia vs Switzerland 2 (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://www.rtmpcdn.com/live/55d92ae5-ee77-41e8-b617-bf15beee8c11.m3u8
 
 #EXTINF:-1 channel-id="ATAJ0500458A" tvg-id="ATAJ0500458A" tvg-chno="4664" tvg-name="auto motor und sport" tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/ATAJ0500458A_20250107T022014SQUARE.png" group-title="WORLD - Outros",auto motor und sport
 https://jmp2.uk/stvp-ATAJ0500458A
@@ -34891,11 +34951,11 @@ https://dlgt0tdl2hpq3.cloudfront.net/rtbf/clr-rtbf/4db788c7/index.m3u8
 #EXTINF:-1 tvg-id="ACWUGTV.ug@SD" tvg-logo="https://i.imgur.com/8pzEmcJ.jpeg" group-title="IPTV-ORG (Global)",ACW UG TV (480p)
 https://live.acwugtv.com/hls/stream.m3u8
 
-#EXTINF:-1 tvg-id="ADATV.cl@SD" tvg-logo="https://cdn.m3u.cl/logo/1638_ADA_TV.png" group-title="IPTV-ORG (Global)",ADA TV (720p)
-https://live-evg10.tv360.bitel.com.pe/bitel/alasdeaguilaSRT/playlist.m3u8
-
 #EXTINF:-1 tvg-id="ADNTV.cl@SD" tvg-logo="https://i.imgur.com/AVfTwNw.png" group-title="IPTV-ORG (Global)",ADN TV (720p)
 https://redirector.rudo.video/hls-video/931b584451fa6dd1313ee66efbfd5802e3f3bcea/adntv/adntv.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="AERadioTV.cl@SD" tvg-logo="https://i.imgur.com/425dj2i.jpeg" group-title="IPTV-ORG (Global)",AE Radio TV (720p) [Not 24/7]
+https://tls-cl.cdnz.cl/aeradio/live/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AGRFMTV.py@SD" tvg-logo="https://i.imgur.com/tg6EjTU.png" group-title="IPTV-ORG (Global)",AGR FM TV
 https://tigocloud.desdeparaguay.net/agrtv/agrtv/playlist.m3u8
@@ -35225,9 +35285,6 @@ https://5bf7b725107e5.streamlock.net/ahsantv/ahsantv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AigaioTV.gr@SD" tvg-logo="https://i.imgur.com/7LfuDJi.png" group-title="IPTV-ORG (Global)",Aigaio TV (720p)
 https://fr.crystalweb.net:1936/aigaiotv/aigaiotv/playlist.m3u8
-
-#EXTINF:-1 tvg-id="AjmanTV.ae@SD" tvg-logo="https://i.imgur.com/hVNIwgE.png" group-title="IPTV-ORG (Global)",Ajman TV (1080p)
-https://cdn1.logichost.in/ajmantv/live/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AkhonKolkata.in@SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ekhonkolkata.png" group-title="IPTV-ORG (Global)",Akhon Kolkata (478p)
 https://server.playontv.in/ekhonkolkata/ekhonkolkata/index.m3u8

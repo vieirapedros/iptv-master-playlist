@@ -79,19 +79,19 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 40429
-📊 Parseados (únicos por URL): 44315
-⚡ Cache atual (sem validação): 17925
+📊 Brutos: 40438
+📊 Parseados (únicos por URL): 44316
+⚡ Cache atual (sem validação): 18777
 ⚡ Domínio confiável:           0
-⏭️  Pulados (blacklist ativa):  20337
+⏭️  Pulados (blacklist ativa):  25478
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 6053
-🔎 Validando 6053 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 18809
-🚫 Blacklist final: 29230 entradas
+🔎 Para validar agora: 61
+🔎 Validando 61 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 18821
+🚫 Blacklist final: 29247 entradas
 📌 (Brasil)        49 canais
-📌 (Portugal)      51 canais
+📌 (Portugal)      52 canais
 📌 (Argentina)     21 canais
 📌 (México)        10 canais
 📌 (Peru)          7 canais
@@ -99,23 +99,23 @@
 📌 (Estados Unidos) 147 canais
 📌 (Reino Unido)   80 canais
 📌 (Itália)        266 canais
-📌 (França)        54 canais
+📌 (França)        53 canais
 📌 (Japão)         7 canais
 📌 (Colômbia)      1 canais
 📌 (Uruguai)       1 canais
 📌 (Paraguai)      2 canais
-📌 (Alemanha)      4 canais
+📌 (Alemanha)      5 canais
 📌 (Dinamarca)     2 canais
 📌 (Suécia)        7 canais
-📌 (Países Baixos) 1 canais
-📌 (WORLD - Outros) 10644 canais
-📌 (IPTV-ORG (Global)) 7429 canais
+📌 (Países Baixos) 2 canais
+📌 (WORLD - Outros) 10655 canais
+📌 (IPTV-ORG (Global)) 7428 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      40429
-📊 Parseados:   44315
-📊 Anterior:    18256
-📊 Funcionais:  18809
+📊 Brutos:      40438
+📊 Parseados:   44316
+📊 Anterior:    18809
+📊 Funcionais:  18821
 📊 Taxa:        42%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
