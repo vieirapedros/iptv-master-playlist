@@ -47,6 +47,24 @@ URLS=(
   "https://www.apsattv.com/cineverse.m3u"
   "https://www.apsattv.com/hp.m3u"
 
+  # Apsattv — FAST oficiais adicionais
+  "https://www.apsattv.com/xumo.m3u"
+  "https://www.apsattv.com/orka.m3u"
+  "https://www.apsattv.com/rewardedtv.m3u"
+  "https://www.apsattv.com/igocast.m3u"
+
+  # Apsattv — Whale TV Plus por país (interesse)
+  "https://www.apsattv.com/whaletvplus_br.m3u"
+  "https://www.apsattv.com/whaletvplus_ar.m3u"
+  "https://www.apsattv.com/whaletvplus_mx.m3u"
+  "https://www.apsattv.com/whaletvplus_pe.m3u"
+  "https://www.apsattv.com/whaletvplus_es.m3u"
+  "https://www.apsattv.com/whaletvplus_us.m3u"
+  "https://www.apsattv.com/whaletvplus_gb.m3u"
+  "https://www.apsattv.com/whaletvplus_it.m3u"
+  "https://www.apsattv.com/whaletvplus_fr.m3u"
+  "https://www.apsattv.com/whaletvplus_jp.m3u"
+
   # Apsattv — Rakuten TV (algumas com bloqueio regional)
   "https://www.apsattv.com/rakuten_pt.m3u"
   "https://www.apsattv.com/rakuten_es.m3u"
