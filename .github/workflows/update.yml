@@ -1,44 +1,32 @@
 name: Update IPTV Playlist
-
 on:
   workflow_dispatch:
-
   schedule:
-    # 15:00 UTC = 12:00 BRT (segunda e sexta)
     - cron: '0 15 * * 1,5'
-
 permissions:
   contents: write
   actions: write
-
 concurrency:
   group: update-iptv-playlist
   cancel-in-progress: false
-
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   update:
-    name: Build Playlist
+    name: Build and validate playlist
     runs-on: ubuntu-latest
-
     timeout-minutes: 360
-
     env:
       PARALLEL_JOBS: 64
       CACHE_MAX_AGE_DAYS: 2
       BLACKLIST_TTL_DAYS: 7
       MIN_DIFF_PCT: 50
-
+      MEDIA_JOBS: 4
+      MEDIA_SECONDS: 20
+      MEDIA_TIMEOUT_SECONDS: 75
     steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Estado (blacklist/cache) fora do histórico git.
-      # FIX: prefixo v2 — caches antigos (com a blacklist envenenada) deixam de ser restaurados
-      - name: Restore state (blacklist/cache)
+      - uses: actions/checkout@v4
+      - name: Restore HTTP state
         uses: actions/cache/restore@v4
         with:
           path: |
@@ -47,78 +35,54 @@ jobs:
           key: iptv-state-v2-${{ github.run_id }}
           restore-keys: |
             iptv-state-v2-
-
-      - name: Show environment
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Validate syntax and lifecycle
         run: |
-          uname -a
-          bash --version | head -n 1
-          nproc
-          awk --version | head -n 1
-
-      - name: Make script executable
-        run: chmod +x update_playlist.sh
-
-      # -S warning pega mais problemas; não bloqueia o job
-      - name: Run ShellCheck
-        continue-on-error: true
-        run: shellcheck -S warning update_playlist.sh
-
-      - name: Run playlist update
-        run: ./update_playlist.sh
-        # O script aborta se o resultado for vazio ou < MIN_DIFF_PCT% do anterior
-
-      - name: Verify generated files
-        run: |
-          test -f master.m3u || { echo "ERRO: master.m3u não foi gerado"; exit 1; }
-          du -h master.m3u
-          echo "Canais: $(grep -c '^#EXTINF' master.m3u || true)"
-          echo "Blacklist: $(wc -l < blacklist.txt || true) linhas"
-          echo "Cache: $(wc -l < cache_ok.txt || true) linhas"
-
+          bash -n update_playlist.sh
+          python3 -m py_compile media_gate.py run_validated_update.py
+          python3 test_media_gate.py
+          test -f validation_state/media.json
+      - name: Run selective validation
+        run: python3 run_validated_update.py
       - name: Update README statistics
         run: |
           python3 - <<'PY'
+          import json, os
           from pathlib import Path
           from datetime import datetime
           from zoneinfo import ZoneInfo
-
-          count = sum(line.startswith('#EXTINF:') for line in Path('master.m3u').open(encoding='utf-8'))
-          if count == 0:
-              raise SystemExit('Playlist vazia; estatísticas não atualizadas')
-          updated = datetime.now(ZoneInfo('America/Sao_Paulo')).strftime('%d/%m/%Y às %H:%M:%S (Brasília, UTC-3)')
-          start = '<!-- PLAYLIST-STATS:START -->'
-          end = '<!-- PLAYLIST-STATS:END -->'
-          block = '\n'.join([start, '## Última atualização', '', f'- Canais na playlist: {count:,}'.replace(',', '.'), f'- Atualizada em: {updated}', '', 'Contagem de entradas da última geração bem-sucedida. A validação HTTP não garante reprodução em todos os dispositivos ou regiões.', end])
-          path = Path('README.md')
-          text = path.read_text(encoding='utf-8')
+          m=json.loads(Path('reports/media_summary.json').read_text())
+          total=sum(s.startswith('#EXTINF:') for s in Path('master.m3u').read_text().splitlines())
+          if not total:
+              raise SystemExit('Playlist vazia')
+          stamp=datetime.now(ZoneInfo('America/Sao_Paulo')).strftime('%d/%m/%Y às %H:%M (Brasília)')
+          start,end='<!-- PLAYLIST-STATS:START -->','<!-- PLAYLIST-STATS:END -->'
+          block='\n'.join([start,'## Última atualização','',f'- Atualizada em: {stamp}',f'- Entradas totais: {total}',f'- Aprovadas em teste de mídia (23 países): {m["approved"]}',f'- Publicadas com filtro HTTP, sem teste de mídia (WORLD e IPTV-ORG): {total-m["approved"]}',f'- URLs em quarentena: {m["quarantine"]}',f'- URLs descartadas: {m["discarded"]}','','Contagens de URLs, não emissoras. Mídia: amostra de 20 segundos; HTTP mantém cache e exceções do script. Política em VALIDATION.md.',end])
+          p=Path('README.md'); text=p.read_text(encoding='utf-8')
           if start in text and end in text:
-              a = text.index(start)
-              b = text.index(end, a) + len(end)
-              text = text[:a] + block + text[b:]
+              a=text.index(start); b=text.index(end,a)+len(end)
+              text=text[:a]+block+text[b:]
           elif start in text or end in text:
-              raise SystemExit('Marcadores de estatísticas incompletos no README')
+              raise SystemExit('Marcadores incompletos no README')
           else:
-              heading, separator, rest = text.partition('\n')
-              text = heading + '\n\n' + block + '\n' + separator + rest
-          path.write_text(text, encoding='utf-8')
+              head,sep,rest=text.partition('\n')
+              text=head+'\n\n'+block+'\n'+sep+rest
+          p.write_text(text,encoding='utf-8')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write(block)
           PY
-
-      - name: Commit playlist
+      - name: Commit playlist and persistent media state
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add master.m3u update.log README.md
-
-          if git diff --cached --quiet; then
-            echo "Nenhuma alteração detectada"
-            exit 0
+          git add -f validation_state/media.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update playlist and media validation state'
+            git push origin HEAD:${{ github.ref_name }}
           fi
-
-          git commit -m "Auto update IPTV playlist"
-          git push origin HEAD:${{ github.ref_name }}
-
-      - name: Save state (blacklist/cache)
+      - name: Save HTTP state
         if: success()
         uses: actions/cache/save@v4
         with:
@@ -126,7 +90,13 @@ jobs:
             blacklist.txt
             cache_ok.txt
           key: iptv-state-v2-${{ github.run_id }}
-
+      - name: Upload validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-validation-report
+          path: reports/
+          retention-days: 7
       - name: Clean old workflow runs
         if: always()
         env:
