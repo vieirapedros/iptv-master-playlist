@@ -1,0 +1,96 @@
+name: Test Latin America streams
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: test-latam
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Test video decoding
+        run: |
+          mkdir -p reports
+          python3 - <<'PY'
+          import csv, json, os, re, subprocess
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor
+          from collections import Counter
+          from datetime import datetime, timezone
+          codes = set('AR BO BR CL CO CR CU DO EC SV GT HT HN MX NI PA PY PE UY VE'.split())
+          groups = set('Brasil|Argentina|Bolívia|Bolivia|Chile|Colômbia|Colombia|Costa Rica|Cuba|República Dominicana|Equador|Ecuador|El Salvador|Guatemala|Haiti|Honduras|México|Mexico|Nicarágua|Nicaragua|Panamá|Panama|Paraguai|Paraguay|Peru|Uruguai|Uruguay|Venezuela'.split('|'))
+          entries = []
+          meta, opts = None, {}
+          for line in Path('master.m3u').read_text(encoding='utf-8-sig').splitlines():
+              line = line.strip()
+              if line.startswith('#EXTINF:'):
+                  meta, opts = line, {}
+              elif line.startswith('#EXTVLCOPT:'):
+                  k, sep, v = line[11:].partition('=')
+                  if sep:
+                      opts[k] = v
+              elif line.startswith('#EXTHTTP:'):
+                  try:
+                      opts.update({str(k).lower(): str(v) for k, v in json.loads(line[10:]).items()})
+                  except (ValueError, AttributeError):
+                      opts['unsupported_headers'] = '1'
+              elif line.startswith(('http://', 'https://')) and meta:
+                  attrs = dict(re.findall(r'([\w-]+)="([^"]*)"', meta))
+                  country = attrs.get('tvg-country', '').split(';')[0].strip().upper()
+                  group = attrs.get('group-title', '')
+                  if country in codes or group in groups:
+                      entries.append((meta.rsplit(',', 1)[-1], group, line, dict(opts)))
+                  meta, opts = None, {}
+          unique = {}
+          for item in entries:
+              unique.setdefault(item[2], item)
+          if not unique:
+              raise SystemExit('Nenhum canal latino-americano identificado; confira os metadados.')
+          def test(item):
+              name, group, url, opts = item
+              cmd = ['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error', '-rw_timeout', '10000000', '-protocol_whitelist', 'http,https,tcp,tls,crypto']
+              ua = opts.get('http-user-agent', opts.get('user-agent', 'Mozilla/5.0'))
+              cmd += ['-user_agent', ua]
+              headers = []
+              for key, value in opts.items():
+                  header = {'http-referrer': 'Referer', 'http-referer': 'Referer', 'referer': 'Referer', 'origin': 'Origin', 'cookie': 'Cookie', 'authorization': 'Authorization'}.get(key)
+                  if header and '\r' not in value and '\n' not in value:
+                      headers.append(f'{header}: {value}\r\n')
+              if headers:
+                  cmd += ['-headers', ''.join(headers)]
+              cmd += ['-i', url, '-t', '5', '-map', '0:v:0', '-an', '-progress', 'pipe:1', '-nostats', '-f', 'null', '-']
+              try:
+                  p = subprocess.run(cmd, capture_output=True, text=True, errors='replace', timeout=30)
+                  frames = [int(n) for n in re.findall(r'^frame=(\d+)$', p.stdout, re.M)]
+                  times = [int(n) for n in re.findall(r'^out_time_us=(\d+)$', p.stdout, re.M)]
+                  ok = p.returncode == 0 and max(frames, default=0) > 0 and max(times, default=0) >= 4000000
+                  status = 'video_ok' if ok else 'falha_ou_inconclusivo'
+                  detail = f'exit={p.returncode}; frames={max(frames, default=0)}; media_us={max(times, default=0)}'
+              except subprocess.TimeoutExpired:
+                  status, detail = 'timeout', 'Limite total de 30 segundos'
+              return name, group, url, status, detail
+          with ThreadPoolExecutor(max_workers=8) as pool:
+              rows = list(pool.map(test, unique.values()))
+          with Path('reports/latam.csv').open('w', encoding='utf-8', newline='') as f:
+              writer = csv.writer(f)
+              writer.writerow(['canal', 'grupo', 'url', 'resultado', 'detalhe'])
+              writer.writerows(rows)
+          counts = Counter(row[3] for row in rows)
+          summary = '\n'.join(['## Teste de vídeo — América Latina', '', f'Horário UTC: {datetime.now(timezone.utc).isoformat()}', f'Entradas selecionadas: {len(entries)}; URLs únicas testadas: {len(rows)}', '', *[f'- {k}: {v}' for k, v in sorted(counts.items())], '', 'Teste sem cache HTTP: até 5 segundos de vídeo, 30 segundos por URL, 8 testes paralelos. Áudio não testado. Falhas não removem canais. Resultado válido apenas para o runner naquele momento; não garante reprodução na Samsung. Seleção por país/grupo explícito: canais sem metadados reconhecíveis podem ficar fora. Cabeçalhos comuns são preservados; opções específicas de players podem não ser reproduzidas. O CSV inclui URLs e pode conter tokens de acesso.'])
+          Path('reports/summary.md').write_text(summary, encoding='utf-8')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write(summary)
+          PY
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latam-playback-report
+          path: reports/
+          retention-days: 7
