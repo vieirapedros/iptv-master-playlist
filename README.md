@@ -3,10 +3,14 @@
 <!-- PLAYLIST-STATS:START -->
 ## Última atualização
 
-- Canais na playlist: 18.556
-- Atualizada em: 16/11/2026 às 10:15:29 (Brasília, UTC-3)
+- Atualizada em: 16/11/2026 às 17:08 (Brasília)
+- Entradas totais: 18393
+- Aprovadas em teste de mídia (23 países): 603
+- Publicadas com filtro HTTP, sem teste de mídia (WORLD e IPTV-ORG): 17790
+- URLs em quarentena: 2467
+- URLs descartadas: 0
 
-Contagem de entradas da última geração bem-sucedida. A validação HTTP não garante reprodução em todos os dispositivos ou regiões.
+Contagens de URLs, não emissoras. Mídia: amostra de 20 segundos; HTTP mantém cache e exceções do script. Política em VALIDATION.md.
 <!-- PLAYLIST-STATS:END -->
 
 
