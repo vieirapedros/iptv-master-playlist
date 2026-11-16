@@ -79,44 +79,43 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 40438
-📊 Parseados (únicos por URL): 44316
-⚡ Cache atual (sem validação): 18777
-⚡ Domínio confiável:           0
-⏭️  Pulados (blacklist ativa):  25478
+📊 Brutos: 40483
+📊 Parseados (únicos por URL): 44478
+⚡ Cache atual (sem validação): 0
+⚡ Domínio confiável:           95
+⏭️  Pulados (blacklist ativa):  21047
 🧹 Blacklist expirada podada:   0
-🧹 Cache expirado podado:       0
-🔎 Para validar agora: 61
-🔎 Validando 61 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 18821
-🚫 Blacklist final: 29247 entradas
-📌 (Brasil)        49 canais
-📌 (Portugal)      52 canais
+🧹 Cache expirado podado:       19232
+🔎 Para validar agora: 23336
+🔎 Validando 23336 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 18556
+🚫 Blacklist final: 34122 entradas
+📌 (Brasil)        48 canais
+📌 (Portugal)      51 canais
 📌 (Argentina)     21 canais
-📌 (México)        10 canais
+📌 (México)        42 canais
 📌 (Peru)          7 canais
-📌 (España)        26 canais
-📌 (Estados Unidos) 147 canais
-📌 (Reino Unido)   80 canais
-📌 (Itália)        266 canais
-📌 (França)        53 canais
+📌 (España)        53 canais
+📌 (Estados Unidos) 116 canais
+📌 (Reino Unido)   76 canais
+📌 (Itália)        262 canais
+📌 (França)        82 canais
 📌 (Japão)         7 canais
 📌 (Colômbia)      1 canais
-📌 (Uruguai)       1 canais
 📌 (Paraguai)      2 canais
-📌 (Alemanha)      5 canais
-📌 (Dinamarca)     2 canais
-📌 (Suécia)        7 canais
-📌 (Países Baixos) 2 canais
-📌 (WORLD - Outros) 10655 canais
-📌 (IPTV-ORG (Global)) 7428 canais
+📌 (Alemanha)      3 canais
+📌 (Dinamarca)     3 canais
+📌 (Noruega)       2 canais
+📌 (Suécia)        3 canais
+📌 (WORLD - Outros) 10529 canais
+📌 (IPTV-ORG (Global)) 7248 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      40438
-📊 Parseados:   44316
-📊 Anterior:    18809
-📊 Funcionais:  18821
-📊 Taxa:        42%
+📊 Brutos:      40483
+📊 Parseados:   44478
+📊 Anterior:    18821
+📊 Funcionais:  18556
+📊 Taxa:        41%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt

@@ -1,5 +1,15 @@
 # IPTV Master Playlist
 
+<!-- PLAYLIST-STATS:START -->
+## Última atualização
+
+- Canais na playlist: 18.556
+- Atualizada em: 16/11/2026 às 10:15:29 (Brasília, UTC-3)
+
+Contagem de entradas da última geração bem-sucedida. A validação HTTP não garante reprodução em todos os dispositivos ou regiões.
+<!-- PLAYLIST-STATS:END -->
+
+
 Pipeline que consolida dezenas de fontes públicas de listas IPTV (`.m3u`) em uma única
 playlist validada e organizada por país.
 
