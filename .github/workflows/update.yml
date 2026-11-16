@@ -75,12 +75,40 @@ jobs:
           echo "Blacklist: $(wc -l < blacklist.txt || true) linhas"
           echo "Cache: $(wc -l < cache_ok.txt || true) linhas"
 
+      - name: Update README statistics
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          count = sum(line.startswith('#EXTINF:') for line in Path('master.m3u').open(encoding='utf-8'))
+          if count == 0:
+              raise SystemExit('Playlist vazia; estatísticas não atualizadas')
+          updated = datetime.now(ZoneInfo('America/Sao_Paulo')).strftime('%d/%m/%Y às %H:%M:%S (Brasília, UTC-3)')
+          start = '<!-- PLAYLIST-STATS:START -->'
+          end = '<!-- PLAYLIST-STATS:END -->'
+          block = '\n'.join([start, '## Última atualização', '', f'- Canais na playlist: {count:,}'.replace(',', '.'), f'- Atualizada em: {updated}', '', 'Contagem de entradas da última geração bem-sucedida. A validação HTTP não garante reprodução em todos os dispositivos ou regiões.', end])
+          path = Path('README.md')
+          text = path.read_text(encoding='utf-8')
+          if start in text and end in text:
+              a = text.index(start)
+              b = text.index(end, a) + len(end)
+              text = text[:a] + block + text[b:]
+          elif start in text or end in text:
+              raise SystemExit('Marcadores de estatísticas incompletos no README')
+          else:
+              heading, separator, rest = text.partition('\n')
+              text = heading + '\n\n' + block + '\n' + separator + rest
+          path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Commit playlist
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add master.m3u update.log
+          git add master.m3u update.log README.md
 
           if git diff --cached --quiet; then
             echo "Nenhuma alteração detectada"
