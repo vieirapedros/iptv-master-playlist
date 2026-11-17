@@ -79,164 +79,67 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 40593
-Midia: 25/3070 concluidos
-Midia: 50/3070 concluidos
-Midia: 75/3070 concluidos
-Midia: 100/3070 concluidos
-Midia: 125/3070 concluidos
-Midia: 150/3070 concluidos
-Midia: 175/3070 concluidos
-Midia: 200/3070 concluidos
-Midia: 225/3070 concluidos
-Midia: 250/3070 concluidos
-Midia: 275/3070 concluidos
-Midia: 300/3070 concluidos
-Midia: 325/3070 concluidos
-Midia: 350/3070 concluidos
-Midia: 375/3070 concluidos
-Midia: 400/3070 concluidos
-Midia: 425/3070 concluidos
-Midia: 450/3070 concluidos
-Midia: 475/3070 concluidos
-Midia: 500/3070 concluidos
-Midia: 525/3070 concluidos
-Midia: 550/3070 concluidos
-Midia: 575/3070 concluidos
-Midia: 600/3070 concluidos
-Midia: 625/3070 concluidos
-Midia: 650/3070 concluidos
-Midia: 675/3070 concluidos
-Midia: 700/3070 concluidos
-Midia: 725/3070 concluidos
-Midia: 750/3070 concluidos
-Midia: 775/3070 concluidos
-Midia: 800/3070 concluidos
-Midia: 825/3070 concluidos
-Midia: 850/3070 concluidos
-Midia: 875/3070 concluidos
-Midia: 900/3070 concluidos
-Midia: 925/3070 concluidos
-Midia: 950/3070 concluidos
-Midia: 975/3070 concluidos
-Midia: 1000/3070 concluidos
-Midia: 1025/3070 concluidos
-Midia: 1050/3070 concluidos
-Midia: 1075/3070 concluidos
-Midia: 1100/3070 concluidos
-Midia: 1125/3070 concluidos
-Midia: 1150/3070 concluidos
-Midia: 1175/3070 concluidos
-Midia: 1200/3070 concluidos
-Midia: 1225/3070 concluidos
-Midia: 1250/3070 concluidos
-Midia: 1275/3070 concluidos
-Midia: 1300/3070 concluidos
-Midia: 1325/3070 concluidos
-Midia: 1350/3070 concluidos
-Midia: 1375/3070 concluidos
-Midia: 1400/3070 concluidos
-Midia: 1425/3070 concluidos
-Midia: 1450/3070 concluidos
-Midia: 1475/3070 concluidos
-Midia: 1500/3070 concluidos
-Midia: 1525/3070 concluidos
-Midia: 1550/3070 concluidos
-Midia: 1575/3070 concluidos
-Midia: 1600/3070 concluidos
-Midia: 1625/3070 concluidos
-Midia: 1650/3070 concluidos
-Midia: 1675/3070 concluidos
-Midia: 1700/3070 concluidos
-Midia: 1725/3070 concluidos
-Midia: 1750/3070 concluidos
-Midia: 1775/3070 concluidos
-Midia: 1800/3070 concluidos
-Midia: 1825/3070 concluidos
-Midia: 1850/3070 concluidos
-Midia: 1875/3070 concluidos
-Midia: 1900/3070 concluidos
-Midia: 1925/3070 concluidos
-Midia: 1950/3070 concluidos
-Midia: 1975/3070 concluidos
-Midia: 2000/3070 concluidos
-Midia: 2025/3070 concluidos
-Midia: 2050/3070 concluidos
-Midia: 2075/3070 concluidos
-Midia: 2100/3070 concluidos
-Midia: 2125/3070 concluidos
-Midia: 2150/3070 concluidos
-Midia: 2175/3070 concluidos
-Midia: 2200/3070 concluidos
-Midia: 2225/3070 concluidos
-Midia: 2250/3070 concluidos
-Midia: 2275/3070 concluidos
-Midia: 2300/3070 concluidos
-Midia: 2325/3070 concluidos
-Midia: 2350/3070 concluidos
-Midia: 2375/3070 concluidos
-Midia: 2400/3070 concluidos
-Midia: 2425/3070 concluidos
-Midia: 2450/3070 concluidos
-Midia: 2475/3070 concluidos
-Midia: 2500/3070 concluidos
-Midia: 2525/3070 concluidos
-Midia: 2550/3070 concluidos
-Midia: 2575/3070 concluidos
-Midia: 2600/3070 concluidos
-Midia: 2625/3070 concluidos
-Midia: 2650/3070 concluidos
-Midia: 2675/3070 concluidos
-Midia: 2700/3070 concluidos
-Midia: 2725/3070 concluidos
-Midia: 2750/3070 concluidos
-Midia: 2775/3070 concluidos
-Midia: 2800/3070 concluidos
-Midia: 2825/3070 concluidos
-Midia: 2850/3070 concluidos
-Midia: 2875/3070 concluidos
-Midia: 2900/3070 concluidos
-Midia: 2925/3070 concluidos
-Midia: 2950/3070 concluidos
-Midia: 2975/3070 concluidos
-Midia: 3000/3070 concluidos
-Midia: 3025/3070 concluidos
-Midia: 3050/3070 concluidos
-{"tested": 3070, "approved": 603, "failed_now": 2467, "quarantine": 2467, "discarded": 0}
-📊 Parseados (únicos por URL): 41517
-⚡ Cache atual (sem validação): 17761
+📊 Brutos: 40602
+Midia: 25/617 concluidos
+Midia: 50/617 concluidos
+Midia: 75/617 concluidos
+Midia: 100/617 concluidos
+Midia: 125/617 concluidos
+Midia: 150/617 concluidos
+Midia: 175/617 concluidos
+Midia: 200/617 concluidos
+Midia: 225/617 concluidos
+Midia: 250/617 concluidos
+Midia: 275/617 concluidos
+Midia: 300/617 concluidos
+Midia: 325/617 concluidos
+Midia: 350/617 concluidos
+Midia: 375/617 concluidos
+Midia: 400/617 concluidos
+Midia: 425/617 concluidos
+Midia: 450/617 concluidos
+Midia: 475/617 concluidos
+Midia: 500/617 concluidos
+Midia: 525/617 concluidos
+Midia: 550/617 concluidos
+Midia: 575/617 concluidos
+Midia: 600/617 concluidos
+{"tested": 617, "approved": 508, "failed_now": 109, "quarantine": 2576, "discarded": 0}
+📊 Parseados (únicos por URL): 41450
+⚡ Cache atual (sem validação): 17674
 ⚡ Domínio confiável:           0
-⏭️  Pulados (blacklist ativa):  23623
+⏭️  Pulados (blacklist ativa):  23192
 🧹 Blacklist expirada podada:   0
 🧹 Cache expirado podado:       0
-🔎 Para validar agora: 133
-🔎 Validando 133 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 17790
-🚫 Blacklist final: 34226 entradas
-📌 (Brasil)        50 canais
-📌 (Portugal)      40 canais
+🔎 Para validar agora: 584
+🔎 Validando 584 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 17715
+🚫 Blacklist final: 34769 entradas
+📌 (Brasil)        49 canais
+📌 (Portugal)      37 canais
 📌 (Argentina)     7 canais
-📌 (México)        19 canais
-📌 (Peru)          7 canais
-📌 (España)        29 canais
-📌 (Estados Unidos) 72 canais
-📌 (Reino Unido)   55 canais
-📌 (Itália)        267 canais
-📌 (França)        34 canais
+📌 (México)        11 canais
+📌 (Peru)          5 canais
+📌 (España)        17 canais
+📌 (Estados Unidos) 41 canais
+📌 (Reino Unido)   41 canais
+📌 (Itália)        256 canais
+📌 (França)        23 canais
 📌 (Japão)         3 canais
+📌 (Uruguai)       1 canais
 📌 (Alemanha)      3 canais
 📌 (Dinamarca)     7 canais
-📌 (Noruega)       4 canais
-📌 (Suécia)        6 canais
-📌 (WORLD - Outros) 10542 canais
+📌 (Noruega)       3 canais
+📌 (Suécia)        4 canais
+📌 (WORLD - Outros) 10467 canais
 📌 (IPTV-ORG (Global)) 7248 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      40593
-📊 Parseados:   41517
-📊 Anterior:    18556
-📊 Funcionais:  18393
-📊 Taxa:        44%
+📊 Brutos:      40602
+📊 Parseados:   41450
+📊 Anterior:    18393
+📊 Funcionais:  18223
+📊 Taxa:        43%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
