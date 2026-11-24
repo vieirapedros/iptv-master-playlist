@@ -133,65 +133,237 @@
 📥 Baixando: https://raw.githubusercontent.com/doms9/iptv/default/M3U8/TV.m3u8
 📥 Baixando (iptv-org): https://iptv-org.github.io/iptv/index.m3u
 📂 Fonte local (iptv-org): playlist_iptv-org.m3u
-📊 Brutos: 29085
-Midia: 25/615 concluidos
-Midia: 50/615 concluidos
-Midia: 75/615 concluidos
-Midia: 100/615 concluidos
-Midia: 125/615 concluidos
-Midia: 150/615 concluidos
-Midia: 175/615 concluidos
-Midia: 200/615 concluidos
-Midia: 225/615 concluidos
-Midia: 250/615 concluidos
-Midia: 275/615 concluidos
-Midia: 300/615 concluidos
-Midia: 325/615 concluidos
-Midia: 350/615 concluidos
-Midia: 375/615 concluidos
-Midia: 400/615 concluidos
-Midia: 425/615 concluidos
-Midia: 450/615 concluidos
-Midia: 475/615 concluidos
-Midia: 500/615 concluidos
-Midia: 525/615 concluidos
-Midia: 550/615 concluidos
-Midia: 575/615 concluidos
-Midia: 600/615 concluidos
-{"tested": 615, "approved": 428, "failed_now": 187, "quarantine": 4589, "discarded": 0}
-📊 Parseados (únicos por URL): 32246
-⚡ Cache atual (sem validação): 14189
-⚡ Domínio confiável:           0
-⏭️  Pulados (blacklist ativa):  2152
-🧹 Blacklist expirada podada:   24061
-🧹 Cache expirado podado:       0
-🔎 Para validar agora: 15905
-🔎 Validando 15905 URLs com 64 jobs paralelos...
-✅ URLs válidas após validação: 15206
-🚫 Blacklist final: 28152 entradas
-📌 (Brasil)        19 canais
+📊 Brutos: 28807
+Midia: 25/4876 concluidos
+Midia: 50/4876 concluidos
+Midia: 75/4876 concluidos
+Midia: 100/4876 concluidos
+Midia: 125/4876 concluidos
+Midia: 150/4876 concluidos
+Midia: 175/4876 concluidos
+Midia: 200/4876 concluidos
+Midia: 225/4876 concluidos
+Midia: 250/4876 concluidos
+Midia: 275/4876 concluidos
+Midia: 300/4876 concluidos
+Midia: 325/4876 concluidos
+Midia: 350/4876 concluidos
+Midia: 375/4876 concluidos
+Midia: 400/4876 concluidos
+Midia: 425/4876 concluidos
+Midia: 450/4876 concluidos
+Midia: 475/4876 concluidos
+Midia: 500/4876 concluidos
+Midia: 525/4876 concluidos
+Midia: 550/4876 concluidos
+Midia: 575/4876 concluidos
+Midia: 600/4876 concluidos
+Midia: 625/4876 concluidos
+Midia: 650/4876 concluidos
+Midia: 675/4876 concluidos
+Midia: 700/4876 concluidos
+Midia: 725/4876 concluidos
+Midia: 750/4876 concluidos
+Midia: 775/4876 concluidos
+Midia: 800/4876 concluidos
+Midia: 825/4876 concluidos
+Midia: 850/4876 concluidos
+Midia: 875/4876 concluidos
+Midia: 900/4876 concluidos
+Midia: 925/4876 concluidos
+Midia: 950/4876 concluidos
+Midia: 975/4876 concluidos
+Midia: 1000/4876 concluidos
+Midia: 1025/4876 concluidos
+Midia: 1050/4876 concluidos
+Midia: 1075/4876 concluidos
+Midia: 1100/4876 concluidos
+Midia: 1125/4876 concluidos
+Midia: 1150/4876 concluidos
+Midia: 1175/4876 concluidos
+Midia: 1200/4876 concluidos
+Midia: 1225/4876 concluidos
+Midia: 1250/4876 concluidos
+Midia: 1275/4876 concluidos
+Midia: 1300/4876 concluidos
+Midia: 1325/4876 concluidos
+Midia: 1350/4876 concluidos
+Midia: 1375/4876 concluidos
+Midia: 1400/4876 concluidos
+Midia: 1425/4876 concluidos
+Midia: 1450/4876 concluidos
+Midia: 1475/4876 concluidos
+Midia: 1500/4876 concluidos
+Midia: 1525/4876 concluidos
+Midia: 1550/4876 concluidos
+Midia: 1575/4876 concluidos
+Midia: 1600/4876 concluidos
+Midia: 1625/4876 concluidos
+Midia: 1650/4876 concluidos
+Midia: 1675/4876 concluidos
+Midia: 1700/4876 concluidos
+Midia: 1725/4876 concluidos
+Midia: 1750/4876 concluidos
+Midia: 1775/4876 concluidos
+Midia: 1800/4876 concluidos
+Midia: 1825/4876 concluidos
+Midia: 1850/4876 concluidos
+Midia: 1875/4876 concluidos
+Midia: 1900/4876 concluidos
+Midia: 1925/4876 concluidos
+Midia: 1950/4876 concluidos
+Midia: 1975/4876 concluidos
+Midia: 2000/4876 concluidos
+Midia: 2025/4876 concluidos
+Midia: 2050/4876 concluidos
+Midia: 2075/4876 concluidos
+Midia: 2100/4876 concluidos
+Midia: 2125/4876 concluidos
+Midia: 2150/4876 concluidos
+Midia: 2175/4876 concluidos
+Midia: 2200/4876 concluidos
+Midia: 2225/4876 concluidos
+Midia: 2250/4876 concluidos
+Midia: 2275/4876 concluidos
+Midia: 2300/4876 concluidos
+Midia: 2325/4876 concluidos
+Midia: 2350/4876 concluidos
+Midia: 2375/4876 concluidos
+Midia: 2400/4876 concluidos
+Midia: 2425/4876 concluidos
+Midia: 2450/4876 concluidos
+Midia: 2475/4876 concluidos
+Midia: 2500/4876 concluidos
+Midia: 2525/4876 concluidos
+Midia: 2550/4876 concluidos
+Midia: 2575/4876 concluidos
+Midia: 2600/4876 concluidos
+Midia: 2625/4876 concluidos
+Midia: 2650/4876 concluidos
+Midia: 2675/4876 concluidos
+Midia: 2700/4876 concluidos
+Midia: 2725/4876 concluidos
+Midia: 2750/4876 concluidos
+Midia: 2775/4876 concluidos
+Midia: 2800/4876 concluidos
+Midia: 2825/4876 concluidos
+Midia: 2850/4876 concluidos
+Midia: 2875/4876 concluidos
+Midia: 2900/4876 concluidos
+Midia: 2925/4876 concluidos
+Midia: 2950/4876 concluidos
+Midia: 2975/4876 concluidos
+Midia: 3000/4876 concluidos
+Midia: 3025/4876 concluidos
+Midia: 3050/4876 concluidos
+Midia: 3075/4876 concluidos
+Midia: 3100/4876 concluidos
+Midia: 3125/4876 concluidos
+Midia: 3150/4876 concluidos
+Midia: 3175/4876 concluidos
+Midia: 3200/4876 concluidos
+Midia: 3225/4876 concluidos
+Midia: 3250/4876 concluidos
+Midia: 3275/4876 concluidos
+Midia: 3300/4876 concluidos
+Midia: 3325/4876 concluidos
+Midia: 3350/4876 concluidos
+Midia: 3375/4876 concluidos
+Midia: 3400/4876 concluidos
+Midia: 3425/4876 concluidos
+Midia: 3450/4876 concluidos
+Midia: 3475/4876 concluidos
+Midia: 3500/4876 concluidos
+Midia: 3525/4876 concluidos
+Midia: 3550/4876 concluidos
+Midia: 3575/4876 concluidos
+Midia: 3600/4876 concluidos
+Midia: 3625/4876 concluidos
+Midia: 3650/4876 concluidos
+Midia: 3675/4876 concluidos
+Midia: 3700/4876 concluidos
+Midia: 3725/4876 concluidos
+Midia: 3750/4876 concluidos
+Midia: 3775/4876 concluidos
+Midia: 3800/4876 concluidos
+Midia: 3825/4876 concluidos
+Midia: 3850/4876 concluidos
+Midia: 3875/4876 concluidos
+Midia: 3900/4876 concluidos
+Midia: 3925/4876 concluidos
+Midia: 3950/4876 concluidos
+Midia: 3975/4876 concluidos
+Midia: 4000/4876 concluidos
+Midia: 4025/4876 concluidos
+Midia: 4050/4876 concluidos
+Midia: 4075/4876 concluidos
+Midia: 4100/4876 concluidos
+Midia: 4125/4876 concluidos
+Midia: 4150/4876 concluidos
+Midia: 4175/4876 concluidos
+Midia: 4200/4876 concluidos
+Midia: 4225/4876 concluidos
+Midia: 4250/4876 concluidos
+Midia: 4275/4876 concluidos
+Midia: 4300/4876 concluidos
+Midia: 4325/4876 concluidos
+Midia: 4350/4876 concluidos
+Midia: 4375/4876 concluidos
+Midia: 4400/4876 concluidos
+Midia: 4425/4876 concluidos
+Midia: 4450/4876 concluidos
+Midia: 4475/4876 concluidos
+Midia: 4500/4876 concluidos
+Midia: 4525/4876 concluidos
+Midia: 4550/4876 concluidos
+Midia: 4575/4876 concluidos
+Midia: 4600/4876 concluidos
+Midia: 4625/4876 concluidos
+Midia: 4650/4876 concluidos
+Midia: 4675/4876 concluidos
+Midia: 4700/4876 concluidos
+Midia: 4725/4876 concluidos
+Midia: 4750/4876 concluidos
+Midia: 4775/4876 concluidos
+Midia: 4800/4876 concluidos
+Midia: 4825/4876 concluidos
+Midia: 4850/4876 concluidos
+Midia: 4875/4876 concluidos
+{"tested": 4876, "approved": 700, "failed_now": 4176, "quarantine": 6189, "discarded": 0}
+📊 Parseados (únicos por URL): 32149
+⚡ Cache atual (sem validação): 0
+⚡ Domínio confiável:           79
+⏭️  Pulados (blacklist ativa):  14404
+🧹 Blacklist expirada podada:   10708
+🧹 Cache expirado podado:       18237
+🔎 Para validar agora: 17666
+🔎 Validando 17666 URLs com 64 jobs paralelos...
+✅ URLs válidas após validação: 15263
+🚫 Blacklist final: 19926 entradas
+📌 (Brasil)        25 canais
 📌 (Portugal)      35 canais
 📌 (Argentina)     7 canais
-📌 (México)        5 canais
+📌 (México)        46 canais
 📌 (Peru)          4 canais
-📌 (España)        17 canais
-📌 (Estados Unidos) 41 canais
-📌 (Reino Unido)   29 canais
-📌 (Itália)        243 canais
-📌 (França)        20 canais
+📌 (España)        64 canais
+📌 (Estados Unidos) 142 canais
+📌 (Reino Unido)   64 canais
+📌 (Itália)        248 canais
+📌 (França)        58 canais
 📌 (Japão)         3 canais
-📌 (Chile)         1 canais
 📌 (Colômbia)      1 canais
-📌 (Uruguai)       3 canais
-📌 (WORLD - Outros) 7768 canais
-📌 (IPTV-ORG (Global)) 7438 canais
+📌 (Uruguai)       1 canais
+📌 (Noruega)       1 canais
+📌 (Suécia)        1 canais
+📌 (WORLD - Outros) 7883 canais
+📌 (IPTV-ORG (Global)) 7380 canais
 ==================================
 ✅ FINALIZADO
-📊 Brutos:      29085
-📊 Parseados:   32246
-📊 Anterior:    17798
-📊 Funcionais:  15634
-📊 Taxa:        48%
+📊 Brutos:      28807
+📊 Parseados:   32149
+📊 Anterior:    15634
+📊 Funcionais:  15963
+📊 Taxa:        49%
 📄 Output:      master.m3u
 📄 Blacklist:   blacklist.txt
 📄 Cache:       cache_ok.txt
