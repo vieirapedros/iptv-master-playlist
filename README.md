@@ -3,11 +3,11 @@
 <!-- PLAYLIST-STATS:START -->
 ## Última atualização
 
-- Atualizada em: 24/11/2026 às 02:44 (Brasília)
-- Entradas totais: 15963
-- Aprovadas em teste de mídia (23 países): 700
-- Publicadas com filtro HTTP, sem teste de mídia (WORLD e IPTV-ORG): 15263
-- URLs em quarentena: 6189
+- Atualizada em: 27/11/2026 às 22:46 (Brasília)
+- Entradas totais: 18524
+- Aprovadas em teste de mídia (23 países): 693
+- Publicadas com filtro HTTP, sem teste de mídia (WORLD e IPTV-ORG): 17831
+- URLs em quarentena: 7193
 - URLs descartadas: 0
 
 Contagens de URLs, não emissoras. Mídia: amostra de 20 segundos; HTTP mantém cache e exceções do script. Política em VALIDATION.md.
